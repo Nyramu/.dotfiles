@@ -83,33 +83,15 @@
       neovim	
       neofetch
       curl
-      kitty
     ];
   };
 
   # Default shell
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "z"
-      ];
-      theme = "robbyrussell";
-    };
-  };
+  programs.zsh.enable = true;
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # System packages
   environment.systemPackages = with pkgs; [
-    neovim
+    kitty
   ];
 
   # Enable AMD rocm support
@@ -122,7 +104,10 @@
   # Storage optimization
   nix.settings.auto-optimise-store = true;
 
-  system.stateVersion = "25.05";
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  system.stateVersion = "25.11";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

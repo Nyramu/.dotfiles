@@ -3,22 +3,22 @@
     "aquamarine": {
       "inputs": {
         "hyprutils": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprutils"
         ],
         "hyprwayland-scanner": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprwayland-scanner"
         ],
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -40,11 +40,11 @@
     "bird-nix-lib": {
       "inputs": {
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "systems"
         ]
       },
@@ -118,7 +118,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "pre-commit-hooks",
           "nixpkgs"
@@ -161,17 +161,17 @@
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprlang"
         ],
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -193,17 +193,17 @@
     "hyprgraphics": {
       "inputs": {
         "hyprutils": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprutils"
         ],
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -235,7 +235,7 @@
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks",
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "systems"
         ],
         "xdph": "xdph"
@@ -254,38 +254,15 @@
         "type": "github"
       }
     },
-    "hyprland-nix": {
-      "inputs": {
-        "bird-nix-lib": "bird-nix-lib",
-        "hyprland": "hyprland",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1759328258,
-        "narHash": "sha256-das+vqECDwhUnZddT0wiApEigAlFv+qTXzmEBYpDBj0=",
-        "owner": "hyprland-community",
-        "repo": "hyprland-nix",
-        "rev": "118de583a1d26372618e3864afcfc6ce34079dd6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprland-community",
-        "repo": "hyprland-nix",
-        "type": "github"
-      }
-    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -307,19 +284,19 @@
     "hyprland-qt-support": {
       "inputs": {
         "hyprlang": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprland-qtutils",
           "hyprlang"
         ],
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprland-qtutils",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprland-qtutils",
           "systems"
@@ -343,24 +320,24 @@
       "inputs": {
         "hyprland-qt-support": "hyprland-qt-support",
         "hyprlang": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprlang"
         ],
         "hyprutils": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprland-qtutils",
           "hyprlang",
           "hyprutils"
         ],
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -382,17 +359,17 @@
     "hyprlang": {
       "inputs": {
         "hyprutils": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprutils"
         ],
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -411,15 +388,38 @@
         "type": "github"
       }
     },
+    "hyprnix": {
+      "inputs": {
+        "bird-nix-lib": "bird-nix-lib",
+        "hyprland": "hyprland",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1759328258,
+        "narHash": "sha256-das+vqECDwhUnZddT0wiApEigAlFv+qTXzmEBYpDBj0=",
+        "owner": "hyprland-community",
+        "repo": "hyprnix",
+        "rev": "118de583a1d26372618e3864afcfc6ce34079dd6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprland-community",
+        "repo": "hyprnix",
+        "type": "github"
+      }
+    },
     "hyprutils": {
       "inputs": {
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -441,12 +441,12 @@
     "hyprwayland-scanner": {
       "inputs": {
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]
@@ -541,7 +541,7 @@
         "flake-compat": "flake-compat",
         "gitignore": "gitignore",
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ]
@@ -563,7 +563,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "hyprland-nix": "hyprland-nix",
+        "hyprnix": "hyprnix",
         "nixpkgs": "nixpkgs_2",
         "nvf": "nvf"
       }
@@ -601,32 +601,32 @@
     "xdph": {
       "inputs": {
         "hyprland-protocols": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprland-protocols"
         ],
         "hyprlang": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprlang"
         ],
         "hyprutils": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprutils"
         ],
         "hyprwayland-scanner": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "hyprwayland-scanner"
         ],
         "nixpkgs": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-nix",
+          "hyprnix",
           "hyprland",
           "systems"
         ]

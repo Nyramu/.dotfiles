@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./nvf.nix ];
+  imports = [
+  ./editors/default.nix
+  ./terminal/default.nix
+  ];
 }
