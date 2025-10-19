@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, lib, ... }:
 
 let
   # Fetch wallpapers 
@@ -49,7 +49,7 @@ in
     #};
 
     # Set wallpaper
-    config.exec = [ "swaybg -m fill -i ${wallpaper3}" ];
+    config.exec = [ "swaybg -m fill -i ${config.stylix.image}" ];
   };
     
   home.packages = with pkgs; [ swaybg ];
