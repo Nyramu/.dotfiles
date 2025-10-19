@@ -1,7 +1,7 @@
 {
   description = "Nyramu's Flake";
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... } @inputs:
     let 
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -11,7 +11,9 @@
     nixosConfigurations = {
       system = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./profiles/main/configuration.nix ];
+        modules = [
+          ./profiles/main/configuration.nix
+        ];
         specialArgs = { inherit inputs outputs; };
       };
     };
@@ -19,7 +21,9 @@
     homeConfigurations = {
       user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-	modules = [ ./profiles/main/home.nix ];
+	modules = [
+          ./profiles/main/home.nix
+        ];
         extraSpecialArgs = { inherit inputs outputs; };
       };
     };
@@ -34,13 +38,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf = {
-      url = "github:notashelf/nvf";
+    hyprnix = {
+      url = "github:hyprland-community/hyprnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprnix = {
-      url = "github:hyprland-community/hyprnix";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nvf = {
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
