@@ -6,7 +6,7 @@
     settings = {
       window = {
         decorations = "None";
-        opacity = 0.55;
+        opacity = 0.6;
         blur = false;
       };
 
@@ -35,7 +35,7 @@
           black = "#000000";
           red = "#ff5555";
           green = "#fa696e";
-          yellow = "#7f0a1f";
+          yellow = "#e4725f";
           blue = "#bc5453";
           magenta = "#cf1e13";
           cyan = "#e4725f";
@@ -43,7 +43,7 @@
         };
       
         bright = {
-          black = "#545454";
+          black = "#909090";
           red = "#ff5454";
           green = "#50fa7b";
           yellow = "#f0fa8b";
