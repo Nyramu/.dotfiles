@@ -13,8 +13,13 @@ let
   };
 
   wallpaper3 = pkgs.fetchurl {
-    url = "";
-    sha256 = "";
+    url = "https://r4.wallpaperflare.com/wallpaper/342/168/1015/waneella-pixel-art-city-sunset-hd-wallpaper-b40612242749e2adddac705dda8a0e2a.jpg";
+    sha256 = "sha256-xAz9egVTCnrM2gqU6T3lMVwA3lt2B4abOySq0Pd9/FM=";
+  };
+
+  wallpaper4 = pkgs.fetchurl {
+    url = "https://r4.wallpaperflare.com/wallpaper/666/221/94/waneella-pixel-art-city-street-neon-hd-wallpaper-b4a662c4e75982adadfce01dbaba1eba.jpg";
+    sha256 = "sha256-9Rq78xl2w09+Vn6GW2xV6hAS9ZsP8yeMIjN8niIiLlA=";
   };
 
 in 
@@ -22,11 +27,11 @@ in
   wayland.windowManager.hyprland = {
     # <https://wiki.hyprland.org/Configuring/Variables/#general>
     config.general = {
-      border_size = 2;
+      border_size = 3;
       gaps_inside = 5;
-      gaps_outside = 20;
-      active_border_color = "rgba(ff6a00d4) rgba(ff42a5ed) 45deg";
-      inactive_border_color = "rgba(595959aa)";
+      gaps_outside = 25;
+      active_border_color = "rgb(542624) rgb(d66e65) 270deg";
+      inactive_border_color = "rgb(152927)";
       resize_on_border = true;
     };
 
@@ -44,7 +49,7 @@ in
     #};
 
     # Set wallpaper
-    config.exec_once = [ "swaybg -m fill -i ${wallpaper2}" ];
+    config.exec = [ "swaybg -m fill -i ${wallpaper3}" ];
   };
     
   home.packages = with pkgs; [ swaybg ];
