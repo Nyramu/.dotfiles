@@ -10,26 +10,26 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
-    reloadConfig = true;
+
     systemd.enable = true;
+    xwayland.enable = true;
+    reloadConfig = true;
     recommendedEnvironment = true;
 
-    xwayland.enable = true;
+    portal.enable = false;
 
-    portal = {
-      enable = true;
-    };
+    config.monitor = [
+      "eDP-1, 1920x1200@60, auto, 1"
+      ", preferred, auto, 1"
+    ]; 
 
-    settings = {
-      monitor = [ ", highres, auto, 1" ];
-      input = {
+    config.input = {
         kb_layout = "it";
-      };
     };
 
-    #config.exec_once = [
+    config.exec_once = [
       # Allow apps with risen perms after agent to connect to local xwayland
       #"${lib.getExe pkgs.xorg.xhost} +local:"
-    #];
+    ];
   };
 }

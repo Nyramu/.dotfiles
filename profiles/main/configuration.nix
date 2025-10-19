@@ -43,10 +43,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
@@ -57,6 +53,21 @@
   services.xserver.xkb = {
     layout = "it";
     variant = "";
+  };
+
+  # Say git gud to Copilot button
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      dell-wmi = {
+        ids = ["*"];
+        settings = {
+          main = {
+            "leftmeta+leftshift+f23" = "rightmeta";
+          };
+        };
+      };
+    };
   };
 
   # Configure console keymap
@@ -105,10 +116,15 @@
 
   # Manage CPU, GPU governor and fan speed
   hardware.cpu.amd.ryzen-smu.enable = true;
-  hardware.cpu.amd.updateMicrocode = true;
 
   # Storage optimization
   nix.settings.auto-optimise-store = true;
+
+  # Mount steam-games partition
+  fileSystems."/home/nyramu/steam-games" = {
+    device = "/dev/nvme0n1p3";
+    options = [ "nofail" "rw" "uid = nyramu" ];
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
