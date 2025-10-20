@@ -1,9 +1,28 @@
 { pkgs, inputs, lib, config, ... }:
 
+
+let 
+  theme = import ../themes/sunset.nix { inherit pkgs; };
+in
 {
   imports = [ inputs.stylix.homeModules.stylix ];
 
-  # Fix for Stylix on Hyprnix
+  config.stylix = {
+    enable = true;
+    autoEnable = true;
+
+    # Type "fc-list : family | sort | uniq" in the terminal to see every font
+    base16Scheme = theme.palette;
+    fonts = theme.fonts; 
+    image = theme.background;
+    polarity = theme.polarity;
+   
+    targets = {
+      hyprland.enable = lib.mkForce false;
+    };
+  };
+
+  # Fix for Hyprnix
   options.wayland.windowManager.hyprland.settings = {
     decoration = lib.mkOption {default = {};};
     general = lib.mkOption {default = {};};
@@ -11,19 +30,12 @@
     misc = lib.mkOption {default = {};};
   };
 
-  config.stylix.enable = true;
-
-  config.stylix.polarity = "dark";
-
-  config.stylix.image = pkgs.fetchurl {
-    url = "https://r4.wallpaperflare.com/wallpaper/342/168/1015/waneella-pixel-art-city-sunset-hd-wallpaper-b40612242749e2adddac705dda8a0e2a.jpg";
-    hash = "sha256-xAz9egVTCnrM2gqU6T3lMVwA3lt2B4abOySq0Pd9/FM=";
+  # Alacritty 
+  config.programs.alacritty = {
+    settings.window = lib.mkForce {
+      decorations = "None";
+      opacity = 0.6;
+      blur = false;
+    };
   };
-
-  config.stylix.autoEnable = true;
-
-  config.stylix.targets = { hyprland.enable = lib.mkForce false; };
-
-  config.stylix.base16Scheme = ../styles/sunset.yaml;
-
 }

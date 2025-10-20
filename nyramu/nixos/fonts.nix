@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    nerd-fonts.jetbrains-mono
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    pixel-code monocraft
   ];
+
+  fonts.enableDefaultPackages = true;
 }
