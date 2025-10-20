@@ -95,19 +95,18 @@
     description = "Nyramu";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      git
-      neovim	
-      neofetch
-      curl
-    ];
+    packages = with pkgs; [];
   };
 
   # Default shell
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   # System packages
   environment.systemPackages = with pkgs; [
+    git
+    curl
+    neovim
     alacritty
   ];
 
