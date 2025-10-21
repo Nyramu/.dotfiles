@@ -16,12 +16,14 @@
     reloadConfig = true;
     recommendedEnvironment = true;
 
-    portal.enable = false;
+    portal.enable = true;
 
     config.monitor = [
       "eDP-1, 1920x1200@60, auto, 1"
       ", preferred, auto, 1"
     ]; 
+
+    config.misc.vfr = true;
 
     config.input = {
         kb_layout = "it";
