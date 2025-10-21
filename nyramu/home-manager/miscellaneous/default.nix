@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./nautilus.nix
+    ./btop.nix
   ];
 }

@@ -21,7 +21,7 @@
       ", preferred, auto, 1"
     ]; 
 
-    config.misc.vfr = true;
+    config.misc.vfr = false;
 
     config.input = {
         kb_layout = "it";

@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./aesthetics
+    ./apps
     ./sddm.nix
-    ./steam.nix
+    ./stylix.nix
+    ./fonts.nix
   ];
 }
