@@ -25,11 +25,7 @@
 
     config.input = {
         kb_layout = "it";
+        follow_mouse = 1;
     };
-
-    config.exec_once = [
-      # Allow apps with risen perms after agent to connect to local xwayland
-      #"${lib.getExe pkgs.xorg.xhost} +local:"
-    ];
   };
 }
