@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ./aesthetics
-    ./sddm.nix
     ./steam.nix
+    ./nautilus.nix
   ];
 }
