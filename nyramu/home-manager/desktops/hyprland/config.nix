@@ -91,6 +91,8 @@
       }; 
     };
 
+    config.gesture = "3, pinch, fullscreen";
+
     # Set wallpaper
     config.exec = [ "swaybg -m fill -i ${config.stylix.image}" ];
   };
