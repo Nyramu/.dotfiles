@@ -6,7 +6,7 @@
       MOUSE_L = "mouse:272";
       MOUSE_R = "mouse:273";
 
-      terminal = "${pkgs.alacritty}/bin/alacritty";
+      terminal = "ghostty";
       browser = "${pkgs.firefox}/bin/firefox";
       fileManager = "${pkgs.nautilus}/bin/nautilus";
 
