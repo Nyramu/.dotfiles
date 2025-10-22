@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./fonts.nix
-    ./steam.nix
+    ./apps
+    ./sddm.nix
     ./stylix.nix
+    ./fonts.nix
   ];
 }

@@ -1,52 +1,97 @@
-{ pkgs, inputs, config, lib, ... }:
+{ pkgs, config, ... }:
 
-let
-  # Fetch wallpapers 
-  wallpaper = pkgs.fetchurl {
-    url = "https://wallscloud.net/img/resize/1920/1200/MM/2016-12-09-japanese-architecture-pixel-art-o69K.png";
-    sha256 = "sha256-Z865YmTyXQd7ictAE/63JhxbUEyoM48GaJDL3XIoWT8=";
-  };
-
-  wallpaper2 = pkgs.fetchurl {
-    url = "https://i.imgur.com/CJVlDCD.jpeg";
-    sha256 = "sha256-E9HWbmiUBGXiTDU9otXTu5LPBKcHMsEMtzEwdhaIX3M=";
-  };
-
-  wallpaper3 = pkgs.fetchurl {
-    url = "https://r4.wallpaperflare.com/wallpaper/342/168/1015/waneella-pixel-art-city-sunset-hd-wallpaper-b40612242749e2adddac705dda8a0e2a.jpg";
-    sha256 = "sha256-xAz9egVTCnrM2gqU6T3lMVwA3lt2B4abOySq0Pd9/FM=";
-  };
-
-  wallpaper4 = pkgs.fetchurl {
-    url = "https://r4.wallpaperflare.com/wallpaper/666/221/94/waneella-pixel-art-city-street-neon-hd-wallpaper-b4a662c4e75982adadfce01dbaba1eba.jpg";
-    sha256 = "sha256-9Rq78xl2w09+Vn6GW2xV6hAS9ZsP8yeMIjN8niIiLlA=";
-  };
-
-in 
 {   
   wayland.windowManager.hyprland = {
     # <https://wiki.hyprland.org/Configuring/Variables/#general>
     config.general = {
       border_size = 3;
+      resize_on_border = true;
+
       gaps_inside = 5;
       gaps_outside = 25;
-      active_border_color = "rgb(542624) rgb(d66e65) 270deg";
+
+      active_border_color = "rgb(542624) rgb(d66e65)";
       inactive_border_color = "rgb(152927)";
-      resize_on_border = true;
+
+      layout = "dwindle";
+      allow_tearing = false;
     };
 
     config.decoration = {
-      rounding = 0;
+      rounding = 2;
       shadow = {
         range = 5;
         render_power = 3;
         color = "rgba(1a1a1aee)";
       };
+      blur.enabled = false;
     };
 
-    #animations.animation = {
-    #  
-    #};
+    # Gives more freedom in windows management compared to Master
+    config.dwindle = {
+      pseudotile = "yes";
+      preserve_split = true;
+    };
+
+    config.master.new_status = "master";
+
+    animations.animation = {
+      # Window creation
+      windowsIn = {
+        enable = true;
+        duration = 200;
+        curve = "easeOutCirc";
+        style = "gnomed";
+      };
+      # Window destruction
+      windowsOut = {
+        enable = true;
+        duration = 300;
+        curve = "easeOutCirc";
+        style = "gnomed";
+      };
+      # Window movement
+      windowsMove = {
+        enable = true;
+        duration = 300;
+        curve = "easeInOutCubic";
+        style = "gnomed";
+      };
+
+     # Idk what it does, maybe it's associated with windowsIn 
+      fadeIn = {
+        enable = true;
+        duration = 300;
+        curve = "easeOutCirc";
+      };
+      # Idk what it does, maybe it's associated with windowsOut
+      fadeOut = {
+        enable = true;
+        duration = 300;
+        curve = "easeOutCirc";
+      };
+
+      # Border animation speed
+      border = {
+        enable = true;
+        duration = 100;
+      };
+      # Border animation fluidity
+      borderangle = {
+        enable = true;
+        duration = 3000;
+      };
+
+      # Workspace switch
+      workspaces = {
+        enable = true;
+        duration = 400;
+        curve = "easeOutExpo";
+        style = "fade";
+      }; 
+    };
+
+    config.gesture = "3, pinch, fullscreen";
 
     # Set wallpaper
     config.exec = [ "swaybg -m fill -i ${config.stylix.image}" ];

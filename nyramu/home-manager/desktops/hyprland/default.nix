@@ -16,20 +16,16 @@
     reloadConfig = true;
     recommendedEnvironment = true;
 
-    portal.enable = false;
-
     config.monitor = [
       "eDP-1, 1920x1200@60, auto, 1"
       ", preferred, auto, 1"
     ]; 
 
+    config.misc.vfr = false;
+
     config.input = {
         kb_layout = "it";
+        follow_mouse = 1;
     };
-
-    config.exec_once = [
-      # Allow apps with risen perms after agent to connect to local xwayland
-      #"${lib.getExe pkgs.xorg.xhost} +local:"
-    ];
   };
 }

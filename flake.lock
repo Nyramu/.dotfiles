@@ -729,7 +729,28 @@
         "hyprnix": "hyprnix",
         "nixpkgs": "nixpkgs_2",
         "nvf": "nvf",
+        "silentSDDM": "silentSDDM",
         "stylix": "stylix"
+      }
+    },
+    "silentSDDM": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761081411,
+        "narHash": "sha256-yOE3CA5VzThSTTtwv4K0iR0BUq1qc9vE6Kxoe0KXplo=",
+        "owner": "gabrielemercolino",
+        "repo": "SilentSDDM",
+        "rev": "7bdefa04eac45945113545559de6db66421cfbb9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gabrielemercolino",
+        "repo": "SilentSDDM",
+        "type": "github"
       }
     },
     "stylix": {

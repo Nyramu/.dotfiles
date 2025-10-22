@@ -31,7 +31,7 @@
     base01 = "152522"; # Lighter Background (selection)
     base02 = "000000"; # Selection Background (normal black)
     base03 = "909090"; # Comments, Invisibles, Line Highlighting (bright black)
-    base04 = "a6dccd"; # Dark Foreground (selection text)
+    base04 = "ffb0b4"; # Dark Foreground (selection text)
     base05 = "ffb0b4"; # Default Foreground
     base06 = "d3d2a7"; # Light Foreground (normal white)
     base07 = "ffffff"; # Light Background (bright white)
