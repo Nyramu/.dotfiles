@@ -29,13 +29,4 @@ in
     group = lib.mkOption {default = {};};
     misc = lib.mkOption {default = {};};
   };
-
-  # Alacritty 
-  config.programs.alacritty = {
-    settings.window = lib.mkForce {
-      decorations = "None";
-      opacity = 0.6;
-      blur = false;
-    };
-  };
 }
