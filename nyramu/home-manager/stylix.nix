@@ -2,7 +2,7 @@
 
 
 let 
-  theme = import ../themes/sunset.nix { inherit pkgs; };
+  theme = import ../aesthetics/themes/sunset.nix { inherit pkgs; };
 in
 {
   imports = [ inputs.stylix.homeModules.stylix ];
@@ -28,14 +28,5 @@ in
     general = lib.mkOption {default = {};};
     group = lib.mkOption {default = {};};
     misc = lib.mkOption {default = {};};
-  };
-
-  # Alacritty 
-  config.programs.alacritty = {
-    settings.window = lib.mkForce {
-      decorations = "None";
-      opacity = 0.6;
-      blur = false;
-    };
   };
 }
