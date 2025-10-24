@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 let
-   theme = import ../themes/sunset.nix { inherit pkgs; };
+   theme = import ../aesthetics/themes/sunset.nix { inherit pkgs; };
 
    sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.overrideAttrs (prev: {
     installPhase = ''
