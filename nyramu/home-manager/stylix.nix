@@ -22,6 +22,11 @@ in
       applications = 0.7;
       # I can apply it for desktop and popups
     };
+
+    #icons = {
+    #  enable = true;
+      # TODO add icons.package and icons.dark
+    #};
    
     targets = {
       hyprland.enable = lib.mkForce false;
