@@ -10,7 +10,7 @@
       gaps_inside = 5;
       gaps_outside = 25;
 
-      active_border_color = "rgb(542624) rgb(d66e65)";
+      active_border_color = "rgb(542624) rgb(d66e65) 270deg";
       inactive_border_color = "rgb(152927)";
 
       layout = "dwindle";
