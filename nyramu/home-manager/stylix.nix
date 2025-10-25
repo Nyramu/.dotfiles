@@ -11,14 +11,21 @@ in
     enable = true;
     autoEnable = true;
 
-    # Type "fc-list : family | sort | uniq" in the terminal to see every font
+    # Type "fc-list : family | sort | uniq" in the terminal to show all fonts
     base16Scheme = theme.palette;
     fonts = theme.fonts; 
     image = theme.background;
     polarity = theme.polarity;
+
+    opacity = {
+      terminal = 0.6;
+      applications = 0.7;
+      # I can apply it for desktop and popups
+    };
    
     targets = {
       hyprland.enable = lib.mkForce false;
+      kitty.enable = lib.mkForce true;
     };
   };
 
