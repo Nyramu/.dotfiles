@@ -14,13 +14,13 @@ in
       # Does not work for some reason
       #startup_session = "/home/nyramu/.dotfiles";
       allow_remote_control = "no";
-      listen_on = "none"; 
+      listen_on = "none";
 
-      # Appearance
+      scrollbar = "scrolled";
+      scrollbar_interactive = "yes";
+      scrollbar_jump_on_click = "yes";
+      scrollbar_handle_color = "#${theme.palette.base0A}";
       background_blur = 0;
-      #selection_background = "#${theme.palette.base02}";
-      #selection_foreground = "none";
-      #color8 = "#${theme.palette.base03}";
       cursor_trail = 60;
       cursor_trail_color = "#${theme.palette.base0A}";
     };
