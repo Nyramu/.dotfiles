@@ -33,7 +33,7 @@
     base03 = "909090"; # Comments, Invisibles, Line Highlighting (bright black)
     base04 = "ffb0b4"; # Dark Foreground (selection text)
     base05 = "ffb0b4"; # Default Foreground
-    base06 = "d3d2a7"; # Light Foreground (normal white)
+    base06 = "ffb0b4"; # Light Foreground (normal white)
     base07 = "ffffff"; # Light Background (bright white)
 
     base08 = "ff5555"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted (normal red)

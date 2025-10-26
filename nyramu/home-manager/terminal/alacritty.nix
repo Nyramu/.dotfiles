@@ -4,12 +4,22 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window = lib.mkForce {
+      general = {
+        working_directory = "/home/nyramu/.dotfiles";
+        live_config_reload = true;
+      };
+      window = {
         decorations = "None";
-        opacity = 0.6;
+        decorations_theme_variant = "None";
         blur = false;
       };
-      
+      mouse = {
+        hide_when_typing = true;
+        bindings = [
+          { mouse = "Right"; mods = "Control"; action = "Paste"; }
+        ];
+      };
+      selection.save_to_clipboard = true;
     };
   }; 
 }

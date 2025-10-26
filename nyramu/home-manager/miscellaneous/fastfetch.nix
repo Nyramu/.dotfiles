@@ -14,30 +14,39 @@
         "os"
         "host"
         "kernel"
-        "uptime"
-        #"packages"
-        "shell"
-        "display"
-        "de"
-        "wm"
-        "wmtheme"
-        "theme"
-        "icons"
-        "font"
-        "cursor"
-        "terminal"
-        "terminalfont"
+
+        "separator"
         "cpu"
         "gpu"
-        "memory"
-        #"swap"
+        { "type" = "memory"; "key" = "RAM"; }
         "disk"
+
+        "separator"
+        "terminal"
+        "shell"
+        "de"
+        "wm"
+
+        "separator"
+        { "type" = "display"; "key" = "Display"; }
+        { "type" = "battery"; "key" = "Battery"; } 
+        "uptime"
+
+        #"separator"
+        #"wmtheme"
+        #"theme"
+        #"icons"
+        #"cursor"
+        #"break"
+        #"colors"
+        
+        #"packages"
+        #"font"
+        #"terminalfont"
+        #"swap"
+        #"poweradapter"
         #"localip"
-        "battery"
-        "poweradapter"
-        "locale"
-        "break"
-        "colors"
+        #"locale"
       ];
     };
   };
