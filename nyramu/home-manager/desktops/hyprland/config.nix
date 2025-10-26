@@ -94,7 +94,8 @@
     config.gesture = "3, pinch, fullscreen";
 
     # Set wallpaper
-    config.exec = [ "swaybg -m fill -i ${config.stylix.image}" ];
+    config.exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
+    config.misc.force_default_wallpaper = 0;
   };
     
   home.packages = with pkgs; [ swaybg ];
