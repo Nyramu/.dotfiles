@@ -49,7 +49,7 @@
     };
 
     silentSDDM = {
-      url = "github:gabrielemercolino/SilentSDDM";
+      url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
