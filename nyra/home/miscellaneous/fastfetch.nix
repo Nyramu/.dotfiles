@@ -6,7 +6,7 @@
     settings = {
       logo = {
         type = "auto";
-        source = ../../aesthetics/burrito-ascii.png;
+        source = ../../../resources/burrito-ascii.png;
       };
       modules = [
         "title"
