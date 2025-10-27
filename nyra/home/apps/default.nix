@@ -3,7 +3,7 @@
 {
   imports = [
     ./editors
-    ./terminal
+    ./terminals
     ./browsers
     ./miscellaneous
     ./socials

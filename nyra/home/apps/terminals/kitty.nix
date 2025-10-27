@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  theme = import ../../../resources/themes/sunset.nix { inherit pkgs; };
+  theme = import ../../../../resources/themes/sunset.nix { inherit pkgs; };
 in
 {
   programs.kitty = {
