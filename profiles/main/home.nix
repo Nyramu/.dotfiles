@@ -1,20 +1,13 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [ ../../nyramu/home-manager/default.nix ];
-  
+  imports = [
+    ../base/home.nix
+    ../../nyra/home
+  ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = (_ : true);
+  nyra.home.apps.browsers = {
+    firefox.enable = true;
+    librewolf.enable = true;
   };
-
-  home = {
-    username = "nyramu";
-    homeDirectory = "/home/nyramu";
-    stateVersion = "25.11";
-    packages = with pkgs; [];
-  };
-
-  programs.home-manager.enable = true;
 }
