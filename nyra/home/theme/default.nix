@@ -2,7 +2,7 @@
 
 
 let 
-  theme = import ../../resources/themes/sunset.nix { inherit pkgs; };
+  theme = import ../../../resources/themes/sunset.nix { inherit pkgs; };
 in
 {
   imports = [ inputs.stylix.homeModules.stylix ];

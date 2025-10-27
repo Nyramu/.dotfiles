@@ -2,12 +2,8 @@
 
 {
   imports = [
-  ./editors
-  ./terminal
-  ./browsers
+  ./apps
   ./desktops
-  ./miscellaneous
-  ./stylix.nix
-  #./socials
+  ./theme
   ];
 }
