@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [ ../../nyramu/home-manager/default.nix ];
+  imports = [ ../../nyra/home/default.nix ];
   
 
   nixpkgs.config = {
