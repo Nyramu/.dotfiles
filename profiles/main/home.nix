@@ -17,6 +17,7 @@
     };
     miscellaneous = {
       btop.enable = true;
+      fastfetch.enable = true;
     };
   };
 
