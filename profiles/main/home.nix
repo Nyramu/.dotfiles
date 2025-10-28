@@ -15,6 +15,9 @@
       telegram.enable = true;
       discord.enable = true;
     };
+    miscellaneous = {
+      btop.enable = true;
+    };
   };
 
   nyra.home.shells = {
