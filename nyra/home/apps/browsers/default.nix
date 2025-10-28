@@ -18,6 +18,7 @@ in
 
     programs.librewolf = {
       enable = cfg.librewolf.enable;
+      profiles.nyramu.isDefault = true;
       # TODO: add librewolf config
     };
   };
