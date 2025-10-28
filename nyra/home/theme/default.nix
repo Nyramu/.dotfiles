@@ -31,6 +31,9 @@ in
     targets = {
       hyprland.enable = lib.mkForce false;
       kitty.enable = lib.mkForce true;
+      librewolf = {
+        profileNames = [ "nyramu" ];
+      };
     };
   };
 
