@@ -7,6 +7,9 @@
   ];
 
   nyra.home.apps = {
+    terminals = {
+      kitty.enable = true;
+    };
     browsers = {
       firefox.enable = true;
       librewolf.enable = true;
