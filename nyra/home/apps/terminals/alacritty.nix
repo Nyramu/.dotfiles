@@ -1,25 +1,34 @@
-{ pkgs, lib, ... }:
+{ config, lib, pkgs, ... }: with lib;
 
+let
+  cfg = config.nyra.home.apps.terminals;
+in
 {
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      general = {
-        working_directory = "/home/nyramu/.dotfiles";
-        live_config_reload = true;
+  options.nyra.home.apps.terminals.alacritty = {
+    enable = mkEnableOption "alacritty";
+  };
+
+  config = {
+    programs.alacritty = {
+      enable = cfg.alacritty.enable;
+      settings = {
+        general = {
+          working_directory = "/home/nyramu/.dotfiles";
+          live_config_reload = true;
+        };
+        window = {
+          decorations = "None";
+          decorations_theme_variant = "None";
+          blur = false;
+        };
+        mouse = {
+          hide_when_typing = true;
+          bindings = [
+            { mouse = "Right"; mods = "Control"; action = "Paste"; }
+          ];
+        };
+        selection.save_to_clipboard = true;
       };
-      window = {
-        decorations = "None";
-        decorations_theme_variant = "None";
-        blur = false;
-      };
-      mouse = {
-        hide_when_typing = true;
-        bindings = [
-          { mouse = "Right"; mods = "Control"; action = "Paste"; }
-        ];
-      };
-      selection.save_to_clipboard = true;
-    };
-  }; 
+    };   
+  };
 }

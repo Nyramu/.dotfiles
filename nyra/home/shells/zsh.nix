@@ -42,10 +42,6 @@ in
         # Set theme
         source ${yeknomhtooms-theme}/smoothmonkey.zsh-theme
       '';
-    };
-
-    # Enable pay-respects integration
-    programs.pay-respects.enableZshIntegration = cfg.zsh.enable;
-      
+    };  
   };
 }

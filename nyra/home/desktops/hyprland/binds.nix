@@ -7,8 +7,8 @@
       MOUSE_R = "mouse:273";
 
       terminal = "kitty";
-      browser = "${pkgs.firefox}/bin/firefox";
-      fileManager = "${pkgs.nautilus}/bin/nautilus";
+      browser = "firefox";
+      fileManager = "nautilus";
 
       groups = {
 
@@ -17,13 +17,14 @@
             "SUPER_L, B" = "exec, ${browser}";
             "SUPER_L, E" = "exec, ${fileManager}";
             "SUPER_L, S" = "exec, steam";
-            #"SUPER_L, T" = "exec, ${pkgs.telegram-desktop}/bin/telegram-desktop";
+            "SUPER_L, T" = "exec, Telegram";
             "SUPER_R, RETURN" = "exec, ${terminal}";
           };
         };
 
         windowToggles = {
           bind.", F11" = "fullscreen";
+          bind.", Home" = "fullscreen";
           binds = {
             "SUPER_L, P" = "pseudo";
             "SUPER_L, J" = "togglesplit";

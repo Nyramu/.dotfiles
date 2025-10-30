@@ -7,6 +7,13 @@
   ];
 
   nyra.home.apps = {
+    terminals = {
+      kitty.enable = true;
+      alacritty.enable = true;
+    };
+    editors = {
+      nvf.enable = true;
+    };
     browsers = {
       firefox.enable = true;
       librewolf.enable = true;
@@ -14,6 +21,10 @@
     socials = {
       telegram.enable = true;
       discord.enable = true;
+    };
+    miscellaneous = {
+      btop.enable = true;
+      fastfetch.enable = true;
     };
   };
 
