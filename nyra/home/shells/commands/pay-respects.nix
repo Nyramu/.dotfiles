@@ -11,6 +11,8 @@ in
   config = {
     programs.pay-respects = {
       enable = cfg.pay-respects.enable;
+      enableZshIntegration = config.nyra.home.shells.zsh.enable;
+
       options = [ "--alias f" "--alias fuck" ];
     };
   };
