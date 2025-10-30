@@ -9,6 +9,10 @@
   nyra.home.apps = {
     terminals = {
       kitty.enable = true;
+      alacritty.enable = true;
+    };
+    editors = {
+      nvf.enable = true;
     };
     browsers = {
       firefox.enable = true;
