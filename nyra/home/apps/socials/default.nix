@@ -13,6 +13,6 @@ in
   config = {
     home.packages = with pkgs;
       optionals cfg.telegram.enable [ telegram-desktop ] ++
-      optionals cfg.discord.enable [ discord betterdiscord-installer ];
+      optionals cfg.discord.enable [ (discord.override {withVencord = true;}) betterdiscord-installer ];
   };
 }
