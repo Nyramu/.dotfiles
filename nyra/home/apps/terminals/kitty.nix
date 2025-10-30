@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: with lib;
 
 let
   theme = import ../../../../resources/themes/sunset.nix { inherit pkgs; };
