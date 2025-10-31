@@ -32,16 +32,6 @@
     kitty
   ];
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   # Enable AMD rocm support and ryzen-smu
   nixpkgs.config.rocmSupport = true;
   hardware.cpu.amd.ryzen-smu.enable = true;

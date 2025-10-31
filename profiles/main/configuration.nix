@@ -13,6 +13,9 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  # Choose pipewire instead of pulseaudio
+  nyra.system.audio.server = "pipewire";
+
   # Enable Hyprland
   programs.hyprland = {
     enable = true;

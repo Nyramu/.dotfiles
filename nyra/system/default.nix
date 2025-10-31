@@ -3,9 +3,12 @@
 {
   imports = [
     ./apps
-    ./sddm.nix
-    ./stylix.nix
-    ./fonts.nix
-    ./pam-fprintd.nix
+    ./audio
+    ./desktops
+    ./fonts
+    ./input
+    ./login
+    ./security
+    ./theme
   ];
 }

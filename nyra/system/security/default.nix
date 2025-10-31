@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./gaming
-    ./miscellaneous
+    ./fingerprint.nix
   ];
 }
