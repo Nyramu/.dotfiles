@@ -32,10 +32,6 @@
     kitty
   ];
 
-  # Enable AMD rocm support and ryzen-smu
-  nixpkgs.config.rocmSupport = true;
-  hardware.cpu.amd.ryzen-smu.enable = true;
-
   # Support MTP devices
   services.gvfs.enable = true;
 

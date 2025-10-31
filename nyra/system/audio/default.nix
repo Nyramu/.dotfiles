@@ -14,17 +14,15 @@ in
   config = {
     services.pulseaudio = {
       enable = cfg.server == "pulseaudio";
-      support32Bit = cfg.server == "pulseaudio";
-      package = mkIf (cfg.server == "pulseaudio") pkgs.pulseaudioFull;
+      support32Bit = true;
+      package = pkgs.pulseaudioFull;
     };
     
     services.pipewire = {
       enable = cfg.server == "pipewire";
-      alsa.enable = cfg.server == "pipewire";
-      alsa.support32Bit = cfg.server == "pipewire";
-      pulse.enable = cfg.server == "pipewire";
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
     };
-    
-    security.rtkit.enable = cfg.server == "pipewire";
   };
 }

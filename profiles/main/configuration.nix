@@ -13,14 +13,14 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  # Choose pipewire instead of pulseaudio
+  # Enable AMD rocm support and ryzen-smu
+  nyra.system.amd-features = [ "rocm" "ryzen-smu" ];
+
+  # Choose Pipewire instead of Pulseaudio
   nyra.system.audio.server = "pipewire";
 
   # Enable Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  nyra.system.desktops.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
