@@ -10,12 +10,13 @@
       ../base/configuration.nix
   ];
 
-  # Theming
+  # Theming and fonts
   nyra.theme = {
     enable = true;
     defaultTheme = "sunset";
   };
-  nyra.system.login.sddm.theme = "silentSDDM";
+  nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
+  nyra.system.fonts = with pkgs; [ jetbrains-mono ]; # Set fonts
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;

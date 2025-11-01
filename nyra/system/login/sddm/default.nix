@@ -15,19 +15,19 @@ in
     };
   };
 
-  config = mkIf (sddmCfg.enable) {
+  config = {
       
     services.displayManager.sddm = {
-      enable = true;
+      enable = sddmCfg.enable;
       enableHidpi = true;
       autoNumlock = true;
       theme = mkIf (themeCfg.enable) sddm-theme.${sddmCfg.theme}.pname;
       wayland = {
         enable = true;
       };
-      extraPackages = mkIf (themeCfg.enable) sddm-theme.${sddmCfg.theme}.propagatedBuildInputs;
+      extraPackages = optionals (themeCfg.enable) sddm-theme.${sddmCfg.theme}.propagatedBuildInputs;
     };
 
-    environment.systemPackages = [ sddm-theme.${sddmCfg.theme} ];
+    environment.systemPackages = optionals (themeCfg.enable) [ sddm-theme.${sddmCfg.theme} ];
   };
 }

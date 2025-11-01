@@ -1,8 +1,7 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [ ../../nyra/home/default.nix ];
-  
+  imports = [ ../../nyra/home ]; 
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -15,6 +14,7 @@
     stateVersion = "25.11";
     packages = with pkgs; [];
   };
+  news.display = "silent";
 
   programs.home-manager.enable = true;
 }

@@ -3,9 +3,15 @@
 {
   imports = [
     ../base/home.nix
-    ../../nyra/home
   ];
+ 
+  # Theming
+  nyra.theme = {
+    enable = true;
+    defaultTheme = "sunset";
+  };
 
+  # Apps
   nyra.home.apps = {
     terminals = {
       kitty.enable = true;
@@ -28,6 +34,7 @@
     };
   };
 
+  # Shells and commands
   nyra.home.shells = {
     zsh.enable = true;
     commands = {

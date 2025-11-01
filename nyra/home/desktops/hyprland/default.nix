@@ -27,7 +27,9 @@
 
     config.input = {
         kb_layout = "it";
+        numlock_by_default = true;
         follow_mouse = 1;
+        resolve_binds_by_sym = true;
     };
   };
 }

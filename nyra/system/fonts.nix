@@ -1,10 +1,29 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }: with lib;
 
+let
+  themeCfg = config.nyra.theme;
+  theme = import ../../resources/themes/${themeCfg.defaultTheme}.nix { inherit pkgs; };
+  fontsCfg = config.nyra.system.fonts;
+in
 {
-  fonts.packages = with pkgs; [
-    jetbrains-mono
-    pixel-code monocraft
-  ];
+  options.nyra.system = {
+    fonts = mkOption {
+      type = types.listOf types.package;
+      default = [];
+    };
+  };
 
-  fonts.enableDefaultPackages = true;
+  config = mkMerge [
+    {
+      fonts.packages = fontsCfg;
+      fonts.enableDefaultPackages = true;
+    }
+    (mkIf themeCfg.enable {
+      nyra.system.fonts = [
+        theme.fonts.serif.package
+        theme.fonts.sansSerif.package
+        theme.fonts.monospace.package
+      ];
+    })
+  ];
 }

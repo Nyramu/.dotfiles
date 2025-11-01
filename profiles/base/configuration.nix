@@ -5,7 +5,7 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-  imports = [ ../../nyra/system/default.nix ];
+  imports = [ ../../nyra/system ];
 
   # Use latest kernel.
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
