@@ -5,7 +5,11 @@ let
 in
 {
   options.nyra.home.apps.terminals.ghostty = {
-    enable = mkEnableOption "ghostty";
+    enable = mkOption {
+      type = types.bool;
+      default = cfg.default == "ghostty";
+      description = "ghostty";
+    };
   };
 
   config = {

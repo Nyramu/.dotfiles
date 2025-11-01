@@ -5,7 +5,10 @@ let
 in
 {
   options.nyra.home.apps.terminals.alacritty = {
-    enable = mkEnableOption "alacritty";
+    enable = mkOption {
+      type = types.bool;
+      default = cfg.default == "alacritty";
+    };
   };
 
   config = {

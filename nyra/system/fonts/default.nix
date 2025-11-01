@@ -2,7 +2,7 @@
 
 let
   themeCfg = config.nyra.theme;
-  theme = import ../../resources/themes/${themeCfg.defaultTheme}.nix { inherit pkgs; };
+  theme = import ../../../resources/themes/${themeCfg.defaultTheme}.nix { inherit pkgs; };
   fontsCfg = config.nyra.system.fonts;
 in
 {

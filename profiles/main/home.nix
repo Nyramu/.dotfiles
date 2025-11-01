@@ -14,15 +14,14 @@
   # Apps
   nyra.home.apps = {
     terminals = {
-      kitty.enable = true;
+      default = "kitty";
       alacritty.enable = true;
     };
     editors = {
       nvf.enable = true;
     };
     browsers = {
-      firefox.enable = true;
-      librewolf.enable = true;
+      default = "firefox"; # TODO: change to librewolf
     };
     socials = {
       telegram.enable = true;

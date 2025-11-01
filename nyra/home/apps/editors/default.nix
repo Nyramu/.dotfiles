@@ -1,5 +1,7 @@
 { ... }:
 
 {
-  imports = [ ./nvf.nix ];
+  imports = [
+    ./nvf.nix
+  ];
 }
