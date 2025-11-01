@@ -20,6 +20,12 @@
     packages = with pkgs; [ neovim ];
   };
 
+  # Login settings
+  nyra.system.login = {
+    sddm.enable = true;
+    userIcon = ../../resources/burrito-ascii.png;
+  };
+
   # Default shell
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;

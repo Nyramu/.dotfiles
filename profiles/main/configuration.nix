@@ -10,6 +10,12 @@
       ../base/configuration.nix
   ];
 
+  # Theming
+  nyra.theme = {
+    enable = true;
+    defaultTheme = "sunset";
+  };
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 

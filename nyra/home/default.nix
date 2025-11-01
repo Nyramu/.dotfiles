@@ -2,6 +2,7 @@
 
 {
   imports = [
+  ../common
   ./apps
   ./shells
   ./desktops

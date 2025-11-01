@@ -1,13 +1,14 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let 
-  theme = import ../../../resources/themes/sunset.nix { inherit pkgs; };
+   themeName = config.nyra.theme.defaultTheme;
+   theme = import ../../../resources/themes/${themeName}.nix { inherit pkgs; };
 in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
 
   config.stylix = {
-    enable = true;
+    enable = config.nyra.theme.enable;
     autoEnable = true;
 
     # Type "fc-list : family | sort | uniq" in the terminal to see every font
