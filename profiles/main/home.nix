@@ -21,7 +21,7 @@
       nvf.enable = true;
     };
     browsers = {
-      default = "firefox"; # TODO: change to librewolf
+      default = "librewolf";
     };
     socials = {
       telegram.enable = true;
