@@ -4,7 +4,7 @@
   imports = [
     ../base/home.nix
   ];
- 
+
   # Theming
   nyra.theme = {
     enable = true;
@@ -40,4 +40,6 @@
       pay-respects.enable = true;
     };
   };
+
+  nyra.home.desktops.hyprland.enable = true;
 }
