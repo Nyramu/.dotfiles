@@ -5,7 +5,7 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-  imports = [ ../../nyra/system/default.nix ];
+  imports = [ ../../nyra/system ];
 
   # Use latest kernel.
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
@@ -18,6 +18,12 @@
     description = "Nyramu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ neovim ];
+  };
+
+  # Login settings
+  nyra.system.login = {
+    sddm.enable = true;
+    userIcon = "burrito-ascii";
   };
 
   # Default shell

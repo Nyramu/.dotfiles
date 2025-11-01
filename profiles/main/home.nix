@@ -3,20 +3,25 @@
 {
   imports = [
     ../base/home.nix
-    ../../nyra/home
   ];
 
+  # Theming
+  nyra.theme = {
+    enable = true;
+    defaultTheme = "sunset";
+  };
+
+  # Apps
   nyra.home.apps = {
     terminals = {
-      kitty.enable = true;
+      default = "kitty";
       alacritty.enable = true;
     };
     editors = {
       nvf.enable = true;
     };
     browsers = {
-      firefox.enable = true;
-      librewolf.enable = true;
+      default = "librewolf";
     };
     socials = {
       telegram.enable = true;
@@ -28,10 +33,13 @@
     };
   };
 
+  # Shells and commands
   nyra.home.shells = {
     zsh.enable = true;
     commands = {
       pay-respects.enable = true;
     };
   };
+
+  nyra.home.desktops.hyprland.enable = true;
 }

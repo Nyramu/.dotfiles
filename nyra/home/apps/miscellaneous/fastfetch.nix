@@ -1,20 +1,24 @@
 { config, lib, pkgs, ... }: with lib;
 
 let 
-  cfg = config.nyra.home.apps.miscellaneous;
+  cfg = config.nyra.home.apps.miscellaneous.fastfetch;
 in 
 {
-  options.nyra.home.apps.miscellaneous = {
-    fastfetch.enable = mkEnableOption "fastfetch";
+  options.nyra.home.apps.miscellaneous.fastfetch = {
+    enable = mkEnableOption "fastfetch";
+    logo = mkOption {
+      type = types.enum [ "burrito-ascii" ];
+      default = "burrito-ascii";
+    };
   };
   
   config = {
     programs.fastfetch = {
-      enable = cfg.fastfetch.enable;
+      enable = cfg.enable;
       settings = {
         logo = {
           type = "auto";
-          source = ../../../../resources/burrito-ascii.png;
+          source = ../../../../resources/${cfg.logo}.png;
         };
         modules = [
           "title"

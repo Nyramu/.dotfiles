@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./fingerprint.nix
+    ./fprint.nix
   ];
 
   # Pipewire needs it enabled

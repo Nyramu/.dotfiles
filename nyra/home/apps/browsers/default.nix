@@ -1,25 +1,16 @@
-{ config, lib, pkgs, ... }: with lib;
+{ lib, ... }: with lib;
 
-let
-  cfg = config.nyra.home.apps.browsers;
-in
 {
+  imports  = [
+    ./firefox.nix
+    ./librewolf.nix
+  ];
+
   options.nyra.home.apps.browsers = {
-    firefox = {
-      enable = mkEnableOption "firefox";
+    default = mkOption {
+      type = types.enum [ "firefox" "librewolf" ];
+      default = "librewolf";
+      description = "Choose your default browser";
     };
-    librewolf = {
-      enable = mkEnableOption "librewolf";
-    };
-  };
-
-  config = {
-    home.packages = optionals cfg.firefox.enable [pkgs.firefox];
-
-    programs.librewolf = {
-      enable = cfg.librewolf.enable;
-      profiles.nyramu.isDefault = true;
-      # TODO: add librewolf config
-    };
-  };
+  };  
 }

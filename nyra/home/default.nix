@@ -2,9 +2,10 @@
 
 {
   imports = [
-  ./apps
-  ./shells
-  ./desktops
-  ./theme
+    ../common
+    ./apps
+    ./shells
+    ./desktops
+    ./theme
   ];
 }

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: with lib;
 
 let
-  cfg = config.nyra.system.desktops;
+  cfg = config.nyra.system.desktops.hyprland;
 in
 {
   options.nyra.system.desktops = {
@@ -10,7 +10,7 @@ in
 
   config = {
     programs.hyprland = {
-      enable = cfg.hyprland.enable;
+      enable = cfg.enable;
       xwayland.enable = true;
     }; 
   };

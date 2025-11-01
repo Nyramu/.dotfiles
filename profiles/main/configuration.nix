@@ -10,6 +10,14 @@
       ../base/configuration.nix
   ];
 
+  # Theming and fonts
+  nyra.theme = {
+    enable = true;
+    defaultTheme = "sunset";
+  };
+  nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
+  nyra.system.fonts = with pkgs; [ jetbrains-mono ]; # Set fonts
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
@@ -18,6 +26,9 @@
 
   # Choose Pipewire instead of Pulseaudio
   nyra.system.audio.server = "pipewire";
+
+  # Enable fingerprints support
+  nyra.system.security.fprint.enable = true;
 
   # Enable Hyprland
   nyra.system.desktops.hyprland.enable = true;

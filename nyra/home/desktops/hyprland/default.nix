@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }: with lib;
 
+let
+  cfg = config.nyra.home.desktops.hyprland;
+in
 {
   imports = [
     inputs.hyprnix.homeManagerModules.hyprland
@@ -7,8 +10,12 @@
     ./binds.nix
   ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
+  options.nyra.home.desktops.hyprland = {
+    enable = mkEnableOption "hyprland";
+  };
+
+  config.wayland.windowManager.hyprland = {
+    enable = cfg.enable;
     package = pkgs.hyprland;
 
     systemd.enable = true;
@@ -27,7 +34,9 @@
 
     config.input = {
         kb_layout = "it";
+        numlock_by_default = true;
         follow_mouse = 1;
+        resolve_binds_by_sym = true;
     };
   };
 }

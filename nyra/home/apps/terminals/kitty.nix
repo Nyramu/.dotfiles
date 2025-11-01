@@ -1,13 +1,17 @@
 { config, lib, pkgs, ... }: with lib;
 
 let
-  theme = import ../../../../resources/themes/sunset.nix { inherit pkgs; };
-
+  themeName = config.nyra.theme.defaultTheme;
+  theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
   cfg = config.nyra.home.apps.terminals;
 in
 {
   options.nyra.home.apps.terminals = {
-    kitty.enable = mkEnableOption "kitty";
+    kitty.enable = mkOption {
+      type = types.bool;
+      default = cfg.default == "kitty";
+      description = "kitty";
+    };
   };
 
   config = {

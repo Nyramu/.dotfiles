@@ -1,17 +1,19 @@
-{ pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  apps = config.nyra.home.apps;
+in
 {
   wayland.windowManager.hyprland = {
     keyBinds = let
       MOUSE_L = "mouse:272";
       MOUSE_R = "mouse:273";
 
-      terminal = "kitty";
-      browser = "firefox";
-      fileManager = "nautilus";
+      terminal = "${apps.terminals.default}";
+      browser = "${apps.browsers.default}";
+      fileManager = "nautilus"; #TODO: change file manager
 
       groups = {
-
         launchApps = {
           binds = {
             "SUPER_L, B" = "exec, ${browser}";
