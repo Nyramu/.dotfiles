@@ -9,16 +9,15 @@ in
     ./apps
     ./audio
     ./desktops
-    ./fonts
-    ./input
     ./login
     ./security
     ./theme
+    ./fonts.nix
   ];
 
   options.nyra.system = {
     amd-features = mkOption {
-      type = types.listOf (types.enum [ "ryzen-smu" "rocm" ]);
+      type = types.listOf (types.enum [ "rocm" "ryzen-smu" ]);
       default = [];
       description = "AMD features like rocm and ryzen-smu";
     };

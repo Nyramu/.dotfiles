@@ -9,7 +9,7 @@ in
 
   config.stylix = {
     enable = config.nyra.theme.enable;
-    autoEnable = true;
+    autoEnable = config.nyra.theme.enable;
 
     # Type "fc-list : family | sort | uniq" in the terminal to see every font
     base16Scheme = theme.palette;

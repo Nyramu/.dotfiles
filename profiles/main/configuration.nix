@@ -15,6 +15,7 @@
     enable = true;
     defaultTheme = "sunset";
   };
+  nyra.system.login.sddm.theme = "silentSDDM";
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -24,6 +25,9 @@
 
   # Choose Pipewire instead of Pulseaudio
   nyra.system.audio.server = "pipewire";
+
+  # Enable fingerprints support
+  nyra.system.security.fprint.enable = true;
 
   # Enable Hyprland
   nyra.system.desktops.hyprland.enable = true;

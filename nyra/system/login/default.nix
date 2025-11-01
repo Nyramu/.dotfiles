@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./sddm.nix
+    ./sddm
     ./user-icon.nix
   ];
 }

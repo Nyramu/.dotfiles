@@ -23,7 +23,7 @@
   # Login settings
   nyra.system.login = {
     sddm.enable = true;
-    userIcon = ../../resources/burrito-ascii.png;
+    userIcon = "burrito-ascii";
   };
 
   # Default shell

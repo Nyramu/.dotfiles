@@ -2,7 +2,7 @@
 
 let
    themeName = config.nyra.theme.defaultTheme;
-   theme = import ../../../resources/themes/${themeName}.nix { inherit pkgs; };
+   theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
 
    background-derivation = pkgs.runCommand "bg.jpg" {} ''
       cp ${theme.background} $out
