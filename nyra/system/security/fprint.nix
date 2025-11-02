@@ -22,8 +22,8 @@ in
     # Enable fingerprint support
     services.fprintd = {
       enable = cfg.fprint.enable;
-      tod.enable = true; # For Touch OEM Drivers (Validity/Synaptics) sensors
-      tod.driver = pkgs.libfprint-2-tod1-goodix; # Adapts to your sensor
+      #tod.enable = true; # For Touch OEM Drivers (Validity/Synaptics) sensors
+      #tod.driver = pkgs.libfprint-2-tod1-goodix; # Adapts to your sensor
     };
 
     # Pam sudo and sddm config overrides due
