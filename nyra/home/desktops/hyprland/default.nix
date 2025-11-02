@@ -22,6 +22,8 @@ in
     xwayland.enable = true;
     reloadConfig = true;
     recommendedEnvironment = true;
+    
+    config.ecosystem.no_update_news = true;
 
     config.monitor = [
       "eDP-1, 1920x1200@60, auto, 1"
