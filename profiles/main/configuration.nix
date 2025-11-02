@@ -18,6 +18,15 @@
   nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
   nyra.system.fonts = with pkgs; [ jetbrains-mono ]; # Set fonts
 
+  # Apps
+  nyra.system.apps = {
+    gaming = {
+      steam.enable = true;
+      gamemode.enable = true;
+      gamescope.enable = true;
+    };
+  };
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
