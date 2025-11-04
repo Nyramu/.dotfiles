@@ -11,13 +11,14 @@ in
   config = {
     programs.btop = {
       enable = cfg.btop.enable;
+      package = pkgs.btop-rocm;
       settings = {
         color_theme = lib.mkForce "TTY";
         theme_background = false;
         force_tty = true;
         update_ms = 1000;
-        # TODO: Make gpu appear in btop
-        shown_boxes = "proc cpu mem net";
+        shown_boxes = "proc cpu gpu0 mem net";
+        custom_gpu_name0 = "Radeon 780M";
       };
     };
   };

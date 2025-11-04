@@ -40,7 +40,9 @@ in
 
         "-W" = "1920"; # window width
         "-H" = "1200"; # window height
-        #"-r" = "60";    # max refresh rate
+        "-w" = "1920";
+        "-h" = "1200";
+        "-r" = "60";    # max refresh rate
       };
       args = [
         #"--mangoapp" # mango hud (mainly for test)

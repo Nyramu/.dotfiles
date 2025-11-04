@@ -30,8 +30,9 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  # Enable AMD rocm support and ryzen-smu
-  nyra.system.amd-features = [ "rocm" "ryzen-smu" ];
+  # Enable AMD features and ryzenadj
+  nyra.system.amd.features = [ "rocm" "ryzen-smu" ];
+  nyra.system.amd.ryzenadj.enable = true;
 
   # Choose Pipewire instead of Pulseaudio
   nyra.system.audio.server = "pipewire";
