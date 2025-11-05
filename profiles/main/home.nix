@@ -21,7 +21,7 @@
       nvf.enable = true;
     };
     browsers = {
-      default = "librewolf";
+      default = "qutebrowser";
     };
     socials = {
       telegram.enable = true;
