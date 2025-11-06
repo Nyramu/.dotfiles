@@ -6,9 +6,9 @@
     targets = {
       hyprland.enable = lib.mkForce false;
       kitty.enable = lib.mkForce true;
-      librewolf = {
-        profileNames = [ "nyramu" ];
-      };
+      qutebrowser.enable = lib.mkForce true;
+      librewolf.profileNames = [ "nyramu" ];
+      zen-browser.profileNames = [ "nyramu" ];
     };
   };
 
