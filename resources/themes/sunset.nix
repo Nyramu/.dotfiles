@@ -26,6 +26,13 @@
     };
   }; 
 
+  opacity = {
+    terminal = 0.6;
+    applications = 0.6;
+    desktop = 0.7;
+    popups = 0.7;
+  };
+
   palette = {
     base00 = "262626"; # Default Background
     base01 = "152522"; # Lighter Background (selection)
