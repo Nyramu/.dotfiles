@@ -21,7 +21,8 @@
       nvf.enable = true;
     };
     browsers = {
-      default = "qutebrowser";
+      #default = "zen"; # Idk why it explodes if configured
+      qutebrowser.enable = true;
     };
     socials = {
       telegram.enable = true;
