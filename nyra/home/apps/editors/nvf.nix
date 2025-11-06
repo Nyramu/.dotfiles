@@ -3,7 +3,7 @@
 let
   cfg = config.nyra.home.apps.editors;
 in {
-  imports = [inputs.nvf.homeManagerModules.default];
+  imports = [ inputs.nvf.homeManagerModules.default ];
 
   options.nyra.home.apps.editors.nvf = {
     enable = mkEnableOption "nvf";
@@ -14,6 +14,11 @@ in {
       enable = cfg.nvf.enable;
       settings = {
         vim.vimAlias = true;
+        vim.notes.todo-comments.enable = true;
+        vim.diagnostics = {
+          enable = true;
+          config.virtual_text = true;
+        };
         vim.lsp = {
           enable = true;
           formatOnSave = false;
