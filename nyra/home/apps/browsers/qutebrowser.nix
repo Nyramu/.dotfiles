@@ -1,6 +1,8 @@
 { config, lib, ... }: with lib;
 
 let
+  themeName = config.nyra.theme.defaultTheme;
+  theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
   cfg = config.nyra.home.apps.browsers;
 in
 {
@@ -16,12 +18,30 @@ in
     programs.qutebrowser = {
       enable = cfg.qutebrowser.enable;
       settings = {
-        tabs.tabs_are_windows = true;
+        auto_save.session = true;
+        confirm_quit = [ "downloads" ];
+        tabs.tabs_are_windows = false;
+        tabs.title.format = "{audio}{current_title}";
+        url.default_page = "https://github.com/Nyramu";
+        window.transparent = true;
+      };
+      settings.colors = {
+        # Transparent tabs, stylix cannot apply its opacity here
+        tabs.selected.even.bg = mkForce "#00000066";
+        tabs.selected.odd.bg = mkForce "#00000066";
+        tabs.bar.bg = mkForce "#00000066";
+        # Black tabs
+        tabs.even.bg = mkForce "#${theme.palette.base00}";
+        tabs.odd.bg = mkForce "#${theme.palette.base00}"; 
       };
       searchEngines = {
         duck = "https://www.duckduckgo.com/?q={}";
-        nixosWiki = "https://wiki.nixos.org/index.php?search={}";
+        nixpkgs = "https://search.nixos.org/packages?channel=unstable&query={}";
+        mynix = "https://mynixos.com/search?q={}";
+        yt = "https://www.youtube.com/results?search_query={}";
+        gh = "https://github.com/search?o=desc&q={}&s=stars";
       };
+
     };
   };
 }
