@@ -27,12 +27,12 @@ in
       };
       settings.colors = {
         # Transparent tabs, stylix cannot apply its opacity here
-        tabs.selected.even.bg = mkForce "#00000066";
-        tabs.selected.odd.bg = mkForce "#00000066";
+        tabs.even.bg = mkForce "#00000066";
+        tabs.odd.bg = mkForce "#00000066";
         tabs.bar.bg = mkForce "#00000066";
         # Black tabs
-        tabs.even.bg = mkForce "#${theme.palette.base00}";
-        tabs.odd.bg = mkForce "#${theme.palette.base00}"; 
+        tabs.selected.even.bg = mkForce "#${theme.palette.base00}";
+        tabs.selected.odd.bg = mkForce "#${theme.palette.base00}"; 
       };
       searchEngines = {
         duck = "https://www.duckduckgo.com/?q={}";
