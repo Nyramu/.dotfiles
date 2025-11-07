@@ -1,7 +1,17 @@
 { pkgs, config, ... }:
 
+let
+  themeName = config.nyra.theme.defaultTheme;
+  theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; }; 
+in
 {   
   wayland.windowManager.hyprland = {
+    # Window rules
+    config.windowrulev2 = [
+      "noborder, class:(org.qutebrowser.qutebrowser)"
+      "noshadow, class:(org.qutebrowser.qutebrowser)"
+    ];
+
     # <https://wiki.hyprland.org/Configuring/Variables/#general>
     config.general = {
       border_size = 3;
@@ -10,8 +20,8 @@
       gaps_inside = 5;
       gaps_outside = 25;
 
-      active_border_color = "rgb(542624) rgb(d66e65) 270deg";
-      inactive_border_color = "rgb(152927)";
+      active_border_color = "${theme.hypr.active_border_color} 270deg";
+      inactive_border_color = theme.hypr.inactive_border_color;
 
       layout = "dwindle";
       allow_tearing = false;
@@ -22,7 +32,7 @@
       shadow = {
         range = 5;
         render_power = 3;
-        color = "rgba(1a1a1aee)";
+        color = "rgba(${theme.palette.base00}ee)";
       };
       blur.enabled = false;
     };
