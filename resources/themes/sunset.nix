@@ -53,7 +53,7 @@
     base0F = "cf1e13"; # Deprecated, Opening/Closing Embedded Language Tags (normal magenta)
   };
 
-  # Hyprland configuration
+  # Hyprland color configuration
   hypr = {
     active_border_color = "rgb(542624) rgb(d66e65)";
     inactive_border_color = "rgb(152927)"; 
