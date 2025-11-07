@@ -32,7 +32,7 @@ in
       shadow = {
         range = 5;
         render_power = 3;
-        color = "rgba(${theme.palette.base00}ee)";
+        color = theme.hypr.decoration.shadow.color;
       };
       blur.enabled = false;
     };

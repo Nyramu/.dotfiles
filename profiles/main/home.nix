@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -8,7 +8,7 @@
   # Theming
   nyra.theme = {
     enable = true;
-    defaultTheme = "sunset";
+    defaultTheme = "pixel-sunset";
   };
 
   # Apps

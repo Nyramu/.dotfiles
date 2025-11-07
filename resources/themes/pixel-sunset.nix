@@ -2,7 +2,7 @@
 
 {
   system = "base16";
-  name = "Sunset";
+  name = "Pixel Sunset";
   author = "https://github.com/Nyramu";
   polarity = "dark";
 
@@ -56,6 +56,7 @@
   # Hyprland color configuration
   hypr = {
     active_border_color = "rgb(542624) rgb(d66e65)";
-    inactive_border_color = "rgb(152927)"; 
+    inactive_border_color = "rgb(152927)";
+    decoration.shadow.color = "rgba(1a1a1aee)";
   };
 }

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [ 
@@ -13,7 +13,7 @@
   # Theming and fonts
   nyra.theme = {
     enable = true;
-    defaultTheme = "sunset";
+    defaultTheme = "pixel-sunset";
   };
   nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
   nyra.system.fonts = with pkgs; [ jetbrains-mono ]; # Set fonts
