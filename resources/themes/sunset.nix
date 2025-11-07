@@ -52,4 +52,9 @@
     base0E = "cf1e13"; # Keywords, Storage, Selector, Markup Italic, Diff Changed (normal magenta)
     base0F = "cf1e13"; # Deprecated, Opening/Closing Embedded Language Tags (normal magenta)
   };
+
+  hypr = {
+    active_border_color = "rgb(542624) rgb(d66e65)";
+    inactive_border_color = "rgb(152927)"; 
+  };
 }
