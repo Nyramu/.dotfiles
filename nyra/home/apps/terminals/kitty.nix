@@ -23,7 +23,7 @@ in
         shell_integration = "enabled";
         confirm_os_window_close = 0;
         # Does not work for some reason
-        #startup_session = "/home/nyramu/.dotfiles";
+        #startup_session = /home/nyramu/.dotfiles;
         allow_remote_control = "no";
         listen_on = "none";
 
