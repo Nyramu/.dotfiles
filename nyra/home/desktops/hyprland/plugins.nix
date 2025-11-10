@@ -16,7 +16,7 @@
 
         # length in px of the simulated stick used to rotate the cursor
         # most realistic if this is your actual cursor size
-        length = 20
+        length = 30
 
         # clockwise offset applied to the angle in degrees
         # this will apply to ALL shapes
@@ -26,6 +26,12 @@
       shake {
         enabled = false
         ipc = false
+      }
+
+      hyprcursor {
+        enabled = true
+        nearest = true
+        resolution = -1
       }
     }
   '';
