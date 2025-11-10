@@ -59,4 +59,9 @@
     inactive_border_color = "rgb(152927)";
     decoration.shadow.color = "rgba(1a1a1aee)";
   };
+
+  # Waybar color configuration
+  waybar = {
+    background-color = "rgba(38, 38, 38, 0.6)";
+  };
 }
