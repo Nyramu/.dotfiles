@@ -8,13 +8,10 @@ in
     steam.enable = lib.mkEnableOption "steam";
     gamemode.enable = lib.mkEnableOption "gamemode";
     gamescope.enable = lib.mkEnableOption "gamescope";
-    #rpcs3.enable = lib.mkEnableOption "rpcs3";
   };
 
   config = {
-    #environment.systemPackages = lib.optionals cfg.rpcs3.enable [pkgs.rpcs3];
-
-    # needed to make the renice setting work
+    #needed to make the renice setting work
     users.users.nyramu.extraGroups = lib.optionals cfg.gamemode.enable ["gamemode"];
 
     programs.steam = {
