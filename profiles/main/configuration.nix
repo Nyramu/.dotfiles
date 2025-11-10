@@ -16,7 +16,7 @@
     defaultTheme = "pixel-sunset";
   };
   nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
-  nyra.system.fonts = with pkgs; [ jetbrains-mono ]; # Set fonts
+  nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
   # Apps
   nyra.system.apps = {
@@ -35,9 +35,10 @@
   nyra.system.amd.ryzenadj.enable = true;
 
   # Choose Pipewire instead of Pulseaudio
-  nyra.system.audio.server = "pipewire";
+  #nyra.system.audio.server = "pipewire";
 
-  # Enable fingerprints support
+  # Enable fingerprints support, register one running
+  # fprintd-enroll <user>
   nyra.system.security.fprint.enable = true;
 
   # Enable Hyprland
@@ -65,10 +66,4 @@
       };
     };
   };
-
-  # Mount steam-games partition (broken)
-  #fileSystems."/home/nyramu/steam-games" = {
-  #  device = "/dev/nvme0n1p3";
-  #  options = [ "nofail" "rw" "uid = nyramu" ];
-  #};
 }
