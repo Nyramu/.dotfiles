@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -8,7 +8,7 @@
   # Theming
   nyra.theme = {
     enable = true;
-    defaultTheme = "sunset";
+    defaultTheme = "pixel-sunset";
   };
 
   # Apps
@@ -21,7 +21,8 @@
       nvf.enable = true;
     };
     browsers = {
-      default = "librewolf";
+      #default = "zen"; # Idk why it explodes if configured
+      qutebrowser.enable = true;
     };
     socials = {
       telegram.enable = true;

@@ -1,7 +1,17 @@
-{ pkgs, config, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  themeName = config.nyra.theme.defaultTheme;
+  theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; }; 
+in
 {   
   wayland.windowManager.hyprland = {
+    # Window rules
+    config.windowrulev2 = [
+      "noborder, class:(org.qutebrowser.qutebrowser)"
+      "noshadow, class:(org.qutebrowser.qutebrowser)"
+    ];
+
     # <https://wiki.hyprland.org/Configuring/Variables/#general>
     config.general = {
       border_size = 3;
@@ -10,8 +20,8 @@
       gaps_inside = 5;
       gaps_outside = 25;
 
-      active_border_color = "rgb(542624) rgb(d66e65) 270deg";
-      inactive_border_color = "rgb(152927)";
+      active_border_color = "${theme.hypr.active_border_color} 270deg";
+      inactive_border_color = theme.hypr.inactive_border_color;
 
       layout = "dwindle";
       allow_tearing = false;
@@ -22,7 +32,7 @@
       shadow = {
         range = 5;
         render_power = 3;
-        color = "rgba(1a1a1aee)";
+        color = theme.hypr.decoration.shadow.color;
       };
       blur.enabled = false;
     };
@@ -93,9 +103,18 @@
 
     config.gesture = "3, pinch, fullscreen";
 
+    config.misc = {
+      disable_hyprland_logo = true;
+      force_default_wallpaper = 0;
+      animate_mouse_windowdragging = false; # Just lags for some reason
+    };
+
     # Set wallpaper
     config.exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
-    config.misc.force_default_wallpaper = 0;
+    # Start waybar
+    config.exec_once = [ 
+      "${lib.getExe pkgs.waybar}" 
+    ];
   };
     
   home.packages = with pkgs; [ swaybg ];

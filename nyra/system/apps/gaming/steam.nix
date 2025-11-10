@@ -8,13 +8,10 @@ in
     steam.enable = lib.mkEnableOption "steam";
     gamemode.enable = lib.mkEnableOption "gamemode";
     gamescope.enable = lib.mkEnableOption "gamescope";
-    #rpcs3.enable = lib.mkEnableOption "rpcs3";
   };
 
   config = {
-    #environment.systemPackages = lib.optionals cfg.rpcs3.enable [pkgs.rpcs3];
-
-    # needed to make the renice setting work
+    #needed to make the renice setting work
     users.users.nyramu.extraGroups = lib.optionals cfg.gamemode.enable ["gamemode"];
 
     programs.steam = {
@@ -40,7 +37,9 @@ in
 
         "-W" = "1920"; # window width
         "-H" = "1200"; # window height
-        #"-r" = "60";    # max refresh rate
+        "-w" = "1920";
+        "-h" = "1200";
+        "-r" = "60";    # max refresh rate
       };
       args = [
         #"--mangoapp" # mango hud (mainly for test)

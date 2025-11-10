@@ -9,7 +9,7 @@ let
    '';
 in
 {
-   silentSDDM = inputs.silentSDDM.packages.${pkgs.system}.default.override {
+   silentSDDM = inputs.silentSDDM.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
      extraBackgrounds = [ background-derivation ];
      theme-overrides = {
        "General" = {

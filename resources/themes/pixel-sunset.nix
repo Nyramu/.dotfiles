@@ -2,7 +2,7 @@
 
 {
   system = "base16";
-  name = "Sunset";
+  name = "Pixel Sunset";
   author = "https://github.com/Nyramu";
   polarity = "dark";
 
@@ -26,6 +26,13 @@
     };
   }; 
 
+  opacity = {
+    terminal = 0.6;
+    applications = 0.6;
+    desktop = 0.7;
+    popups = 0.7;
+  };
+
   palette = {
     base00 = "262626"; # Default Background
     base01 = "152522"; # Lighter Background (selection)
@@ -44,5 +51,17 @@
     base0D = "bc5453"; # Functions, Methods, Attribute IDs, Headings (normal blue)
     base0E = "cf1e13"; # Keywords, Storage, Selector, Markup Italic, Diff Changed (normal magenta)
     base0F = "cf1e13"; # Deprecated, Opening/Closing Embedded Language Tags (normal magenta)
+  };
+
+  # Hyprland color configuration
+  hypr = {
+    active_border_color = "rgb(542624) rgb(d66e65)";
+    inactive_border_color = "rgb(152927)";
+    decoration.shadow.color = "rgba(1a1a1aee)";
+  };
+
+  # Waybar color configuration
+  waybar = {
+    background-color = "rgba(38, 38, 38, 0.6)";
   };
 }
