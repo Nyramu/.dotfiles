@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, ... }: with lib;
 
 let 
   cfg = config.nyra.system.login;
@@ -6,8 +6,8 @@ in
 {
   options.nyra.system.login = {
     userIcon = mkOption {
-      type = types.enum [ "burrito-ascii" ];
-      default = "burrito-ascii";
+      type = types.enum [ "burrito-ascii" "nyramu" ];
+      default = "nyramu";
       description = "Icon file for the user";
     };
   };
