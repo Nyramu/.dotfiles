@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   themeName = config.nyra.theme.defaultTheme;
@@ -103,9 +103,18 @@ in
 
     config.gesture = "3, pinch, fullscreen";
 
+    config.misc = {
+      disable_hyprland_logo = true;
+      force_default_wallpaper = 0;
+      animate_mouse_windowdragging = false; # Just lags for some reason
+    };
+
     # Set wallpaper
     config.exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
-    config.misc.force_default_wallpaper = 0;
+    # Start waybar
+    config.exec_once = [ 
+      "${lib.getExe pkgs.waybar}" 
+    ];
   };
     
   home.packages = with pkgs; [ swaybg ];
