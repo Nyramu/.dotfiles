@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [ ../../nyra/system ];
@@ -21,10 +21,7 @@
   };
 
   # Login settings
-  nyra.system.login = {
-    sddm.enable = true;
-    userIcon = "burrito-ascii";
-  };
+  nyra.system.login.sddm.enable = true;
 
   # Default shell
   users.defaultUserShell = pkgs.zsh;
