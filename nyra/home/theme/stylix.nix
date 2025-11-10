@@ -1,12 +1,13 @@
-{ pkgs, inputs, lib, config, ... }:
+{ pkgs, inputs, lib, config, ... }: with lib;
 
 {
   imports = [ inputs.stylix.homeModules.stylix ]; 
   config.stylix = {
     targets = {
-      hyprland.enable = lib.mkForce false;
-      kitty.enable = lib.mkForce true;
-      qutebrowser.enable = lib.mkForce true;
+      hyprland.enable = mkForce false;
+      waybar.enable = mkForce false;
+      kitty.enable = mkForce true;
+      qutebrowser.enable = mkForce true;
       librewolf.profileNames = [ "nyramu" ];
       zen-browser.profileNames = [ "nyramu" ];
     };
@@ -14,9 +15,9 @@
 
   # Fix for Hyprnix
   options.wayland.windowManager.hyprland.settings = {
-    decoration = lib.mkOption {default = {};};
-    general = lib.mkOption {default = {};};
-    group = lib.mkOption {default = {};};
-    misc = lib.mkOption {default = {};};
+    decoration = mkOption {default = {};};
+    general = mkOption {default = {};};
+    group = mkOption {default = {};};
+    misc = mkOption {default = {};};
   };
 }
