@@ -15,6 +15,7 @@
     enable = true;
     defaultTheme = "pixel-sunset";
   };
+  nyra.system.login.userIcon = "nyramu";
   nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
