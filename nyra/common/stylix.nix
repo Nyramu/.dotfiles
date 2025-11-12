@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 let 
    themeName = config.nyra.theme.defaultTheme;
