@@ -14,6 +14,8 @@ sudo nixos-rebuild switch --flake ~/.dotfiles#system
 nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ~/.dotfiles#user
 
 mkdir ~/Music/
+mkdir ~/Music/Lyrics
+mkdir ~/Music/Playlists
 mkdir ~/Desktop/
 mkdir ~/Downloads/  
 mkdir ~/Videos/
@@ -23,8 +25,8 @@ mkdir ~/Games/
 clear
 
 echo "Remember to set SSH:"
-echo "1.    ssh-keygen -t ed25519 -C \"your_email@example.com\""
-echo "2.    $ eval \"$(ssh-agent -s)\""
+echo "1.    ssh-keygen -t ed25519 -C 'your_email@example.com'"
+echo "2.    $ eval '$(ssh-agent -s)'"
 echo "3.    ssh-add ~/.ssh/id_ed25519"
 echo "4.    $ cat ~/.ssh/id_ed25519.pub"
 echo "5.    Then select and copy the contents of the id_ed25519.pub file"
