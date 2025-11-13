@@ -16,6 +16,7 @@ in
       enable = cfg.server == "pulseaudio";
       support32Bit = true;
       package = pkgs.pulseaudioFull;
+      extraConfig = "load-module module-combine-sink";
     };
     
     services.pipewire = {
@@ -23,6 +24,8 @@ in
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      jack.enable = true;
+      wireplumber.enable = true;
     };
   };
 }
