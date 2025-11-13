@@ -28,6 +28,9 @@
       telegram.enable = true;
       discord.enable = true;
     };
+    media = {
+      rmpc.enable = true;
+    };
     miscellaneous = {
       btop.enable = true;
       fastfetch.enable = true;
