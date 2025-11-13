@@ -15,8 +15,7 @@ in
     };
   };
 
-  config = {
-      
+  config = { 
     services.displayManager.sddm = {
       enable = sddmCfg.enable;
       enableHidpi = true;
