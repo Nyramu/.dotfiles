@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     git
     curl
+    util-linux
     usbutils
     kitty
   ];
@@ -80,7 +81,7 @@
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
-  nyra.system.bluetooth.enable = true;
+  nyra.system.hardware.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true; 
