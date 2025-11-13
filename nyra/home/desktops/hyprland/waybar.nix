@@ -1,14 +1,14 @@
-{ config, pkgs, ... }: 
+{ config, lib, pkgs, ... }: 
 
 let
+  cfgHyprEnable = config.nyra.home.desktops.hyprland.enable; 
   themeName = config.nyra.theme.defaultTheme;
   theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
-  timezone =
-    pkgs.runCommand "timezone" {} ''echo $(timedatectl show --property=Timezone --value) > $out'';
-in 
+in
 {
+  home.packages = with pkgs; lib.optionals cfgHyprEnable [ networkmanagerapplet ];
   programs.waybar = {
-    enable = config.nyra.home.desktops.hyprland.enable;
+    enable = cfgHyprEnable;
 
     settings = {
       mainBar = {
@@ -22,18 +22,19 @@ in
         fixed-center = true;
 
         modules-left = [
-          "hyprland/workspaces" 
-        ];
-        modules-center = [
-          "tray"
-        ];
-        modules-right = [
           "cpu"
           "memory"
+          "tray"
+        ];
+        modules-center = [
+          "hyprland/workspaces"
+        ];
+        modules-right = [
           "pulseaudio"
-          "clock"
-          "clock#simpleclock"
+          "pulseaudio#microphone"
           "network"
+          "bluetooth"
+          "clock"
           "battery"
         ];
 
@@ -55,67 +56,88 @@ in
         "hyprland/window" = {
           format = "{initialTitle}";
         };
-
+        
         cpu = {
-          interval = 5;
-          format = " {icon}";
-          format-icons = ["╸    " "━╸   " "━━╸  " "━━━╸ " "━━━━╸" "━━━━━"];
+          interval = 3;
+          format = "<span color='#${theme.palette.base0A}'> </span> <span color='#${theme.palette.base05}'>{usage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{avg_frequency} GHz</span>";
+          tooltip = false;
         };
 
         memory = {
-          interval = 5;
-          format = " {icon}";
-          format-icons = ["╸    " "━╸   " "━━╸  " "━━━╸ " "━━━━╸" "━━━━━"];
+          interval = 3;
+          format = "<span color='#${theme.palette.base0A}'> </span> <span color='#${theme.palette.base05}'>{percentage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{used:0.1f} GB/{total:0.1f} GB</span>";
+          tooltip = false; # TODO: decide to put or not btop 'quick launch'
         };
 
         pulseaudio = {
-          tooltip-format = "Volume : {volume}%";
-          format = "{icon}";
-          format-muted = "       ";
+          format = "<span color='#${theme.palette.base0A}'>{icon}</span> <span color='#${theme.palette.base05}'>{volume}%</span>";
+          format-muted = "<span color='#${theme.palette.base03}'>󰖁 Muted</span>";
           format-icons = {
-            default = ["     " " ╸   " " ━╸  " " ━━╸ " " ━━━╸" " ━━━━"];
+            default = ["󰕿" "󰖀" "󰕾"];
+            headphone = "󰋋";
+            headset = "󰋎";
+            portable = "";
+            speaker = "󰓃";
+            hdmi = "󰡁";
+            car = "";
           };
-          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          scroll-step = 5;
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol -t 3";
+          on-click-right = "${pkgs.pamixer}/bin/pamixer -t";
+          on-scroll-up = "${pkgs.pamixer}/bin/pamixer -i 5";
+          on-scroll-down = "${pkgs.pamixer}/bin/pamixer -d 5";
+          smooth-scrolling-threshold = 1;
+          tooltip-format = "{desc}\nVolume: {volume}%";
+        };
+
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source = "<span color='#${theme.palette.base0A}'>󰍬</span> <span color='#${theme.palette.base05}'>{volume}%</span>";
+          format-source-muted = "<span color='#${theme.palette.base03}'>󰍭 Muted</span>";
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol -t 4";
+          on-click-right = "${pkgs.pamixer}/bin/pamixer --default-source -t";
+          on-scroll-up = "${pkgs.pamixer}/bin/pamixer --default-source -i 5";
+          on-scroll-down = "${pkgs.pamixer}/bin/pamixer --default-source -d 5";
+          scroll-step = 5;
+          smooth-scrolling-threshold = 1;
+          tooltip-format = "{source_desc}\nVolume: {source_volume}%";
         };
 
         clock = {
           interval = 1;
-          format = "󰸘 {:L%a %d %b}";
-          timezone = "${timezone}";
-          tooltip-format = ''<tt>{calendar}</tt>'';
-
-          calendar.format = {
-            today = "<span color='#${theme.palette.base0E}' weight='700'>{}</span>";
-          };
-        };
-
-        "clock#simpleclock" = {
           tooltip = false;
-          format = " {:%H:%M}";
+          format = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{:%T}</span>";
         };
 
         network = {
-          format-wifi = "{icon}";
+          format-wifi = "<span color='#${theme.palette.base0A}'>{icon} </span> <span color='#${theme.palette.base05}'>{essid}</span>";
           format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-          format-ethernet = "󰀂";
-          format-alt = "󱛇";
-          format-disconnected = "󰖪";
-          tooltip-format-wifi = "{icon} {essid}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
-          tooltip-format-ethernet = "󰀂  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
-          tooltip-format-disconnected = "Disconnesso";
+          format-ethernet = "<span color='#${theme.palette.base0A}'>󰈀 </span> <span color='#${theme.palette.base05}'>Connected</span>";
+          format-disconnected = "<span color='#${theme.palette.base0A}'>󰖪 </span> <span color='#${theme.palette.base05}'>Disconnected</span>";
+          format-disabled = "<span color='#${theme.palette.base03}'>󰖪  Disabled</span>";
+          tooltip-format-wifi = "Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
+          tooltip-format-ethernet = "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
+          tooltip-format-disconnected = "󰖪  Disconnected \nLeft-click to \nmanage connections";
+          tooltip-format-disabled = "󰖪  Connection disabled \nRight-click to enable";
+          on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+          on-click-right = "${pkgs.util-linux}/bin/rfkill toggle wifi";
           interval = 5;
           nospacing = 1;
         };
 
         bluetooth = {
-	        format = " {status}";
-	        format-connected = " {device_alias}";
-	        format-connected-battery = " {device_alias} {device_battery_percentage}%";
-          # "format-device-preference": [ "device1", "device2" ]; # preference list deciding the displayed device
-        	tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
-	        tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
-	        tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
-	        tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+          format = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>Enabled</span>";
+          format-disabled = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
+          format-off = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
+          format-connected = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>)</span>";
+          format-connected-battery = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias} {device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>)</span>";
+          tooltip-format = "{controller_alias}\t{controller_address}\nStatus: {status}";
+          tooltip-format-disabled = "󰂲 Bluetooth disabled \nRight-click to enable";
+          tooltip-format-connected = "{controller_alias}\t{controller_address}\n{num_connections} connected device(s)\n\n{device_enumerate}";
+          tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+          tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+          on-click = "${pkgs.blueman}/bin/blueman-manager";
+          on-click-right = "${pkgs.util-linux}/bin/rfkill toggle bluetooth";
         };
 
         battery = {
@@ -124,23 +146,20 @@ in
             warning = 30;
             critical = 15;
           };
-          format = "{capacity}% {icon}";
+          format = "<span color='#${theme.palette.base05}'>{capacity}%</span> <span color='#${theme.palette.base0A}'>{icon}</span>";
           format-icons = {
-            charging = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
+            charging = ["󰁺󱐋" "󰁻󱐋" "󰁼󱐋" "󰁽󱐋" "󰁾󱐋" "󰁿󱐋" "󰂀󱐋" "󰂁󱐋" "󰂂󱐋" "󰁹󱐋"];
             default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           };
-          format-full = "Carica ";
-          tooltip = false;
+          format-full = "<span color='#${theme.palette.base05}'>Charged</span> <span color='#${theme.palette.base0A}'></span>";
+          format-time = "{H}h {M}min";
+          tooltip-format = "{timeTo}\nPower: {power} W\nHealth: {health}%";
         };
-
-
 
         tray = {
           spacing = 10;
           show-passive-items = true;
         };
-
-
       };
     };
 
@@ -195,7 +214,7 @@ in
       #pulseaudio,
       #clock,
       #battery,
-      #bluetooth
+      #bluetooth,
       #network,
       #tray {
         padding: 0.3rem 0.6rem;
@@ -208,17 +227,17 @@ in
         background-color: transparent;
       }
 
-      #memory,
-      #cpu {
+      #memory
+       {
         color: #${theme.palette.base09};
-      }
-
-      #pulseaudio {
-        color: #${theme.palette.base0A};
-      }
+      } 
 
       #battery {
         color: #${theme.palette.base0A};
+      }
+
+      #battery.charging {
+        color: #${theme.palette.base0B};
       }
 
       @keyframes blink {
@@ -238,24 +257,18 @@ in
         animation-direction: alternate;
       }
 
-      #battery.charging {
-        color: #${theme.palette.base0B};
-      }
-
-      #network,
-      #bluetooth {
-        color: #${theme.palette.base0A};
+      clock#simpleclock {
         padding-right: 16px;
-      }
-
-      #clock {
-        color: #${theme.palette.base0A};
       }
 
       tooltip {
         border-radius: 8px;
         padding: 15px;
         background-color: ${theme.waybar.background-color};
+      }
+
+      tooltip label {
+        color: #${theme.palette.base05};
       }
     '';
   };
