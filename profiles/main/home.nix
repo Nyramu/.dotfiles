@@ -22,7 +22,7 @@
     };
     browsers = {
       #default = "zen"; # Idk why it explodes if configured
-      qutebrowser.enable = true;
+      zen.enable = true;
     };
     socials = {
       telegram.enable = true;
