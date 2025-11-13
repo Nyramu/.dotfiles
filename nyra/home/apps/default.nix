@@ -6,7 +6,7 @@
     ./terminals
     ./browsers
     ./miscellaneous
-    ./music
+    ./media
     ./socials
   ];
 }
