@@ -12,6 +12,10 @@ in
     hardware.bluetooth = {
       enable = cfg.enable;
       powerOnBoot = cfg.enable;
+      settings.General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
     };
 
     services.blueman.enable = mkDefault cfg.enable;
