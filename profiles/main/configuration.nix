@@ -36,7 +36,7 @@
   nyra.system.amd.ryzenadj.enable = true;
 
   # Choose Pipewire instead of Pulseaudio
-  #nyra.system.audio.server = "pipewire";
+  nyra.system.audio.server = "pipewire";
 
   # Enable fingerprints support, register one running
   # fprintd-enroll <user>
