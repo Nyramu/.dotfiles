@@ -13,6 +13,7 @@ in
     ./login
     ./security
     ./theme
+    ./bluetooth.nix
   ];
 
   options.nyra.system = {
