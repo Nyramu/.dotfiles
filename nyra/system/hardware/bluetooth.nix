@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: with lib;
 
 let
-  cfg = config.nyra.system.bluetooth;
+  cfg = config.nyra.system.hardware.bluetooth;
 in
 {
-  options.nyra.system.bluetooth = {
+  options.nyra.system.hardware.bluetooth = {
     enable = mkEnableOption "bluetooth";
   };
 
@@ -20,6 +20,10 @@ in
 
     services.blueman.enable = mkDefault cfg.enable;
 
-    environment.systemPackages = with pkgs; optionals cfg.enable [ bluez blueman bluetuith ];
+    environment.systemPackages = with pkgs; optionals cfg.enable [
+      bluez
+      blueman
+      bluetuith
+    ];
   };
 }

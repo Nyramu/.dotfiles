@@ -7,13 +7,12 @@ in
   imports = [
     ../common
     ./apps
-    ./audio
+    ./hardware
     ./desktops
     ./fonts
     ./login
     ./security
     ./theme
-    ./bluetooth.nix
   ];
 
   options.nyra.system = {
