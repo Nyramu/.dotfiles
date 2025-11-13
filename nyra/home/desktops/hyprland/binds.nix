@@ -10,7 +10,7 @@ in
       MOUSE_R = "mouse:273";
 
       terminal = "${getExe pkgs.${apps.terminals.default}}";
-      browser = "${getExe pkgs.${apps.browsers.default}}";
+      browser = "${apps.browsers.default}";
       fileManager = "nautilus"; #TODO: change file manager
 
       groups = {
