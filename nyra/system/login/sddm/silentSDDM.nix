@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
    themeName = config.nyra.theme.defaultTheme;
@@ -56,7 +56,7 @@ in
          margin-top = 20;
        };
        "LoginScreen.LoginArea.Spinner" = {
-         text = "Accesso in corso";
+         text = "Logging in";
          font-size = 36;
          icon-size = 72;
          color = "#${theme.palette.base04}";
@@ -110,7 +110,7 @@ in
        };
        "LoginScreen.MenuArea.Power" = {
          index = 0;
-         popup-width = 180;
+         popup-width = 200;
          position = "bottom-center";
          icon-size = 32;
          content-color = "#${theme.palette.base0A}";
@@ -118,7 +118,7 @@ in
          background-color = "#${theme.palette.base00}";
          background-opacity = 0.6;
          border-size = 1;
-         border-color = "#${theme.palette.base0D}"; 
+         border-color = "#${theme.palette.base0D}";
        };
        "LoginScreen.MenuArea.Session" = {
          index = 1;
@@ -154,7 +154,7 @@ in
          font-size = 28;
        };
        "LockScreen.Message" = {
-         text = "Premi un tasto qualsiasi";
+         text = "Press any key";
          font-size = 32;
          color = "#${theme.palette.base0A}";
          icon-size = 44;
