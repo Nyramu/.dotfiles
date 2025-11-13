@@ -129,8 +129,8 @@ in
           format = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>Enabled</span>";
           format-disabled = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
           format-off = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
-          format-connected = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>)</span>";
-          format-connected-battery = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias} {device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>)</span>";
+          format-connected = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
+          format-connected-battery = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>)</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
           tooltip-format = "{controller_alias}\t{controller_address}\nStatus: {status}";
           tooltip-format-disabled = "󰂲 Bluetooth disabled \nRight-click to enable";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n{num_connections} connected device(s)\n\n{device_enumerate}";
