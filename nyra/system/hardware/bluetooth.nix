@@ -13,8 +13,15 @@ in
       enable = cfg.enable;
       powerOnBoot = cfg.enable;
       settings.General = {
+        Enable = "Source,Sink,Media,Socket";
         Experimental = true;
+        KernelExperimental = true;
+        ControllerMode = "dual";
         FastConnectable = true;
+        Privacy = "device";
+      };
+      settings.Policy = {
+        AutoEnable = true;
       };
     };
 
