@@ -15,6 +15,7 @@
     enable = true;
     defaultTheme = "pixel-sunset";
   };
+  nyra.system.login.userIcon = "nyramu";
   nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
@@ -35,7 +36,7 @@
   nyra.system.amd.ryzenadj.enable = true;
 
   # Choose Pipewire instead of Pulseaudio
-  #nyra.system.audio.server = "pipewire";
+  nyra.system.audio.server = "pipewire";
 
   # Enable fingerprints support, register one running
   # fprintd-enroll <user>

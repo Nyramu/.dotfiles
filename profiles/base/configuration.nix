@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [ ../../nyra/system ];
@@ -16,15 +16,18 @@
   users.users.nyramu = {
     isNormalUser = true;
     description = "Nyramu";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "jackaudio"
+      "networkmanager"
+    ];
     packages = with pkgs; [ neovim ];
   };
 
   # Login settings
-  nyra.system.login = {
-    sddm.enable = true;
-    userIcon = "burrito-ascii";
-  };
+  nyra.system.login.sddm.enable = true;
 
   # Default shell
   users.defaultUserShell = pkgs.zsh;
@@ -48,18 +51,25 @@
   time.timeZone = "Europe/Rome";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "it_IT.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "it_IT.UTF-8";
-    LC_IDENTIFICATION = "it_IT.UTF-8";
-    LC_MEASUREMENT = "it_IT.UTF-8";
-    LC_MONETARY = "it_IT.UTF-8";
-    LC_NAME = "it_IT.UTF-8";
-    LC_NUMERIC = "it_IT.UTF-8";
-    LC_PAPER = "it_IT.UTF-8";
-    LC_TELEPHONE = "it_IT.UTF-8";
-    LC_TIME = "it_IT.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  
+    supportedLocales = [ 
+      "it_IT.UTF-8/UTF-8" 
+      "en_US.UTF-8/UTF-8" 
+    ];
+  
+    extraLocaleSettings = {
+      LC_TIME = "it_IT.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_MONETARY = "it_IT.UTF-8";
+      LC_MEASUREMENT = "it_IT.UTF-8";
+      LC_PAPER = "it_IT.UTF-8";
+      LC_NAME = "it_IT.UTF-8";
+      LC_ADDRESS = "it_IT.UTF-8";
+      LC_TELEPHONE = "it_IT.UTF-8";
+      LC_IDENTIFICATION = "it_IT.UTF-8"; 
+    };
   };
 
   # Bootloader.
@@ -68,6 +78,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Enable bluetooth
+  nyra.system.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true; 

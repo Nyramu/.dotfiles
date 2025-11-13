@@ -16,8 +16,10 @@ in
 
     programs.steam = {
       enable = cfg.steam.enable;
-      extraCompatPackages = [pkgs.proton-ge-bin];
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
     };
+
+    environment.systemPackages = with pkgs; [protonup-ng];
 
     programs.gamemode = {
       enable = cfg.gamemode.enable;
