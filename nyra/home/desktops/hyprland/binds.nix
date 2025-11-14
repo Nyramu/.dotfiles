@@ -20,7 +20,8 @@ in
             "SUPER, E" = "exec, ${fileManager}";
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
-            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop}"; 
+            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop}";
+            "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}";
             "SUPER, RETURN" = "exec, ${terminal}";
           };
         };
