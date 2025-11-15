@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./rmpc.nix
+    ./rmpc
   ];
 }
