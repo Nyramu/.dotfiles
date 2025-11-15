@@ -24,6 +24,10 @@
       #default = "zen"; # Idk why it explodes if configured
       zen.enable = true;
     };
+    gaming = {
+      minecraft.enable = true;
+      cemu.enable = true;
+    };
     socials = {
       telegram.enable = true;
       discord.enable = true;
