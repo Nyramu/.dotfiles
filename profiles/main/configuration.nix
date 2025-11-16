@@ -33,7 +33,6 @@
 
   # AMD management tools and features
   nyra.system.hardware.amd = {
-    rocm.enable = true;
     ryzen-smu.enable = true;
     ryzenadj.enable = true;
   };
