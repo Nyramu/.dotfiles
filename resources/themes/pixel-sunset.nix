@@ -24,6 +24,10 @@
       package = pkgs.pixel-code;
       name = "Pixel Code";
     };
+    emoji = {
+      package = pkgs.nerd-fonts.symbols-only;
+      name = "Symbols Nerd Font";
+    };
   }; 
 
   opacity = {
