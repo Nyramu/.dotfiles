@@ -115,7 +115,7 @@ in
           format-ethernet = "<span color='#${theme.palette.base0A}'>󰈀 </span> <span color='#${theme.palette.base05}'>Connected</span>";
           format-disconnected = "<span color='#${theme.palette.base0A}'>󰖪 </span> <span color='#${theme.palette.base05}'>Disconnected</span>";
           format-disabled = "<span color='#${theme.palette.base03}'>󰖪  Disabled</span>";
-          tooltip-format-wifi = "Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
+          tooltip-format-wifi = "  Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-ethernet = "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-disconnected = "󰖪  Disconnected \nLeft-click to \nmanage connections";
           tooltip-format-disabled = "󰖪  Connection disabled \nRight-click to enable";
