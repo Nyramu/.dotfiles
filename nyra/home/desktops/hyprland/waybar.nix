@@ -6,7 +6,9 @@ let
   theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
 in
 {
-  home.packages = with pkgs; lib.optionals cfgHyprEnable [ networkmanagerapplet ];
+  home.packages = with pkgs; lib.optionals cfgHyprEnable [
+    networkmanagerapplet
+  ];
   programs.waybar = {
     enable = cfgHyprEnable;
 
@@ -56,10 +58,10 @@ in
         "hyprland/window" = {
           format = "{initialTitle}";
         };
-        
+
         cpu = {
           interval = 3;
-          format = "<span color='#${theme.palette.base0A}'> </span> <span color='#${theme.palette.base05}'>{usage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{avg_frequency} GHz</span>";
+          format = "<span color='#${theme.palette.base0A}'>   </span> <span color='#${theme.palette.base05}'>{usage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{avg_frequency} GHz</span>";
           tooltip = false;
         };
 
@@ -70,15 +72,15 @@ in
         };
 
         pulseaudio = {
-          format = "<span color='#${theme.palette.base0A}'>{icon}</span> <span color='#${theme.palette.base05}'>{volume}%</span>";
+          format = "<span color='#${theme.palette.base0A}'>{icon}</span><span color='#${theme.palette.base05}'>{volume}%</span>";
           format-muted = "<span color='#${theme.palette.base03}'>󰖁 Muted</span>";
           format-icons = {
-            default = ["󰕿" "󰖀" "󰕾"];
-            headphone = "󰋋";
-            headset = "󰋎";
+            default = [" " " " " "];
+            headphone = " ";
+            headset = " ";
             portable = "";
-            speaker = "󰓃";
-            hdmi = "󰡁";
+            speaker = "󰓃 ";
+            hdmi = "󰡁 ";
             car = "";
           };
           scroll-step = 5;
@@ -106,19 +108,19 @@ in
         clock = {
           interval = 1;
           tooltip = false;
-          format = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{:%T}</span>";
+          format = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{:%T}</span>";
         };
 
         network = {
-          format-wifi = "<span color='#${theme.palette.base0A}'>{icon} </span> <span color='#${theme.palette.base05}'>{essid}</span>";
-          format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-          format-ethernet = "<span color='#${theme.palette.base0A}'>󰈀 </span> <span color='#${theme.palette.base05}'>Connected</span>";
-          format-disconnected = "<span color='#${theme.palette.base0A}'>󰖪 </span> <span color='#${theme.palette.base05}'>Disconnected</span>";
-          format-disabled = "<span color='#${theme.palette.base03}'>󰖪  Disabled</span>";
+          format-wifi = "<span color='#${theme.palette.base0A}'>{icon}</span> <span color='#${theme.palette.base05}'>{essid}</span>";
+          format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
+          format-ethernet = "<span color='#${theme.palette.base0A}'>󰈀 </span><span color='#${theme.palette.base05}'>Connected</span>";
+          format-disconnected = "<span color='#${theme.palette.base0A}'>󰤭 </span> <span color='#${theme.palette.base05}'>Disconnected</span>";
+          format-disabled = "<span color='#${theme.palette.base03}'>󰤮  Disabled</span>";
           tooltip-format-wifi = "  Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-ethernet = "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
-          tooltip-format-disconnected = "󰖪  Disconnected \nLeft-click to \nmanage connections";
-          tooltip-format-disabled = "󰖪  Connection disabled \nRight-click to enable";
+          tooltip-format-disconnected = "󰤭  Disconnected \n<span color='#${theme.palette.base0A}'>Left-click</span> to \nmanage connections";
+          tooltip-format-disabled = "󰤮  Connection disabled \n<span color='#${theme.palette.base0A}'>Right-click</span> to enable";
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           on-click-right = "${pkgs.util-linux}/bin/rfkill toggle wifi";
           interval = 5;
@@ -126,11 +128,11 @@ in
         };
 
         bluetooth = {
-          format = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>Enabled</span>";
+          format = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>Enabled</span>";
           format-disabled = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
           format-off = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
-          format-connected = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
-          format-connected-battery = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>)</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
+          format-connected = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
+          format-connected-battery = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>)</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
           tooltip-format = "{controller_alias}\t{controller_address}\nStatus: {status}";
           tooltip-format-disabled = "󰂲 Bluetooth disabled \nRight-click to enable";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n{num_connections} connected device(s)\n\n{device_enumerate}";
@@ -209,6 +211,7 @@ in
       }
 
       #window,
+      #custom-playerctl
       #cpu,
       #memory,
       #pulseaudio,
