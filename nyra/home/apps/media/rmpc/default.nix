@@ -1,7 +1,7 @@
-{ config, lib, ... }: with lib;
+{ config, lib, pkgs, ... }: with lib;
 
 let
-  theme = import ./rmpc-theme.nix { inherit config pkgs; };
+  rmpc-theme = import ./rmpc-theme.nix { inherit config pkgs; };
   cfg = config.nyra.home.apps.media;
 in
 {
@@ -40,6 +40,8 @@ in
       #  }
       #'';
     };
+    services.mpd-mpris.enable = config.services.mpd.enable;
+    services.mpdris2.enable = config.services.mpd.enable;
     programs.cava = {
       enable = cfg.rmpc.enable;
     };
@@ -88,32 +90,36 @@ in
             ),
           ),
           tabs: [
-             (
-              name: "Queue",
+            (
+              name: " Queue",
               pane: Split(
-                direction: Horizontal,
+                direction: Vertical,
                 panes: [
-                  (size: "40%", pane: Split(
-                    borders: "NONE",
-                    direction: Vertical,
+                  (size: "70%", pane: Split(
+                    direction: Horizontal,
                     panes: [
-                      (size: "40%", pane: Pane(Queue), borders: "BOTTOM | RIGHT"),
-                      (size: "30%", pane: Pane(Lyrics), borders: "TOP | BOTTOM | RIGHT"),
-                      (size: "30%", pane: Pane(Cava)),
+                      (size: "50%", pane: Split(
+                        borders: "NONE",
+                        direction: Vertical,
+                        panes: [
+                          (size: "60%", pane: Pane(Queue), borders: "BOTTOM | RIGHT"),
+                          (size: "40%", pane: Pane(Lyrics), borders: "TOP | BOTTOM | RIGHT"),
+                        ],
+                      )),
+                      (size: "50%", pane: Split(
+                        direction: Horizontal,
+                        panes: [
+                          (size: "100%", pane: Pane(AlbumArt)),
+                        ],
+                      )),
                     ],
                   )),
-                  (size: "60%", pane: Split(
-                    direction: Vertical,
-                    panes: [
-                     (size: "40%", pane: Pane(AlbumArt)),
-                     
-                    ],
-                  )),
+                  (size: "30%", pane: Pane(Cava)),
                 ],
               ),
             ),
             (
-              name: "Lyrics",
+              name: " Lyrics",
               pane: Split(
                 direction: Horizontal,
                 panes: [
@@ -152,15 +158,15 @@ in
               ),
             ),
             (
-              name: "Playlists",
+              name: " Playlists",
               pane: Pane(Playlists),
             ),
             (
-              name: "Directories",
+              name: " Directories",
               pane: Pane(Directories),
             ),
             (
-              name: "Search",
+              name: " Search",
               pane: Pane(Search),
             ),
           ],
@@ -172,20 +178,20 @@ in
               ".":       VolumeUp,
               "<Tab>":   NextTab,
               "<S-Tab>": PreviousTab,
-              "1":       SwitchToTab("Queue"),
-              "2":       SwitchToTab("Lyrics"),
-              "3":       SwitchToTab("Playlists"),
-              "4":       SwitchToTab("Directories"),
-              "5":       SwitchToTab("Search"),
+              "1":       SwitchToTab(" Queue"),
+              "2":       SwitchToTab(" Lyrics"),
+              "3":       SwitchToTab(" Playlists"),
+              "4":       SwitchToTab(" Directories"),
+              "5":       SwitchToTab(" Search"),
               "q":       Quit,
               ">":       NextTrack,
               "p":       TogglePause,
               "<":       PreviousTrack,
               "f":       SeekForward,
-              "z":       ToggleRepeat,
-              "x":       ToggleRandom,
-              "c":       ToggleConsume,
-              "v":       ToggleSingle,
+              "z":       ToggleRandom,
+              "x":       ToggleRepeat,
+              "c":       ToggleSingle,
+              "v":       ToggleConsume,
               "b":       SeekBack,
               "~":       ShowHelp,
               "u":       Update,
@@ -196,10 +202,6 @@ in
               "R":       AddRandom,
             },
             navigation: {
-              "k":         Up,
-              "j":         Down,
-              "h":         Left,
-              "l":         Right,
               "<Up>":      Up,
               "<Down>":    Down,
               "<Left>":    Left,
@@ -258,7 +260,7 @@ in
         )
       '';
     };
-    xdg.configFile."rmpc/theme.ron".text = theme;
+    xdg.configFile."rmpc/theme.ron".text = rmpc-theme;
   };
 }
 
