@@ -14,5 +14,6 @@ in
     home.packages = with pkgs;
       optionals cfg.telegram.enable [ telegram-desktop ] ++
       optionals cfg.discord.enable [ (discord.override {withVencord = true;}) betterdiscord-installer ];
+    services.mpd-discord-rpc.enable = cfg.discord.enable && config.services.mpd.enable;
   };
 }
