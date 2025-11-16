@@ -27,5 +27,7 @@ in
       jack.enable = true;
       wireplumber.enable = true;
     };
+
+    security.rtkit.enable = mkDefault cfg.server == "pipewire";
   };
 }
