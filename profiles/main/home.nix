@@ -34,7 +34,7 @@
       discord.enable = true;
     };
     media = {
-      rmpc.enable = true;
+      music.enable = true; # Enables mpd, rmpc, cava
     };
     miscellaneous = {
       btop.enable = true;
