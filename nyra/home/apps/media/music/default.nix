@@ -6,12 +6,12 @@ let
 in
 {
   options.nyra.home.apps.media = {
-    rmpc.enable = mkEnableOption "rmpc";
+    music.enable = mkEnableOption "music";
   };
 
   config = {
     services.mpd = {
-      enable = cfg.rmpc.enable;
+      enable = cfg.music.enable;
       musicDirectory = "${config.home.homeDirectory}/Music";
       playlistDirectory = "${config.home.homeDirectory}/Music/Playlists";
       extraConfig = ''
@@ -40,13 +40,11 @@ in
       #  }
       #'';
     };
-    #services.mpd-mpris.enable = config.services.mpd.enable;
-    #services.mpdris2.enable = config.services.mpd.enable;
     programs.cava = {
-      enable = cfg.rmpc.enable;
+      enable = cfg.music.enable;
     };
     programs.rmpc = {
-      enable = cfg.rmpc.enable;
+      enable = cfg.music.enable;
       config = ''
         #![enable(implicit_some)]
         #![enable(unwrap_newtypes)]
