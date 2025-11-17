@@ -40,8 +40,8 @@ in
       #  }
       #'';
     };
-    services.mpd-mpris.enable = config.services.mpd.enable;
-    services.mpdris2.enable = config.services.mpd.enable;
+    #services.mpd-mpris.enable = config.services.mpd.enable;
+    #services.mpdris2.enable = config.services.mpd.enable;
     programs.cava = {
       enable = cfg.rmpc.enable;
     };
