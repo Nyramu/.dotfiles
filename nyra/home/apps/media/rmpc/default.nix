@@ -63,7 +63,7 @@ in
           wrap_navigation: true,
           enable_mouse: true,
           enable_config_hot_reload: true,
-          status_update_interval_ms: Some(1000),
+          status_update_interval_ms: Some(125),
           directories_sort: SortFormat(group_by_type: true, reverse: false),
           browser_song_sort: [Artist, Track, Title],
           artists: (
