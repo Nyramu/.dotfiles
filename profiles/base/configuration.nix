@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     git
     curl
+    util-linux
     usbutils
     kitty
   ];
@@ -72,6 +73,19 @@
     };
   };
 
+  # CPU Frequency
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -80,7 +94,7 @@
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
-  nyra.system.bluetooth.enable = true;
+  nyra.system.hardware.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true; 

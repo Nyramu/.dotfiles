@@ -2,6 +2,8 @@
 
 let
   apps = config.nyra.home.apps;
+  screenShot = pkgs.callPackage ../../../../commands/screen-shot {};
+  screenRecord = pkgs.callPackage ../../../../commands/screen-record {};
 in
 {
   wayland.windowManager.hyprland = {
@@ -20,13 +22,20 @@ in
             "SUPER, E" = "exec, ${fileManager}";
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
-            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop}"; 
+            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop}";
+            "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
             "SUPER, RETURN" = "exec, ${terminal}";
           };
         };
 
         waybar = {
           bind."SUPER_SHIFT, W" = "exec, pkill ${pkgs.waybar.pname}; ${getExe pkgs.waybar}";
+        };
+
+        screenCapture = {
+          bind.", F9" = "exec, ${getExe screenRecord}";
+          bind.", F10" = "exec, ${getExe screenShot}";
+          bind.", Print" = "exec, ${getExe screenShot}"; 
         };
 
         windowControl = {
@@ -133,6 +142,7 @@ in
           groups.moveToWorkspace
           # Launch apps
           groups.launchApps
+          groups.screenCapture
           groups.waybar
         ];
   };

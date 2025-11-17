@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: with lib;
 
 let
-  cfg = config.nyra.system.audio;
+  cfg = config.nyra.system.hardware.audio;
 in
 {
-  options.nyra.system.audio = {
+  options.nyra.system.hardware.audio = {
     server = mkOption {
       type = types.enum [ "pipewire" "pulseaudio" ];
       default = "pulseaudio";
@@ -27,5 +27,7 @@ in
       jack.enable = true;
       wireplumber.enable = true;
     };
+
+    security.rtkit.enable = mkDefault cfg.server == "pipewire";
   };
 }

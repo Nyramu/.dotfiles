@@ -22,11 +22,19 @@
     };
     browsers = {
       #default = "zen"; # Idk why it explodes if configured
-      qutebrowser.enable = true;
+      zen.enable = true;
+      firefox.enable = true;
+    };
+    gaming = {
+      minecraft.enable = true;
+      cemu.enable = true;
     };
     socials = {
       telegram.enable = true;
       discord.enable = true;
+    };
+    media = {
+      music.enable = true; # Enables mpd, rmpc, cava
     };
     miscellaneous = {
       btop.enable = true;

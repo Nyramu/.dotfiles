@@ -1,20 +1,23 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, ... }: with lib; 
 
 let
-  cfgHyprEnable = config.nyra.home.desktops.hyprland.enable; 
+  cfg = config.nyra.home;
+  cfgHyprland = cfg.desktops.hyprland; 
   themeName = config.nyra.theme.defaultTheme;
   theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
 in
 {
-  home.packages = with pkgs; lib.optionals cfgHyprEnable [ networkmanagerapplet ];
+  home.packages = with pkgs; optionals cfgHyprland.enable [
+    networkmanagerapplet
+  ];
   programs.waybar = {
-    enable = cfgHyprEnable;
+    enable = cfgHyprland.enable;
 
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
-        height = 45;
+        height = 50;
         spacing = 3;
         exclusive = true;
         gtk-layer-shell = true;
@@ -22,12 +25,12 @@ in
         fixed-center = true;
 
         modules-left = [
-          "cpu"
-          "memory"
+          "battery"
+          "hyprland/workspaces"
           "tray"
         ];
         modules-center = [
-          "hyprland/workspaces"
+          "mpd"
         ];
         modules-right = [
           "pulseaudio"
@@ -35,7 +38,6 @@ in
           "network"
           "bluetooth"
           "clock"
-          "battery"
         ];
 
         "hyprland/workspaces" = {
@@ -53,32 +55,63 @@ in
           active-only = false;
         };
 
-        "hyprland/window" = {
-          format = "{initialTitle}";
+        mpd = mkIf cfg.apps.media.music.enable {
+          format = "{randomIcon} {repeatIcon}<span color='#${theme.palette.base0A}'>|</span> {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({songPosition}/{queueLength})<span color='#${theme.palette.base0A}'>|</span> {singleIcon} {consumeIcon}";
+          format-disconnected = "MPD Disconnected ";
+          format-stopped = " RMPC Stopped";
+          random-icons = {
+            off= "<span color='#${theme.palette.base03}'>  </span>";
+            on = "  ";
+          };
+          repeat-icons = {
+            off= "<span color='#${theme.palette.base03}'> </span>";
+            on = " ";
+          };
+          single-icons = {
+            off= "<span color='#${theme.palette.base03}'>󰼏 </span>";
+            on = "󰼏 ";
+          };
+          consume-icons = {
+            off= "<span color='#${theme.palette.base03}'>  </span>";
+            on = "  ";
+          };
+          state-icons = {
+            paused = " ";
+            playing = "❚❚ ";
+          };
+          on-click = "rmpc togglepause";
+          on-click-middle = "rmpc stop";
+          on-click-right = "${getExe pkgs.${cfg.apps.terminals.default}} -e ${getExe pkgs.rmpc}";
+          on-scroll-up = "rmpc prev";
+          on-scroll-down = "rmpc next";
+          tooltip = false;
+          #interval = 1;
         };
-        
+
+        cava = {};
+
         cpu = {
           interval = 3;
-          format = "<span color='#${theme.palette.base0A}'> </span> <span color='#${theme.palette.base05}'>{usage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{avg_frequency} GHz</span>";
+          format = "<span color='#${theme.palette.base0A}'>  </span><span color='#${theme.palette.base05}'>{usage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{avg_frequency} GHz</span>";
           tooltip = false;
         };
 
         memory = {
           interval = 3;
-          format = "<span color='#${theme.palette.base0A}'> </span> <span color='#${theme.palette.base05}'>{percentage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{used:0.1f} GB/{total:0.1f} GB</span>";
+          format = "<span color='#${theme.palette.base0A}'>  </span><span color='#${theme.palette.base05}'>{percentage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{used:0.1f} GB/{total:0.1f} GB</span>";
           tooltip = false; # TODO: decide to put or not btop 'quick launch'
         };
 
         pulseaudio = {
-          format = "<span color='#${theme.palette.base0A}'>{icon}</span> <span color='#${theme.palette.base05}'>{volume}%</span>";
+          format = "<span color='#${theme.palette.base0A}'>{icon}</span><span color='#${theme.palette.base05}'>{volume}%</span>";
           format-muted = "<span color='#${theme.palette.base03}'>󰖁 Muted</span>";
           format-icons = {
-            default = ["󰕿" "󰖀" "󰕾"];
-            headphone = "󰋋";
-            headset = "󰋎";
+            default = [" " " " " "];
+            headphone = " ";
+            headset = " ";
             portable = "";
-            speaker = "󰓃";
-            hdmi = "󰡁";
+            speaker = "󰓃 ";
+            hdmi = "󰡁 ";
             car = "";
           };
           scroll-step = 5;
@@ -106,19 +139,19 @@ in
         clock = {
           interval = 1;
           tooltip = false;
-          format = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{:%T}</span>";
+          format = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{:%T}</span>";
         };
 
         network = {
-          format-wifi = "<span color='#${theme.palette.base0A}'>{icon} </span> <span color='#${theme.palette.base05}'>{essid}</span>";
-          format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-          format-ethernet = "<span color='#${theme.palette.base0A}'>󰈀 </span> <span color='#${theme.palette.base05}'>Connected</span>";
-          format-disconnected = "<span color='#${theme.palette.base0A}'>󰖪 </span> <span color='#${theme.palette.base05}'>Disconnected</span>";
-          format-disabled = "<span color='#${theme.palette.base03}'>󰖪  Disabled</span>";
-          tooltip-format-wifi = "Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
+          format-wifi = "<span color='#${theme.palette.base0A}'>{icon}</span><span color='#${theme.palette.base05}'>{essid}</span>";
+          format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
+          format-ethernet = "<span color='#${theme.palette.base0A}'>󰈀 </span><span color='#${theme.palette.base05}'>Connected</span>";
+          format-disconnected = "<span color='#${theme.palette.base0A}'>󰤭 </span><span color='#${theme.palette.base05}'>Disconnected</span>";
+          format-disabled = "<span color='#${theme.palette.base03}'>󰤮 Disabled</span>";
+          tooltip-format-wifi = "  Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-ethernet = "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
-          tooltip-format-disconnected = "󰖪  Disconnected \nLeft-click to \nmanage connections";
-          tooltip-format-disabled = "󰖪  Connection disabled \nRight-click to enable";
+          tooltip-format-disconnected = "󰤭  Disconnected \n<span color='#${theme.palette.base0A}'>Left-click</span> to \nmanage connections";
+          tooltip-format-disabled = "󰤮  Connection disabled \n<span color='#${theme.palette.base0A}'>Right-click</span> to enable";
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           on-click-right = "${pkgs.util-linux}/bin/rfkill toggle wifi";
           interval = 5;
@@ -126,11 +159,11 @@ in
         };
 
         bluetooth = {
-          format = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>Enabled</span>";
+          format = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>Enabled</span>";
           format-disabled = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
           format-off = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
-          format-connected = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>)</span>";
-          format-connected-battery = "<span color='#${theme.palette.base0A}'></span> <span color='#${theme.palette.base05}'>{device_alias} {device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>)</span>";
+          format-connected = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
+          format-connected-battery = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>)</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
           tooltip-format = "{controller_alias}\t{controller_address}\nStatus: {status}";
           tooltip-format-disabled = "󰂲 Bluetooth disabled \nRight-click to enable";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n{num_connections} connected device(s)\n\n{device_enumerate}";
@@ -167,13 +200,13 @@ in
       * {
         min-height: 0;
         min-width: 0;
-        font-family: ${theme.fonts.monospace.name}, ${theme.fonts.sansSerif.name};
-        font-size: 14px;
+        font-family: ${theme.fonts.monospace.name}, ${theme.fonts.emoji.name};
+        font-size: 15px;
         font-weight: 600;
       }
 
       window#waybar {
-        background-color: ${theme.waybar.background-color};
+        background-color: transparent;
       }
 
       window#waybar.hidden {
@@ -181,7 +214,11 @@ in
       }
 
       #workspaces {
-        background-color: transparent;
+        background-color: ${theme.waybar.background-color};
+        padding: 0.3rem 0.6rem;
+        margin: 0.2rem;
+        border-radius: 6px;
+        border: 2px solid #${theme.palette.base0A};
       }
 
       #workspaces button {
@@ -209,6 +246,8 @@ in
       }
 
       #window,
+      #mpd,
+      #cava,
       #cpu,
       #memory,
       #pulseaudio,
@@ -220,15 +259,15 @@ in
         padding: 0.3rem 0.6rem;
         margin: 0.2rem;
         border-radius: 6px;
-        background-color: transparent;
+        border: 2px solid #${theme.palette.base0A};
+        background-color: ${theme.waybar.background-color};
       }
 
       window#waybar.empty #window {
         background-color: transparent;
       }
 
-      #memory
-       {
+      #memory {
         color: #${theme.palette.base09};
       } 
 

@@ -31,12 +31,14 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  # Enable AMD features and ryzenadj
-  nyra.system.amd.features = [ "rocm" "ryzen-smu" ];
-  nyra.system.amd.ryzenadj.enable = true;
+  # AMD management tools and features
+  nyra.system.hardware.amd = {
+    ryzen-smu.enable = true;
+    ryzenadj.enable = true;
+  };
 
   # Choose Pipewire instead of Pulseaudio
-  nyra.system.audio.server = "pipewire";
+  nyra.system.hardware.audio.server = "pipewire";
 
   # Enable fingerprints support, register one running
   # fprintd-enroll <user>
