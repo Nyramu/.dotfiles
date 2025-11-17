@@ -2,6 +2,8 @@
 
 let
   apps = config.nyra.home.apps;
+  screenShot = pkgs.callPackage ../../../../commands/screen-shot {};
+  screenRecord = pkgs.callPackage ../../../../commands/screen-record {};
 in
 {
   wayland.windowManager.hyprland = {
@@ -28,6 +30,12 @@ in
 
         waybar = {
           bind."SUPER_SHIFT, W" = "exec, pkill ${pkgs.waybar.pname}; ${getExe pkgs.waybar}";
+        };
+
+        screenCapture = {
+          bind.", F9" = "exec, ${getExe screenRecord}";
+          bind.", F10" = "exec, ${getExe screenShot}";
+          bind.", Print" = "exec, ${getExe screenShot}"; 
         };
 
         windowControl = {
@@ -134,6 +142,7 @@ in
           groups.moveToWorkspace
           # Launch apps
           groups.launchApps
+          groups.screenCapture
           groups.waybar
         ];
   };
