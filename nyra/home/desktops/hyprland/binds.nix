@@ -21,7 +21,7 @@ in
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop}";
-            "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}";
+            "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
             "SUPER, RETURN" = "exec, ${terminal}";
           };
         };
