@@ -33,9 +33,14 @@ in
         };
 
         screenCapture = {
+          # Press to start recording, then press again to stop and save
           bind.", F9" = "exec, ${getExe screenRecord}";
+          # Copy to clipboard without saving
           bind.", F10" = "exec, ${getExe screenShot}";
-          bind.", Print" = "exec, ${getExe screenShot}"; 
+          bind.", Print" = "exec, ${getExe screenShot}";
+          # Copy to clipboard and save
+          bind."SUPER, F10" = "exec, ${getExe screenShot} --save";
+          bind."SUPER, Print" = "exec, ${getExe screenShot} --save";
         };
 
         windowControl = {
