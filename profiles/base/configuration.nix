@@ -45,6 +45,17 @@
   # Support MTP devices
   services.gvfs.enable = true;
 
+  # Needed for gpu-screen-recorder
+  security.wrappers.gsr-kms-server = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_admin+ep";
+    source = "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server";
+    setuid = false;
+    setgid = false;
+  };
+
+
   # Support NTFS file system
   boot.supportedFilesystems = [ "ntfs" ];
 
