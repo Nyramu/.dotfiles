@@ -3,8 +3,7 @@
 let
   themeName = config.nyra.theme.defaultTheme;
   theme = import ../../../../../resources/themes/${themeName}.nix { inherit pkgs; };
-in
-''
+in ''
 #![enable(implicit_some)]
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
@@ -26,10 +25,10 @@ in
   borders_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
   highlight_border_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
   progress_bar: (
-      symbols: ["┄", "┅", "━"],
+      symbols: ["", "█", "", "█", ""],
       track_style: (),
-      elapsed_style: (),
-      thumb_style: (),
+      elapsed_style: (fg: "#${theme.palette.base05}"),
+      thumb_style: (fg: "#${theme.palette.base05}"),
   ),
   scrollbar: (
       symbols: ["", "", "", ""],
@@ -137,17 +136,20 @@ in
   layout: Split(
     direction: Vertical,
     panes: [
-      (size: "4", pane: Split(
+      (size: "6", pane: Split(
         direction: Horizontal,
         panes: [
           (size: "100%", pane: Split(
             direction: Vertical,
+            borders: "ALL",
             panes: [
-              (size: "100%", borders: "ALL", pane: Pane(Header)),
+              (size: "5", pane: Pane(Header)),
+              (size: "4", pane: Pane(ProgressBar), borders: "TOP"),
             ],
           )),
         ],
       )),
+
       (size: "3", pane: Pane(Tabs), borders: "ALL"),
       (size: "100%", pane: Split(
         direction: Horizontal,
