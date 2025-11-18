@@ -56,7 +56,7 @@ in
         };
 
         mpd = mkIf cfg.apps.media.music.enable {
-          format = "{randomIcon} {repeatIcon}<span color='#${theme.palette.base0A}'>|</span> {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({songPosition}/{queueLength})<span color='#${theme.palette.base0A}'>|</span> {singleIcon} {consumeIcon}";
+          format = "{randomIcon} {repeatIcon}<span color='#${theme.palette.base0A}'>|</span> {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({songPosition}/{queueLength}) <span color='#${theme.palette.base0A}'>|</span> {singleIcon} {consumeIcon}";
           format-disconnected = "MPD Disconnected ";
           format-stopped = " RMPC Stopped";
           random-icons = {
