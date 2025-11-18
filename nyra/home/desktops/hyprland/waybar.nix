@@ -242,7 +242,8 @@ in
       }
 
       #workspaces button.urgent {
-        background-color: #${theme.palette.base08};
+        color: #${theme.palette.base01};
+        background-color: #${theme.palette.base0A};
       }
 
       #window,
