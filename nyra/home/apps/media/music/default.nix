@@ -128,17 +128,17 @@ in
                     direction: Vertical,
                     panes: [
                       (size: "37%", pane: Pane(AlbumArt)),
-                      (size: "15%", pane: Split(
+                      (size: "4", pane: Split(
                         borders: "TOP | BOTTOM",
                         direction: Vertical,
                         panes: [
-                          (size: "60%", pane: Pane(Property(
+                          (size: "2", pane: Pane(Property(
                             content: [
                               (kind: Property(Song(Title)), style: (modifiers:"Bold"))
                             ],
                             align: Center
                           ))),
-                          (size: "40%", pane: Pane(Property(
+                          (size: "2", pane: Pane(Property(
                             content: [
                               (kind: Property(Song(Artist)))
                             ],
