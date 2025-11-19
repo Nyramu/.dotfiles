@@ -22,14 +22,18 @@ in
             "SUPER, E" = "exec, ${fileManager}";
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
-            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop}";
+            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
+            "SUPER, SPACE" = "exec, ${getExe pkgs.vicinae} toggle";
             "SUPER, RETURN" = "exec, ${terminal}";
           };
         };
 
-        waybar = {
+        restartApps = {
+          # Waybar
           bind."SUPER_SHIFT, W" = "exec, pkill ${pkgs.waybar.pname}; ${getExe pkgs.waybar}";
+          # Vicinae
+          bind."SUPER_SHIFT, SPACE" = "exec, ${getExe pkgs.vicinae} server --replace";
         };
 
         screenCapture = {
@@ -147,8 +151,8 @@ in
           groups.moveToWorkspace
           # Launch apps
           groups.launchApps
+          groups.restartApps
           groups.screenCapture
-          groups.waybar
         ];
   };
 }
