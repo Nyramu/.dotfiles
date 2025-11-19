@@ -111,9 +111,10 @@ in
 
     # Set wallpaper
     config.exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
-    # Start waybar
+    # Start waybar and vicinae
     config.exec_once = [ 
       "${lib.getExe pkgs.waybar}" 
+      "${lib.getExe pkgs.vicinae} server"
     ];
   };
     
