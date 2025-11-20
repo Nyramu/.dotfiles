@@ -20,7 +20,7 @@ in
       gaps_inside = 5;
       gaps_outside = 25;
 
-      active_border_color = "${theme.hypr.active_border_color} 270deg";
+      active_border_color = theme.hypr.active_border_color;
       inactive_border_color = theme.hypr.inactive_border_color;
 
       layout = "dwindle";
@@ -32,7 +32,7 @@ in
       shadow = {
         range = 5;
         render_power = 3;
-        color = theme.hypr.decoration.shadow.color;
+        color = "rgba(26, 26, 26, 0.93)";
       };
       blur.enabled = false;
     };
