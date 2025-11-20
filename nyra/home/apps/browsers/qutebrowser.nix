@@ -38,14 +38,14 @@ in
 
       settings.colors = {
         webpage.darkmode.enabled = theme.polarity == "dark";
-        webpage.bg = mkForce "#${theme.palette.base00}";
+        webpage.bg = mkForce theme.palette.base00;
         # Transparent tabs, stylix cannot apply its opacity here
         tabs.even.bg = mkForce "#00000066";
         tabs.odd.bg = mkForce "#00000066";
         tabs.bar.bg = mkForce "#00000066";
         # Black tabs
-        tabs.selected.even.bg = mkForce "#${theme.palette.base00}";
-        tabs.selected.odd.bg = mkForce "#${theme.palette.base00}"; 
+        tabs.selected.even.bg = mkForce theme.palette.base00;
+        tabs.selected.odd.bg = mkForce theme.palette.base00; 
       }; 
 
       searchEngines = {
