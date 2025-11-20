@@ -13,7 +13,7 @@
   # Theming and fonts
   nyra.theme = {
     enable = true;
-    defaultTheme = "pixel-sunset";
+    defaultTheme = "red-eclipse";
   };
   nyra.system.login.userIcon = "nyramu";
   nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
