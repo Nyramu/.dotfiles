@@ -17,18 +17,18 @@ in ''
   
   tab_bar: (
       enabled: true,
-      active_style: (bg: "#${theme.palette.base00}", fg: "#${theme.palette.base0A}", modifiers: "Bold"),
+      active_style: (bg: "${theme.palette.base00}", fg: "${theme.palette.base0A}", modifiers: "Bold"),
       inactive_style: (modifiers: ""),
   ),
-  highlighted_item_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
-  current_item_style: (bg: "#${theme.palette.base00}", fg: "#${theme.palette.base0A}", modifiers: "Underlined | Bold"),
-  borders_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
-  highlight_border_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
+  highlighted_item_style: (fg: "${theme.palette.base0A}", modifiers: "Bold"),
+  current_item_style: (bg: "${theme.palette.base00}", fg: "${theme.palette.base0A}", modifiers: "Underlined | Bold"),
+  borders_style: (fg: "${theme.palette.base0A}", modifiers: "Bold"),
+  highlight_border_style: (fg: "${theme.palette.base0A}", modifiers: "Bold"),
   progress_bar: (
       symbols: ["", "█", "", "█", ""],
       track_style: (),
-      elapsed_style: (fg: "#${theme.palette.base05}"),
-      thumb_style: (fg: "#${theme.palette.base05}"),
+      elapsed_style: (fg: "${theme.palette.base05}"),
+      thumb_style: (fg: "${theme.palette.base05}"),
   ),
   scrollbar: (
       symbols: ["", "", "", ""],
@@ -79,7 +79,7 @@ in ''
     rows: [
       (
         left: [
-          (kind: Property(Status(StateV2(playing_label: " [Playing]", paused_label: " [Paused]", stopped_label: " [Stopped]"))), style: (fg: "#${theme.palette.base0A}", modifiers: "Bold")),
+          (kind: Property(Status(StateV2(playing_label: " [Playing]", paused_label: " [Paused]", stopped_label: " [Stopped]"))), style: (fg: "${theme.palette.base0A}", modifiers: "Bold")),
         ],
         center: [
           (kind: Property(Song(Title)), style: (modifiers: "Bold"),
@@ -96,7 +96,7 @@ in ''
         left: [
           (kind: Property(Status(StateV2(
             playing_label: " ❚❚ ", paused_label: "  ", stopped_label: "  "))),
-            style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"
+            style: (fg: "${theme.palette.base0A}", modifiers: "Bold"
           )),
           (kind: Property(Status(Elapsed)),style: ()),
           (kind: Text("/"),style: ()),
@@ -111,22 +111,22 @@ in ''
           (kind: Group([
             (kind: Property(Status(RandomV2(
               on_label:" ", off_label:" ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"))
+              on_style: (fg: "${theme.palette.base05}"), off_style: (fg: "${theme.palette.base03}"))
             ))),
-            (kind: Text(" | "),style: (fg: "#${theme.palette.base0A}")), 
+            (kind: Text(" | "),style: (fg: "${theme.palette.base0A}")), 
             (kind: Property(Status(RepeatV2(
               on_label:" ", off_label:" ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"))
+              on_style: (fg: "${theme.palette.base05}"), off_style: (fg: "${theme.palette.base03}"))
             ))),
-            (kind: Text(" | "),style: (fg: "#${theme.palette.base0A}")),
+            (kind: Text(" | "),style: (fg: "${theme.palette.base0A}")),
             (kind: Property(Status(SingleV2(
               on_label:"󰼏 ", off_label:"󰼏 ", oneshot_label:"󰼏 ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"), oneshot_style: (fg: "#${theme.palette.base0A}"))
+              on_style: (fg: "${theme.palette.base05}"), off_style: (fg: "${theme.palette.base03}"), oneshot_style: (fg: "${theme.palette.base0A}"))
             ))),
-            (kind: Text(" | "),style: (fg: "#${theme.palette.base0A}")),
+            (kind: Text(" | "),style: (fg: "${theme.palette.base0A}")),
             (kind: Property(Status(ConsumeV2(
               on_label:"  ", off_label:"  ", oneshot_label:"  ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"), oneshot_style: (fg: "#${theme.palette.base0A}"))
+              on_style: (fg: "${theme.palette.base05}"), off_style: (fg: "${theme.palette.base03}"), oneshot_style: (fg: "${theme.palette.base0A}"))
             ))),
           ])),
         ]
@@ -161,9 +161,9 @@ in ''
   ),
   cava: (
     bar_color: Gradient({
-      0: "#${theme.palette.base0A}",
-      60: "#${theme.palette.base05}",
-      100: "#${theme.palette.base05}",
+      0: "${theme.palette.base0A}",
+      60: "${theme.palette.base05}",
+      100: "${theme.palette.base05}",
     }),
   ),
 )
