@@ -45,6 +45,15 @@ in {
           #go.enable = true;
           #lua.enable = true;
         };
+        vim.ui = {
+          nvim-highlight-colors = {
+            enable = true;
+            setupOpts = {
+              render = "background";
+              virtual_symbol_position = "inline";
+            };
+          };
+        };
         vim.options = {
           scrolloff = 8;
           tabstop = 2;
