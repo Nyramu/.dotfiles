@@ -8,7 +8,7 @@
   # Theming
   nyra.theme = {
     enable = true;
-    defaultTheme = "pixel-sunset";
+    defaultTheme = "red-eclipse";
   };
 
   # Apps
@@ -37,6 +37,7 @@
       music.enable = true; # Enables mpd, rmpc, cava
     };
     miscellaneous = {
+      enableUtils = true; # See all packages in nyra/home/apps/miscellaneous/utils.nix
       btop.enable = true;
       fastfetch.enable = true;
     };
