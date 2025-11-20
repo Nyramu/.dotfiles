@@ -56,23 +56,23 @@ in
         };
 
         mpd = mkIf cfg.apps.media.music.enable {
-          format = "{randomIcon} {repeatIcon}<span color='#${theme.palette.base0A}'>|</span> {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({songPosition}/{queueLength}) <span color='#${theme.palette.base0A}'>|</span> {singleIcon} {consumeIcon}";
+          format = "{randomIcon} {repeatIcon}<span color='${theme.palette.base0A}'>|</span> {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({songPosition}/{queueLength}) <span color='${theme.palette.base0A}'>|</span> {singleIcon} {consumeIcon}";
           format-disconnected = "MPD Disconnected ";
           format-stopped = " RMPC Stopped";
           random-icons = {
-            off= "<span color='#${theme.palette.base03}'>  </span>";
+            off= "<span color='${theme.palette.base03}'>  </span>";
             on = "  ";
           };
           repeat-icons = {
-            off= "<span color='#${theme.palette.base03}'> </span>";
+            off= "<span color='${theme.palette.base03}'> </span>";
             on = " ";
           };
           single-icons = {
-            off= "<span color='#${theme.palette.base03}'>󰼏 </span>";
+            off= "<span color='${theme.palette.base03}'>󰼏 </span>";
             on = "󰼏 ";
           };
           consume-icons = {
-            off= "<span color='#${theme.palette.base03}'>  </span>";
+            off= "<span color='${theme.palette.base03}'>  </span>";
             on = "  ";
           };
           state-icons = {
@@ -92,19 +92,19 @@ in
 
         cpu = {
           interval = 3;
-          format = "<span color='#${theme.palette.base0A}'>  </span><span color='#${theme.palette.base05}'>{usage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{avg_frequency} GHz</span>";
+          format = "<span color='${theme.palette.base0A}'>  </span><span color='${theme.palette.base05}'>{usage}%</span> <span color='${theme.palette.base0A}'>|</span> <span color='${theme.palette.base05}'>{avg_frequency} GHz</span>";
           tooltip = false;
         };
 
         memory = {
           interval = 3;
-          format = "<span color='#${theme.palette.base0A}'>  </span><span color='#${theme.palette.base05}'>{percentage}%</span> <span color='#${theme.palette.base0A}'>|</span> <span color='#${theme.palette.base05}'>{used:0.1f} GB/{total:0.1f} GB</span>";
+          format = "<span color='${theme.palette.base0A}'>  </span><span color='${theme.palette.base05}'>{percentage}%</span> <span color='${theme.palette.base0A}'>|</span> <span color='${theme.palette.base05}'>{used:0.1f} GB/{total:0.1f} GB</span>";
           tooltip = false; # TODO: decide to put or not btop 'quick launch'
         };
 
         pulseaudio = {
-          format = "<span color='#${theme.palette.base0A}'>{icon}</span><span color='#${theme.palette.base05}'>{volume}%</span>";
-          format-muted = "<span color='#${theme.palette.base03}'>󰖁 Muted</span>";
+          format = "<span color='${theme.palette.base0A}'>{icon}</span><span color='${theme.palette.base05}'>{volume}%</span>";
+          format-muted = "<span color='${theme.palette.base03}'>󰖁 Muted</span>";
           format-icons = {
             default = [" " " " " "];
             headphone = " ";
@@ -125,8 +125,8 @@ in
 
         "pulseaudio#microphone" = {
           format = "{format_source}";
-          format-source = "<span color='#${theme.palette.base0A}'>󰍬</span> <span color='#${theme.palette.base05}'>{volume}%</span>";
-          format-source-muted = "<span color='#${theme.palette.base03}'>󰍭 Muted</span>";
+          format-source = "<span color='${theme.palette.base0A}'>󰍬</span> <span color='${theme.palette.base05}'>{volume}%</span>";
+          format-source-muted = "<span color='${theme.palette.base03}'>󰍭 Muted</span>";
           on-click = "${pkgs.pavucontrol}/bin/pavucontrol -t 4";
           on-click-right = "${pkgs.pamixer}/bin/pamixer --default-source -t";
           on-scroll-up = "${pkgs.pamixer}/bin/pamixer --default-source -i 5";
@@ -139,19 +139,19 @@ in
         clock = {
           interval = 1;
           tooltip = false;
-          format = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{:%T}</span>";
+          format = "<span color='${theme.palette.base0A}'> </span><span color='${theme.palette.base05}'>{:%T}</span>";
         };
 
         network = {
-          format-wifi = "<span color='#${theme.palette.base0A}'>{icon}</span><span color='#${theme.palette.base05}'>{essid}</span>";
+          format-wifi = "<span color='${theme.palette.base0A}'>{icon}</span><span color='${theme.palette.base05}'>{essid}</span>";
           format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
-          format-ethernet = "<span color='#${theme.palette.base0A}'>󰈀 </span><span color='#${theme.palette.base05}'>Connected</span>";
-          format-disconnected = "<span color='#${theme.palette.base0A}'>󰤭 </span><span color='#${theme.palette.base05}'>Disconnected</span>";
-          format-disabled = "<span color='#${theme.palette.base03}'>󰤮 Disabled</span>";
+          format-ethernet = "<span color='${theme.palette.base0A}'>󰈀 </span><span color='${theme.palette.base05}'>Connected</span>";
+          format-disconnected = "<span color='${theme.palette.base0A}'>󰤭 </span><span color='${theme.palette.base05}'>Disconnected</span>";
+          format-disabled = "<span color='${theme.palette.base03}'>󰤮 Disabled</span>";
           tooltip-format-wifi = "  Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-ethernet = "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
-          tooltip-format-disconnected = "󰤭  Disconnected \n<span color='#${theme.palette.base0A}'>Left-click</span> to \nmanage connections";
-          tooltip-format-disabled = "󰤮  Connection disabled \n<span color='#${theme.palette.base0A}'>Right-click</span> to enable";
+          tooltip-format-disconnected = "󰤭  Disconnected \n<span color='${theme.palette.base0A}'>Left-click</span> to \nmanage connections";
+          tooltip-format-disabled = "󰤮  Connection disabled \n<span color='${theme.palette.base0A}'>Right-click</span> to enable";
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           on-click-right = "${pkgs.util-linux}/bin/rfkill toggle wifi";
           interval = 5;
@@ -159,11 +159,11 @@ in
         };
 
         bluetooth = {
-          format = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>Enabled</span>";
-          format-disabled = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
-          format-off = "<span color='#${theme.palette.base03}'>󰂲 Disabled</span>";
-          format-connected = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
-          format-connected-battery = "<span color='#${theme.palette.base0A}'> </span><span color='#${theme.palette.base05}'>{device_alias}</span> <span color='#${theme.palette.base0A}'>(</span><span color='#${theme.palette.base05}'>{device_battery_percentage}%</span><span color='#${theme.palette.base0A}'>)</span> <span color='#${theme.palette.base0A}'>[</span><span color='#${theme.palette.base05}'>{num_connections}</span><span color='#${theme.palette.base0A}'>]</span>";
+          format = "<span color='${theme.palette.base0A}'> </span><span color='${theme.palette.base05}'>Enabled</span>";
+          format-disabled = "<span color='${theme.palette.base03}'>󰂲 Disabled</span>";
+          format-off = "<span color='${theme.palette.base03}'>󰂲 Disabled</span>";
+          format-connected = "<span color='${theme.palette.base0A}'> </span><span color='${theme.palette.base05}'>{device_alias}</span> <span color='${theme.palette.base0A}'>[</span><span color='${theme.palette.base05}'>{num_connections}</span><span color='${theme.palette.base0A}'>]</span>";
+          format-connected-battery = "<span color='${theme.palette.base0A}'> </span><span color='${theme.palette.base05}'>{device_alias}</span> <span color='${theme.palette.base0A}'>(</span><span color='${theme.palette.base05}'>{device_battery_percentage}%</span><span color='${theme.palette.base0A}'>)</span> <span color='${theme.palette.base0A}'>[</span><span color='${theme.palette.base05}'>{num_connections}</span><span color='${theme.palette.base0A}'>]</span>";
           tooltip-format = "{controller_alias}\t{controller_address}\nStatus: {status}";
           tooltip-format-disabled = "󰂲 Bluetooth disabled \nRight-click to enable";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n{num_connections} connected device(s)\n\n{device_enumerate}";
@@ -179,12 +179,12 @@ in
             warning = 30;
             critical = 15;
           };
-          format = "<span color='#${theme.palette.base05}'>{capacity}%</span> <span color='#${theme.palette.base0A}'>{icon}</span>";
+          format = "<span color='${theme.palette.base05}'>{capacity}%</span> <span color='${theme.palette.base0A}'>{icon}</span>";
           format-icons = {
             charging = ["󰁺󱐋" "󰁻󱐋" "󰁼󱐋" "󰁽󱐋" "󰁾󱐋" "󰁿󱐋" "󰂀󱐋" "󰂁󱐋" "󰂂󱐋" "󰁹󱐋"];
             default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           };
-          format-full = "<span color='#${theme.palette.base05}'>Charged</span> <span color='#${theme.palette.base0A}'></span>";
+          format-full = "<span color='${theme.palette.base05}'>Charged</span> <span color='${theme.palette.base0A}'></span>";
           format-time = "{H}h {M}min";
           tooltip-format = "{timeTo}\nPower: {power} W\nHealth: {health}%";
         };
@@ -218,7 +218,7 @@ in
         padding: 0.3rem 0.6rem;
         margin: 0.2rem;
         border-radius: 6px;
-        border: 2px solid #${theme.palette.base0A};
+        border: 2px solid ${theme.palette.base0A};
       }
 
       #workspaces button {
@@ -226,24 +226,24 @@ in
         margin: 0.2rem;
         border-radius: 6px;
         background-color: transparent;
-        color: #${theme.palette.base0A};
+        color: ${theme.palette.base0A};
       }
 
       #workspaces button.active {
-        color: #${theme.palette.base01};
-        background-color: #${theme.palette.base05};
+        color: ${theme.palette.base01};
+        background-color: ${theme.palette.base05};
       }
 
       #workspaces button:hover {
         box-shadow: inherit;
         text-shadow: inherit;
-        color: #${theme.palette.base01};
-        background-color: #${theme.palette.base05};
+        color: ${theme.palette.base01};
+        background-color: ${theme.palette.base05};
       }
 
       #workspaces button.urgent {
-        color: #${theme.palette.base01};
-        background-color: #${theme.palette.base0A};
+        color: ${theme.palette.base01};
+        background-color: ${theme.palette.base0A};
       }
 
       #window,
@@ -260,7 +260,7 @@ in
         padding: 0.3rem 0.6rem;
         margin: 0.2rem;
         border-radius: 6px;
-        border: 2px solid #${theme.palette.base0A};
+        border: 2px solid ${theme.palette.base0A};
         background-color: ${theme.waybar.background-color};
       }
 
@@ -269,27 +269,27 @@ in
       }
 
       #memory {
-        color: #${theme.palette.base09};
+        color: ${theme.palette.base09};
       } 
 
       #battery {
-        color: #${theme.palette.base0A};
+        color: ${theme.palette.base0A};
       }
 
       #battery.charging {
-        color: #${theme.palette.base0B};
+        color: ${theme.palette.base0B};
       }
 
       @keyframes blink {
         to {
-          color: #${theme.palette.base0F};
+          color: ${theme.palette.base0F};
         }
       }
 
       #battery.warning,
       #battery.critical,
       #battery.urgent {
-        color: #${theme.palette.base08};
+        color: ${theme.palette.base08};
         animation-name: blink;
         animation-duration: 0.5s;
         animation-timing-function: linear;
@@ -308,7 +308,7 @@ in
       }
 
       tooltip label {
-        color: #${theme.palette.base05};
+        color: ${theme.palette.base05};
       }
     '';
   };
