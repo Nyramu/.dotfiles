@@ -200,7 +200,7 @@ in
       * {
         min-height: 0;
         min-width: 0;
-        font-family: ${theme.fonts.monospace.name}, ${theme.fonts.emoji.name};
+        font-family: "${theme.fonts.monospace.name}", "${theme.fonts.emoji.name}";
         font-size: 15px;
         font-weight: 600;
       }
