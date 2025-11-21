@@ -34,7 +34,7 @@ in
          font-size = 24;
          icon-size = 30;
          content-color = theme.palette.base0A;
-         active-content-color = theme.palette.base04;
+         active-content-color = theme.palette.base05;
          background-color = theme.palette.base00;
          background-opacity = 0.6;
          active-background-color = theme.palette.base00;
@@ -59,19 +59,19 @@ in
          text = "Logging in";
          font-size = 36;
          icon-size = 72;
-         color = theme.palette.base04;
+         color = theme.palette.base05;
          spacing = 1;
        };
        "LoginScreen.LoginArea.Username" = {
          font-size = 40;
-         color = theme.palette.base04;
+         color = theme.palette.base05;
          margin = 5;
        };
        "LoginScreen.LoginArea.WarningMessage" = {
          font-size = 22;
-         normal-color = theme.palette.base04;
-         warning-color = theme.palette.base04;
-         error-color = theme.palette.base04;
+         normal-color = theme.palette.base05;
+         warning-color = theme.palette.base05;
+         error-color = theme.palette.base05;
        };
        "LoginScreen.MenuArea.Buttons" = {
          size = 60;
@@ -85,7 +85,7 @@ in
          font-size = 20;
          icon-size = 32;
          content-color = theme.palette.base0A;
-         active-content-color = theme.palette.base04;
+         active-content-color = theme.palette.base05;
          background-color = theme.palette.base00;
          background-opacity = 0.6;
          border-size = 1;
@@ -99,7 +99,7 @@ in
          font-size = 22;
          icon-size = 24;
          content-color = theme.palette.base0A;
-         active-content-color = theme.palette.base04;
+         active-content-color = theme.palette.base05;
          background-color = theme.palette.base00;
          background-opacity = 0.6;
          active-option-background-color = theme.palette.base00;
@@ -114,7 +114,7 @@ in
          position = "bottom-center";
          icon-size = 32;
          content-color = theme.palette.base0A;
-         active-content-color = theme.palette.base04;
+         active-content-color = theme.palette.base05;
          background-color = theme.palette.base00;
          background-opacity = 0.6;
          border-size = 1;
@@ -128,7 +128,7 @@ in
          font-size = 25;
          icon-size = 32;
          content-color = theme.palette.base0A;
-         active-content-color = theme.palette.base04;
+         active-content-color = theme.palette.base05;
          background-color = theme.palette.base00;
          background-opacity = 0.6;
          active-background-opacity = 0.6;
@@ -143,7 +143,7 @@ in
          position = "center";
          align = "center";
          format = "hh:mm:ss";
-         color = theme.palette.base04;
+         color = theme.palette.base05;
          font-size = 80;
        };
        "LockScreen.Date" = {
