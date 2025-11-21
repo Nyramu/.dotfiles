@@ -15,6 +15,7 @@ in
       fontfor
       geticons
       figlet
+      dtrx
     ]; 
   };
 }
