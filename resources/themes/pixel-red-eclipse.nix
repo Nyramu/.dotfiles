@@ -19,7 +19,7 @@
     };
     monospace = {
       package = pkgs.nerd-fonts.bigblue-terminal;
-      name = "BigBlueTermPlus Nerd Font Mono";
+      name = "BigBlueTermPlus Nerd Font";
     };
     emoji = {
       package = pkgs.nerd-fonts.symbols-only;
