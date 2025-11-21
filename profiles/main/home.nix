@@ -8,7 +8,7 @@
   # Theming
   nyra.theme = {
     enable = true;
-    defaultTheme = "red-eclipse";
+    defaultTheme = "red-eclipse"; # pixel-sunset | red-eclipse
   };
 
   # Apps
