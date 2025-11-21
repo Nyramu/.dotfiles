@@ -60,19 +60,19 @@ in
           format-disconnected = "MPD Disconnected ";
           format-stopped = " RMPC Stopped";
           random-icons = {
-            off= "<span color='${theme.palette.base03}'>  </span>";
+            off= "<span color='${theme.palette.base04}'>  </span>";
             on = "  ";
           };
           repeat-icons = {
-            off= "<span color='${theme.palette.base03}'> </span>";
+            off= "<span color='${theme.palette.base04}'> </span>";
             on = " ";
           };
           single-icons = {
-            off= "<span color='${theme.palette.base03}'>󰼏 </span>";
+            off= "<span color='${theme.palette.base04}'>󰼏 </span>";
             on = "󰼏 ";
           };
           consume-icons = {
-            off= "<span color='${theme.palette.base03}'>  </span>";
+            off= "<span color='${theme.palette.base04}'>  </span>";
             on = "  ";
           };
           state-icons = {
@@ -104,7 +104,7 @@ in
 
         pulseaudio = {
           format = "<span color='${theme.palette.base0A}'>{icon}</span><span color='${theme.palette.base05}'>{volume}%</span>";
-          format-muted = "<span color='${theme.palette.base03}'>󰖁 Muted</span>";
+          format-muted = "<span color='${theme.palette.base04}'>󰖁 Muted</span>";
           format-icons = {
             default = [" " " " " "];
             headphone = " ";
@@ -126,7 +126,7 @@ in
         "pulseaudio#microphone" = {
           format = "{format_source}";
           format-source = "<span color='${theme.palette.base0A}'>󰍬</span> <span color='${theme.palette.base05}'>{volume}%</span>";
-          format-source-muted = "<span color='${theme.palette.base03}'>󰍭 Muted</span>";
+          format-source-muted = "<span color='${theme.palette.base04}'>󰍭 Muted</span>";
           on-click = "${pkgs.pavucontrol}/bin/pavucontrol -t 4";
           on-click-right = "${pkgs.pamixer}/bin/pamixer --default-source -t";
           on-scroll-up = "${pkgs.pamixer}/bin/pamixer --default-source -i 5";
@@ -147,7 +147,7 @@ in
           format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
           format-ethernet = "<span color='${theme.palette.base0A}'>󰈀 </span><span color='${theme.palette.base05}'>Connected</span>";
           format-disconnected = "<span color='${theme.palette.base0A}'>󰤭 </span><span color='${theme.palette.base05}'>Disconnected</span>";
-          format-disabled = "<span color='${theme.palette.base03}'>󰤮 Disabled</span>";
+          format-disabled = "<span color='${theme.palette.base04}'>󰤮 Disabled</span>";
           tooltip-format-wifi = "  Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-ethernet = "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-disconnected = "󰤭  Disconnected \n<span color='${theme.palette.base0A}'>Left-click</span> to \nmanage connections";
@@ -160,8 +160,8 @@ in
 
         bluetooth = {
           format = "<span color='${theme.palette.base0A}'> </span><span color='${theme.palette.base05}'>Enabled</span>";
-          format-disabled = "<span color='${theme.palette.base03}'>󰂲 Disabled</span>";
-          format-off = "<span color='${theme.palette.base03}'>󰂲 Disabled</span>";
+          format-disabled = "<span color='${theme.palette.base04}'>󰂲 Disabled</span>";
+          format-off = "<span color='${theme.palette.base04}'>󰂲 Disabled</span>";
           format-connected = "<span color='${theme.palette.base0A}'> </span><span color='${theme.palette.base05}'>{device_alias}</span> <span color='${theme.palette.base0A}'>[</span><span color='${theme.palette.base05}'>{num_connections}</span><span color='${theme.palette.base0A}'>]</span>";
           format-connected-battery = "<span color='${theme.palette.base0A}'> </span><span color='${theme.palette.base05}'>{device_alias}</span> <span color='${theme.palette.base0A}'>(</span><span color='${theme.palette.base05}'>{device_battery_percentage}%</span><span color='${theme.palette.base0A}'>)</span> <span color='${theme.palette.base0A}'>[</span><span color='${theme.palette.base05}'>{num_connections}</span><span color='${theme.palette.base0A}'>]</span>";
           tooltip-format = "{controller_alias}\t{controller_address}\nStatus: {status}";
