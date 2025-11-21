@@ -50,7 +50,7 @@
     base08 = "#d94856"; # Variables, Deleted - deep burgundy-red
     base09 = "#b83848"; # Integers, Constants - dark wine-red
     base0A = "#fa696e"; # Classes, Bold - coral-pink
-    base0B = "#c84850"; # Strings, Inserted - medium burgundy-red
+    base0B = "#fb7a7f"; # Strings, Inserted - medium burgundy-red
     base0C = "#c84850"; # Support, Regex - medium burgundy-red
     base0D = "#c84048"; # Functions, Headings - muted burgundy
     base0E = "#b84050"; # Keywords, Italic - medium burgundy
