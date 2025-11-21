@@ -1,8 +1,7 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, ... }: with lib;
 
 let
-  themeName = config.nyra.theme.defaultTheme;
-  theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
+  stylix-palette = config.stylix.base16Scheme;
   cfg = config.nyra.home.apps.terminals;
 in
 {
@@ -30,16 +29,16 @@ in
         scrollbar = "scrolled";
         scrollbar_interactive = "yes";
         scrollbar_jump_on_click = "yes";
-        scrollbar_handle_color = theme.palette.base0A;
+        scrollbar_handle_color = stylix-palette.base0A;
         background_blur = 0;
         cursor_trail = 60;
-        cursor_trail_color = theme.palette.base0A;
+        cursor_trail_color = stylix-palette.base0A;
       };
       # Fix for Stylix overriding normal settings
       extraConfig = "
-        selection_background ${theme.palette.base02}
+        selection_background ${stylix-palette.base02}
         selection_foreground none
-        color8 ${theme.palette.base03} 
+        color8 ${stylix-palette.base03} 
       ";
     };
   };
