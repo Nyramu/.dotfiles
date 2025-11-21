@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
+let
+  screenShot = pkgs.callPackage ../../commands/screen-shot {};
+  screenRecord = pkgs.callPackage ../../commands/screen-record {};
+in
 {
   imports = [ ../../nyra/home ]; 
 
@@ -12,7 +16,7 @@
     username = "nyramu";
     homeDirectory = "/home/nyramu";
     stateVersion = "25.11";
-    packages = with pkgs; [];
+    packages = with pkgs; [ screenShot screenRecord ];
   };
   news.display = "silent";
 
