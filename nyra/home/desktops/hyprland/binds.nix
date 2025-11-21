@@ -2,8 +2,8 @@
 
 let
   apps = config.nyra.home.apps;
-  screenShot = pkgs.callPackage ../../../../commands/screen-shot {};
-  screenRecord = pkgs.callPackage ../../../../commands/screen-record {};
+  screenShot = pkgs.callPackage ../../../commands/screen-shot {};
+  screenRecord = pkgs.callPackage ../../../commands/screen-record {};
 in
 {
   wayland.windowManager.hyprland = {

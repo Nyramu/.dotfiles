@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 let
-  screenShot = pkgs.callPackage ../../commands/screen-shot {};
-  screenRecord = pkgs.callPackage ../../commands/screen-record {};
+  screenShot = pkgs.callPackage ../../nyra/commands/screen-shot {};
+  screenRecord = pkgs.callPackage ../../nyra/commands/screen-record {};
 in
 {
   imports = [ ../../nyra/home ]; 
