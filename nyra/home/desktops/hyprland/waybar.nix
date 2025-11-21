@@ -5,6 +5,7 @@ let
   cfgHyprland = cfg.desktops.hyprland; 
   themeName = config.nyra.theme.defaultTheme;
   theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
+  stylix-fonts = config.stylix.fonts;
   stylix-palette = config.stylix.base16Scheme;
 in
 {
@@ -201,7 +202,7 @@ in
       * {
         min-height: 0;
         min-width: 0;
-        font-family: "${theme.fonts.monospace.name}", "${theme.fonts.emoji.name}";
+        font-family: "${stylix-fonts.monospace.name}", "${stylix-fonts.emoji.name}";
         font-size: 15px;
         font-weight: 600;
       }
