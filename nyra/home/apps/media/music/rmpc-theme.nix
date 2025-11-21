@@ -16,11 +16,11 @@ in ''
   
   tab_bar: (
       enabled: true,
-      active_style: (bg: "${stylix-palette.base00}", fg: "${stylix-palette.base0A}", modifiers: "Bold"),
+      active_style: (bg: "${stylix-palette.base00}", fg: "${stylix-palette.base0B}", modifiers: "Bold"),
       inactive_style: (modifiers: ""),
   ),
   highlighted_item_style: (fg: "${stylix-palette.base0A}", modifiers: "Bold"),
-  current_item_style: (bg: "${stylix-palette.base00}", fg: "${stylix-palette.base0A}", modifiers: "Underlined | Bold"),
+  current_item_style: (bg: "${stylix-palette.base00}", fg: "${stylix-palette.base0B}", modifiers: "Underlined | Bold"),
   borders_style: (fg: "${stylix-palette.base0A}", modifiers: "Bold"),
   highlight_border_style: (fg: "${stylix-palette.base0A}", modifiers: "Bold"),
   progress_bar: (
@@ -78,7 +78,7 @@ in ''
     rows: [
       (
         left: [
-          (kind: Property(Status(StateV2(playing_label: " [Playing]", paused_label: " [Paused]", stopped_label: " [Stopped]"))), style: (fg: "${stylix-palette.base0A}", modifiers: "Bold")),
+          (kind: Property(Status(StateV2(playing_label: " [Playing]", paused_label: " [Paused]", stopped_label: " [Stopped]"))), style: (fg: "${stylix-palette.base0B}", modifiers: "Bold")),
         ],
         center: [
           (kind: Property(Song(Title)), style: (modifiers: "Bold"),
@@ -95,7 +95,7 @@ in ''
         left: [
           (kind: Property(Status(StateV2(
             playing_label: " ❚❚ ", paused_label: "  ", stopped_label: "  "))),
-            style: (fg: "${stylix-palette.base0A}", modifiers: "Bold"
+            style: (fg: "${stylix-palette.base0B}", modifiers: "Bold"
           )),
           (kind: Property(Status(Elapsed)),style: ()),
           (kind: Text("/"),style: ()),
@@ -120,12 +120,12 @@ in ''
             (kind: Text(" | "),style: (fg: "${stylix-palette.base0A}")),
             (kind: Property(Status(SingleV2(
               on_label:"󰼏 ", off_label:"󰼏 ", oneshot_label:"󰼏 ",
-              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"), oneshot_style: (fg: "${stylix-palette.base0A}"))
+              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"), oneshot_style: (fg: "${stylix-palette.base0B}"))
             ))),
             (kind: Text(" | "),style: (fg: "${stylix-palette.base0A}")),
             (kind: Property(Status(ConsumeV2(
               on_label:"  ", off_label:"  ", oneshot_label:"  ",
-              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"), oneshot_style: (fg: "${stylix-palette.base0A}"))
+              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"), oneshot_style: (fg: "${stylix-palette.base0B}"))
             ))),
           ])),
         ]
