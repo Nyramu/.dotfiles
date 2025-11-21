@@ -3,13 +3,8 @@
 {
   imports = [
     ../base/home.nix
+    ./common.nix
   ];
-
-  # Theming
-  nyra.theme = {
-    enable = true;
-    defaultTheme = "red-eclipse"; # pixel-sunset | red-eclipse
-  };
 
   # Apps
   nyra.home.apps = {
