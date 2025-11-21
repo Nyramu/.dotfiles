@@ -31,36 +31,36 @@
   };
 
   opacity = {
-    terminal = 0.6;
+    terminal = 0.63;
     applications = 0.6;
     desktop = 0.7;
     popups = 0.7;
   };
 
   palette = {
-    base00 = "#0a0a14"; # Default Background - deep night blue/black
-    base01 = "#1a1828"; # Lighter Background - dark purple-blue
-    base02 = "#2d1f3a"; # Selection Background - medium dark purple
-    base03 = "#4a3550"; # Comments, Invisibles - muted purple
-    base04 = "#b89aa8"; # Dark Foreground - medium mauve-grey
-    base05 = "#e6c8d4"; # Default Foreground - pale rose
-    base06 = "#f5e0ea"; # Light Foreground - very pale pink
-    base07 = "#fef5f8"; # Light Background - almost white
+    base00 = "#0d0c18"; # Default Background - deep night blue/black
+    base01 = "#1a1625"; # Lighter Background - dark purple-blue
+    base02 = "#2a1f35"; # Selection Background - medium dark purple
+    base03 = "#4f3e5e"; # Comments, Invisibles - muted purple
+    base04 = "#5a4560"; # Dark Foreground - lighter muted purple
+    base05 = "#d4b0c0"; # Default Foreground - lighter mauve-rose
+    base06 = "#f0d8e4"; # Light Foreground - light pale rose
+    base07 = "#faeaf0"; # Light Background - very pale pink
 
-    base08 = "#ff2818"; # Variables, Deleted - intense bright red from eclipse
-    base09 = "#d92820"; # Integers, Constants - deep vivid red
-    base0A = "#b82428"; # Classes, Bold - dark crimson red
-    base0B = "#8f1e28"; # Strings, Inserted - dark wine red
-    base0C = "#ff4830"; # Support, Regex - bright red-orange
-    base0D = "#ff6040"; # Functions, Headings - coral-red
-    base0E = "#c83830"; # Keywords, Italic - medium dark red
-    base0F = "#a02828"; # Deprecated - deep burgundy red
+    base08 = "#d94060"; # Variables, Deleted - burgundy-red from eclipse
+    base09 = "#b83858"; # Integers, Constants - deep wine-burgundy
+    base0A = "#983050"; # Classes, Bold - dark wine-red
+    base0B = "#a84068"; # Strings, Inserted - wine-burgundy
+    base0C = "#e85068"; # Support, Regex - bright burgundy-pink
+    base0D = "#c84860"; # Functions, Headings - medium burgundy-red
+    base0E = "#a84058"; # Keywords, Italic - muted wine-burgundy
+    base0F = "#782838"; # Deprecated - deep dark burgundy
   };
 
   # Hyprland color configuration
   hypr = {
-    active_border_color = "rgb(1a1828) rgb(b82428) 330deg";
-    inactive_border_color = "rgb(1a1828)";
+    active_border_color = "rgb(1a1625) rgb(b83858) 330deg";
+    inactive_border_color = "rgb(1a1625)";
   };
 
   # Waybar color configuration

@@ -31,30 +31,30 @@
   }; 
 
   opacity = {
-    terminal = 0.6;
+    terminal = 0.63;
     applications = 0.6;
     desktop = 0.7;
     popups = 0.7;
   };
 
   palette = {
-    base00 = "#262626"; # Default Background - dark gray
-    base01 = "#152522"; # Lighter Background - dark teal-gray
-    base02 = "#000000"; # Selection Background - pure black
-    base03 = "#909090"; # Comments, Invisibles - medium gray
-    base04 = "#ffb0b4"; # Selection Text - light pink
+    base00 = "#1a1214"; # Default Background - deep dark burgundy-black
+    base01 = "#2a1a1e"; # Lighter Background - dark burgundy-gray
+    base02 = "#3a2228"; # Selection Background - dark wine-purple
+    base03 = "#707070"; # Comments, Invisibles - medium gray
+    base04 = "#909090"; # Dark Foreground - light pink
     base05 = "#ffb0b4"; # Default Foreground - light pink
-    base06 = "#ffb0b4"; # Light Foreground - light pink
-    base07 = "#ffffff"; # Light Background - pure white
+    base06 = "#ffc8cc"; # Light Foreground - lighter pink
+    base07 = "#ffb0b4"; # Light Background - light pink
 
-    base08 = "#ff5555"; # Variables, Deleted - bright red
-    base09 = "#c14860"; # Integers, Constants - deep rose
-    base0A = "#fa696e"; # Classes, Bold - coral pink
-    base0B = "#fa696e"; # Strings, Inserted - coral pink
-    base0C = "#c14860"; # Support, Regex - deep rose
-    base0D = "#fe522e"; # Functions, Headings - orange-red
-    base0E = "#c41d0e"; # Keywords, Italic - dark red
-    base0F = "#ae1630"; # Deprecated - crimson
+    base08 = "#d94856"; # Variables, Deleted - deep burgundy-red
+    base09 = "#b83848"; # Integers, Constants - dark wine-red
+    base0A = "#fa696e"; # Classes, Bold - coral-pink
+    base0B = "#c84850"; # Strings, Inserted - medium burgundy-red
+    base0C = "#c84850"; # Support, Regex - medium burgundy-red
+    base0D = "#c84048"; # Functions, Headings - muted burgundy
+    base0E = "#b84050"; # Keywords, Italic - medium burgundy
+    base0F = "#a83848"; # Deprecated - muted burgundy-red
   };
 
   # Hyprland color configuration
