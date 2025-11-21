@@ -19,6 +19,7 @@
     };
     editors = {
       nvf.enable = true;
+      gimp.enable = true;
     };
     browsers = {
       #default = "zen"; # Idk why it explodes if configured
