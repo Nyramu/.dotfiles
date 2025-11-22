@@ -1,8 +1,7 @@
-{ config, lib, pkgs, inputs, ... }: with lib;
+{ config, inputs, ... }:
 
 let
   cfgHyprland = config.nyra.home.desktops.hyprland;
-  stylix = config.stylix;
 in
 {
   imports = [ inputs.vicinae.homeManagerModules.default ];
@@ -12,12 +11,10 @@ in
       faviconService = "twenty";
       popToRootOnClose = false; # TODO: Check what it does
       rootSearch.searchFiles = false; # TODO: Same here
-      theme.name = "vicinae-dark"; #TODO: Change it
       useLayerShell = false;
       window = {
         csd = true;
-        opacity = stylix.opacity.desktop;
-        #rounding = 10;
+        rounding = 10;
       };
     };
   };
