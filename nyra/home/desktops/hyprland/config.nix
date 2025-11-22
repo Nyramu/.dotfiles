@@ -12,6 +12,11 @@ in
       "noshadow, class:(org.qutebrowser.qutebrowser)"
     ];
 
+    config.env = [
+      "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+      "HYPRCURSOR_SIZE,36"
+    ];
+
     # <https://wiki.hyprland.org/Configuring/Variables/#general>
     config.general = {
       border_size = 3;
@@ -118,5 +123,5 @@ in
     ];
   };
     
-  home.packages = with pkgs; [ swaybg ];
+  home.packages = with pkgs; [ swaybg rose-pine-hyprcursor ];
 }   
