@@ -3,13 +3,8 @@
 {
   imports = [
     ../base/home.nix
+    ./common.nix
   ];
-
-  # Theming
-  nyra.theme = {
-    enable = true;
-    defaultTheme = "pixel-sunset";
-  };
 
   # Apps
   nyra.home.apps = {
@@ -19,6 +14,7 @@
     };
     editors = {
       nvf.enable = true;
+      gimp.enable = true;
     };
     browsers = {
       #default = "zen"; # Idk why it explodes if configured
@@ -37,6 +33,7 @@
       music.enable = true; # Enables mpd, rmpc, cava
     };
     miscellaneous = {
+      enableUtils = true; # See all packages in nyra/home/apps/miscellaneous/utils.nix
       btop.enable = true;
       fastfetch.enable = true;
     };

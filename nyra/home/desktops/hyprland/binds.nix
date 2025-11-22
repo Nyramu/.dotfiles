@@ -2,8 +2,8 @@
 
 let
   apps = config.nyra.home.apps;
-  screenShot = pkgs.callPackage ../../../../commands/screen-shot {};
-  screenRecord = pkgs.callPackage ../../../../commands/screen-record {};
+  screenShot = pkgs.callPackage ../../../commands/screen-shot {};
+  screenRecord = pkgs.callPackage ../../../commands/screen-record {};
 in
 {
   wayland.windowManager.hyprland = {
@@ -22,20 +22,29 @@ in
             "SUPER, E" = "exec, ${fileManager}";
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
-            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop}";
+            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
+            "SUPER, SPACE" = "exec, ${getExe pkgs.vicinae} toggle";
             "SUPER, RETURN" = "exec, ${terminal}";
           };
         };
 
-        waybar = {
+        restartApps = {
+          # Waybar
           bind."SUPER_SHIFT, W" = "exec, pkill ${pkgs.waybar.pname}; ${getExe pkgs.waybar}";
+          # Vicinae
+          bind."SUPER_SHIFT, SPACE" = "exec, ${getExe pkgs.vicinae} server --replace";
         };
 
         screenCapture = {
+          # Press to start recording, then press again to stop and save
           bind.", F9" = "exec, ${getExe screenRecord}";
+          # Copy to clipboard without saving
           bind.", F10" = "exec, ${getExe screenShot}";
-          bind.", Print" = "exec, ${getExe screenShot}"; 
+          bind.", Print" = "exec, ${getExe screenShot}";
+          # Copy to clipboard and save
+          bind."SUPER, F10" = "exec, ${getExe screenShot} --save";
+          bind."SUPER, Print" = "exec, ${getExe screenShot} --save";
         };
 
         windowControl = {
@@ -142,8 +151,8 @@ in
           groups.moveToWorkspace
           # Launch apps
           groups.launchApps
+          groups.restartApps
           groups.screenCapture
-          groups.waybar
         ];
   };
 }

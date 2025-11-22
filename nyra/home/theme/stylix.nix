@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, config, ... }: with lib;
+{ lib, inputs, ... }: with lib;
 
 {
   imports = [ inputs.stylix.homeModules.stylix ]; 
@@ -6,6 +6,7 @@
     targets = {
       hyprland.enable = mkForce false;
       waybar.enable = mkForce false;
+      rofi.enable = mkForce true;
       kitty.enable = mkForce true;
       qutebrowser.enable = mkForce true;
       librewolf.profileNames = [ "nyramu" ];

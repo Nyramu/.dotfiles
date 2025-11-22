@@ -10,6 +10,7 @@ in
     ./binds.nix
     #./plugins.nix
     ./waybar.nix
+    ./vicinae.nix
   ];
 
   options.nyra.home.desktops.hyprland = {

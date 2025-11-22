@@ -1,10 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  themeName = config.nyra.theme.defaultTheme;
-  theme = import ../../../../../resources/themes/${themeName}.nix { inherit pkgs; };
-in
-''
+  stylix-palette = config.stylix.base16Scheme;
+in ''
 #![enable(implicit_some)]
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
@@ -18,18 +16,18 @@ in
   
   tab_bar: (
       enabled: true,
-      active_style: (bg: "#${theme.palette.base00}", fg: "#${theme.palette.base0A}", modifiers: "Bold"),
+      active_style: (bg: "${stylix-palette.base00}", fg: "${stylix-palette.base0B}", modifiers: "Bold"),
       inactive_style: (modifiers: ""),
   ),
-  highlighted_item_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
-  current_item_style: (bg: "#${theme.palette.base00}", fg: "#${theme.palette.base0A}", modifiers: "Underlined | Bold"),
-  borders_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
-  highlight_border_style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"),
+  highlighted_item_style: (fg: "${stylix-palette.base0A}", modifiers: "Bold"),
+  current_item_style: (bg: "${stylix-palette.base00}", fg: "${stylix-palette.base0B}", modifiers: "Underlined | Bold"),
+  borders_style: (fg: "${stylix-palette.base0A}", modifiers: "Bold"),
+  highlight_border_style: (fg: "${stylix-palette.base0A}", modifiers: "Bold"),
   progress_bar: (
-      symbols: ["┄", "┅", "━"],
+      symbols: ["", "█", "", "█", ""],
       track_style: (),
-      elapsed_style: (),
-      thumb_style: (),
+      elapsed_style: (fg: "${stylix-palette.base05}"),
+      thumb_style: (fg: "${stylix-palette.base05}"),
   ),
   scrollbar: (
       symbols: ["", "", "", ""],
@@ -80,7 +78,7 @@ in
     rows: [
       (
         left: [
-          (kind: Property(Status(StateV2(playing_label: " [Playing]", paused_label: " [Paused]", stopped_label: " [Stopped]"))), style: (fg: "#${theme.palette.base0A}", modifiers: "Bold")),
+          (kind: Property(Status(StateV2(playing_label: " [Playing]", paused_label: " [Paused]", stopped_label: " [Stopped]"))), style: (fg: "${stylix-palette.base0B}", modifiers: "Bold")),
         ],
         center: [
           (kind: Property(Song(Title)), style: (modifiers: "Bold"),
@@ -97,7 +95,7 @@ in
         left: [
           (kind: Property(Status(StateV2(
             playing_label: " ❚❚ ", paused_label: "  ", stopped_label: "  "))),
-            style: (fg: "#${theme.palette.base0A}", modifiers: "Bold"
+            style: (fg: "${stylix-palette.base0B}", modifiers: "Bold"
           )),
           (kind: Property(Status(Elapsed)),style: ()),
           (kind: Text("/"),style: ()),
@@ -112,22 +110,22 @@ in
           (kind: Group([
             (kind: Property(Status(RandomV2(
               on_label:" ", off_label:" ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"))
+              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"))
             ))),
-            (kind: Text(" | "),style: (fg: "#${theme.palette.base0A}")), 
+            (kind: Text(" | "),style: (fg: "${stylix-palette.base0A}")), 
             (kind: Property(Status(RepeatV2(
               on_label:" ", off_label:" ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"))
+              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"))
             ))),
-            (kind: Text(" | "),style: (fg: "#${theme.palette.base0A}")),
+            (kind: Text(" | "),style: (fg: "${stylix-palette.base0A}")),
             (kind: Property(Status(SingleV2(
               on_label:"󰼏 ", off_label:"󰼏 ", oneshot_label:"󰼏 ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"), oneshot_style: (fg: "#${theme.palette.base0A}"))
+              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"), oneshot_style: (fg: "${stylix-palette.base0B}"))
             ))),
-            (kind: Text(" | "),style: (fg: "#${theme.palette.base0A}")),
+            (kind: Text(" | "),style: (fg: "${stylix-palette.base0A}")),
             (kind: Property(Status(ConsumeV2(
               on_label:"  ", off_label:"  ", oneshot_label:"  ",
-              on_style: (fg: "#${theme.palette.base05}"), off_style: (fg: "#${theme.palette.base03}"), oneshot_style: (fg: "#${theme.palette.base0A}"))
+              on_style: (fg: "${stylix-palette.base05}"), off_style: (fg: "${stylix-palette.base03}"), oneshot_style: (fg: "${stylix-palette.base0B}"))
             ))),
           ])),
         ]
@@ -137,17 +135,20 @@ in
   layout: Split(
     direction: Vertical,
     panes: [
-      (size: "4", pane: Split(
+      (size: "6", pane: Split(
         direction: Horizontal,
         panes: [
           (size: "100%", pane: Split(
             direction: Vertical,
+            borders: "ALL",
             panes: [
-              (size: "100%", borders: "ALL", pane: Pane(Header)),
+              (size: "5", pane: Pane(Header)),
+              (size: "4", pane: Pane(ProgressBar), borders: "TOP"),
             ],
           )),
         ],
       )),
+
       (size: "3", pane: Pane(Tabs), borders: "ALL"),
       (size: "100%", pane: Split(
         direction: Horizontal,
@@ -159,9 +160,9 @@ in
   ),
   cava: (
     bar_color: Gradient({
-      0: "#${theme.palette.base0A}",
-      60: "#${theme.palette.base05}",
-      100: "#${theme.palette.base05}",
+      0: "${stylix-palette.base0A}",
+      60: "${stylix-palette.base05}",
+      100: "${stylix-palette.base05}",
     }),
   ),
 )

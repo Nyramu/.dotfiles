@@ -12,6 +12,11 @@ in
       "noshadow, class:(org.qutebrowser.qutebrowser)"
     ];
 
+    config.env = [
+      "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+      "HYPRCURSOR_SIZE,36"
+    ];
+
     # <https://wiki.hyprland.org/Configuring/Variables/#general>
     config.general = {
       border_size = 3;
@@ -20,7 +25,7 @@ in
       gaps_inside = 5;
       gaps_outside = 25;
 
-      active_border_color = "${theme.hypr.active_border_color} 270deg";
+      active_border_color = theme.hypr.active_border_color;
       inactive_border_color = theme.hypr.inactive_border_color;
 
       layout = "dwindle";
@@ -32,7 +37,7 @@ in
       shadow = {
         range = 5;
         render_power = 3;
-        color = theme.hypr.decoration.shadow.color;
+        color = "rgba(26, 26, 26, 0.93)";
       };
       blur.enabled = false;
     };
@@ -111,11 +116,12 @@ in
 
     # Set wallpaper
     config.exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
-    # Start waybar
+    # Start waybar and vicinae
     config.exec_once = [ 
       "${lib.getExe pkgs.waybar}" 
+      "${lib.getExe pkgs.vicinae} server"
     ];
   };
     
-  home.packages = with pkgs; [ swaybg ];
+  home.packages = with pkgs; [ swaybg rose-pine-hyprcursor ];
 }   

@@ -6,15 +6,12 @@
 
 {
   imports = [ 
-      ./hardware-configuration.nix
-      ../base/configuration.nix
+    ./hardware-configuration.nix
+    ../base/configuration.nix
+    ./common.nix
   ];
 
   # Theming and fonts
-  nyra.theme = {
-    enable = true;
-    defaultTheme = "pixel-sunset";
-  };
   nyra.system.login.userIcon = "nyramu";
   nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts

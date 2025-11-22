@@ -31,41 +31,45 @@
   }; 
 
   opacity = {
-    terminal = 0.6;
+    terminal = 0.63;
     applications = 0.6;
     desktop = 0.7;
     popups = 0.7;
   };
 
   palette = {
-    base00 = "262626"; # Default Background
-    base01 = "152522"; # Lighter Background (selection)
-    base02 = "000000"; # Selection Background (normal black)
-    base03 = "909090"; # Comments, Invisibles, Line Highlighting (bright black)
-    base04 = "ffb0b4"; # Dark Foreground (selection text)
-    base05 = "ffb0b4"; # Default Foreground
-    base06 = "ffb0b4"; # Light Foreground (normal white)
-    base07 = "ffffff"; # Light Background (bright white)
+    base00 = "#1a1214"; # Default Background - deep dark burgundy-black
+    base01 = "#2a1a1e"; # Lighter Background - dark burgundy-gray
+    base02 = "#3a2228"; # Selection Background - dark wine-purple
+    base03 = "#707070"; # Comments, Invisibles - medium gray
+    base04 = "#909090"; # Dark Foreground - light pink
+    base05 = "#ffb0b4"; # Default Foreground - light pink
+    base06 = "#ffc8cc"; # Light Foreground - lighter pink
+    base07 = "#ffb0b4"; # Light Background - light pink
 
-    base08 = "ff5555"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted (normal red)
-    base09 = "e4725f"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url (normal yellow/cyan)
-    base0A = "fa696e"; # Classes, Markup Bold, Search Text Background (normal green)
-    base0B = "fa696e"; # Strings, Inherited Class, Markup Code, Diff Inserted (normal green)
-    base0C = "e4725f"; # Support, Regular Expressions, Escape Characters, Markup Quotes (normal cyan)
-    base0D = "bc5453"; # Functions, Methods, Attribute IDs, Headings (normal blue)
-    base0E = "cf1e13"; # Keywords, Storage, Selector, Markup Italic, Diff Changed (normal magenta)
-    base0F = "cf1e13"; # Deprecated, Opening/Closing Embedded Language Tags (normal magenta)
+    base08 = "#d94856"; # Variables, Deleted - deep burgundy-red
+    base09 = "#b83848"; # Integers, Constants - dark wine-red
+    base0A = "#fa696e"; # Classes, Bold - coral-pink
+    base0B = "#fb7a7f"; # Strings, Inserted - medium burgundy-red
+    base0C = "#c84850"; # Support, Regex - medium burgundy-red
+    base0D = "#c84048"; # Functions, Headings - muted burgundy
+    base0E = "#b84050"; # Keywords, Italic - medium burgundy
+    base0F = "#a83848"; # Deprecated - muted burgundy-red
   };
 
   # Hyprland color configuration
   hypr = {
-    active_border_color = "rgb(542624) rgb(d66e65)";
+    active_border_color = "rgb(542624) rgb(d66e65) 270deg";
     inactive_border_color = "rgb(152927)";
-    decoration.shadow.color = "rgba(1a1a1aee)";
   };
 
   # Waybar color configuration
   waybar = {
     background-color = "rgba(38, 38, 38, 0.6)";
+  };
+
+  # SDDM configuration
+  sddm = {
+    avatarShape = "square";
   };
 }

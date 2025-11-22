@@ -45,6 +45,17 @@
   # Support MTP devices
   services.gvfs.enable = true;
 
+  # Needed for gpu-screen-recorder
+  security.wrappers.gsr-kms-server = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_admin+ep";
+    source = "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server";
+    setuid = false;
+    setgid = false;
+  };
+
+
   # Support NTFS file system
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -114,5 +125,10 @@
   system.stateVersion = "25.11";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Cachix
+  nix.settings.extra-substituters = [ "https://vicinae.cachix.org" ];
+  nix.settings.extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
+
 }
 
