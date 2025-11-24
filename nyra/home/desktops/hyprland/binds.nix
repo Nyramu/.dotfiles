@@ -22,6 +22,7 @@ in
             "SUPER, E" = "exec, ${fileManager}";
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
+            "SUPER, D" = "exec, discord";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
             "SUPER, SPACE" = "exec, ${getExe pkgs.vicinae} toggle";
