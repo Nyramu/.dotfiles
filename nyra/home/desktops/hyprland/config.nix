@@ -8,6 +8,8 @@ in
   wayland.windowManager.hyprland = {
     # Window rules
     config.windowrulev2 = [
+      "noborder, class:(zen-beta)"
+      "noshadow, class:(zen-beta)"
       "noborder, class:(org.qutebrowser.qutebrowser)"
       "noshadow, class:(org.qutebrowser.qutebrowser)"
     ];
