@@ -10,7 +10,13 @@ in
   };
 
   config = {
-    hardware.cpu.amd.ryzen-smu.enable = cfg.ryzen-smu.enable;
+    hardware = {
+      amdgpu.initrd.enable = true;
+      amdgpu.overdrive.enable = true;
+      graphics.extraPackages = [ pkgs.libva ];
+      cpu.amd.ryzen-smu.enable = cfg.ryzen-smu.enable;
+    };
+    nixpkgs.config.rocmSupport = true;
 
     environment.systemPackages = 
       optionals cfg.ryzenadj.enable [ pkgs.ryzenadj ];
