@@ -254,13 +254,27 @@ in
         };
       };
       profiles.nyramu.extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-          ublock-origin
-          refined-github
-          dearrow
-          return-youtube-dislikes
-          protondb-for-steam
-          animalese-typing
-          #proton-pass
+        ublock-origin
+        dearrow
+        return-youtube-dislikes
+        augmented-steam
+        protondb-for-steam
+        animalese-typing
+        #brotab
+        #betterttv
+        #censor-tracker
+        clearurls
+        copy-selection-as-markdown
+        #firenvim
+        image-search-options
+        octotree
+        #side-view
+        #simplifygmail
+        #the-camelizer-price-history-ch
+        #to-google-translate
+        youtube-no-translation
+        youtube-shorts-block
+        youtube-nonstop
       ];
     };
   };
