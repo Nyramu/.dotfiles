@@ -17,9 +17,8 @@
       gimp.enable = true;
     };
     browsers = {
-      #default = "zen"; # Idk why it explodes if configured
-      zen.enable = true;
-      firefox.enable = true;
+      default = "zen-beta";
+      #qutebrowser.enable = true;
     };
     gaming = {
       minecraft.enable = true;

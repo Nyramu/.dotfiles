@@ -6,7 +6,7 @@
     targets = {
       hyprland.enable = mkForce false;
       waybar.enable = mkForce false;
-      rofi.enable = mkForce true;
+      nixcord.enable = mkForce true;
       kitty.enable = mkForce true;
       qutebrowser.enable = mkForce true;
       librewolf.profileNames = [ "nyramu" ];

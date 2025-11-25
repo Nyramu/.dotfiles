@@ -10,8 +10,8 @@
 
   options.nyra.home.apps.browsers = {
     default = mkOption {
-      type = types.enum [ "firefox" "librewolf" "qutebrowser" "zen" ];
-      default = "qutebrowser";
+      type = types.enum [ "firefox" "librewolf" "qutebrowser" "zen-beta" ];
+      default = "zen-beta";
       description = "Choose your default browser";
     };
   };  

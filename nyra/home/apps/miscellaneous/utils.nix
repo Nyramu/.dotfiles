@@ -16,6 +16,7 @@ in
       geticons
       figlet
       dtrx
+      vlc
     ]; 
   };
 }
