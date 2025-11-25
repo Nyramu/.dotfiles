@@ -2,7 +2,8 @@
 
 let
   cfg = config.nyra.home.apps.editors;
-in {
+in
+{
   imports = [ inputs.nvf.homeManagerModules.default ];
 
   options.nyra.home.apps.editors.nvf = {

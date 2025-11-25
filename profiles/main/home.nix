@@ -33,6 +33,7 @@
     };
     miscellaneous = {
       enableUtils = true; # See all packages in nyra/home/apps/miscellaneous/utils.nix
+      enableUnclassified = true; # See all packages in nyra/home/apps/miscellaneous/unclassified.nix
       btop.enable = true;
       fastfetch.enable = true;
     };

@@ -30,8 +30,8 @@ writeShellApplication {
         save_file=true
       fi
 
-      mkdir -p "$HOME/Pictures/"
-      file_name="$HOME/Pictures/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+      mkdir -p "$HOME/Pictures/Screenshots/"
+      file_name="$HOME/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
       if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
         slurp | grim -g - "$file_name"

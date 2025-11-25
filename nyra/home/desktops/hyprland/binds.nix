@@ -136,7 +136,7 @@ in
         };
       };
       in
-        lib.mkMerge [
+        mkMerge [
           # System control
           groups.powerControl
           groups.audioControl

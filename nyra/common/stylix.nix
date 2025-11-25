@@ -9,7 +9,6 @@ in
     enable = config.nyra.theme.enable;
     autoEnable = config.nyra.theme.enable;
 
-    # Type "fc-list : family | sort | uniq" in the terminal to see every font
     base16Scheme = theme.palette;
     fonts = theme.fonts; 
     image = theme.background;

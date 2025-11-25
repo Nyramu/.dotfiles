@@ -14,6 +14,7 @@ in
   };
 
   config = {
-    home.packages = with pkgs; optionals cfg.telegram.enable [ telegram-desktop ]; 
+    home.packages = with pkgs;
+      optionals cfg.telegram.enable [ telegram-desktop ]; 
   };
 }

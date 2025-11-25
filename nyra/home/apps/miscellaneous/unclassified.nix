@@ -5,16 +5,14 @@ let
 in
 {
   options.nyra.home.apps.miscellaneous = {
-    enableUtils = mkEnableOption "utils";
+    enableUnclassified = mkEnableOption "unclassified";
   };
 
-  config = mkIf cfg.enableUtils {
+  config = mkIf cfg.enableUnclassified {
     home.packages = with pkgs; [
-      hyprpicker
-      fontfor
-      geticons
-      dtrx
-      vlc
-    ]; 
+      clolcat
+      figlet
+      cmatrix
+    ];
   };
 }

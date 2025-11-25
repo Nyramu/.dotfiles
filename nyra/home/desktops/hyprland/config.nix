@@ -6,51 +6,69 @@ let
 in
 {   
   wayland.windowManager.hyprland = {
-    # Window rules
-    config.windowrulev2 = [
-      "noborder, class:(zen-beta)"
-      "noshadow, class:(zen-beta)"
-      "noborder, class:(org.qutebrowser.qutebrowser)"
-      "noshadow, class:(org.qutebrowser.qutebrowser)"
-    ];
+    config = {
+      # Window rules
+      windowrulev2 = [
+        "noborder, class:(zen-beta)"
+        "noshadow, class:(zen-beta)"
+        "noborder, class:(org.qutebrowser.qutebrowser)"
+        "noshadow, class:(org.qutebrowser.qutebrowser)"
+      ];
 
-    config.env = [
-      "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-      "HYPRCURSOR_SIZE,36"
-    ];
+      env = [
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        "HYPRCURSOR_SIZE,36"
+      ];
 
-    # <https://wiki.hyprland.org/Configuring/Variables/#general>
-    config.general = {
-      border_size = 3;
-      resize_on_border = true;
+      # <https://wiki.hyprland.org/Configuring/Variables/#general>
+      general = {
+        border_size = 3;
+        resize_on_border = true;
 
-      gaps_inside = 5;
-      gaps_outside = 25;
+        gaps_inside = 5;
+        gaps_outside = 25;
 
-      active_border_color = theme.hypr.active_border_color;
-      inactive_border_color = theme.hypr.inactive_border_color;
+        active_border_color = theme.hypr.active_border_color;
+        inactive_border_color = theme.hypr.inactive_border_color;
 
-      layout = "dwindle";
-      allow_tearing = false;
-    };
-
-    config.decoration = {
-      rounding = 2;
-      shadow = {
-        range = 5;
-        render_power = 3;
-        color = "rgba(26, 26, 26, 0.93)";
+        layout = "dwindle";
+        allow_tearing = false;
       };
-      blur.enabled = false;
-    };
 
-    # Gives more freedom in windows management compared to Master
-    config.dwindle = {
-      pseudotile = "yes";
-      preserve_split = true;
-    };
+      decoration = {
+        rounding = 2;
+        shadow = {
+          range = 5;
+          render_power = 3;
+          color = "rgba(26, 26, 26, 0.93)";
+        };
+        blur.enabled = false;
+      };
 
-    config.master.new_status = "master";
+      # Gives more freedom in windows management compared to Master
+      dwindle = {
+        pseudotile = "yes";
+        preserve_split = true;
+      };
+
+      master.new_status = "master";
+
+      gesture = "3, pinch, fullscreen";
+
+      misc = {
+        disable_hyprland_logo = true;
+        force_default_wallpaper = 0;
+        animate_mouse_windowdragging = false; # Just lags for some reason
+      };
+
+      # Set wallpaper
+      exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
+      # Start waybar and vicinae
+      exec_once = [ 
+        "${lib.getExe pkgs.waybar}" 
+        "${lib.getExe pkgs.vicinae} server"
+      ];
+    };
 
     animations.animation = {
       # Window creation
@@ -107,22 +125,6 @@ in
         style = "fade";
       }; 
     };
-
-    config.gesture = "3, pinch, fullscreen";
-
-    config.misc = {
-      disable_hyprland_logo = true;
-      force_default_wallpaper = 0;
-      animate_mouse_windowdragging = false; # Just lags for some reason
-    };
-
-    # Set wallpaper
-    config.exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
-    # Start waybar and vicinae
-    config.exec_once = [ 
-      "${lib.getExe pkgs.waybar}" 
-      "${lib.getExe pkgs.vicinae} server"
-    ];
   };
     
   home.packages = with pkgs; [ swaybg rose-pine-hyprcursor ];
