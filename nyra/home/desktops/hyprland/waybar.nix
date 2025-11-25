@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: with lib; 
 
 let
+  # TODO: Improve these variables
   cfg = config.nyra.home;
   cfgHyprland = cfg.desktops.hyprland; 
   themeName = config.nyra.theme.defaultTheme;
