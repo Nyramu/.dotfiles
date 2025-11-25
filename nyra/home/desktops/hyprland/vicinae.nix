@@ -10,7 +10,7 @@ in
     settings =  {
       faviconService = "twenty";
       popToRootOnClose = false; # TODO: Check what it does
-      rootSearch.searchFiles = false; # TODO: Same here
+      rootSearch.searchFiles = true; # TODO: Same here
       useLayerShell = false;
       window = {
         csd = true;
