@@ -10,11 +10,9 @@ in
 
   config = mkIf cfg.enableUtils {
     home.packages = with pkgs; [
-      clolcat
       hyprpicker
       fontfor
       geticons
-      figlet
       dtrx
       vlc
     ]; 
