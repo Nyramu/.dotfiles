@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, ... }: with lib;
 
 let
-  cfg = config.nyra.home.shells.commands;
+  cfg = config.nyra.home.shells;
 in
 {
   options.nyra.home.shells.commands.pay-respects = {
@@ -10,8 +10,8 @@ in
 
   config = {
     programs.pay-respects = {
-      enable = cfg.pay-respects.enable;
-      enableZshIntegration = config.nyra.home.shells.zsh.enable;
+      enable = cfg.commands.pay-respects.enable;
+      enableZshIntegration = cfg.zsh.enable;
 
       options = [ "--alias f" "--alias fuck" ];
     };
