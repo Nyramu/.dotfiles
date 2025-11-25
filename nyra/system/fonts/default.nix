@@ -12,7 +12,7 @@ in
       default = [];
     };
   };
-
+  # "fc-list : family | sort | uniq" to list
   config = mkMerge [
     {
       fonts.packages = fontsCfg;
