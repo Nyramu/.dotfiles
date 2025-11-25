@@ -18,7 +18,7 @@
     };
     browsers = {
       default = "zen-beta";
-      qutebrowser.enable = true;
+      #qutebrowser.enable = true;
     };
     gaming = {
       minecraft.enable = true;
