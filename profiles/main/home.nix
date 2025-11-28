@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -30,13 +30,20 @@
     };
     media = {
       music.enable = true; # Enables mpd, rmpc, cava
+      vlc.enable = true;
     };
     miscellaneous = {
-      enableUtils = true; # See all packages in nyra/home/apps/miscellaneous/utils.nix
-      enableUnclassified = true; # See all packages in nyra/home/apps/miscellaneous/unclassified.nix
       yazi.enable = true;
       btop.enable = true;
       fastfetch.enable = true;
+      not-configurable = with pkgs; [
+        hyprpicker
+        dtrx
+        croc
+        clolcat
+        figlet
+        cmatrix
+      ];
     };
   };
 
