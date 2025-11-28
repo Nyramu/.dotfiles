@@ -34,6 +34,7 @@
     miscellaneous = {
       enableUtils = true; # See all packages in nyra/home/apps/miscellaneous/utils.nix
       enableUnclassified = true; # See all packages in nyra/home/apps/miscellaneous/unclassified.nix
+      yazi.enable = true;
       btop.enable = true;
       fastfetch.enable = true;
     };
