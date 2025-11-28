@@ -26,4 +26,5 @@ in
       ];
     })
   ];
+  environment.systemPackages = with pkgs; [ fontfor ];
 }
