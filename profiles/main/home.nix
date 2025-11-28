@@ -40,6 +40,7 @@
         hyprpicker
         dtrx
         croc
+        fontfor
         clolcat
         figlet
         cmatrix
