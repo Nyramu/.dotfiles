@@ -5,6 +5,7 @@
   makeWrapper,
   nh,
   jmtpfs,
+  jq,
 }:
 stdenv.mkDerivation rec {
   name = "nyra";
@@ -16,7 +17,7 @@ stdenv.mkDerivation rec {
     makeWrapper
   ];
 
-  buildInputs = [nh jmtpfs];
+  buildInputs = [nh jmtpfs jq];
 
   buildPhase = ''
     bashly add completions
@@ -28,7 +29,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin
     cp nyra $out/bin/${name}
     wrapProgram $out/bin/${name} \
-      --prefix PATH : ${nh}/bin:${jmtpfs}/bin
+      --prefix PATH : ${nh}/bin:${jmtpfs}/bin:${jq}/bin
   '';
 
   postInstall = ''
