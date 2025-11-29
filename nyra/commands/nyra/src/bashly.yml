@@ -48,7 +48,7 @@ commands:
 
 
 - name: search
-  help: Search packages in nixpkgs
+  help: Search packages in nixpkgs only by the title and display them as you see them on <search.nixos.org>
 
   args:
   - name: query
@@ -56,13 +56,13 @@ commands:
     required: true
 
   flags:
-  - long: --description
-    short: -d
-    help: Search query in packages name AND description
+  - long: --classic
+    short: -c
+    help: Search query exactly like nix search does (it just wraps it)
   
   examples:
   - nyra search [query]
-  - nyra search -d [query]
+  - nyra search -c [query]
 
 
 - name: shell
@@ -70,8 +70,8 @@ commands:
 
   args:
   - name: packages
-    help: Which packages to put in the shell
+    help: Which packages to use in the shell
     required: true
 
   examples:
-  - nyra shell [packages]
+  - nyra shell "[package1] ..."
