@@ -1,0 +1,77 @@
+name: nyra
+help: Utility script for managing Nix
+version: 1.0.0
+
+commands:
+- name: sync
+  help: Synchronizes the system based on the config
+
+  args:
+  - name: config
+    help: What config to use
+    required: true
+    allowed:
+      - main
+  
+  examples:
+  - nyra sync main
+
+
+- name: clean
+  help: Deletes unreachable store objects and generations older than 7 days (wrapper over nh clean)
+
+  flags:
+  - long: --delete-old 
+    short: -d
+    help: Deletes all old profiles
+
+  examples:
+  - nyra clean
+  - nyra clean -d
+
+
+- name: completions
+  help: Loads completions in your shell
+
+
+- name: android
+  help: Mounts and unmounts the connected android device
+
+  flags:
+  - long: --unmount
+    short: -u
+    help: Unmounts the device from ~/Android
+
+  examples:
+  - nyra android
+  - nyra android -u
+
+
+- name: search
+  help: Search packages in nixpkgs only by the title and display them as you see them on <search.nixos.org>
+
+  args:
+  - name: query
+    help: Which package to search
+    required: true
+
+  flags:
+  - long: --classic
+    short: -c
+    help: Search query exactly like nix search does (it just wraps it)
+  
+  examples:
+  - nyra search [query]
+  - nyra search -c [query]
+
+
+- name: shell
+  help: Test packages from nixpkgs in a dedicated shell (wrapper over nix shell)
+
+  args:
+  - name: packages
+    help: Which packages to use in the shell
+    required: true
+
+  examples:
+  - nyra shell "[package1] ..."

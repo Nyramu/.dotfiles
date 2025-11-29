@@ -5,7 +5,10 @@ let
   screenRecord = pkgs.callPackage ../../nyra/commands/screen-record {};
 in
 {
-  imports = [ ../../nyra/home ]; 
+  imports = [
+    ../../nyra/home
+    ../../nyra/commands/nyra
+  ]; 
 
   nixpkgs.config = {
     allowUnfree = true;

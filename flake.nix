@@ -1,31 +1,49 @@
 {
   description = "Nyramu's Flake";
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @inputs: 
     let 
-      inherit (self) outputs;
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      systemSettings = {
+        hostName = "nixos";
+
+        dotfiles = "~/.dotfiles";
+
+        kb = {
+          layout = "it";
+          variant = "";
+        };
+      };
+
+      inherit (nixpkgs) lib;
+
+      createNixosProfile = name: system:
+        lib.nixosSystem {
+          inherit system;
+          modules = [./profiles/${name}/configuration.nix];
+          specialArgs = {
+            inherit systemSettings inputs;
+          };
+        };
+
+      createHomeProfile = name: system:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [];
+          };
+          modules = [./profiles/${name}/home.nix];
+          extraSpecialArgs = {
+            inherit systemSettings inputs;
+          };
+        };
     in
   {
     nixosConfigurations = {
-      system = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./profiles/main/configuration.nix
-        ];
-        specialArgs = { inherit inputs outputs; };
-      };
+      main = createNixosProfile "main" "x86_64-linux";
     };
 
     homeConfigurations = {
-      user = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-	modules = [
-          ./profiles/main/home.nix
-        ];
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
+      main = createHomeProfile "main" "x86_64-linux"; 
     };
   };
 

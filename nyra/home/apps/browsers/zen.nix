@@ -259,7 +259,7 @@ in
         return-youtube-dislikes
         augmented-steam
         protondb-for-steam
-        animalese-typing
+        #animalese-typing # Cool and cute but annoying
         #brotab
         #betterttv
         #censor-tracker
@@ -268,7 +268,6 @@ in
         #firenvim
         image-search-options
         octotree
-        #side-view
         #simplifygmail
         #the-camelizer-price-history-ch
         #to-google-translate

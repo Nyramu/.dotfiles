@@ -23,6 +23,7 @@ in
         theme.fonts.serif.package
         theme.fonts.sansSerif.package
         theme.fonts.monospace.package
+        theme.fonts.emoji.package
       ];
     })
   ];

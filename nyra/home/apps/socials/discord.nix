@@ -55,7 +55,6 @@ in
           dontRoundMyTimestamps.enable = true;
           equicordHelper = {
             enable = false;
-            disableCreateDmButton = true;
             disableDmContextMenu = true;
             noMirroredCamera = true;
             removeActivitySection = true;
