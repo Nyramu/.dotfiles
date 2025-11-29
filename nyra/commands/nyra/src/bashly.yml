@@ -7,11 +7,11 @@ commands:
   help: Synchronizes the system based on the config
 
   args:
-   - name: config
-     help: what config to use
-     required: true
-     allowed:
-        - main
+  - name: config
+    help: What config to use
+    required: true
+    allowed:
+      - main
   
   examples:
   - nyra sync main
@@ -45,3 +45,15 @@ commands:
   examples:
   - nyra android
   - nyra android -u
+
+
+- name: search
+  help: Search packages in nixpkgs
+
+  args:
+  - name: query
+    help: What package to search
+    required: true
+  
+  examples:
+  - nyra search [query]
