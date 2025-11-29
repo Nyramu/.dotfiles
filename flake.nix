@@ -1,5 +1,5 @@
 {
-  description = "Nyramu's Flake";
+  description = "Nyramu's Personal Flake";
 
   outputs = { self, nixpkgs, home-manager, ... } @inputs: 
     let 
