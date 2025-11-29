@@ -52,8 +52,26 @@ commands:
 
   args:
   - name: query
-    help: What package to search
+    help: Which package to search
     required: true
+
+  flags:
+  - long: --description
+    short: -d
+    help: Search query in packages name AND description
   
   examples:
   - nyra search [query]
+  - nyra search -d [query]
+
+
+- name: shell
+  help: Test packages from nixpkgs in a dedicated shell (wrapper over nix shell)
+
+  args:
+  - name: packages
+    help: Which packages to put in the shell
+    required: true
+
+  examples:
+  - nyra shell [packages]
