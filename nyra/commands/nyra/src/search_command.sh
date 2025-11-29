@@ -2,7 +2,8 @@ query=${args[query]}
 classic=${args[--classic]}
 
 if [[ $classic ]]; then
-  nix search nixpkgs "$query" 2>/dev/null
+  nix search nixpkgs "$query" 2>/dev/null | \
+  grep --color=always -iE "$query|$"
 else
   jq_filter='to_entries[] | select(.key | contains($q)) | "* \(.key | sub("^.*\\.(x86_64-linux|aarch64-linux|x86_64-darwin|aarch64-darwin)\\."; "")) (\(.value.version // "unknown"))\n  \(.value.description // "No description")\n"'
   
