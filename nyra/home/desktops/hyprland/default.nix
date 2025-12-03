@@ -35,6 +35,7 @@ in
 
     config.misc = {
       vfr = false;
+      vrr = false;
     };
 
     config.input = {
