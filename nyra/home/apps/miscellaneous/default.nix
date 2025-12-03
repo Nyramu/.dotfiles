@@ -1,7 +1,7 @@
 { config, lib, ... }: with lib;
 
 let
-  cfg = config.nyra.home.apps.miscellaneous;
+  cfg = config.nyra.home.apps.miscellaneous; 
 in
 {
   imports = [
