@@ -15,7 +15,7 @@ in
 
   config = {
     programs.btop = {
-      enable = cfg.btop.enable;
+      enable = cfg.enable;
       package = pkgs.btop-rocm;
       settings = {
         color_theme = lib.mkForce "TTY";
@@ -23,7 +23,7 @@ in
         force_tty = true;
         update_ms = 100;
         shown_boxes = "proc cpu gpu0 mem net";
-        custom_gpu_name0 = cfg.btop.gpu-name;
+        custom_gpu_name0 = cfg.gpu-name;
       };
     };
   };
