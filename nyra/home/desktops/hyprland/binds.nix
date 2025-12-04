@@ -13,13 +13,13 @@ in
 
       terminal = "${getExe pkgs.${apps.terminals.default}}";
       browser = "${apps.browsers.default}";
-      fileManager = "nautilus"; #TODO: change file manager
+      fileManager = "yazi";
 
       groups = {
         launchApps = {
           bind = {
             "SUPER, B" = "exec, ${browser}";
-            "SUPER, E" = "exec, ${fileManager}";
+            "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
             "SUPER, D" = "exec, discord";
