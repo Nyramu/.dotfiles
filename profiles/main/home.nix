@@ -23,6 +23,7 @@
     gaming = {
       minecraft.enable = true;
       cemu.enable = true;
+      eden.enable = true;
     };
     socials = {
       telegram.enable = true;
