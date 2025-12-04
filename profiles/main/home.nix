@@ -34,18 +34,21 @@
       vlc.enable = true;
     };
     miscellaneous = {
-      yazi.enable = true;
-      btop.enable = true;
+      btop = {
+        enable = true;
+        gpu-name = "Radeon 780M"; 
+      };
+      yazi.enable = true; 
       fastfetch.enable = true;
       packages = with pkgs; [
         hyprpicker
         dtrx
-        #ciscoPacketTracer8 # Insecure package
         croc
         fontfor
         clolcat
         figlet
         cmatrix
+        wev
       ];
     };
   };
