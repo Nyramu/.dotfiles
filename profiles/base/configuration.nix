@@ -127,7 +127,7 @@
   # Allow unfree packages and experimental features
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
