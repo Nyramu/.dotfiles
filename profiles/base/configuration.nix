@@ -5,7 +5,10 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ../../nyra/system ];
+  imports = [
+    ../../nyra/system
+    ./cachix.nix
+  ];
 
   # Use latest kernel.
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
@@ -93,6 +96,8 @@
     };
     charger = {
       governor = "performance";
+      energy_performance_preference = "performance";
+      platform_profile = "performance";
       turbo = "auto";
     };
   };
@@ -125,10 +130,5 @@
   system.stateVersion = "25.11";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Cachix
-  nix.settings.extra-substituters = [ "https://vicinae.cachix.org" ];
-  nix.settings.extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
-
 }
 

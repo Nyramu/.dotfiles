@@ -271,6 +271,7 @@ in
         #simplifygmail
         #the-camelizer-price-history-ch
         #to-google-translate
+        #tampermonkey
         youtube-no-translation
         youtube-shorts-block
         youtube-nonstop

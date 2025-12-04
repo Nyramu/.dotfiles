@@ -1,5 +1,5 @@
 {
-  description = "Nyramu's Flake";
+  description = "Nyramu's Personal Flake";
 
   outputs = { self, nixpkgs, home-manager, ... } @inputs: 
     let 
@@ -54,10 +54,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprnix = {
       url = "github:hyprland-community/hyprnix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
     };
 
     stylix = {
@@ -82,6 +84,11 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    eden = {
+      url = "github:grantimatter/eden-flake";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {

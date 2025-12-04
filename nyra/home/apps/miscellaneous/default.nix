@@ -1,7 +1,7 @@
 { config, lib, ... }: with lib;
 
 let
-  cfg = config.nyra.home.apps.miscellaneous;
+  cfg = config.nyra.home.apps.miscellaneous; 
 in
 {
   imports = [
@@ -11,13 +11,13 @@ in
   ];
 
   options.nyra.home.apps.miscellaneous = {
-    not-configurable = mkOption {
+    packages = mkOption {
       type = types.listOf types.package;
       default = [];
     };
   };
 
   config = {
-    home.packages = cfg.not-configurable;
+    home.packages = cfg.packages;
   };
 }

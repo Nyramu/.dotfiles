@@ -23,10 +23,11 @@
     gaming = {
       minecraft.enable = true;
       cemu.enable = true;
+      eden.enable = true;
     };
     socials = {
       telegram.enable = true;
-      discord.enable = true;
+      #discord.enable = true;
     };
     media = {
       music.enable = true; # Enables mpd, rmpc, cava
@@ -36,9 +37,10 @@
       yazi.enable = true;
       btop.enable = true;
       fastfetch.enable = true;
-      not-configurable = with pkgs; [
+      packages = with pkgs; [
         hyprpicker
         dtrx
+        #ciscoPacketTracer8 # Insecure package
         croc
         fontfor
         clolcat
