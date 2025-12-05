@@ -10,10 +10,12 @@ in
 
   options.nyra.home.apps.editors = {
     gimp.enable = mkEnableOption "gimp";
+    aseprite.enable = mkEnableOption "aseprite";
   };
 
   config = {
     home.packages = with pkgs;
-      optionals (cfg.gimp.enable) [ gimp-with-plugins ];
+      optionals (cfg.gimp.enable) [ gimp-with-plugins ] ++
+      optionals (cfg.aseprite.enable) [ aseprite ];
   };
 }

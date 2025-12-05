@@ -15,6 +15,7 @@
     editors = {
       nvf.enable = true;
       gimp.enable = true;
+      aseprite.enable = true;
     };
     browsers = {
       default = "zen-beta";
