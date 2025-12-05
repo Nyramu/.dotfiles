@@ -35,7 +35,7 @@
     ryzenadj.enable = true;
   };
 
-  # Choose Pipewire instead of Pulseaudio
+  # Choose audio server
   nyra.system.hardware.audio.server = "pipewire";
 
   # Enable fingerprints support, register one running
