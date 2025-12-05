@@ -38,9 +38,9 @@
       btop = {
         enable = true;
         gpu-name = "Radeon 780M"; 
-      };
-      yazi.enable = true; 
+      }; 
       fastfetch.enable = true;
+      yazi.enable = true;
       packages = with pkgs; [
         hyprpicker
         dtrx
