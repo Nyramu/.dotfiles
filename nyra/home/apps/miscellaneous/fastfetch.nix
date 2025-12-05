@@ -21,44 +21,62 @@ in
           source = ../../../../resources/${cfg.logo}.png;
         };
         modules = [
-          "title"
-          "separator"
-          "os"
-          "host"
-          "kernel"
+          "break"
+          {
+            "type" = "custom";
+            "format" = "┌──────────────────────Hardware──────────────────────┐";
+          }
+          { "type" = "host"; "key" = " PC "; }
+          { "type" = "cpu"; "key" = "│ ├ "; }
+          { "type" = "gpu"; "key" = "│ ├ "; }
+          { "type" = "memory"; "key" = "│ ├ "; }
+          { "type" = "disk"; "key" = "│ ├ "; }
+          { "type" = "display"; "key" = "│ ├󰍹 "; }
+          { "type" = "battery"; "key" = "└ └ "; }
+          {
+            "type" = "custom";
+            "format" = "└────────────────────────────────────────────────────┘";
+          }
 
-          "separator"
-          "cpu"
-          "gpu"
-          { "type" = "memory"; "key" = "RAM"; }
-          "disk"
+          "break"
+          {
+            "type" = "custom";
+            "format" = "┌──────────────────────Software──────────────────────┐";
+          }
+          { "type" = "os"; "key" = " OS "; }
+          { "type" = "kernel"; "key" = "│ ├󰹣 "; }
+          { "type" = "bios"; "key" = "│ ├ "; "format" = "{type} {vendor} {version}"; }
+          #{ "type" = "packages"; "key" = "│ ├󰏖 "; }
+          { "type" = "shell"; "key" = "└ └ "; }
+          "break"
+          { "type" = "de"; "key" = " DE "; }
+          #{ "type" = "lm"; "key" = "│ ├󰍂 "; }
+          { "type" = "wm"; "key" = "│ ├󰝘 "; }
+          { "type" = "wmtheme"; "key" = "│ ├ "; }
+          { "type" = "terminal"; "key" = "└ └ "; }
+          {
+            "type" = "custom";
+            "format" = "└────────────────────────────────────────────────────┘";
+          }
 
-          "separator"
-          "terminal"
-          "shell"
-          "de"
-          "wm"
+          "break"
+          {
+            "type" = "custom";
+            "format" = "┌──────────────────Age / Uptime / DT─────────────────┐";
+          }
+          {
+            "type" = "command";
+            "key" = "  OS Age ";
+            "text" = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+          }
+          { "type" = "uptime"; "key" = "  Uptime "; }
+          { "type" = "datetime"; "key" = "  Date and Time"; "format" = "{weekday} {day-pretty}/{month-pretty}/{year} | {hour-pretty}:{minute-pretty}:{second-pretty}"; }
+          {
+              "type" = "custom";
+              "format" = "└────────────────────────────────────────────────────┘";
+          }
 
-          "separator"
-          { "type" = "display"; "key" = "Display"; }
-          { "type" = "battery"; "key" = "Battery"; } 
-          "uptime"
-
-          #"separator"
-          #"wmtheme"
-          #"theme"
-          #"icons"
-          #"cursor"
-          #"break"
-          #"colors"
-        
-          #"packages"
-          #"font"
-          #"terminalfont"
-          #"swap"
-          #"poweradapter"
-          #"localip"
-          #"locale"
+          { "type" = "colors"; "paddingLeft" = 2; "symbol" = "circle"; }
         ];
       };
     };
