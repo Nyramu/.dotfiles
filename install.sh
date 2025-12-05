@@ -1,30 +1,56 @@
 #!/bin/sh
 
-#echo "IMPORTANT"
-#echo "Remember to set the hardware configuration file in the desired profile (profiles/<name>/hardware-configuration.nix)"
-#echo "To generate it you can use:"
-#echo "    sudo nixos-generate-config --show-hardware-config"
-#echo "or just copy it from etc/nixos/hardware-configuration.nix"
-#echo ""
+echo "IMPORTANT"
+echo "Remember to set the hardware configuration file in the desired profile (profiles/<name>/hardware-configuration.nix)"
+echo "To generate it you can use:"
+echo "    sudo nixos-generate-config --show-hardware-config"
+echo "or just copy it from etc/nixos/hardware-configuration.nix"
+echo ""
 
-sudo nixos-generate-config --show-hardware-config > ./profiles/main/hardware-configuration.nix
+read -p "Did you do it? [y/N]" proceed
 
-sudo nixos-rebuild switch --flake ~/.dotfiles#system
+case $proceed in
+  "y");;
+  "Y");;
+  *)
+    echo "Aborting install"
+    exit 1
+esac
 
-nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ~/.dotfiles#user
+echo "Please select which profile to install:"
+echo "  - main"
+echo "  - potato"
+echo ""
 
-mkdir ~/Music/
-mkdir ~/Music/Lyrics
-mkdir ~/Music/Playlists
-mkdir ~/Desktop/
-mkdir ~/Downloads/  
-mkdir ~/Videos/
-mkdir ~/Pictures/
-mkdir ~/Games/
+read -p "input: " profile
+
+case $profile in
+  "main");;
+  "potato");;
+  *)
+    echo "Invalid input, aborting"
+    exit 1
+esac
+
+sudo nixos-rebuild switch --flake ~/.dotfiles#$profile
+
+nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ~/.dotfiles#$profile
+
+mkdir -p ~/Music/Lyrics
+mkdir -p ~/Music/Playlists
+mkdir -p ~/Desktop/
+mkdir -p ~/Downloads/  
+mkdir -p ~/Videos/Recordings
+mkdir -p ~/Pictures/Screenshots
+mkdir -p ~/Games/
 
 clear
 
+echo "Installation finished, you can reboot now"
+
 echo "Remember to set SSH:"
+echo "0.    git config --global user.name 'Your name'"
+echo "      git config --global user.email 'you@example.com'"
 echo "1.    ssh-keygen -t ed25519 -C 'your_email@example.com'"
 echo "2.    $ eval '$(ssh-agent -s)'"
 echo "3.    ssh-add ~/.ssh/id_ed25519"
