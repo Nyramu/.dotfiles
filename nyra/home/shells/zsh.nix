@@ -9,16 +9,16 @@ let
     sha256 = "sha256-1gcdHxDNWAv8CeAWWE1CPzSZuVr59gn4fTHaQlHAm6o=";
   };
 
-  cfg = config.nyra.home.shells; 
+  cfg = config.nyra.home.shells.zsh; 
 in
 {
-  options.nyra.home.shells = {
-    zsh.enable = mkEnableOption "zsh";
+  options.nyra.home.shells.zsh = {
+    enable = mkEnableOption "zsh";
   };
 
   config = {
     programs.zsh = {
-      enable = cfg.zsh.enable;
+      enable = cfg.enable;
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;
       oh-my-zsh = {
@@ -29,10 +29,6 @@ in
           "git"
           "gh"
           "git-prompt"
-          "z"
-          "command-not-found"
-          "copyfile"
-          "copypath"
           "golang"
           "ssh"
         ];
