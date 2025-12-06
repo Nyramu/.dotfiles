@@ -46,10 +46,11 @@ in
           { "type" = "os"; "key" = " OS "; }
           { "type" = "kernel"; "key" = "│ ├󰹣 "; }
           { "type" = "bios"; "key" = "│ ├ "; "format" = "{type} {vendor} {version}"; }
-          { "type" = "title"; "key" = "│ ├ "; }
+          { "type" = "title"; "key" = "│ ├ "; "format" = "{host-name}"; }
           { "type" = "shell"; "key" = "└ └ "; }
           "break"
           { "type" = "wm"; "key" = " WM "; }
+          { "type" = "title"; "key" = "│ ├ "; "format" = "{user-name}"; }
           { "type" = "lm"; "key" = "│ ├󰍂 "; }
           { "type" = "terminal"; "key" = "└ └ "; }
           {
