@@ -25,12 +25,18 @@ in
         enable = true;
         #theme = "robbyrussell";
         plugins = [
+          "alias-finder"
+          "colored-man-pages"
           "colorize"
+          "copyfile"
+          "fancy-ctrl-z"
           "git"
           "gh"
+          #"git-commit"
           "git-prompt"
           "golang"
           "ssh"
+          "sudo"
         ];
       };
     
