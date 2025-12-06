@@ -40,10 +40,12 @@
   {
     nixosConfigurations = {
       main = createNixosProfile "main" "x86_64-linux";
+      potato = createNixosProfile "potato" "x86_64-linux";
     };
 
     homeConfigurations = {
       main = createHomeProfile "main" "x86_64-linux"; 
+      potato = createHomeProfile "potato" "x86_64-linux";
     };
   };
 

@@ -4,19 +4,20 @@ let
   cfg = config.nyra.home.shells;
 in
 {
-  options.nyra.home.shells.commands.pay-respects = {
+  options.nyra.home.shells.commands.zoxide = {
     enable = mkOption {
       type = types.bool;
       default = cfg.zsh.enable;
-      description = "pay-respects";
+      description = "zoxide";
     };
   };
 
   config = {
-    programs.pay-respects = {
-      enable = cfg.commands.pay-respects.enable;
+    programs.zoxide = {
+      enable = cfg.commands.zoxide.enable;
       enableZshIntegration = cfg.zsh.enable;
-      options = [ "--alias f" "--alias fuck" ];
+      options = [ "--cmd cd" ];
     };
   };
 }
+

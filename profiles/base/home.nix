@@ -18,8 +18,8 @@ in
   home = {
     username = "nyramu";
     homeDirectory = "/home/nyramu";
-    stateVersion = "25.11";
-    packages = with pkgs; [ screenShot screenRecord ];
+    stateVersion = "26.05";
+    packages = [ screenShot screenRecord ];
   };
   news.display = "silent";
 

@@ -25,6 +25,9 @@ in
         #startup_session = /home/nyramu/.dotfiles;
         allow_remote_control = "no";
         listen_on = "none";
+        sync_to_monitor = "yes";
+        repaint_delay = 8;
+        input_delay = 2;
 
         scrollbar = "scrolled";
         scrollbar_interactive = "yes";

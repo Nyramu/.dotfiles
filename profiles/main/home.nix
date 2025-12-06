@@ -15,6 +15,7 @@
     editors = {
       nvf.enable = true;
       gimp.enable = true;
+      aseprite.enable = true;
     };
     browsers = {
       default = "zen-beta";
@@ -24,6 +25,7 @@
       minecraft.enable = true;
       cemu.enable = true;
       eden.enable = true;
+      azahar.enable = false;
     };
     socials = {
       telegram.enable = true;
@@ -34,29 +36,28 @@
       vlc.enable = true;
     };
     miscellaneous = {
-      yazi.enable = true;
-      btop.enable = true;
+      btop = {
+        enable = true;
+        gpu-name = "Radeon 780M"; 
+      }; 
       fastfetch.enable = true;
+      yazi.enable = true;
       packages = with pkgs; [
         hyprpicker
         dtrx
-        #ciscoPacketTracer8 # Insecure package
         croc
+        carbon-now-cli #TODO: Test
         fontfor
-        clolcat
         figlet
         cmatrix
+        wev
       ];
     };
   };
 
-  # Shells and commands
-  nyra.home.shells = {
-    zsh.enable = true;
-    commands = {
-      pay-respects.enable = true;
-    };
-  };
+  # Shells and Commands
+  nyra.home.shells.zsh.enable = true;
 
+  # Desktop Environments and Window Managers
   nyra.home.desktops.hyprland.enable = true;
 }
