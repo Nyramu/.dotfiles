@@ -49,11 +49,10 @@ in
           #{ "type" = "packages"; "key" = "│ ├󰏖 "; }
           { "type" = "shell"; "key" = "└ └ "; }
           "break"
-          { "type" = "de"; "key" = " DE "; }
-          #{ "type" = "lm"; "key" = "│ ├󰍂 "; }
-          { "type" = "wm"; "key" = "│ ├󰝘 "; }
-          { "type" = "wmtheme"; "key" = "│ ├ "; }
-          { "type" = "terminal"; "key" = "└ └ "; }
+          { "type" = "wm"; "key" = " WM "; }
+          { "type" = "lm"; "key" = "│ ├󰍂 "; }
+          { "type" = "terminal"; "key" = "│ ├ "; }
+          { "type" = "wmtheme"; "key" = "└ └ "; }
           {
             "type" = "custom";
             "format" = "└────────────────────────────────────────────────────┘";
