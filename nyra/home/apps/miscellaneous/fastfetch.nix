@@ -46,13 +46,12 @@ in
           { "type" = "os"; "key" = " OS "; }
           { "type" = "kernel"; "key" = "│ ├󰹣 "; }
           { "type" = "bios"; "key" = "│ ├ "; "format" = "{type} {vendor} {version}"; }
-          #{ "type" = "packages"; "key" = "│ ├󰏖 "; }
+          { "type" = "title"; "key" = "│ ├ "; }
           { "type" = "shell"; "key" = "└ └ "; }
           "break"
           { "type" = "wm"; "key" = " WM "; }
           { "type" = "lm"; "key" = "│ ├󰍂 "; }
-          { "type" = "terminal"; "key" = "│ ├ "; }
-          { "type" = "wmtheme"; "key" = "└ └ "; }
+          { "type" = "terminal"; "key" = "└ └ "; }
           {
             "type" = "custom";
             "format" = "└────────────────────────────────────────────────────┘";
