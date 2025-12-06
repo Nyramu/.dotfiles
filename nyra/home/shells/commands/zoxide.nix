@@ -5,14 +5,18 @@ let
 in
 {
   options.nyra.home.shells.commands.zoxide = {
-    enable = mkEnableOption "zoxide";
+    enable = mkOption {
+      type = types.bool;
+      default = cfg.zsh.enable;
+      description = "zoxide";
+    };
   };
 
   config = {
     programs.zoxide = {
       enable = cfg.commands.zoxide.enable;
       enableZshIntegration = cfg.zsh.enable;
-      options = [];
+      options = [ "--cmd cd" ];
     };
   };
 }
