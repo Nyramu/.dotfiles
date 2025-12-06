@@ -5,7 +5,11 @@ let
 in
 {
   options.nyra.home.shells.commands.eza = {
-    enable = mkEnableOption "eza";
+    enable = mkOption {
+      type = types.bool;
+      default = cfg.zsh.enable;
+      description = "eza";
+    };
   };
 
   config = {
@@ -15,7 +19,11 @@ in
       git = true;
       icons = "always";
       colors = "always";
-
+      extraOptions = [
+        "--color-scale-mode=gradient"
+        #"--no-symlinks"
+        "--header"
+      ];
     };
   };
 }
