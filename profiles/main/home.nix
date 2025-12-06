@@ -25,6 +25,7 @@
       minecraft.enable = true;
       cemu.enable = true;
       eden.enable = true;
+      azahar.enable = false;
     };
     socials = {
       telegram.enable = true;
@@ -45,6 +46,7 @@
         hyprpicker
         dtrx
         croc
+        carbon-now-cli
         fontfor
         clolcat
         figlet
@@ -57,9 +59,6 @@
   # Shells and commands
   nyra.home.shells = {
     zsh.enable = true;
-    commands = {
-      pay-respects.enable = true;
-    };
   };
 
   nyra.home.desktops.hyprland.enable = true;
