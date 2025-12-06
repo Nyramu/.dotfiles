@@ -46,9 +46,8 @@
         hyprpicker
         dtrx
         croc
-        carbon-now-cli
+        carbon-now-cli #TODO: Test
         fontfor
-        clolcat
         figlet
         cmatrix
         wev
@@ -56,10 +55,9 @@
     };
   };
 
-  # Shells and commands
-  nyra.home.shells = {
-    zsh.enable = true;
-  };
+  # Shells and Commands
+  nyra.home.shells.zsh.enable = true;
 
+  # Desktop Environments and Window Managers
   nyra.home.desktops.hyprland.enable = true;
 }
