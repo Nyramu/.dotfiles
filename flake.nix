@@ -10,6 +10,7 @@
 
       userSettings = {
         name = "Nyramu";
+        username = "nyramu";
         email = "107689027+Nyramu@users.noreply.github.com";
       };
 
