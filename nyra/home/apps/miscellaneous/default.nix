@@ -8,6 +8,7 @@ in
     ./yazi.nix
     ./btop.nix
     ./fastfetch.nix
+    ./git.nix
   ];
 
   options.nyra.home.apps.miscellaneous = {
