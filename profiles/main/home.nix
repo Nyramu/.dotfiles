@@ -29,7 +29,7 @@
     };
     socials = {
       telegram.enable = true;
-      #discord.enable = true;
+      discord.enable = true;
     };
     media = {
       music.enable = true; # Enables mpd, rmpc, cava
