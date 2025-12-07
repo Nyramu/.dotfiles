@@ -5,13 +5,12 @@
     let 
       systemSettings = {
         hostName = "nixos";
-
         dotfiles = "~/.dotfiles";
+      };
 
-        kb = {
-          layout = "it";
-          variant = "";
-        };
+      userSettings = {
+        name = "Nyramu";
+        email = "107689027+Nyramu@users.noreply.github.com";
       };
 
       inherit (nixpkgs) lib;
@@ -21,7 +20,7 @@
           inherit system;
           modules = [./profiles/${name}/configuration.nix];
           specialArgs = {
-            inherit systemSettings inputs;
+            inherit systemSettings userSettings inputs;
           };
         };
 
@@ -33,7 +32,7 @@
           };
           modules = [./profiles/${name}/home.nix];
           extraSpecialArgs = {
-            inherit systemSettings inputs;
+            inherit systemSettings userSettings inputs;
           };
         };
     in
