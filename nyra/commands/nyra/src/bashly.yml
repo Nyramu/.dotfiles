@@ -1,10 +1,10 @@
 name: nyra
 help: Utility script for managing Nix
-version: 1.0.0
+version: 1.5.0
 
 commands:
 - name: sync
-  help: Synchronizes the system based on the config
+  help: Synchronizes and rebuilds the system based on the config
 
   args:
   - name: config
@@ -12,9 +12,17 @@ commands:
     required: true
     allowed:
       - main
+      - potato
   
   examples:
   - nyra sync main
+  - nyra sync potato
+
+
+- name: update
+  help: Updates the dotfiles' flake.lock (wrapper over nix flake update)
+  examples:
+  - nyra update
 
 
 - name: clean
