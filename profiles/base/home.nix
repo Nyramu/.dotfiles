@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 let
   screenShot = pkgs.callPackage ../../nyra/commands/screen-shot {};
@@ -16,8 +16,8 @@ in
   };
 
   home = {
-    username = "nyramu";
-    homeDirectory = "/home/nyramu";
+    username = userSettings.username;
+    homeDirectory = "/home/${userSettings.username}";
     stateVersion = "26.05";
     packages = [ screenShot screenRecord ];
   };
