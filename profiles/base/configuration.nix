@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ lib, pkgs, ... }:
+{ lib, pkgs, systemSettings, ... }:
 
 {
   imports = [
@@ -10,10 +10,10 @@
     ./cachix.nix
   ];
 
-  # Use latest kernel.
+  # Kernel.
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = systemSettings.hostName;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nyramu = {
@@ -41,6 +41,7 @@
     git
     curl
     util-linux
+    zoxide
     usbutils
     kitty
   ];
