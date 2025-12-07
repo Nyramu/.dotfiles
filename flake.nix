@@ -83,11 +83,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     eden = {
       url = "github:grantimatter/eden-flake";
       #inputs.nixpkgs.follows = "nixpkgs";
