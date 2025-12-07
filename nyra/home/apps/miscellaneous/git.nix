@@ -1,6 +1,7 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, pkgs, userSettings, ... }: with lib;
 
-let
+let 
+  shellCfg = config.nyra.home.shells;
   cfg = config.nyra.home.apps.miscellaneous.git;
 in
 {
@@ -15,6 +16,10 @@ in
   config = {
     programs.git = {
       enable = cfg.enable;
+      settings.user = {
+        inherit (userSettings) name;
+        inherit (userSettings) email;
+      };
     };
 
     programs.gh = {
@@ -24,6 +29,11 @@ in
         git_protocol = "ssh";
         editor = "nvim"; # TODO: check if it supports something like "$EDITOR"
       };
+    };
+
+    programs.lazygit = {
+      enable = cfg.enable;
+      enableZshIntegration = shellCfg.zsh.enable;
     };
   };
 }
