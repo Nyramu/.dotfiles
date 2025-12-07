@@ -260,14 +260,12 @@ in
         augmented-steam
         protondb-for-steam
         #animalese-typing # Cool and cute but annoying
-        #brotab
         #betterttv
         #censor-tracker
         clearurls
         copy-selection-as-markdown
         #firenvim
         image-search-options
-        octotree
         #simplifygmail
         #the-camelizer-price-history-ch
         #to-google-translate
