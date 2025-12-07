@@ -55,9 +55,6 @@
     };
   };
 
-  # Shells and Commands
-  nyra.home.shells.zsh.enable = true;
-
   # Desktop Environments and Window Managers
   nyra.home.desktops.hyprland.enable = true;
 }

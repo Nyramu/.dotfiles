@@ -24,4 +24,7 @@ in
   news.display = "silent";
 
   programs.home-manager.enable = true;
+
+  # Use zsh by default
+  nyra.home.shells.zsh.enable = true;
 }
