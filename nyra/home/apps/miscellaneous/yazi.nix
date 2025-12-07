@@ -1,6 +1,7 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, ... }: with lib;
 
 let
+  shellCfg = config.nyra.home.shells;
   cfg = config.nyra.home.apps.miscellaneous.yazi;
 in
 {
@@ -11,13 +12,13 @@ in
   config = {
     programs.yazi = {
       enable = cfg.enable;
-      enableZshIntegration = config.nyra.home.shells.zsh.enable;
+      enableZshIntegration = shellCfg.zsh.enable;
       settings = {
         mgr = {
           sort_by = "mtime";
           sort_sensitive = false;
           sort_dir_first = true;
-          linemode = "size_and_mtime";
+          linemode = "size_and_mtime"; #TODO: Fix
           show_hidden = true;
         };
         preview.wrap = "yes";

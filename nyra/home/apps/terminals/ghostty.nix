@@ -1,6 +1,7 @@
 { config, lib, ... }: with lib;
 
 let
+  shellCfg = config.nyra.home.shells;
   cfg = config.nyra.home.apps.terminals;
 in
 {
@@ -15,7 +16,7 @@ in
   config = {
     programs.ghostty = {
       enable = cfg.ghostty.enable;
-      enableZshIntegration = config.nyra.home.shells.zsh.enable;
+      enableZshIntegration = shellCfg.zsh.enable;
       settings = {
         background-blur = false;
         working-directory = "inherit";

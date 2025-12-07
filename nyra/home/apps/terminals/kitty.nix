@@ -2,6 +2,7 @@
 
 let
   stylix-palette = config.stylix.base16Scheme;
+  shellCfg = config.nyra.home.shells;
   cfg = config.nyra.home.apps.terminals;
 in
 {
@@ -17,7 +18,7 @@ in
     programs.kitty = {
       enable = cfg.kitty.enable;
       enableGitIntegration = true;
-      shellIntegration.enableZshIntegration = config.nyra.home.shells.zsh.enable;
+      shellIntegration.enableZshIntegration = shellCfg.zsh.enable;
       settings = {
         shell_integration = "enabled";
         confirm_os_window_close = 0;
