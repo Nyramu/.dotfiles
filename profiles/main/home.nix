@@ -14,6 +14,7 @@
     };
     editors = {
       nvf.enable = true;
+      helix.enable = true;
       gimp.enable = true;
       aseprite.enable = true;
     };

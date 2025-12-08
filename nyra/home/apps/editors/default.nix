@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./nvf.nix
+    ./helix.nix
   ];
 
   options.nyra.home.apps.editors = {
