@@ -8,20 +8,14 @@
 
   # Apps
   nyra.home.apps = {
-    terminals = {
-      default = "kitty";
-      alacritty.enable = true;
-    };
+    terminals.default = "kitty";
     editors = {
       nvf.enable = true;
       helix.enable = true;
       gimp.enable = true;
       aseprite.enable = true;
     };
-    browsers = {
-      default = "zen-beta";
-      #qutebrowser.enable = true;
-    };
+    browsers.default = "zen-beta";
     gaming = {
       minecraft.enable = true;
       cemu.enable = true;
