@@ -18,7 +18,6 @@ in
       enable = cfg.enable;
       exitShellOnExit = true;
       enableBashIntegration = true; # Fallback
-      enableFishIntegration = true;
       enableZshIntegration = shellCfg.zsh.enable;
       settings = {
         on_force_close = "quit";
