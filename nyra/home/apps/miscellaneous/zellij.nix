@@ -16,9 +16,6 @@ in
   config = {
     programs.zellij = {
       enable = cfg.enable;
-      exitShellOnExit = true;
-      enableBashIntegration = true; # Fallback
-      enableZshIntegration = shellCfg.zsh.enable;
       settings = {
         on_force_close = "quit";
         pane_frames = false;
