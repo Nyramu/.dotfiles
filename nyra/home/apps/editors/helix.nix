@@ -2,8 +2,26 @@
 
 let
   cfg = config.nyra.home.apps.editors.helix;
-in
-{
+
+  helix-wrapped = pkgs.writeShellScriptBin "hx" ''
+    if [ -z "$ZELLIJ" ]; then
+      LAYOUT=$(mktemp --suffix=.kdl)
+      cat > "$LAYOUT" <<EOF
+    layout {
+      pane command="${pkgs.helix}/bin/hx" {
+        args "$@"
+        close_on_exit true
+      }
+    }
+    EOF
+      ${pkgs.zellij}/bin/zellij \
+        --layout "$LAYOUT"
+      rm -f "$LAYOUT"
+    else
+      exec ${pkgs.helix}/bin/hx "$@"
+    fi
+  '';
+in {
   options.nyra.home.apps.editors.helix = {
     enable = mkEnableOption "helix";
   };
@@ -11,6 +29,7 @@ in
   config = {
     programs.helix = {
       enable = cfg.enable;
+      package = helix-wrapped;
       defaultEditor = true;
 
       settings = {
@@ -27,6 +46,12 @@ in
             select = "underline";
           };
 
+          statusline = {
+            left = ["mode" "spacer" "file-name" "read-only-indicator" "file-modification-indicator"];
+            center = ["version-control"];
+            right = ["spinner" "file-type" "diagnostics" "position" "position-percentage"];
+          };
+          
           lsp = {
             display-progress-messages = true;
             display-inlay-hints = true;
@@ -53,7 +78,7 @@ in
           C-s = ":w";
           C-f = ":fmt";
 
-          space.g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${getExe pkgs.lazygit}";
+          space.g.g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${getExe pkgs.lazygit}";
         };
       };
 
