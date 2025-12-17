@@ -33,7 +33,7 @@ in
           enableExtraDiagnostics = true;
           nix = {
             enable = true;
-            format.type = "alejandra";
+            format.type = ["alejandra"];
             extraDiagnostics.types = ["deadnix"];
           };
           #sql.enable = true;
