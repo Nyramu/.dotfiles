@@ -37,6 +37,7 @@
       }; 
       fastfetch.enable = true;
       yazi.enable = true;
+      ptracer.enable = true;
       packages = with pkgs; [
         hyprpicker
         dtrx

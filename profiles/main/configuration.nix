@@ -24,9 +24,6 @@
       gamescope.enable = true;
       lossless-scaling.enable = false;
     };
-    miscellaneous = {
-      ptracer.enable = true;
-    };
   };
 
   # Use latest kernel.
