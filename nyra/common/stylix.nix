@@ -15,9 +15,11 @@ in
     polarity = theme.polarity;
     opacity = theme.opacity;
 
-    #icons = {
-    #  enable = true;
-      # TODO add icons.package and icons.dark
-    #};
+    icons = {
+      enable = true;
+      package = pkgs.gruvbox-plus-icons;
+      dark = "gruvbox-plus";
+      light = "gruvbox-plus";
+    };
   };
 }
