@@ -220,14 +220,14 @@ in
         background-color: ${theme.waybar.background-color};
         padding: 0.3rem 0.6rem;
         margin: 0.2rem;
-        border-radius: 6px;
+        border-radius: 10px;
         border: 2px solid ${stylix-palette.base0A};
       }
 
       #workspaces button {
         padding: 0.3rem 1rem;
         margin: 0.2rem;
-        border-radius: 6px;
+        border-radius: 10px;
         background-color: transparent;
         color: ${stylix-palette.base0A};
       }
@@ -262,7 +262,7 @@ in
       #tray {
         padding: 0.3rem 0.6rem;
         margin: 0.2rem;
-        border-radius: 6px;
+        border-radius: 10px;
         border: 2px solid ${stylix-palette.base0A};
         background-color: ${theme.waybar.background-color};
       }
