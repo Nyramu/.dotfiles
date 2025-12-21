@@ -22,11 +22,11 @@ in
 
       # <https://wiki.hyprland.org/Configuring/Variables/#general>
       general = {
-        border_size = 3;
+        border_size = 2;
         resize_on_border = true;
 
         gaps_inside = 5;
-        gaps_outside = 25;
+        gaps_outside = 4;
 
         active_border_color = theme.hypr.active_border_color;
         inactive_border_color = theme.hypr.inactive_border_color;
@@ -36,7 +36,7 @@ in
       };
 
       decoration = {
-        rounding = 2;
+        rounding = 6;
         shadow = {
           range = 5;
           render_power = 3;
