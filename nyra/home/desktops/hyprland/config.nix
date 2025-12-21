@@ -36,7 +36,7 @@ in
       };
 
       decoration = {
-        rounding = 6;
+        rounding = 8;
         shadow = {
           range = 5;
           render_power = 3;
