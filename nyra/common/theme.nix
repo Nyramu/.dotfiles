@@ -4,9 +4,9 @@
   options.nyra.theme = {
     enable = mkEnableOption "Enable theming";
     defaultTheme = mkOption {
-      type = types.enum [ "pixel-sunset" "pixel-red-eclipse" "red-eclipse" ];
+      type = types.enum [ "pixel-sunset" "pixel-red-eclipse" ];
       default = "pixel-sunset";
-      description = "Choose a theme: pixel-sunset, pixel-red-eclipse, red-eclipse";
+      description = "Choose a theme: pixel-sunset, pixel-red-eclipse";
     };
   };
 }
