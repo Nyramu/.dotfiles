@@ -112,10 +112,10 @@ in
           "browser.aboutwelcome.enabled" = false;
           "browser.ipProtection.enabled" = true; # Experimental
           "browser.ipProtection.variant" = "treatment";
-          #"browser.tabs.allow_transparent_browser" = true;
+          "browser.tabs.allow_transparent_browser" = false;
           "browser.tabs.warnOnOpen" = false;
           "browser.tabs.warnOnClose" = false;
-          #"browser.taskbarTabs.enabled" = true;
+          "browser.taskbarTabs.enabled" = false;
           "browser.vpn_promo.enabled" = false;
           "extensions.autoDisableScopes" = 0;
         };
