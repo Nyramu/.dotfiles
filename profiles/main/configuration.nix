@@ -22,7 +22,7 @@
       steam.enable = true;
       gamemode.enable = true;
       gamescope.enable = true;
-      lossless-scaling.enable = false;
+      lossless-scaling.enable = true;
     };
   };
 
