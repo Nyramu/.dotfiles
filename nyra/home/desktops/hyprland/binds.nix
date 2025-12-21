@@ -23,10 +23,14 @@ in
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
             "SUPER, D" = "exec, discord";
+            "SUPER, I" = "exec, ${getExe pkgs.jetbrains.idea
+}";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
             "SUPER, SPACE" = "exec, ${getExe pkgs.vicinae} toggle";
             "SUPER, RETURN" = "exec, ${terminal}";
+
+            "SUPER_ALT, RETURN" = "exec, ${terminal} -e hx"; # Helix
           };
         };
 
