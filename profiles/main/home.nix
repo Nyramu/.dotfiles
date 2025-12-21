@@ -12,6 +12,7 @@
     editors = {
       nvf.enable = true;
       helix.enable = true;
+      intellij.enable = true;
       gimp.enable = true;
       aseprite.enable = true;
     };
