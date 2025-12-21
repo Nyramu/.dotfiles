@@ -56,7 +56,7 @@
 
   # Hyprland color configuration
   hypr = {
-    active_border_color = "rgb(1a1625) rgb(b83858) 330deg";
+    active_border_color = "rgb(1a1625) rgb(b83858) rgb(983050) 330deg";
     inactive_border_color = "rgb(1a1625)";
   };
 
