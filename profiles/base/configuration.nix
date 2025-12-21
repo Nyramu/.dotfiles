@@ -39,6 +39,8 @@
   # System packages
   environment.systemPackages = with pkgs; [
     git
+    zip
+    unzip
     curl
     util-linux
     zoxide
