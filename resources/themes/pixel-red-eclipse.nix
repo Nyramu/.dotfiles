@@ -2,7 +2,7 @@
 
 {
   system = "base16";
-  name = "Pixel Red Eclipse";
+  name = "Red Eclipse";
   author = "https://github.com/Nyramu";
   polarity = "dark";
 

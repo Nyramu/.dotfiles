@@ -2,7 +2,7 @@
 
 {
   system = "base16";
-  name = "Pixel Sunset";
+  name = "Just Chill";
   author = "https://github.com/Nyramu";
   polarity = "dark";
 
