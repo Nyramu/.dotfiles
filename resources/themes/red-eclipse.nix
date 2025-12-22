@@ -6,7 +6,7 @@
   author = "https://github.com/Nyramu";
   polarity = "dark";
 
-  background = ../wallpapers/pixel-red-eclipse.jpg;
+  background = ../wallpapers/red-eclipse.jpg;
 
   fonts = {
     serif = {
