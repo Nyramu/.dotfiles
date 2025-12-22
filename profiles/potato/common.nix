@@ -4,6 +4,6 @@
   # Theming
   nyra.theme = {
     enable = true;
-    defaultTheme = "pixel-red-eclipse"; # pixel-sunset | pixel-red-eclipse | red-eclipse
+    defaultTheme = "red-eclipse"; # just-chill | red-eclipse | apocalypse
   };
 }
