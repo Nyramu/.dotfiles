@@ -204,7 +204,7 @@ in
         min-height: 0;
         min-width: 0;
         font-family: "${stylix-fonts.monospace.name}", "${stylix-fonts.emoji.name}";
-        font-size: 15px;
+        font-size: ${theme.waybar.font-size}px;
         font-weight: 600;
       }
 
