@@ -28,6 +28,12 @@
       package = pkgs.nerd-fonts.symbols-only;
       name = "Symbols Nerd Font";
     };
+    sizes = {
+      applications = 12;
+      desktop = 10;
+      popups = 10;
+      terminal = 12;
+    };
   }; 
 
   opacity = {
@@ -66,6 +72,7 @@
   # Waybar color configuration
   waybar = {
     background-color = "rgba(38, 38, 38, 0.6)";
+    font-size = "15";
   };
 
   # SDDM configuration

@@ -1,5 +1,8 @@
 { pkgs }:
 
+let
+  neospleen-font = pkgs.callPackage ../../nyra/custom-derivations/neospleen-nerd-font.nix {};
+in
 {
   system = "base16";
   name = "Apocalypse";
@@ -10,20 +13,26 @@
 
   fonts = {
     serif = {
-      package = pkgs.nerd-fonts.bigblue-terminal;
-      name = "BigBlueTermPlus Nerd Font";
+      package = neospleen-font;
+      name = "NeoSpleenNerdFont";
     }; 
     sansSerif = {
-      package = pkgs.nerd-fonts.bigblue-terminal;
-      name = "BigBlueTermPlus Nerd Font";
+      package = neospleen-font;
+      name = "NeoSpleenNerdFont";
     };
     monospace = {
-      package = pkgs.nerd-fonts.bigblue-terminal;
-      name = "BigBlueTermPlus Nerd Font";
+      package = neospleen-font;
+      name = "NeoSpleenNerdFont";
     };
     emoji = {
       package = pkgs.nerd-fonts.symbols-only;
       name = "Symbols Nerd Font";
+    };
+    sizes = {
+      applications = 15;
+      desktop = 10;
+      popups = 10;
+      terminal = 15;
     };
   };
 
@@ -35,38 +44,38 @@
   };
 
   palette = {
-    base00 = "#0d0c18"; # Default Background - deep night blue/black
-    base01 = "#1a1625"; # Lighter Background - dark purple-blue
-    base02 = "#2a1f35"; # Selection Background - medium dark purple
-    base03 = "#4f3e5e"; # Comments, Invisibles - muted purple
-    base04 = "#5a4560"; # Dark Foreground - lighter muted purple
-    base05 = "#d4b0c0"; # Default Foreground - lighter mauve-rose
-    base06 = "#f0d8e4"; # Light Foreground - light pale rose
-    base07 = "#faeaf0"; # Light Background - very pale pink
-
-    base08 = "#d94060"; # Variables, Deleted - burgundy-red from eclipse
-    base09 = "#b83858"; # Integers, Constants - deep wine-burgundy
-    base0A = "#983050"; # Classes, Bold - dark wine-red
-    base0B = "#a84068"; # Strings, Inserted - wine-burgundy
-    base0C = "#e85068"; # Support, Regex - bright burgundy-pink
-    base0D = "#c84860"; # Functions, Headings - medium burgundy-red
-    base0E = "#a84058"; # Keywords, Italic - muted wine-burgundy
-    base0F = "#782838"; # Deprecated - deep dark burgundy
+    base00 = "#1a1210"; # Default Background - deep dark brown-black
+    base01 = "#2a1c14"; # Lighter Background - dark burnt brown
+    base02 = "#3a2618"; # Selection Background - dark chocolate-brown
+    base03 = "#8a6850"; # Comments, Invisibles - muted brown
+    base04 = "#6a4830"; # Dark Foreground - medium brown
+    base05 = "#d88860"; # Default Foreground - warm terracotta
+    base06 = "#f0a878"; # Light Foreground - light coral-orange
+    base07 = "#ffc898"; # Light Background - pale peach-orange
+    base08 = "#ff5830"; # Variables, Deleted - bright red-orange
+    base09 = "#ff6838"; # Integers, Constants - vibrant red-orange
+    base0A = "#ff7840"; # Classes, Bold - warm orange-red
+    base0B = "#e85028"; # Strings, Inserted - deep red-orange
+    base0C = "#ff6840"; # Support, Regex - coral-orange
+    base0D = "#d84820"; # Functions, Headings - burnt red-orange
+    base0E = "#c84018"; # Keywords, Italic - dark red-orange
+    base0F = "#a83010"; # Deprecated - deep burnt red
   };
 
   # Hyprland color configuration
   hypr = {
-    active_border_color = "rgb(1a1625) rgb(b83858) rgb(983050) 330deg";
-    inactive_border_color = "rgb(1a1625)";
+    active_border_color = "rgb(0a0806) rgb(2a1e18) rgb(ed6830) 220deg";
+    inactive_border_color = "rgb(3a2618)";
   };
 
   # Waybar color configuration
   waybar = {
-    background-color = "rgba(38, 36, 52, 0.6)";
+    background-color = "rgba(42, 28, 20, 0.6)";
+    font-size = "20";
   };
 
   # SDDM configuration
   sddm = {
-    avatarShape = "square";
+    avatarShape = "circle";
   };
 }
