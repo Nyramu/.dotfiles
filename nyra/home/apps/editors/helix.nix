@@ -77,6 +77,10 @@ in {
           C-q = ":wq";
           C-s = ":w";
           C-f = ":fmt";
+          C-w = ":buffer-close";
+          C-W = ":write-buffer-close";
+          C-right = ":buffer-next";
+          C-left = ":buffer-previous";
 
           space.g.g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${getExe pkgs.lazygit}";
         };
