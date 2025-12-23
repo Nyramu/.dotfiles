@@ -47,24 +47,24 @@ in
     base00 = "#1a1210"; # Default Background - deep dark brown-black
     base01 = "#2a1c14"; # Lighter Background - dark burnt brown
     base02 = "#3a2618"; # Selection Background - dark chocolate-brown
-    base03 = "#8a6850"; # Comments, Invisibles - muted brown
+    base03 = "#a07e66"; # Comments, Invisibles - muted brown
     base04 = "#6a4830"; # Dark Foreground - medium brown
     base05 = "#d88860"; # Default Foreground - warm terracotta
     base06 = "#f0a878"; # Light Foreground - light coral-orange
     base07 = "#ffc898"; # Light Background - pale peach-orange
     base08 = "#ff5830"; # Variables, Deleted - bright red-orange
     base09 = "#ff6838"; # Integers, Constants - vibrant red-orange
-    base0A = "#ff7840"; # Classes, Bold - warm orange-red
-    base0B = "#e85028"; # Strings, Inserted - deep red-orange
+    base0A = "#ff5830"; # Classes, Bold - warm orange-red
+    base0B = "#ff6238"; # Strings, Inserted - bright golden orange
     base0C = "#ff6840"; # Support, Regex - coral-orange
-    base0D = "#d84820"; # Functions, Headings - burnt red-orange
+    base0D = "#e13820"; # Functions, Headings - deep red-orange
     base0E = "#c84018"; # Keywords, Italic - dark red-orange
     base0F = "#a83010"; # Deprecated - deep burnt red
   };
 
   # Hyprland color configuration
   hypr = {
-    active_border_color = "rgb(0a0806) rgb(2a1e18) rgb(ed6830) 220deg";
+    active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) 220deg";
     inactive_border_color = "rgb(3a2618)";
   };
 
