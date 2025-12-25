@@ -91,24 +91,30 @@ in {
           A-q = ":write-quit"; # Save and quit Helix
           A-s = ":write"; # Save
           A-f = ":format"; # Format code
+          A-r = "replace_selections_with_clipboard"; # Replace selection with clipboard content
+          A-p = "paste_clipboard_before"; # Paste clipboard content before selection
+          A-y = "yank_to_clipboard"; # Yank selection to clipboard
+          A-d = "delete_selection"; # Delete selection
+          A-c = ["yank_to_clipboard" "delete_selection"]; # Cut selection
+          
           A-esc = ":buffer-close!"; # Force close current file
           A-ret = ":write-buffer-close"; # Save and close current file
           A-right = ":buffer-next"; # Go to the next opened file
           A-left = ":buffer-previous"; # Go to the previous opened file
-          A-up = "no_op";
-          A-down = "no_op";
 
           C-z = "undo"; # Undo changes
           C-y = "redo"; # Redo changes
 
           space = {
             g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${getExe pkgs.lazygit}";
-
+            d = [":cd /home/nyramu/.dotfiles" "file_picker"];
             s = "global_search";
             f = "file_picker";
-            d = [":cd /home/nyramu/.dotfiles" "file_picker"]; # Go to .dotfiles
-            "/" = "no_op";
           };
+
+          A-up = "no_op";
+          A-down = "no_op";
+          space."/" = "no_op";
         };
 
         keys.insert = {
@@ -152,6 +158,7 @@ in {
 
       languages = {
         language-server = {
+          nixd.command = "${getExe pkgs.nixd}";
           nil.command = "${getExe pkgs.nil}";
           bash-language-server.command = "${getExe pkgs.bash-language-server}";
           clangd.command = "${pkgs.clang-tools}/bin/clangd";
