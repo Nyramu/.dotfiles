@@ -16,7 +16,7 @@ in
       optionals cfg.discord.enable [
         (pkgs.discord.override {
           withEquicord = true;
-          withOpenASAR = true;
+          withOpenASAR = false;
         })
       ]; 
   };
