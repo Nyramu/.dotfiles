@@ -1,4 +1,4 @@
-delete_old=${args[--delete-old]}
+delete_old=${args=[--delete-old]}
 
 TIMESPAN="7d"
 

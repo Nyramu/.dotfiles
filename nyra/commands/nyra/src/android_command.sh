@@ -1,5 +1,5 @@
 MOUNT_POINT="$HOME/Android"
-unmount=${args[--unmount]}
+unmount=${args=[--unmount]}
 
 mkdir -p "$MOUNT_POINT"
 
