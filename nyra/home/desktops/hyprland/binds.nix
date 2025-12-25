@@ -13,8 +13,7 @@ in
 
       terminal = "${getExe pkgs.${apps.terminals.default}}";
       browser = "${apps.browsers.default}";
-      fileManager = "yazi";
-
+      fileManager = "${getExe pkgs.yazi}";
       groups = {
         launchApps = {
           bind = {
@@ -23,8 +22,7 @@ in
             "SUPER, S" = "exec, ${getExe pkgs.steam}";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
             "SUPER, D" = "exec, discord";
-            "SUPER, I" = "exec, ${getExe pkgs.jetbrains.idea
-}";
+            "SUPER, I" = "exec, ${getExe pkgs.jetbrains.idea}";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
             "SUPER, SPACE" = "exec, ${getExe pkgs.vicinae} toggle";
@@ -43,11 +41,12 @@ in
 
         screenCapture = {
           # Press to start recording, then press again to stop and save
-          bind.", F9" = "exec, ${getExe screenRecord}";
-          # Copy to clipboard without saving
+          bind.", F9" = "exec, ${getExe screenRecord}"; # Max quality, 60 fps
+          bind."SUPER, F9" = "exec, ${getExe screenRecord} --low-quality"; # Lower bitrate, 30 fps
+          # Copy screenshot to clipboard without saving
           bind.", F10" = "exec, ${getExe screenShot}";
           bind.", Print" = "exec, ${getExe screenShot}";
-          # Copy to clipboard and save
+          # Copy screenshot to clipboard and save
           bind."SUPER, F10" = "exec, ${getExe screenShot} --save";
           bind."SUPER, Print" = "exec, ${getExe screenShot} --save";
         };
