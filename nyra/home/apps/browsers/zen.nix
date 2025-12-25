@@ -273,6 +273,7 @@ in
         youtube-no-translation
         youtube-shorts-block
         youtube-nonstop
+        darkreader
       ];
     };
   };
