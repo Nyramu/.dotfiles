@@ -104,6 +104,9 @@ in {
 
           C-z = "undo"; # Undo changes
           C-y = "redo"; # Redo changes
+          C-f = "search"; # Search regex
+          C-right = "search_next"; # Select next search match
+          C-left = "search_prev"; # Select previous search match
 
           space = {
             g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${getExe pkgs.lazygit}";
@@ -127,6 +130,9 @@ in {
           C-d = "kill_to_line_start"; # Delete till start of line
           C-z = "undo"; # Undo changes
           C-y = "redo"; # Redo changes
+          C-f = "search"; # Search regex
+          C-right = "search_next"; # Select next search match
+          C-left = "search_prev"; # Select previous search match
           C-space = "toggle_comments"; # Comment/uncomment current line or selection
 
           tab = "insert_tab";
