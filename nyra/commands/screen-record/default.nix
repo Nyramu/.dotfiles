@@ -65,19 +65,30 @@ writeShellApplication {
       start_recording() {
         local output
         local audio_source
+        local low_quality_flag="''${1:-}"
 
         output="$OUTPUT_DIR/screenrecord_$(date +%Y-%m-%d-%T).mp4"
         audio_source=$(get_audio_source) || die "Cannot find audio source"
 
         mkdir -p "$STATE_DIR"
 
-        gpu-screen-recorder \
-          -w screen \
-          -f 60 \
-          -a "$audio_source" \
-          -c mp4 \
-          -o "$output" &
-
+        if [ "$low_quality_flag" = "--low-quality" ]; then
+          gpu-screen-recorder \
+            -w screen \
+            -f 30 \
+            -q medium \
+            -a "$audio_source" \
+            -c mp4 \
+            -o "$output" &
+        else
+          gpu-screen-recorder \
+            -w screen \
+            -f 60 \
+            -a "$audio_source" \
+            -c mp4 \
+            -o "$output" &
+        fi
+        
         echo $! > "$STATE_FILE"
         echo "Recording started: $output"
       }
@@ -106,7 +117,7 @@ writeShellApplication {
         if is_recording; then
           stop_recording
         else
-          start_recording
+          start_recording "''${1:-}"
         fi
       }
 
