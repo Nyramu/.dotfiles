@@ -25,7 +25,7 @@ in
             "SUPER, I" = "exec, ${getExe pkgs.jetbrains.idea}";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
-            "SUPER, SPACE" = "exec, ${getExe pkgs.vicinae} toggle";
+            "SUPER, SPACE" = "exec, vicinae toggle";
             "SUPER, RETURN" = "exec, ${terminal}";
 
             "SUPER_ALT, RETURN" = "exec, ${terminal} -e hx"; # Helix
@@ -36,7 +36,7 @@ in
           # Waybar
           bind."SUPER_SHIFT, W" = "exec, pkill ${pkgs.waybar.pname}; ${getExe pkgs.waybar}";
           # Vicinae
-          bind."SUPER_SHIFT, SPACE" = "exec, ${getExe pkgs.vicinae} server --replace";
+          bind."SUPER_SHIFT, SPACE" = "exec, vicinae server --replace";
         };
 
         screenCapture = {
