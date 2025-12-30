@@ -64,7 +64,7 @@ in
       # Start waybar and vicinae
       exec_once = [ 
         "${lib.getExe pkgs.waybar}" 
-        "${lib.getExe pkgs.vicinae} server"
+        "vicinae server"
       ];
     };
 
