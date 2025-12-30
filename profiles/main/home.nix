@@ -40,6 +40,7 @@
       yazi.enable = true;
       ptracer.enable = true;
       packages = with pkgs; [
+        evince
         hyprpicker
         dtrx
         croc

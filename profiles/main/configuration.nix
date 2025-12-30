@@ -32,8 +32,12 @@
   # AMD management tools and features
   nyra.system.hardware.amd = {
     ryzen-smu.enable = true;
-    ryzenadj.enable = true;
+    ryzenadj.enable = false;
   };
+
+  # Virtualisation
+  # users.users.nyramu.extraGroups = [ "libvirtd" ];
+  # virtualisation.libvirtd.enable = true;
 
   # Choose audio server
   nyra.system.hardware.audio.server = "pipewire";
