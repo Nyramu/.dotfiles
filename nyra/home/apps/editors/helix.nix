@@ -44,6 +44,7 @@ in {
           color-modes = true;
           popup-border = "all";
           continue-comments = false;
+          smart-tab.enable = false;
 
           cursor-shape = {
             normal = "block";
@@ -72,7 +73,7 @@ in {
 
           auto-save = {
             focus-lost = true;
-            after-delay.enable = true;
+            after-delay.enable = false; # 3000 ms, add after-delay.timeout to change
           };
 
           indent-guides = {
@@ -110,7 +111,7 @@ in {
 
           space = {
             g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${getExe pkgs.lazygit}";
-            d = [":cd /home/nyramu/.dotfiles" "file_picker"];
+            d = [":cd ~/.dotfiles" "file_picker"];
             s = "global_search";
             f = "file_picker";
           };
@@ -134,8 +135,7 @@ in {
           C-right = "search_next"; # Select next search match
           C-left = "search_prev"; # Select previous search match
           C-space = "toggle_comments"; # Comment/uncomment current line or selection
-
-          tab = "insert_tab";
+          
           S-ret = "insert_newline";
 
           A-right = "move_next_word_end"; # Move to end of next word
