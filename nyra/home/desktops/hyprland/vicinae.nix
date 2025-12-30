@@ -1,21 +1,27 @@
-{ config, inputs, ... }:
-
-let
-  cfgHyprland = config.nyra.home.desktops.hyprland;
-in
 {
-  imports = [ inputs.vicinae.homeManagerModules.default ];
+  config,
+  inputs,
+  ...
+}: let
+  cfgHyprland = config.nyra.home.desktops.hyprland;
+in {
+  imports = [inputs.vicinae.homeManagerModules.default];
+
   services.vicinae = {
     enable = cfgHyprland.enable;
-    settings =  {
-      faviconService = "twenty";
-      popToRootOnClose = false; # TODO: Check what it does
-      rootSearch.searchFiles = true; # TODO: Same here
-      useLayerShell = false;
-      window = {
-        csd = true;
-        rounding = 10;
+    systemd = {
+      enable = true;
+      autoStart = true; # default: false
+      environment = {
+        USE_LAYER_SHELL = 0;
       };
+    };
+    settings = {
+      close_on_focus_loss = true;
+      consider_preedit = true;
+      pop_to_root_on_close = true;
+      favicon_service = "twenty";
+      search_files_in_root = true;
     };
   };
 }
