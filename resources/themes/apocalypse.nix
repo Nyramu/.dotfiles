@@ -52,6 +52,7 @@ in
     base05 = "#d88860"; # Default Foreground - warm terracotta
     base06 = "#f0a878"; # Light Foreground - light coral-orange
     base07 = "#ffc898"; # Light Background - pale peach-orange
+
     base08 = "#ff5830"; # Variables, Deleted - bright red-orange
     base09 = "#ff6838"; # Integers, Constants - vibrant red-orange
     base0A = "#ff5830"; # Classes, Bold - warm orange-red
@@ -74,8 +75,8 @@ in
     font-size = "20";
   };
 
-  # SDDM configuration
-  sddm = {
-    avatarShape = "circle";
+  # SilentSDDM configuration
+  silentSDDM = {
+    avatar-shape = "circle";
   };
 }

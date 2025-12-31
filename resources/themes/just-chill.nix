@@ -75,8 +75,8 @@
     font-size = "15";
   };
 
-  # SDDM configuration
-  sddm = {
-    avatarShape = "square";
+  # SilentSDDM configuration
+  silentSDDM = {
+    avatar-shape = "square";
   };
 }
