@@ -12,8 +12,7 @@
   ];
 
   # Theming and fonts
-  nyra.system.login.userIcon = "nyramu";
-  nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
+  nyra.system.login.icon = "nyramu";
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
   # Apps
