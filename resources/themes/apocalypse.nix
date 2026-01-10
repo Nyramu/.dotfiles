@@ -14,19 +14,19 @@ in
   fonts = {
     serif = {
       package = neospleen-font;
-      name = "NeoSpleenNerdFont";
+      name = "NeoSpleen Nerd Font";
     }; 
     sansSerif = {
       package = neospleen-font;
-      name = "NeoSpleenNerdFont";
+      name = "NeoSpleen Nerd Font";
     };
     monospace = {
       package = neospleen-font;
-      name = "NeoSpleenNerdFont";
+      name = "NeoSpleen Nerd Font Mono";
     };
     emoji = {
       package = pkgs.nerd-fonts.symbols-only;
-      name = "Symbols Nerd Font";
+      name = "Symbols Nerd Font Mono";
     };
     sizes = {
       applications = 15;
