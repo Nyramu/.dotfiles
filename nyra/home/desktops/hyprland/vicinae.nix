@@ -1,9 +1,13 @@
 {
   config,
+  lib,
   inputs,
+  pkgs,
   ...
 }: let
   cfgHyprland = config.nyra.home.desktops.hyprland;
+  themeName = config.nyra.theme.defaultTheme;
+  theme = import ../../../../resources/themes/${themeName}.nix {inherit pkgs;};
 in {
   imports = [inputs.vicinae.homeManagerModules.default];
 
@@ -13,7 +17,7 @@ in {
       enable = true;
       autoStart = true; # default: false
       environment = {
-        USE_LAYER_SHELL = 0;
+        USE_LAYER_SHELL = 1;
       };
     };
     settings = {
@@ -22,6 +26,11 @@ in {
       pop_to_root_on_close = true;
       favicon_service = "twenty";
       search_files_in_root = true;
+
+      font.normal = theme.vicinae.font;
     };
+    extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
+      bluetooth
+    ];
   };
 }
