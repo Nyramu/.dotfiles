@@ -203,7 +203,7 @@ in
       * {
         min-height: 0;
         min-width: 0;
-        font-family: "${stylix-fonts.sansSerif.name}", "${stylix-fonts.emoji.name}";
+        font-family: "${theme.waybar.font}", "${stylix-fonts.emoji.name}";
         font-size: ${theme.waybar.font-size}px;
         font-weight: 600;
       }
