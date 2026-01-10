@@ -74,6 +74,16 @@ rec
     font-size = "15";
   };
 
+  # Vicinae configuration
+  vicinae = {
+    font = {
+      normal = {
+        size = 12.0;
+        normal = fonts.sansSerif.name;
+      };
+    };
+  };
+
   # SilentSDDM configuration
   silentSDDM = {
     avatar-shape = "square";

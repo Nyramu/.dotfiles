@@ -76,6 +76,16 @@ rec
     font = fonts.monospace.name;
     font-size = "15";
   };
+  
+  # Vicinae configuration
+  vicinae = {
+    font = {
+      normal = {
+        size = 10.5;
+        normal = fonts.monospace.name;
+      };
+    };
+  };
 
   # SilentSDDM configuration
   silentSDDM = {

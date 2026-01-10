@@ -71,11 +71,21 @@ rec
     inactive_border_color = "rgb(3a2618)";
   };
 
-  # Waybar color configuration
+  # Waybar configuration
   waybar = {
     background-color = "rgba(42, 28, 20, 0.6)";
     font = fonts.sansSerif.name;
     font-size = "20";
+  };
+
+  # Vicinae configuration
+  vicinae = {
+    font = {
+      normal = {
+        size = 16.0;
+        normal = fonts.sansSerif.name;
+      };
+    };
   };
 
   # SilentSDDM configuration
