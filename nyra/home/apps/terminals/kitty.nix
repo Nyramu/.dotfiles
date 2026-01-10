@@ -37,6 +37,7 @@ in
         background_blur = 0;
         cursor_trail = 60;
         cursor_trail_color = stylix-palette.base0A;
+        cursor_shape_unfocused = "unchanged";
       };
       # Fix for Stylix overriding normal settings
       extraConfig = "
