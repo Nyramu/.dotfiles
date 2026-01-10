@@ -14,7 +14,7 @@
       helix.enable = true;
       intellij.enable = true;
       gimp.enable = true;
-      aseprite.enable = true;
+      aseprite.enable = false;
     };
     browsers.default = "zen-beta";
     gaming = {
@@ -38,7 +38,7 @@
       }; 
       fastfetch.enable = true;
       yazi.enable = true;
-      ptracer.enable = true;
+      ptracer.enable = false;
       packages = with pkgs; [
         evince
         hyprpicker
