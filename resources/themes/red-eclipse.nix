@@ -1,5 +1,6 @@
 { pkgs }:
 
+rec
 {
   system = "base16";
   name = "Red Eclipse";
@@ -69,6 +70,7 @@
   # Waybar color configuration
   waybar = {
     background-color = "rgba(38, 36, 52, 0.6)";
+    font = fonts.monospace.name;
     font-size = "15";
   };
 

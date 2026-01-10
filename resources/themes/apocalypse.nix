@@ -3,6 +3,8 @@
 let
   neospleen-font = pkgs.callPackage ../../nyra/custom-derivations/neospleen-nerd-font.nix {};
 in
+
+rec
 {
   system = "base16";
   name = "Apocalypse";
@@ -72,6 +74,7 @@ in
   # Waybar color configuration
   waybar = {
     background-color = "rgba(42, 28, 20, 0.6)";
+    font = fonts.sansSerif.name;
     font-size = "20";
   };
 

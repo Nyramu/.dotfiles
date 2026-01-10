@@ -1,5 +1,6 @@
 { pkgs }:
 
+rec
 {
   system = "base16";
   name = "Just Chill";
@@ -72,6 +73,7 @@
   # Waybar color configuration
   waybar = {
     background-color = "rgba(38, 38, 38, 0.6)";
+    font = fonts.monospace.name;
     font-size = "15";
   };
 
