@@ -1,50 +1,53 @@
 {
   description = "Nyramu's Personal Flake";
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs: 
-    let 
-      systemSettings = {
-        hostName = "nixos";
-        dotfiles = "~/.dotfiles";
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    systemSettings = {
+      hostName = "nixos";
+      dotfiles = "~/.dotfiles";
+    };
+
+    userSettings = {
+      name = "Nyramu";
+      username = "nyramu";
+      email = "107689027+Nyramu@users.noreply.github.com";
+    };
+
+    inherit (nixpkgs) lib;
+
+    createNixosProfile = name: system:
+      lib.nixosSystem {
+        inherit system;
+        modules = [./profiles/${name}/configuration.nix];
+        specialArgs = {
+          inherit systemSettings userSettings inputs;
+        };
       };
 
-      userSettings = {
-        name = "Nyramu";
-        username = "nyramu";
-        email = "107689027+Nyramu@users.noreply.github.com";
-      };
-
-      inherit (nixpkgs) lib;
-
-      createNixosProfile = name: system:
-        lib.nixosSystem {
+    createHomeProfile = name: system:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
           inherit system;
-          modules = [./profiles/${name}/configuration.nix];
-          specialArgs = {
-            inherit systemSettings userSettings inputs;
-          };
+          overlays = [];
         };
-
-      createHomeProfile = name: system:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [];
-          };
-          modules = [./profiles/${name}/home.nix];
-          extraSpecialArgs = {
-            inherit systemSettings userSettings inputs;
-          };
+        modules = [./profiles/${name}/home.nix];
+        extraSpecialArgs = {
+          inherit systemSettings userSettings inputs;
         };
-    in
-  {
+      };
+  in {
     nixosConfigurations = {
       main = createNixosProfile "main" "x86_64-linux";
       potato = createNixosProfile "potato" "x86_64-linux";
     };
 
     homeConfigurations = {
-      main = createHomeProfile "main" "x86_64-linux"; 
+      main = createHomeProfile "main" "x86_64-linux";
       potato = createHomeProfile "potato" "x86_64-linux";
     };
   };
@@ -56,7 +59,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprnix = {
       url = "github:hyprland-community/hyprnix";
