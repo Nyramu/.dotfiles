@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   inputs,
   pkgs,
   ...
@@ -27,7 +26,7 @@ in {
       favicon_service = "twenty";
       search_files_in_root = true;
 
-      font.normal = theme.vicinae.font;
+      font = theme.vicinae.font;
     };
     extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
       bluetooth
