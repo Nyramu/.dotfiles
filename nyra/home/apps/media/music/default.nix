@@ -191,7 +191,7 @@ in
               "c":       ToggleSingle,
               "v":       ToggleConsume,
               "b":       SeekBack,
-              "~":       ShowHelp,
+              "?":       ShowHelp,
               "u":       Update,
               "U":       Rescan,
               "I":       ShowCurrentSongInfo,
