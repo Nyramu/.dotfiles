@@ -82,7 +82,7 @@ rec
   vicinae = {
     font = {
       normal = {
-        size = 16.0;
+        size = 13.0;
         normal = fonts.sansSerif.name;
       };
     };
