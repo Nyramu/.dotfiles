@@ -40,9 +40,7 @@
       yazi.enable = true;
       ptracer.enable = false;
       packages = with pkgs; [
-        evince
         hyprpicker
-        dtrx
         croc
         carbon-now-cli #TODO: Test
         fontfor
