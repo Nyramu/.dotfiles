@@ -26,35 +26,62 @@ in {
           show_hidden = false;
         };
         preview.wrap = "yes";
-        opener.edit = [
-          {
-            "run" = "$EDITOR \"$@\"";
-            "block" = true;
-          }
-        ];
+        opener = {
+          edit = [
+            {
+              run = ''$EDITOR "$@"'';
+              block = true;
+            }
+          ];
+          video = [
+            {
+              run = ''${getExe pkgs.mpv} "$@"'';
+              block = true;
+            }
+          ];
+          audio = [
+            {
+              run = ''${getExe pkgs.mpv} --no-video "$@"'';
+              block = true;
+            }
+          ];
+          image = [
+            {
+              run = ''${getExe pkgs.imv} "$@"'';
+              block = true;
+            }
+          ];
+          pdf = [
+            {
+              run = ''${getExe pkgs.evince} "$@"'';
+            }
+          ];
+        };
+        open = {
+          rules = [
+            {
+              mime = "text/*";
+              use = "edit";
+            }
+            {
+              mime = "video/*";
+              use = "video";
+            }
+            {
+              mime = "audio/*";
+              use = "audio";
+            }
+            {
+              mime = "image/*";
+              use = "image";
+            }
+            {
+              url = "*.pdf";
+              use = "pdf";
+            }
+          ];
+        };
         input.cursor_blink = true;
-        # plugin.prepend_previewers = [
-        #   {
-        #     name = "*.csv";
-        #     run = "rich-preview";
-        #   }
-        #   {
-        #     name = "*.md";
-        #     run = "piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark \"''$1\"";
-        #   }
-        #   {
-        #     name = "*.rst";
-        #     run = "rich-preview";
-        #   }
-        #   {
-        #     name = "*.ipynb";
-        #     run = "rich-preview";
-        #   }
-        #   {
-        #     name = "*.json";
-        #     run = "rich-preview";
-        #   }
-        # ];
       };
       keymap = {
         mgr.prepend_keymap = [
@@ -133,7 +160,6 @@ in {
       };
       plugins = with pkgs.yaziPlugins; {
         inherit full-border;
-        # inherit piper;
       };
       initLua = ''
         require("full-border"):setup {
@@ -141,6 +167,5 @@ in {
         }
       '';
     };
-    # home.packages = with pkgs; [glow];
   };
 }
