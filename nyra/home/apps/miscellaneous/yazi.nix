@@ -47,13 +47,14 @@ in {
           ];
           image = [
             {
-              run = ''${getExe pkgs.imv} "$@"'';
-              block = true;
+              run = ''${pkgs.kdePackages.gwenview}/bin/gwenview "$@"'';
+              orphan = true;
             }
           ];
           pdf = [
             {
               run = ''${getExe pkgs.evince} "$@"'';
+              orphan = true;
             }
           ];
         };
