@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 let
   stylix-palette = config.stylix.base16Scheme;
