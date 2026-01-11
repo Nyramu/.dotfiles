@@ -17,6 +17,10 @@ in
 
     programs.steam = {
       enable = cfg.steam.enable;
+      extraPackages = with pkgs; [
+        xdg-utils
+        desktop-file-utils
+      ];
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
     };
 
