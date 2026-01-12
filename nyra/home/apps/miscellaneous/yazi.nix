@@ -33,27 +33,21 @@ in {
               block = true;
             }
           ];
-          video = [
-            {
-              run = ''${getExe pkgs.mpv} "$@"'';
-              block = true;
-            }
-          ];
           audio = [
             {
               run = ''${getExe pkgs.mpv} --no-video "$@"'';
               block = true;
             }
           ];
-          image = [
+          pdf = [
             {
-              run = ''${pkgs.kdePackages.gwenview}/bin/gwenview "$@"'';
+              run = ''zen-beta "$@"'';
               orphan = true;
             }
           ];
-          pdf = [
+          xdg = [
             {
-              run = ''${getExe pkgs.evince} "$@"'';
+              run = ''xdg-open "$@"'';
               orphan = true;
             }
           ];
@@ -66,7 +60,7 @@ in {
             }
             {
               mime = "video/*";
-              use = "video";
+              use = "xdg";
             }
             {
               mime = "audio/*";
@@ -74,7 +68,7 @@ in {
             }
             {
               mime = "image/*";
-              use = "image";
+              use = "xdg";
             }
             {
               url = "*.pdf";
