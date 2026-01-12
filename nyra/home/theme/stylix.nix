@@ -4,7 +4,7 @@
   imports = [ inputs.stylix.homeModules.stylix ]; 
   config.stylix = {
     targets = {
-      hyprland.enable = mkForce false;
+      hyprpaper.enable = mkForce false;
       waybar.enable = mkForce false;
       nixcord.enable = mkForce true;
       kitty.enable = mkForce true;

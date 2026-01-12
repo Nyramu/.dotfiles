@@ -16,7 +16,8 @@ in
   options.nyra.home.desktops.hyprland = {
     enable = mkEnableOption "hyprland";
   };
-
+  
+  config.services.hyprpaper.enable = mkForce false;
   config.wayland.windowManager.hyprland = {
     enable = cfg.enable;
     package = pkgs.hyprland;
