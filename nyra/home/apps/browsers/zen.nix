@@ -2,6 +2,11 @@
 
 let
   cfg = config.nyra.home.apps.browsers;
+
+  # Fix for unfree packages not being installed despite being allowed
+  firefox-addons = pkgs.callPackage inputs.firefox-addons {
+    inherit (pkgs) fetchurl stdenv lib;
+  };
 in
 {
   imports = [ inputs.zen-browser.homeModules.default ];
@@ -99,7 +104,7 @@ in
         };
         HttpsOnlyMode = "force_enabled";
         ManualAppUpdateOnly = true;
-        NoDefaultBookmarks = true;
+        NoDefaultBookmarks = mkDefault true;
         OfferToSaveLogins = false;
         PasswordManagerEnabled = false;
         PictureInPicture = true;
@@ -112,12 +117,13 @@ in
           "browser.aboutwelcome.enabled" = false;
           "browser.ipProtection.enabled" = true; # Experimental
           "browser.ipProtection.variant" = "treatment";
-          "browser.tabs.allow_transparent_browser" = false;
+          "browser.tabs.allow_transparent_browser" = true;
           "browser.tabs.warnOnOpen" = false;
           "browser.tabs.warnOnClose" = false;
           "browser.taskbarTabs.enabled" = false;
           "browser.vpn_promo.enabled" = false;
           "extensions.autoDisableScopes" = 0;
+          "widget.transparent-windows" = true;
         };
         SearchBar = "unified";
         SearchEngines = {
@@ -253,23 +259,24 @@ in
           };
         };
       };
-      profiles.nyramu.extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+      profiles.nyramu.extensions.packages = with firefox-addons; [
         ublock-origin
         dearrow
         return-youtube-dislikes
         augmented-steam
         protondb-for-steam
         #animalese-typing # Cool and cute but annoying
-        #betterttv
-        #censor-tracker
+        betterttv
+        censor-tracker
         clearurls
         copy-selection-as-markdown
         #firenvim
         image-search-options
-        #simplifygmail
-        #the-camelizer-price-history-ch
-        #to-google-translate
-        #tampermonkey
+        indie-wiki-buddy
+        simplifygmail
+        the-camelizer-price-history-ch
+        to-google-translate
+        tampermonkey
         youtube-no-translation
         youtube-shorts-block
         youtube-nonstop
