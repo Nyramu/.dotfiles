@@ -9,7 +9,7 @@ let
   };
 in
 {
-  imports = [ inputs.zen-browser.homeModules.default ];
+  imports = [ inputs.zen-browser.homeModules.beta ];
 
   options.nyra.home.apps.browsers = {
     zen.enable = mkOption {
@@ -124,6 +124,13 @@ in
           "browser.vpn_promo.enabled" = false;
           "extensions.autoDisableScopes" = 0;
           "widget.transparent-windows" = true;
+
+          "privacy.resistFingerprinting" = true;
+          "privacy.resistFingerprinting.randomization.canvas.use_siphash" = true;
+          "privacy.resistFingerprinting.randomization.daily_reset.enabled" = true;
+          "privacy.resistFingerprinting.randomization.daily_reset.private.enabled" = true;
+          "privacy.resistFingerprinting.block_mozAddonManager" = true;
+          "privacy.spoof_english" = 1;
         };
         SearchBar = "unified";
         SearchEngines = {
@@ -258,6 +265,40 @@ in
             id = 3;
           };
         };
+      };
+      profiles.nyramu.bookmarks = {
+        force = true;
+        settings = [
+          {
+            name = "NixOS";
+            toolbar = false;
+            bookmarks = [
+              {
+                name = "Homepage";
+                url = "https://nixos.org/";
+              }
+              {
+                name = "Wiki";
+                tags = ["wiki" "nix"];
+                url = "https://wiki.nixos.org/";
+              }
+            ];
+          }
+          {
+            name = "GitHub";
+            toolbar = false;
+            bookmarks = [
+              {
+                name = "Homepage";
+                url = "https://github.com";
+              }
+              {
+                name = "My dotfiles";
+                url = "https://github.com/Nyramu/.dotfiles";
+              }
+            ];
+          }
+        ];
       };
       profiles.nyramu.extensions.packages = with firefox-addons; [
         ublock-origin
