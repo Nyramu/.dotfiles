@@ -27,28 +27,10 @@ in {
         };
         preview.wrap = "yes";
         opener = {
-          edit = [
-            {
-              run = ''$EDITOR "$@"'';
-              block = true;
-            }
-          ];
-          audio = [
-            {
-              run = ''${getExe pkgs.mpv} --no-video "$@"'';
-              block = true;
-            }
-          ];
-          pdf = [
-            {
-              run = ''zen-beta "$@"'';
-              orphan = true;
-            }
-          ];
           xdg = [
             {
               run = ''xdg-open "$@"'';
-              orphan = true;
+              block = true;
             }
           ];
         };
@@ -56,23 +38,23 @@ in {
           rules = [
             {
               mime = "text/*";
-              use = "edit";
+              use = "xdg";
             }
             {
               mime = "video/*";
               use = "xdg";
             }
             {
-              mime = "audio/*";
-              use = "audio";
-            }
-            {
               mime = "image/*";
               use = "xdg";
             }
             {
-              url = "*.pdf";
-              use = "pdf";
+              mime = "audio/*";
+              use = "xdg";
+            }
+            {
+              mime = "application/*";
+              use = "xdg";
             }
           ];
         };
