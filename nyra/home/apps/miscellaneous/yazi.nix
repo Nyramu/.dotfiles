@@ -18,10 +18,11 @@ in {
       enableZshIntegration = shellCfg.zsh.enable;
       settings = {
         mgr = {
-          sort_by = "none";
+          sort_by = "alphabetical";
           sort_sensitive = false;
           sort_dir_first = true;
           sort_reverse = false;
+          show_symlink = true;
           linemode = "none";
           show_hidden = false;
         };
