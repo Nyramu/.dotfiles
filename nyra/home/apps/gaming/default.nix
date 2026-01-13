@@ -18,7 +18,7 @@ in
   config = {
     home.packages = with pkgs; 
       optionals cfg.minecraft.enable [ prismlauncher ] ++
-      optionals cfg.cemu.enable [ cemu ] ++
+      optionals cfg.cemu.enable [ cemu ukmm ] ++
       optionals cfg.eden.enable [ nsz ] ++ 
       optionals cfg.azahar.enable [ azahar ];
 
