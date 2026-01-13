@@ -19,16 +19,17 @@ in
           bind = {
             "SUPER, B" = "exec, ${browser}";
             "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
-            "SUPER, S" = "exec, ${getExe pkgs.steam}";
+            "SUPER, S" = "exec, steam %U";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
-            "SUPER, D" = "exec, discord";
-            "SUPER, I" = "exec, ${getExe pkgs.jetbrains.idea}";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
             "SUPER, SPACE" = "exec, vicinae toggle";
-            "SUPER, RETURN" = "exec, ${terminal}";
 
-            "SUPER_ALT, RETURN" = "exec, ${terminal} -e hx"; # Helix
+            # Terminal keybinds
+            "SUPER, RETURN" = "exec, ${terminal}";
+            "SUPER_ALT, RETURN" = "exec, ${terminal} -e fastfetch";
+
+            "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
           };
         };
 
