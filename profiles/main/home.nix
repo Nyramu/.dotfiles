@@ -10,7 +10,7 @@
   nyra.home.apps = {
     terminals.default = "kitty";
     editors = {
-      nvf.enable = true;
+      nvf.enable = false;
       helix.enable = true;
       intellij.enable = true;
       gimp.enable = true;
