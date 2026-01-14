@@ -21,6 +21,14 @@ in
         "match:initial_title ^(fastfetch)$, center on"
       ];
 
+      workspace = [
+        "1, persistent:true"
+        "2, persistent:true"
+        "3, persistent:true"
+        "4, persistent:true"
+        "5, persistent:true"  
+      ];
+
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         "HYPRCURSOR_SIZE,36"
@@ -104,7 +112,8 @@ in
       exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
       # Start waybar and vicinae
       exec_once = [ 
-        "${lib.getExe pkgs.waybar}" 
+        "${lib.getExe pkgs.waybar}"
+        "noctalia-shell" 
         "vicinae server"
       ];
     };
