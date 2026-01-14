@@ -49,7 +49,7 @@ rec
     base01 = "#2a1a1e"; # Lighter Background - dark burgundy-gray
     base02 = "#3a2228"; # Selection Background - dark wine-purple
     base03 = "#707070"; # Comments, Invisibles - medium gray
-    base04 = "#909090"; # Dark Foreground - light pink
+    base04 = "#909090"; # Dark Foreground - light gray
     base05 = "#ffb0b4"; # Default Foreground - light pink
     base06 = "#ffc8cc"; # Light Foreground - lighter pink
     base07 = "#ffb0b4"; # Light Background - light pink
@@ -68,10 +68,20 @@ rec
   hypr = {
     active_border_color = "rgb(542624) rgb(d66e65) rgb(fa696e) 270deg";
     inactive_border_color = "rgb(152927)";
+    locked_group_active_border_color = "rgb(13160d) rgb(274044) rgb(90b7b2) 270deg"; # Picked from wallpaper
+    
+    text_color = "rgb(ffb0b4)"; # palette.base07
+    inactive_text_color = "rgb(909090)"; # palette.base04
+    locked_group_active_text_color = "rgb(b9f9e1)"; # Picked from wallpaper, lighter than locked active border
+
+    active_color = "rgb(fa696e)"; # Last color from active border
+    inactive_color = "rgb(152927)"; # Color from inactive border
+    locked_group_active_color = "rgb(90b7b2)"; # Last color from locked active border
   };
 
   # Waybar color configuration
   waybar = {
+    glyph-color = "#fb7a7f";
     background-color = "rgba(38, 38, 38, 0.6)";
     font = fonts.monospace.name;
     font-size = "15";

@@ -65,10 +65,21 @@ rec
   hypr = {
     active_border_color = "rgb(1a1625) rgb(b83858) rgb(983050) 330deg";
     inactive_border_color = "rgb(1a1625)";
+    locked_group_active_border_color = "rgb(1a1625) rgb(5f1d25) rgb(ccb0ad) 270deg"; # Picked from wallpaper
+
+    text_color = "rgb(faeaf0)"; # palette.base07
+    inactive_text_color = "rgb(5a4560)"; # palette.base04
+    locked_group_active_text_color = "rgb(faeaf0)"; # Picked from wallpaper, lighter than locked active border
+
+    active_color = "rgb(983050)"; # Last color from active border
+    inactive_color = "rgb(1a1625)"; # Color from inactive border
+    locked_group_active_color = "rgb(ccb0ad)"; # Last color from locked active border
+    
   };
 
   # Waybar color configuration
   waybar = {
+    glyph-color = "#983050";
     background-color = "rgba(38, 36, 52, 0.6)";
     font = fonts.monospace.name;
     font-size = "15";

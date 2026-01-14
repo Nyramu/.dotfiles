@@ -67,12 +67,22 @@ rec
 
   # Hyprland color configuration
   hypr = {
-    active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) 220deg";
+    active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) rgb(ed6830) rgb(e98c44) 270deg";
     inactive_border_color = "rgb(3a2618)";
+    locked_group_active_border_color = "rgb(1a1210) rgb(c84018) rgb(e13820) 270deg";
+    
+    text_color = "rgb(ffc898)";
+    inactive_text_color = "rgb(d88860)"; # palette.base05
+    locked_group_active_text_color = "rgb(ffc898)"; # Lighter than locked active border
+
+    active_color = "rgb(e98c44)"; # Last color from active border
+    inactive_color = "rgb(3a2618)"; # Color from inactive border
+    locked_group_active_color = "rgb(c84018)"; # Last color from locked active border
   };
 
   # Waybar configuration
   waybar = {
+    glyph-color = "#e97048";
     background-color = "rgba(42, 28, 20, 0.6)";
     font = fonts.sansSerif.name;
     font-size = "20";
