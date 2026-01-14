@@ -289,8 +289,8 @@ in
             toolbar = false;
             bookmarks = [
               {
-                name = "Homepage";
-                url = "https://github.com";
+                name = "My stars";
+                url = "https://github.com/Nyramu?tab=stars";
               }
               {
                 name = "My dotfiles";
