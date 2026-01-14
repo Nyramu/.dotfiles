@@ -10,10 +10,15 @@ in
       # Window rules
       windowrule = [
         "match:class ^(org.qutebrowser.qutebrowser)$, decorate off"
-        # Custom classes
-        "match:class ^(fastfetch)$, float on"
-        "match:class ^(fastfetch)$, size 1100 736"
-        "match:class ^(fastfetch)$, center on"
+        
+        # Custom titles for kitty
+        "match:title ^(rmpc)$, float on"
+        "match:title ^(rmpc)$, size 942 558"
+        "match:title ^(rmpc)$, center on"
+        
+        "match:title ^(fastfetch)$, float on"
+        "match:title ^(fastfetch)$, size 1100 736"
+        "match:title ^(fastfetch)$, center on"
       ];
 
       env = [
