@@ -21,7 +21,7 @@ writeShellApplication {
       set -euo pipefail
 
       readonly STATE_DIR="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/screen-record"
-      readonly OUTPUT_DIR="''${SCREEN_RECORD_DIR:-$HOME/Videos}"
+      readonly OUTPUT_DIR="''${SCREEN_RECORD_DIR:-$HOME/Videos/Recordings}"
       readonly STATE_FILE="$STATE_DIR/recording.state"
 
       die() {
