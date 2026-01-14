@@ -100,14 +100,14 @@ in
                         borders: "NONE",
                         direction: Vertical,
                         panes: [
-                          (size: "60%", pane: Pane(Queue), borders: "BOTTOM | RIGHT"),
+                          (size: "60%", pane: Pane(AlbumArt)),
                           (size: "40%", pane: Pane(Lyrics), borders: "TOP | BOTTOM | RIGHT"),
                         ],
                       )),
                       (size: "50%", pane: Split(
                         direction: Horizontal,
                         panes: [
-                          (size: "100%", pane: Pane(AlbumArt)),
+                          (size: "100%", pane: Pane(Queue), borders: "BOTTOM | LEFT"),
                         ],
                       )),
                     ],
