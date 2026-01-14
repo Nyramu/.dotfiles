@@ -10,6 +10,10 @@ in
       # Window rules
       windowrule = [
         "match:class ^(org.qutebrowser.qutebrowser)$, decorate off"
+        # Custom classes
+        "match:class ^(fastfetch)$, float on"
+        "match:class ^(fastfetch)$, size 1100 736"
+        "match:class ^(fastfetch)$, center on"
       ];
 
       env = [
