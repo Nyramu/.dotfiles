@@ -1,7 +1,6 @@
 { config, lib, ... }: with lib;
 
 let
-  shellCfg = config.nyra.home.shells;
   cfg = config.nyra.home.apps.miscellaneous.zellij;
 in
 {
@@ -23,7 +22,12 @@ in
         default_mode = "locked";
         show_release_notes = false;
         show_startup_tips = false;
-        ui = { pane_frames = { hide_session_name = true; }; };
+        ui = {
+          pane_frames = {
+            rounded_corners = true;
+            hide_session_name = true;
+          };
+        };
       };
     };
   };
