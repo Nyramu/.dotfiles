@@ -67,8 +67,8 @@ rec
     inactive_border_color = "rgb(eeeeee)";
     locked_group_active_border_color = "rgb(eeeeee) rgb(eeeeee) rgb(eeeeee) 270deg"; # Picked from wallpaper
     
-    text_color = "rgb(eeeeee)"; # palette.base07
-    inactive_text_color = "rgb(eeeeee)"; # palette.base04
+    text_color = "rgb(eeeeee)";
+    inactive_text_color = "rgb(eeeeee)";
     locked_group_active_text_color = "rgb(eeeeee)"; # Picked from wallpaper, lighter than locked active border
 
     active_color = "rgb(eeeeee)"; # Last color from active border
@@ -78,6 +78,7 @@ rec
 
   # Waybar color configuration
   waybar = {
+    glyph-color = "#eeeeee";
     background-color = "rgba(38, 38, 38, 0.6)";
     font = fonts.monospace.name;
     font-size = "15";
