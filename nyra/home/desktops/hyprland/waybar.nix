@@ -95,18 +95,18 @@ in
 
         cpu = {
           interval = 3;
-          format = "<span color='${stylix-palette.base0A}'>  </span><span color='${stylix-palette.base05}'>{usage}%</span> <span color='${stylix-palette.base0A}'>|</span> <span color='${stylix-palette.base05}'>{avg_frequency} GHz</span>";
+          format = "<span color='${theme.waybar.glyph-color}'>  </span><span color='${stylix-palette.base05}'>{usage}%</span> <span color='${theme.waybar.glyph-color}'>|</span> <span color='${stylix-palette.base05}'>{avg_frequency} GHz</span>";
           tooltip = false;
         };
 
         memory = {
           interval = 3;
-          format = "<span color='${stylix-palette.base0A}'>  </span><span color='${stylix-palette.base05}'>{percentage}%</span> <span color='${stylix-palette.base0A}'>|</span> <span color='${stylix-palette.base05}'>{used:0.1f} GB/{total:0.1f} GB</span>";
+          format = "<span color='${theme.waybar.glyph-color}'>  </span><span color='${stylix-palette.base05}'>{percentage}%</span> <span color='${stylix-palette.base0A}'>|</span> <span color='${stylix-palette.base05}'>{used:0.1f} GB/{total:0.1f} GB</span>";
           tooltip = false; # TODO: decide to put or not btop 'quick launch'
         };
 
         pulseaudio = {
-          format = "<span color='${stylix-palette.base0A}'>{icon}</span><span color='${stylix-palette.base05}'>{volume}%</span>";
+          format = "<span color='${theme.waybar.glyph-color}'>{icon}</span><span color='${stylix-palette.base05}'>{volume}%</span>";
           format-muted = "<span color='${stylix-palette.base04}'>󰖁 Muted</span>";
           format-icons = {
             default = [" " " " " "];
@@ -128,7 +128,7 @@ in
 
         "pulseaudio#microphone" = {
           format = "{format_source}";
-          format-source = "<span color='${stylix-palette.base0A}'>󰍬</span> <span color='${stylix-palette.base05}'>{volume}%</span>";
+          format-source = "<span color='${theme.waybar.glyph-color}'>󰍬</span> <span color='${stylix-palette.base05}'>{volume}%</span>";
           format-source-muted = "<span color='${stylix-palette.base04}'>󰍭 Muted</span>";
           on-click = "${pkgs.pavucontrol}/bin/pavucontrol -t 4";
           on-click-right = "${pkgs.pamixer}/bin/pamixer --default-source -t";
@@ -142,14 +142,14 @@ in
         clock = {
           interval = 1;
           tooltip = false;
-          format = "<span color='${stylix-palette.base0A}'> </span><span color='${stylix-palette.base05}'>{:%T}</span>";
+          format = "<span color='${theme.waybar.glyph-color}'> </span><span color='${stylix-palette.base05}'>{:%T}</span>";
         };
 
         network = {
-          format-wifi = "<span color='${stylix-palette.base0A}'>{icon}</span><span color='${stylix-palette.base05}'>{essid}</span>";
+          format-wifi = "<span color='${theme.waybar.glyph-color}'>{icon}</span><span color='${stylix-palette.base05}'>{essid}</span>";
           format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
-          format-ethernet = "<span color='${stylix-palette.base0A}'>󰈀 </span><span color='${stylix-palette.base05}'>Connected</span>";
-          format-disconnected = "<span color='${stylix-palette.base0A}'>󰤭 </span><span color='${stylix-palette.base05}'>Disconnected</span>";
+          format-ethernet = "<span color='${theme.waybar.glyph-color}'>󰈀 </span><span color='${stylix-palette.base05}'>Connected</span>";
+          format-disconnected = "<span color='${theme.waybar.glyph-color}'>󰤭 </span><span color='${stylix-palette.base05}'>Disconnected</span>";
           format-disabled = "<span color='${stylix-palette.base04}'>󰤮 Disabled</span>";
           tooltip-format-wifi = "  Signal intensity: {signalStrength}% \nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
           tooltip-format-ethernet = "󰈀 {ifname}\nIP: {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}";
@@ -162,11 +162,11 @@ in
         };
 
         bluetooth = {
-          format = "<span color='${stylix-palette.base0A}'> </span><span color='${stylix-palette.base05}'>Enabled</span>";
+          format = "<span color='${theme.waybar.glyph-color}'> </span><span color='${stylix-palette.base05}'>Enabled</span>";
           format-disabled = "<span color='${stylix-palette.base04}'>󰂲 Disabled</span>";
           format-off = "<span color='${stylix-palette.base04}'>󰂲 Disabled</span>";
-          format-connected = "<span color='${stylix-palette.base0A}'> </span><span color='${stylix-palette.base05}'>{device_alias}</span> <span color='${stylix-palette.base0A}'>[</span><span color='${stylix-palette.base05}'>{num_connections}</span><span color='${stylix-palette.base0A}'>]</span>";
-          format-connected-battery = "<span color='${stylix-palette.base0A}'> </span><span color='${stylix-palette.base05}'>{device_alias}</span> <span color='${stylix-palette.base0A}'>(</span><span color='${stylix-palette.base05}'>{device_battery_percentage}%</span><span color='${stylix-palette.base0A}'>)</span> <span color='${stylix-palette.base0A}'>[</span><span color='${stylix-palette.base05}'>{num_connections}</span><span color='${stylix-palette.base0A}'>]</span>";
+          format-connected = "<span color='${theme.waybar.glyph-color}'> </span><span color='${stylix-palette.base05}'>{device_alias}</span> <span color='${stylix-palette.base0A}'>[</span><span color='${stylix-palette.base05}'>{num_connections}</span><span color='${stylix-palette.base0A}'>]</span>";
+          format-connected-battery = "<span color='${theme.waybar.glyph-color}'> </span><span color='${stylix-palette.base05}'>{device_alias}</span> <span color='${stylix-palette.base0A}'>(</span><span color='${stylix-palette.base05}'>{device_battery_percentage}%</span><span color='${stylix-palette.base0A}'>)</span> <span color='${stylix-palette.base0A}'>[</span><span color='${stylix-palette.base05}'>{num_connections}</span><span color='${stylix-palette.base0A}'>]</span>";
           tooltip-format = "{controller_alias}\t{controller_address}\nStatus: {status}";
           tooltip-format-disabled = "󰂲 Bluetooth disabled \nRight-click to enable";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n{num_connections} connected device(s)\n\n{device_enumerate}";
@@ -182,12 +182,12 @@ in
             warning = 30;
             critical = 15;
           };
-          format = "<span color='${stylix-palette.base05}'>{capacity}%</span> <span color='${stylix-palette.base0A}'>{icon}</span>";
+          format = "<span color='${stylix-palette.base05}'>{capacity}%</span> <span color='${theme.waybar.glyph-color}'>{icon}</span>";
           format-icons = {
             charging = ["󰁺󱐋" "󰁻󱐋" "󰁼󱐋" "󰁽󱐋" "󰁾󱐋" "󰁿󱐋" "󰂀󱐋" "󰂁󱐋" "󰂂󱐋" "󰁹󱐋"];
             default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           };
-          format-full = "<span color='${stylix-palette.base05}'>Charged</span> <span color='${stylix-palette.base0A}'></span>";
+          format-full = "<span color='${stylix-palette.base05}'>Charged</span> <span color='${theme.waybar.glyph-color}'></span>";
           format-time = "{H}h {M}min";
           tooltip-format = "{timeTo}\nPower: {power} W\nHealth: {health}%";
         };
