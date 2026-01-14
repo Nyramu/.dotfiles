@@ -12,13 +12,13 @@ in
         "match:class ^(org.qutebrowser.qutebrowser)$, decorate off"
         
         # Custom titles for kitty
-        "match:title ^(rmpc)$, float on"
-        "match:title ^(rmpc)$, size 942 558"
-        "match:title ^(rmpc)$, center on"
+        "match:initial_title ^(rmpc)$, float on"
+        "match:initial_title ^(rmpc)$, size 942 558"
+        "match:initial_title ^(rmpc)$, center on"
         
-        "match:title ^(fastfetch)$, float on"
-        "match:title ^(fastfetch)$, size 1100 736"
-        "match:title ^(fastfetch)$, center on"
+        "match:initial_title ^(fastfetch)$, float on"
+        "match:initial_title ^(fastfetch)$, size 1100 736"
+        "match:initial_title ^(fastfetch)$, center on"
       ];
 
       env = [
@@ -31,8 +31,8 @@ in
         border_size = 2;
         resize_on_border = true;
 
-        gaps_inside = 5;
-        gaps_outside = 4;
+        gaps_in = 5;
+        gaps_out = 4;
 
         active_border_color = theme.hypr.active_border_color;
         inactive_border_color = theme.hypr.inactive_border_color;
@@ -49,6 +49,39 @@ in
           color = "rgba(26, 26, 26, 0.93)";
         };
         blur.enabled = false;
+      };
+
+      group = {
+        auto_group = true;
+        insert_after_current = true;
+        focus_removed_window = true;
+        drag_into_group = 2; # Only on group bar
+        merge_groups_on_drag = false;
+        # group_on_movetoworkspace = true; # Must test
+
+        active_border_color = theme.hypr.active_border_color;
+        inactive_border_color = theme.hypr.inactive_border_color;
+        locked_active_border_color = theme.hypr.locked_group_active_border_color;
+        locked_inactive_border_color = theme.hypr.inactive_border_color;
+
+        groupbar = {
+          font_size = 13;
+          gradients = false;
+          indicator_height = 1; # Default: 3
+          rounding = 8;
+          rounding_power = 4.0; # Default: 2.0
+          blur = true;
+          
+          text_color = theme.hypr.text_color;
+          text_color_inactive = theme.hypr.inactive_text_color;
+          text_color_locked_active = theme.hypr.locked_group_active_text_color;
+          text_color_locked_inactive = theme.hypr.inactive_text_color;
+
+          active_color = theme.hypr.active_color;
+          inactive_color = theme.hypr.inactive_color;
+          locked_active_color = theme.hypr.locked_group_active_color;
+          locked_inactive_color = theme.hypr.inactive_color;
+        };
       };
 
       # Gives more freedom in windows management compared to Master
