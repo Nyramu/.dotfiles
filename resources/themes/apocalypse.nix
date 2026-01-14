@@ -67,9 +67,9 @@ rec
 
   # Hyprland color configuration
   hypr = {
-    active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) rgb(ed6830) rgb(e98c44) 270deg";
+    active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) rgb(ed6830) rgb(e98c44) 220deg";
     inactive_border_color = "rgb(3a2618)";
-    locked_group_active_border_color = "rgb(1a1210) rgb(c84018) rgb(e13820) 270deg";
+    locked_group_active_border_color = "rgb(1a1210) rgb(c84018) rgb(e13820) 220deg";
     
     text_color = "rgb(ffc898)";
     inactive_text_color = "rgb(d88860)"; # palette.base05
