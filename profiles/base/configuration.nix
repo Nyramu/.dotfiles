@@ -120,6 +120,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # Enable uPower (battery service)
+  services.upower.enable = true;
+
   # Storage optimization
   nix.settings.auto-optimise-store = true;
 
