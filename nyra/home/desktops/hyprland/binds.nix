@@ -22,12 +22,12 @@ in
             "SUPER, S" = "exec, steam %U";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
-            "SUPER, M" = "exec, ${terminal} -e ${getExe pkgs.rmpc}"; # Music player
+            "SUPER, M" = "exec, ${terminal} --class rmpc -e ${getExe pkgs.rmpc}"; # RMPC but in a cool window
             "SUPER, SPACE" = "exec, vicinae toggle";
 
             # Terminal keybinds
             "SUPER, RETURN" = "exec, ${terminal}";
-            "SUPER_ALT, RETURN" = "exec, ${terminal} -e fastfetch";
+            "SUPER_ALT, RETURN" = "exec, ${terminal} --class fastfetch --hold ${getExe pkgs.fastfetch}"; # Fastfetch but in a cool window
 
             "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
           };
@@ -65,12 +65,36 @@ in
             "SUPER, J" = "togglesplit";
             "SUPER, V" = "togglefloating";
           };
+
+          # Move focus
+          bind = {
+            "SUPER, up" = "movefocus, u";
+            "SUPER, down" = "movefocus, d";
+            "SUPER, left" = "movefocus, l";
+            "SUPER, right" = "movefocus, r";
+          };
         };
 
         mouseWindowControl = {
           bindm = {
             "SUPER, ${MOUSE_L}" = "movewindow";
             "SUPER, ${MOUSE_R}" = "resizewindow";
+          };
+        };
+
+        groupControl = {
+          bind = {
+            "SUPER, G" = "togglegroup"; # Create/destroy a group
+            "SUPER_SHIFT, G" = "lockactivegroup, toggle"; # Lock/unlock active group
+            
+            # Acts as moveintogroup/moveoutofgroup/movewindow
+            "SUPER_SHIFT, up" = "movewindoworgroup, u";
+            "SUPER_SHIFT, down" = "movewindoworgroup, d";
+            "SUPER_SHIFT, left" = "movewindoworgroup, l";
+            "SUPER_SHIFT, right" = "movewindoworgroup, r";
+
+            "SUPER, Tab" = "changegroupactive, f"; # Move forward
+            "SUPER_SHIFT, Tab" = "changegroupactive, b"; # Move back
           };
         };
 
@@ -92,21 +116,6 @@ in
   
         sessionControl = {
           bind."SUPER_SHIFT, L" = "exit";
-        };
-
-        changeFocus = {
-          bind = {
-            "SUPER, Tab" = "cyclenext"; # Change focus to another window
-          };
-        };
-
-        moveFocus = {
-          bind = {
-            "SUPER_SHIFT, up" = "movefocus, u";
-            "SUPER_SHIFT, down" = "movefocus, d";
-            "SUPER_SHIFT, left" = "movefocus, l";
-            "SUPER_SHIFT, right" = "movefocus, r";
-          };
         };
 
         changeWorkspace = {
@@ -149,8 +158,7 @@ in
           # Window control
           groups.mouseWindowControl
           groups.windowControl
-          groups.changeFocus
-          groups.moveFocus
+          groups.groupControl
           # Workspace control
           groups.changeWorkspace
           groups.moveToWorkspace
