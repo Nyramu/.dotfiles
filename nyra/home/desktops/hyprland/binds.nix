@@ -22,12 +22,12 @@ in
             "SUPER, S" = "exec, steam %U";
             "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
-            "SUPER, M" = "exec, ${terminal} --class rmpc -e ${getExe pkgs.rmpc}"; # RMPC but in a cool window
+            "SUPER, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 ${getExe pkgs.rmpc}"; # RMPC but in a cool window
             "SUPER, SPACE" = "exec, vicinae toggle";
 
             # Terminal keybinds
             "SUPER, RETURN" = "exec, ${terminal}";
-            "SUPER_ALT, RETURN" = "exec, ${terminal} --class fastfetch --hold ${getExe pkgs.fastfetch}"; # Fastfetch but in a cool window
+            "SUPER_ALT, RETURN" = "exec, ${terminal} --title fastfetch --hold ${getExe pkgs.fastfetch}"; # Fastfetch but in a cool window
 
             "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
           };
