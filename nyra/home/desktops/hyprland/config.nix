@@ -110,9 +110,8 @@ in
 
       # Set wallpaper
       exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
-      # Start waybar and vicinae
+      # Start noctalia and vicinae
       exec_once = [ 
-        # "${lib.getExe pkgs.waybar}"
         "noctalia-shell" 
         "vicinae server"
       ];

@@ -34,8 +34,6 @@ in
         };
 
         restartApps = {
-          # # Waybar
-          # bind."SUPER_SHIFT, W" = "exec, pkill ${pkgs.waybar.pname}; ${getExe pkgs.waybar}";
           # Noctalia
           bind."SUPER_SHIFT, W" = "exec, pkill .quickshell-wra; noctalia-shell";
           
