@@ -8,9 +8,10 @@ in
     inputs.hyprnix.homeManagerModules.hyprland
     ./config.nix
     ./binds.nix
-    #./plugins.nix
-    ./waybar.nix
+    ./noctalia.nix
     ./vicinae.nix
+    # ./plugins.nix
+    # ./waybar.nix
   ];
 
   options.nyra.home.desktops.hyprland = {
