@@ -112,7 +112,7 @@ in
       exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
       # Start waybar and vicinae
       exec_once = [ 
-        "${lib.getExe pkgs.waybar}"
+        # "${lib.getExe pkgs.waybar}"
         "noctalia-shell" 
         "vicinae server"
       ];
