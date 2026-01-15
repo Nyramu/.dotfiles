@@ -40,6 +40,7 @@ in
       #  }
       #'';
     };
+    services.mpd-mpris.enable = config.services.mpd.enable;
     programs.cava = {
       enable = cfg.music.enable;
     };
