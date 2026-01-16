@@ -22,6 +22,73 @@ in
   config = {
     programs.zen-browser = {
       enable = cfg.zen.enable;
+      profiles.nyramu.bookmarks = {
+        force = true;
+        settings = [
+          {
+            name = "NixOS";
+            toolbar = false;
+            bookmarks = [
+              {
+                name = "Homepage";
+                url = "https://nixos.org/";
+              }
+              {
+                name = "Wiki";
+                tags = ["wiki" "nix"];
+                url = "https://wiki.nixos.org/";
+              }
+            ];
+          }
+          {
+            name = "GitHub";
+            toolbar = false;
+            bookmarks = [
+              {
+                name = "My stars";
+                url = "https://github.com/Nyramu?tab=stars";
+              }
+              {
+                name = "My dotfiles";
+                url = "https://github.com/Nyramu/.dotfiles";
+              }
+            ];
+          }
+          {
+            name = "Configs for my dotfiles";
+            toolbar = false;
+            bookmarks = [
+              {
+                name = "Noctalia";
+                url = "https://docs.noctalia.dev/getting-started/nixos/";
+              }
+            ];
+          }
+        ];
+      };
+      profiles.nyramu.extensions.packages = with firefox-addons; [
+        ublock-origin
+        dearrow
+        return-youtube-dislikes
+        augmented-steam
+        protondb-for-steam
+        #animalese-typing # Cool and cute but annoying
+        betterttv
+        censor-tracker
+        clearurls
+        copy-selection-as-markdown
+        #firenvim
+        image-search-options
+        indie-wiki-buddy
+        simplifygmail
+        the-camelizer-price-history-ch
+        to-google-translate
+        tampermonkey
+        youtube-no-translation
+        youtube-shorts-block
+        youtube-nonstop
+        darkreader
+      ];
       policies = let
         mkLockedAttrs = builtins.mapAttrs (_: value: {
           Value = value;
@@ -266,63 +333,6 @@ in
           };
         };
       };
-      profiles.nyramu.bookmarks = {
-        force = true;
-        settings = [
-          {
-            name = "NixOS";
-            toolbar = false;
-            bookmarks = [
-              {
-                name = "Homepage";
-                url = "https://nixos.org/";
-              }
-              {
-                name = "Wiki";
-                tags = ["wiki" "nix"];
-                url = "https://wiki.nixos.org/";
-              }
-            ];
-          }
-          {
-            name = "GitHub";
-            toolbar = false;
-            bookmarks = [
-              {
-                name = "My stars";
-                url = "https://github.com/Nyramu?tab=stars";
-              }
-              {
-                name = "My dotfiles";
-                url = "https://github.com/Nyramu/.dotfiles";
-              }
-            ];
-          }
-        ];
-      };
-      profiles.nyramu.extensions.packages = with firefox-addons; [
-        ublock-origin
-        dearrow
-        return-youtube-dislikes
-        augmented-steam
-        protondb-for-steam
-        #animalese-typing # Cool and cute but annoying
-        betterttv
-        censor-tracker
-        clearurls
-        copy-selection-as-markdown
-        #firenvim
-        image-search-options
-        indie-wiki-buddy
-        simplifygmail
-        the-camelizer-price-history-ch
-        to-google-translate
-        tampermonkey
-        youtube-no-translation
-        youtube-shorts-block
-        youtube-nonstop
-        darkreader
-      ];
     };
   };
 }
