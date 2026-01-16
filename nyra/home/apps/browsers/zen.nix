@@ -30,10 +30,6 @@ in
             toolbar = true;
             bookmarks = [
               {
-                name = "Homepage";
-                url = "https://nixos.org/";
-              }
-              {
                 name = "Wiki";
                 tags = ["wiki" "nix"];
                 url = "https://wiki.nixos.org/";
@@ -42,7 +38,7 @@ in
           }
           {
             name = "GitHub";
-            toolbar = false;
+            toolbar = true;
             bookmarks = [
               {
                 name = "My stars";
