@@ -77,14 +77,6 @@ rec
     
   };
 
-  # Waybar color configuration
-  waybar = {
-    glyph-color = "#983050";
-    background-color = "rgba(38, 36, 52, 0.6)";
-    font = fonts.monospace.name;
-    font-size = "15";
-  };
-
   # Vicinae configuration
   vicinae = {
     font = {

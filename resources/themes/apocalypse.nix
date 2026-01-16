@@ -80,14 +80,6 @@ rec
     locked_group_active_color = "rgb(c84018)"; # Last color from locked active border
   };
 
-  # Waybar configuration
-  waybar = {
-    glyph-color = "#e97048";
-    background-color = "rgba(42, 28, 20, 0.6)";
-    font = fonts.sansSerif.name;
-    font-size = "20";
-  };
-
   # Vicinae configuration
   vicinae = {
     font = {
