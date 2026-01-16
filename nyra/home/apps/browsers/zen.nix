@@ -48,6 +48,10 @@ in
                 name = "My dotfiles";
                 url = "https://github.com/Nyramu/.dotfiles";
               }
+              {
+                name = "Gab's dotfiles";
+                url = "https://github.com/gabrielemercolino/.dotfiles";
+              }
             ];
           }
           {
