@@ -27,7 +27,7 @@ in
         settings = [
           {
             name = "NixOS";
-            toolbar = false;
+            toolbar = true;
             bookmarks = [
               {
                 name = "Homepage";
