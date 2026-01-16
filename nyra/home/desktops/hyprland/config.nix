@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   themeName = config.nyra.theme.defaultTheme;
@@ -112,7 +112,6 @@ in
       exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
       # Start noctalia and vicinae
       exec_once = [ 
-        "noctalia-shell" 
         "vicinae server"
       ];
     };
