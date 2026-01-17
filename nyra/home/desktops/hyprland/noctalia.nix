@@ -82,6 +82,9 @@ in
               unfocusedIconsOpacity = 1;
             }
             {
+              id = "plugin:privacy-indicator";
+            }
+            {
               blacklist = [];
               colorizeIcons = false;
               drawerEnabled = false;
@@ -234,6 +237,28 @@ in
       desktopWidgets.enabled = false;
       sounds.enabled = false;
       notifications.enabled = false;
+    };
+    plugins = {
+      sources = [
+        {
+          enabled = true;
+          name = "Official Noctalia Plugins";
+          url = "https://github.com/noctalia-dev/noctalia-plugins";
+        }
+      ];
+      states = {
+        privacy-indicator = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+      };
+    };
+    pluginSettings = {
+      privacy-indicator = {
+        hideInactive = true;
+        iconSpacing = 9;
+        removeMargins = false;
+      };
     };
     colors = lib.mkIf (config.stylix.enable) {
       mPrimary = lib.mkIf (theme ? noctalia.colors.mPrimary) (lib.mkForce theme.noctalia.colors.mPrimary);
