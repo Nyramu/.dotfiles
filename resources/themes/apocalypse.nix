@@ -72,6 +72,10 @@ in
     locked_group_active_color = "rgb(c84018)"; # palette.base0E
   };
 
+  # Noctalia configuration
+  noctalia.ui.fontDefaultScale = 1.25;
+  noctalia.ui.fontFixedScale = 1.25;
+  
   # Vicinae configuration
   vicinae.font.normal.size = 13.0;
 
