@@ -1,5 +1,6 @@
 { pkgs }:
 
+rec
 {
   system = "base16";
   name = "Red Eclipse";
@@ -38,7 +39,7 @@
     base01 = "#1a1625"; # Lighter Background - dark purple-blue
     base02 = "#2a1f35"; # Selection Background - medium dark purple
     base03 = "#4f3e5e"; # Comments, Invisibles - muted purple
-    base04 = "#5a4560"; # Dark Foreground - lighter muted purple
+    base04 = "#7e6878"; # Dark Foreground - lighter muted purple
     base05 = "#d4b0c0"; # Default Foreground - lighter mauve-rose
     base06 = "#f0d8e4"; # Light Foreground - light pale rose
     base07 = "#faeaf0"; # Light Background - very pale pink
@@ -69,6 +70,15 @@
     
   };
 
+  # Noctalia configuration
+  noctalia = {
+    colors = {
+      mPrimary = palette.base0A;
+      mHover = palette.base02;
+      mOnHover = palette.base0A;
+    };
+  };
+  
   # Vicinae configuration
   vicinae.font.normal.size = 12.0;  
 }
