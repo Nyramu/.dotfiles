@@ -13,8 +13,12 @@ in
     fonts = theme.fonts; 
     image = theme.background;
     polarity = theme.polarity;
-    opacity = theme.opacity;
-
+    opacity = {
+      terminal = theme.opacity.terminal or 0.63;
+      applications = theme.opacity.applications or 0.6;
+      desktop = theme.opacity.desktop or 0.7;
+      popups = theme.opacity.popups or 0.7;
+    };
     icons = {
       enable = true;
       package = pkgs.gruvbox-plus-icons;
