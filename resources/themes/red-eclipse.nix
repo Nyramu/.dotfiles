@@ -1,6 +1,5 @@
 { pkgs }:
 
-rec
 {
   system = "base16";
   name = "Red Eclipse";
@@ -32,13 +31,6 @@ rec
       popups = 10;
       terminal = 12;
     };
-  };
-
-  opacity = {
-    terminal = 0.63;
-    applications = 0.6;
-    desktop = 0.7;
-    popups = 0.7;
   };
 
   palette = {
@@ -78,17 +70,5 @@ rec
   };
 
   # Vicinae configuration
-  vicinae = {
-    font = {
-      normal = {
-        size = 12.0;
-        normal = fonts.sansSerif.name;
-      };
-    };
-  };
-
-  # SilentSDDM configuration
-  silentSDDM = {
-    avatar-shape = "square";
-  };
+  vicinae.font.normal.size = 12.0;  
 }

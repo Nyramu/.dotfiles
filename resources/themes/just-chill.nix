@@ -37,13 +37,6 @@ rec
     };
   }; 
 
-  opacity = {
-    terminal = 0.63;
-    applications = 0.6;
-    desktop = 0.7;
-    popups = 0.7;
-  };
-
   palette = {
     base00 = "#1a1214"; # Default Background - deep dark burgundy-black
     base01 = "#2a1a1e"; # Lighter Background - dark burgundy-gray
@@ -80,17 +73,5 @@ rec
   };
   
   # Vicinae configuration
-  vicinae = {
-    font = {
-      normal = {
-        size = 10.5;
-        normal = fonts.monospace.name;
-      };
-    };
-  };
-
-  # SilentSDDM configuration
-  silentSDDM = {
-    avatar-shape = "square";
-  };
+  vicinae.font.normal.normal = fonts.monospace.name;
 }

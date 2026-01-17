@@ -4,7 +4,6 @@ let
   neospleen-font = pkgs.callPackage ../../nyra/custom-derivations/neospleen-nerd-font.nix {};
 in
 
-rec
 {
   system = "base16";
   name = "Apocalypse";
@@ -38,13 +37,6 @@ rec
     };
   };
 
-  opacity = {
-    terminal = 0.63;
-    applications = 0.6;
-    desktop = 0.7;
-    popups = 0.7;
-  };
-
   palette = {
     base00 = "#1a1210"; # Default Background - deep dark brown-black
     base01 = "#2a1c14"; # Lighter Background - dark burnt brown
@@ -68,30 +60,21 @@ rec
   # Hyprland color configuration
   hypr = {
     active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) rgb(ed6830) rgb(e98c44) 220deg";
-    inactive_border_color = "rgb(3a2618)";
+    inactive_border_color = "rgb(3a2618)"; # palette.base02
     locked_group_active_border_color = "rgb(1a1210) rgb(c84018) rgb(e13820) 220deg";
     
-    text_color = "rgb(ffc898)";
+    text_color = "rgb(ffc898)"; # palette.base07
     inactive_text_color = "rgb(d88860)"; # palette.base05
-    locked_group_active_text_color = "rgb(ffc898)"; # Lighter than locked active border
+    locked_group_active_text_color = "rgb(ffc898)"; # palette.base07
 
     active_color = "rgb(e98c44)"; # Last color from active border
-    inactive_color = "rgb(3a2618)"; # Color from inactive border
-    locked_group_active_color = "rgb(c84018)"; # Last color from locked active border
+    inactive_color = "rgb(3a2618)"; # palette.base02
+    locked_group_active_color = "rgb(c84018)"; # palette.base0E
   };
 
   # Vicinae configuration
-  vicinae = {
-    font = {
-      normal = {
-        size = 13.0;
-        normal = fonts.sansSerif.name;
-      };
-    };
-  };
+  vicinae.font.normal.size = 13.0;
 
   # SilentSDDM configuration
-  silentSDDM = {
-    avatar-shape = "circle";
-  };
+  silentSDDM.avatar-shape = "circle";
 }
