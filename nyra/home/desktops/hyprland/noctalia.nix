@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 let
   cfgHyprland = config.nyra.home.desktops.hyprland;
@@ -23,6 +23,7 @@ in
       audio = {
         cavaFrameRate = 60;
         visualizerType = "mirrored";
+        volumeOverdrive = true;
         mprisBlacklist = [
           "Mozilla zen"
           "Telegram Desktop"
@@ -48,7 +49,7 @@ in
         floating = false;
         marginVertical = 6;
         marginHorizontal = 4;
-        outerCorners = false;
+        outerCorners = true;
         exclusive = true;
         hideOnOverview = false;
         widgets = {
@@ -91,10 +92,10 @@ in
           ];
           center = [
             {
-              colorizeDistroLogo = false;
-              colorizeSystemIcon = "none";
+              colorizeDistroLogo = true;
+              colorizeSystemIcon = theme.noctalia.colors.control-center-logo or "none";
               customIconPath = "";
-              enableColorization = false;
+              enableColorization = true;
               icon = "noctalia";
               id = "ControlCenter";
               useDistroLogo = true;
@@ -127,7 +128,7 @@ in
               id = "Clock";
               tooltipFormat = "dddd, dd/MM/yyyy";
               useCustomFont = false;
-              usePrimaryColor = false;
+              usePrimaryColor = true;
             }
           ];
         };
@@ -177,7 +178,7 @@ in
         bluetoothHideUnnamedDevices = true;
       };
       location = {
-        analogClockInCalendar = true;
+        analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
         firstDayOfWeek = 1;
       };
       calendar = {
@@ -233,6 +234,11 @@ in
       desktopWidgets.enabled = false;
       sounds.enabled = false;
       notifications.enabled = false;
+    };
+    colors = lib.mkIf (config.stylix.enable) {
+      mPrimary = lib.mkIf (theme ? noctalia.colors.mPrimary) (lib.mkForce theme.noctalia.colors.mPrimary);
+      mHover = lib.mkIf (theme ? noctalia.colors.mHover) (lib.mkForce theme.noctalia.colors.mHover);
+      mOnHover = lib.mkIf (theme ? noctalia.colors.mOnHover) (lib.mkForce theme.noctalia.colors.mOnHover);
     };
   };
 }
