@@ -1,7 +1,9 @@
-{ config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 
 let
   cfgHyprland = config.nyra.home.desktops.hyprland;
+  themeName = config.nyra.theme.defaultTheme;
+  theme = import ../../../../resources/themes/${themeName}.nix {inherit pkgs;};
 in
 {
   imports = [
@@ -13,7 +15,11 @@ in
     systemd.enable = true;
     settings = {
       location.name = "Sassari";
-      ui.tooltipsEnabled = false;
+      ui = {
+        fontDefaultScale = theme.noctalia.ui.fontDefaultScale or 1;
+        fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
+        tooltipsEnabled = false;
+      };
       audio = {
         cavaFrameRate = 60;
         visualizerType = "mirrored";
