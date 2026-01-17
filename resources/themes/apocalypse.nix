@@ -4,6 +4,7 @@ let
   neospleen-font = pkgs.callPackage ../../nyra/custom-derivations/neospleen-nerd-font.nix {};
 in
 
+rec
 {
   system = "base16";
   name = "Apocalypse";
@@ -42,7 +43,7 @@ in
     base01 = "#2a1c14"; # Lighter Background - dark burnt brown
     base02 = "#3a2618"; # Selection Background - dark chocolate-brown
     base03 = "#a07e66"; # Comments, Invisibles - muted brown
-    base04 = "#6a4830"; # Dark Foreground - medium brown
+    base04 = "#b98864"; # Dark Foreground - medium brown
     base05 = "#d88860"; # Default Foreground - warm terracotta
     base06 = "#f0a878"; # Light Foreground - light coral-orange
     base07 = "#ffc898"; # Light Background - pale peach-orange
@@ -60,7 +61,7 @@ in
   # Hyprland color configuration
   hypr = {
     active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) rgb(ed6830) rgb(e98c44) 220deg";
-    inactive_border_color = "rgb(3a2618)"; # palette.base02
+    inactive_border_color = "rgb(2a1c14) rgb(3a2618) 220deg"; 
     locked_group_active_border_color = "rgb(1a1210) rgb(c84018) rgb(e13820) 220deg";
     
     text_color = "rgb(ffc898)"; # palette.base07
@@ -68,13 +69,23 @@ in
     locked_group_active_text_color = "rgb(ffc898)"; # palette.base07
 
     active_color = "rgb(e98c44)"; # Last color from active border
-    inactive_color = "rgb(3a2618)"; # palette.base02
+    inactive_color = "rgb(2a1c14)"; # Last color from inactive border
     locked_group_active_color = "rgb(c84018)"; # palette.base0E
   };
 
   # Noctalia configuration
-  noctalia.ui.fontDefaultScale = 1.25;
-  noctalia.ui.fontFixedScale = 1.25;
+  noctalia = {
+    ui = {
+      fontDefaultScale = 1.25;
+      fontFixedScale = 1.25;
+      analogClockInCalendar = false;
+    };
+    colors = {
+      mPrimary = palette.base0A;
+      mHover = palette.base02;
+      mOnHover = palette.base0A;
+    };
+  };
   
   # Vicinae configuration
   vicinae.font.normal.size = 13.0;
