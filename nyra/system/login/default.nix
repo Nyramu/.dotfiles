@@ -52,7 +52,7 @@ in {
           margin = -1;
         };
         "LoginScreen.LoginArea.Avatar" = {
-          shape = theme.silentSDDM.avatar-shape;
+          shape = theme.silentSDDM.avatar-shape or "square";
           active-size = 180;
           border-radius = 1;
           active-border-size = 2;
