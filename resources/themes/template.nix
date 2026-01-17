@@ -77,8 +77,19 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
   };
 
   # Noctalia configuration
-  noctalia.ui.fontDefaultScale = 1; # Must be between 0.75 and 1.25
-  noctalia.ui.fontFixedScale = 1; # Must be between 0.75 and 1.25
+  noctalia = {
+    ui = {
+      fontDefaultScale = 1; # Must be between 0.75 and 1.25
+      fontFixedScale = 1; # Must be between 0.75 and 1.25
+      analogClockInCalendar = false; # Default: true
+    };
+    colors = {
+      mPrimary = palette.base0A; # Or some hex code
+      mHover = palette.base02; # Same here
+      mOnHover = palette.base0A; # And here
+      control-center-logo = "primary"; # "primary" | "secondary" | "tertiary" | "error"
+    };
+  };
   
   # Vicinae configuration
   vicinae = {
