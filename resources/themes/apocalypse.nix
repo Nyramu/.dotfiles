@@ -88,7 +88,10 @@ rec
   };
   
   # Vicinae configuration
-  vicinae.font.normal.size = 13.0;
+  vicinae = {
+    ui.opacity = 0.83;
+    font.normal.size = 13.0;
+  };
 
   # SilentSDDM configuration
   silentSDDM.avatar-shape = "circle";
