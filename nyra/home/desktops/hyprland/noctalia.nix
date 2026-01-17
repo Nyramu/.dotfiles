@@ -1,7 +1,7 @@
 { config, lib, inputs, pkgs, ... }:
 
 let
-  cfgHyprland = config.nyra.home.desktops.hyprland;
+  cfg = config.nyra.home.desktops;
   themeName = config.nyra.theme.defaultTheme;
   theme = import ../../../../resources/themes/${themeName}.nix {inherit pkgs;};
 in
@@ -11,7 +11,7 @@ in
   ];
 
   programs.noctalia-shell = {
-    enable = cfgHyprland.enable;
+    enable = cfg.hyprland.enable;
     systemd.enable = true;
     settings = {
       location.name = "Sassari";

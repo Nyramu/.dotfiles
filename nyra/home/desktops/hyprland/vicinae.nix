@@ -5,14 +5,14 @@
   pkgs,
   ...
 }: let
-  cfgHyprland = config.nyra.home.desktops.hyprland;
+  cfg = config.nyra.home.desktops;
   themeName = config.nyra.theme.defaultTheme;
   theme = import ../../../../resources/themes/${themeName}.nix {inherit pkgs;};
 in {
   imports = [inputs.vicinae.homeManagerModules.default];
 
   services.vicinae = {
-    enable = cfgHyprland.enable;
+    enable = cfg.hyprland.enable;
     systemd = {
       enable = true;
       autoStart = true; # default: false

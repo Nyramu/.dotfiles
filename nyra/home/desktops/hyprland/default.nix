@@ -8,15 +8,8 @@ in
     inputs.hyprnix.homeManagerModules.hyprland
     ./config.nix
     ./binds.nix
-    ./noctalia.nix
-    ./vicinae.nix
     # ./plugins.nix
-    # ./waybar.nix
   ];
-
-  options.nyra.home.desktops.hyprland = {
-    enable = mkEnableOption "hyprland";
-  };
   
   config.services.hyprpaper.enable = mkForce false;
   config.wayland.windowManager.hyprland = {
