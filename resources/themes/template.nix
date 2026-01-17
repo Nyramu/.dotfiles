@@ -1,6 +1,6 @@
 { pkgs }:
 
-rec # Needed to "cross-link" variables (ugh.)
+rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh.)
 {
   system = "base16";
   name = "Theme Name";
@@ -75,6 +75,10 @@ rec # Needed to "cross-link" variables (ugh.)
     inactive_color = "rgb(eeeeee)"; # Tip: Color from inactive border
     locked_group_active_color = "rgb(eeeeee)"; # Tip: Last color from locked active border
   };
+
+  # Noctalia configuration
+  noctalia.ui.fontDefaultScale = 1; # Must be between 0.75 and 1.25
+  noctalia.ui.fontFixedScale = 1; # Must be between 0.75 and 1.25
   
   # Vicinae configuration
   vicinae = {
