@@ -42,7 +42,7 @@ rec
     base01 = "#2a1a1e"; # Lighter Background - dark burgundy-gray
     base02 = "#3a2228"; # Selection Background - dark wine-purple
     base03 = "#707070"; # Comments, Invisibles - medium gray
-    base04 = "#909090"; # Dark Foreground - light gray
+    base04 = "#aaaaaa"; # Dark Foreground - light gray
     base05 = "#ffb0b4"; # Default Foreground - light pink
     base06 = "#ffc8cc"; # Light Foreground - lighter pink
     base07 = "#ffb0b4"; # Light Background - light pink
@@ -70,6 +70,16 @@ rec
     active_color = "rgb(fa696e)"; # Last color from active border
     inactive_color = "rgb(152927)"; # Color from inactive border
     locked_group_active_color = "rgb(90b7b2)"; # Last color from locked active border
+  };
+
+  # Noctalia configuration
+  noctalia = {
+    colors = {
+      mPrimary = palette.base0A;
+      mHover = palette.base02;
+      mOnHover = palette.base0A;
+      control-center-logo = "primary"; # "primary" | "secondary" | "tertiary" | "error"
+    };
   };
   
   # Vicinae configuration
