@@ -7,7 +7,7 @@
 }: let
   cfg = config.nyra.home.desktops;
   themeName = config.nyra.theme.defaultTheme;
-  theme = import ../../../../resources/themes/${themeName}.nix {inherit pkgs;};
+  theme = import ../../../resources/themes/${themeName}.nix {inherit pkgs;};
 in {
   imports = [inputs.vicinae.homeManagerModules.default];
 
