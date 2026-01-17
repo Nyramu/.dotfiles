@@ -93,6 +93,9 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
   
   # Vicinae configuration
   vicinae = {
+    ui = {
+      opacity = 0.80; # Ideally between 0.1 and 1.0
+    };
     font = {
       normal = {
         size = 10.5; # It's generally better between 10.5 and 12
