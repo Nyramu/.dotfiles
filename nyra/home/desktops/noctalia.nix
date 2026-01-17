@@ -3,7 +3,7 @@
 let
   cfg = config.nyra.home.desktops;
   themeName = config.nyra.theme.defaultTheme;
-  theme = import ../../../../resources/themes/${themeName}.nix {inherit pkgs;};
+  theme = import ../../../resources/themes/${themeName}.nix {inherit pkgs;};
 in
 {
   imports = [
@@ -165,7 +165,7 @@ in
         monitors = [];
       };
       general = {
-        avatarImage = ../../../../resources/nyramu.png;
+        avatarImage = ../../../resources/nyramu.png;
         radiusRatio = 0.6;
         iRadiusRatio = 0.6;
         compactLockScreen = true;
