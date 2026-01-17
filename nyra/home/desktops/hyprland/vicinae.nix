@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   inputs,
   pkgs,
   ...
@@ -28,7 +29,7 @@ in {
       font = {
         normal = {
           size = theme.vicinae.font.normal.size or 10.5;
-          normal = theme.vicinae.font.normal.normal or null;
+          normal = lib.mkIf (theme ? vicinae.font.normal.normal) theme.vicinae.font.normal.normal;
         };
       };
     };
