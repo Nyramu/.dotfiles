@@ -10,7 +10,7 @@ in
 
   programs.noctalia-shell = {
     enable = cfgHyprland.enable;
-    systemd.enable = true; # Needed for auto-restart and gui config
+    systemd.enable = true;
     settings = {
       location.name = "Sassari";
       ui.tooltipsEnabled = false;
@@ -19,6 +19,7 @@ in
         visualizerType = "mirrored";
         mprisBlacklist = [
           "Mozilla zen"
+          "Telegram Desktop"
         ];
         preferredPlayer = "";
       };
