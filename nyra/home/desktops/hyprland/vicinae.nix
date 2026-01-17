@@ -33,7 +33,8 @@ in {
       };
     };
     extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
-      bluetooth
+      aria2-manager
+      nix
     ];
   };
 }
