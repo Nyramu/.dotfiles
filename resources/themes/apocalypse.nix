@@ -24,7 +24,7 @@ rec
     };
     monospace = {
       package = neospleen-font;
-      name = "NeoSpleen Nerd Font Mono";
+      name = "NeoSpleen Nerd Font"; # Or NeoSpleen Nerd Font Mono
     };
     emoji = {
       package = pkgs.nerd-fonts.symbols-only;
