@@ -1,12 +1,9 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-with lib; let
+{ config, lib, pkgs, ... }: with lib;
+
+let
   cfg = config.nyra.system.hardware.audio;
-in {
+in
+{
   options.nyra.system.hardware.audio = {
     server = mkOption {
       type = types.enum ["pipewire" "pulseaudio"];
