@@ -27,9 +27,9 @@
       telegram.enable = true;
       discord.enable = true;
     };
-    media = {
-      music.enable = true; # Enables mpd, rmpc, cava
-      vlc.enable = true;
+    music = {
+      enable = true;
+      rmpc.enable = true;
     };
     miscellaneous = {
       btop = {
