@@ -7,7 +7,7 @@
     ./browsers
     ./gaming
     ./miscellaneous
-    ./media
+    ./music
     ./socials
   ];
 }
