@@ -1,8 +1,12 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
-  programs.rmpc = {
-    enable = config.nyra.home.apps.music.enable;
+  options.nyra.home.apps.music.rmpc = {
+    enable = lib.mkEnableOption "rmpc";
+  };
+  
+  config.programs.rmpc = {
+    enable = config.nyra.home.apps.music.rmpc.enable;
     config = ''
       #![enable(implicit_some)]
       #![enable(unwrap_newtypes)]
@@ -216,7 +220,7 @@
       )
     '';
   };
-  xdg.configFile."rmpc/theme.ron".text = let
+  config.xdg.configFile."rmpc/theme.ron".text = let
     stylix-palette = config.stylix.base16Scheme;
   in ''
     #![enable(implicit_some)]
