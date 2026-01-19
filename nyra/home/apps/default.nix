@@ -7,7 +7,7 @@
     ./browsers
     ./gaming
     ./miscellaneous
-    ./music
+    ./rmpc.nix
     ./socials
   ];
 }
