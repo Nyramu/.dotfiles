@@ -27,10 +27,7 @@
       telegram.enable = true;
       discord.enable = true;
     };
-    music = {
-      enable = true;
-      rmpc.enable = true;
-    };
+    rmpc.enable = true;
     miscellaneous = {
       btop = {
         enable = true;
@@ -51,6 +48,11 @@
     };
   };
 
+  # Services
+  nyra.home.services = {
+    mpd.enable = true;
+  };
+  
   # Desktop Environments and Window Managers
   nyra.home.desktops.hyprland.enable = true;
 }
