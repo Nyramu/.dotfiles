@@ -2,10 +2,11 @@
 
 {
   imports = [
-    ../common
     ./apps
+    ./services
     ./shells
     ./desktops
-    ./theme
+    ./stylix.nix
+    ../common
   ];
 }
