@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./rmpc.nix
     ./yazi.nix
     ./btop.nix
     ./fastfetch.nix
