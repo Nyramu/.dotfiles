@@ -110,10 +110,6 @@ in
 
       # Set wallpaper
       exec = [ "nice -n -20 swaybg -m fill -i ${config.stylix.image}" ];
-      # Start noctalia and vicinae
-      exec_once = [ 
-        "vicinae server"
-      ];
     };
 
     animations.animation = {
