@@ -1,9 +1,6 @@
+{ config, lib, pkgs, ... }:
+  
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: rec {
   defaultApplications = let
     allMimeTypes = builtins.readFile "${pkgs.shared-mime-info}/share/mime/types";
 
