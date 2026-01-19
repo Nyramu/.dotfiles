@@ -8,6 +8,6 @@
     ./gaming
     ./miscellaneous
     ./rmpc.nix
-    ./socials
+    ./socials.nix
   ];
 }
