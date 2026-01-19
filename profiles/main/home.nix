@@ -23,10 +23,8 @@
       eden.enable = true;
       azahar.enable = false;
     };
-    socials = {
-      telegram.enable = true;
-      discord.enable = true;
-    };
+    telegram.enable = true;
+    discord.enable = true;
     rmpc.enable = true;
     miscellaneous = {
       btop = {
