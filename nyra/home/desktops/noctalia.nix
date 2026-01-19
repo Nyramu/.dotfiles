@@ -6,9 +6,7 @@ let
   theme = import ../../../resources/themes/${themeName}.nix {inherit pkgs;};
 in
 {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
+  imports = [ inputs.noctalia.homeModules.default ];
 
   programs.noctalia-shell = {
     enable = cfg.hyprland.enable;
@@ -152,25 +150,43 @@ in
           left = [
             { id = "Notifications"; }
             { id = "NightLight"; }
-            { id = "PowerProfile"; }
+            { id = "NoctaliaPerformance"; }
           ];
           right = [];
         };
         cards = [
           { enabled = true; id = "profile-card"; }
-          { enabled = true; id = "brightness-card"; }
+          { enabled = true; id = "shortcuts-card"; }
           { enabled = true; id = "media-sysmon-card"; }
           { enabled = true; id = "weather-card"; }
-          { enabled = false; id = "shortcuts-card"; }
+          { enabled = false; id = "brightness-card"; }
           { enabled = false; id = "audio-card"; }
         ];
+      };
+      notifications = {
+        enabled = false;
+        location = "top_center";
+        overlayLayer = true;
+        backgroundOpacity =  0.7;
+        respectExpireTimeout = true;
+        lowUrgencyDuration = 3;
+        normalUrgencyDuration = 3;
+        criticalUrgencyDuration = 3;
+        enableKeyboardLayoutToast = true;
+        saveToHistory = {
+          low = true;
+          normal = true;
+          critical = true;
+        };
+        enableMediaToast = false;
+        sounds.enabled = false;
       };
       osd = {
         enabled = true;
         location = "top";
         autoHideMs = 600;
         overlayLayer = true;
-        enabledTypes = [3];
+        enabledTypes = [0 2 3];
         monitors = [];
       };
       general = {
@@ -191,6 +207,7 @@ in
       };
       location = {
         analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
+        showWeekNumberInCalendar = true;
         firstDayOfWeek = 1;
       };
       calendar = {
@@ -245,7 +262,6 @@ in
       hooks.enabled = false;
       desktopWidgets.enabled = false;
       sounds.enabled = false;
-      notifications.enabled = false;
     };
     plugins = {
       sources = [
