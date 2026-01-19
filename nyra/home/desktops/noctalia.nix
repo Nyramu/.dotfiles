@@ -18,6 +18,7 @@ in
       ui = {
         fontDefaultScale = theme.noctalia.ui.fontDefaultScale or 1;
         fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
+        boxBorderEnabled = true;
         tooltipsEnabled = false;
       };
       audio = {
@@ -112,9 +113,17 @@ in
           ];
           right = [
             {
+              id = "plugin:todo";
+            }
+            {
               displayMode = "alwaysShow";
               id = "Volume";
               middleClickCommand = "pwvucontrol || pavucontrol";
+            }
+            {
+              displayMode = "alwaysShow";
+              id = "Microphone";
+              middleClickCommand = "pwvucontrol  pavucontrol";
             }
             {
               displayMode = "alwaysShow";
@@ -174,7 +183,7 @@ in
         shadowDirection = "bottom";
         shadowOffsetX = 0;
         shadowOffsetY = 3;
-        telemetryEnabled = false;
+        telemetryEnabled = true;
       };
       network = {
         bluetoothRssiPollingEnabled = true;
@@ -251,6 +260,10 @@ in
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
+        todo = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";          
+        };
       };
     };
     pluginSettings = {
@@ -258,6 +271,20 @@ in
         hideInactive = true;
         iconSpacing = 9;
         removeMargins = false;
+      };
+      todo = {
+        pages = [
+          {
+            id = 0;
+            name = "General";
+          }
+          {
+            id = 1;
+            name = "Dotfiles";
+          }
+        ];
+        showCompleted = true;
+        showBackground = false;   
       };
     };
     colors = lib.mkIf (config.stylix.enable) {
