@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let 
-   theme = import ../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
+   theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
 in
 {
   config.stylix = {
