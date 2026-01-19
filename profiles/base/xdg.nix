@@ -3,7 +3,7 @@
   lib,
   pkgs,
   ...
-}: {
+}: rec {
   defaultApplications = let
     allMimeTypes = builtins.readFile "${pkgs.shared-mime-info}/share/mime/types";
 
@@ -18,7 +18,7 @@
       |> builtins.filter isNotExcluded;
 
     browser = "zen-beta.desktop";
-    imageViewer = "gwenview.desktop";
+    imageViewer = "imv.desktop";
     gimp = "gimp.desktop";
     videoViewer = "mpv.desktop";
     textEditor = "editor.desktop";
@@ -57,11 +57,6 @@
     mpv = {
       name = "mpv";
       exec = "${lib.getExe pkgs.mpv} --vo=gpu --keep-open=yes";
-      noDisplay = true;
-    };
-    gwenview = {
-      name = "gwenview";
-      exec = "${lib.getExe pkgs.kdePackages.gwenview}";
       noDisplay = true;
     };
     editor = {
