@@ -38,9 +38,6 @@
   # users.users.nyramu.extraGroups = [ "libvirtd" ];
   # virtualisation.libvirtd.enable = true;
 
-  # Choose audio server
-  nyra.system.hardware.audio.server = "pipewire";
-
   # Enable fingerprints support, register one running
   # fprintd-enroll <user>
   nyra.system.security.fprint.enable = true;

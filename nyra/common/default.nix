@@ -2,7 +2,8 @@
 
 {
   imports = [
+    ./audio.nix
     ./theme.nix
-    ./stylix.nix
+    ./modules
   ];
 }
