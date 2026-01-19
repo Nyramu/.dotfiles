@@ -36,7 +36,7 @@
     };
     services.mpd-mpris.enable = config.services.mpd.enable;
     programs.cava = {
-      enable = config.nyra.home.apps.music.enable;
+      enable = config.nyra.home.services.mpd.enable;
     };
   };
 }

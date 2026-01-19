@@ -1,12 +1,12 @@
 { config, lib, ... }:
 
 {
-  options.nyra.home.apps.music.rmpc = {
+  options.nyra.home.apps.rmpc = {
     enable = lib.mkEnableOption "rmpc";
   };
   
   config.programs.rmpc = {
-    enable = config.nyra.home.apps.music.rmpc.enable;
+    enable = config.nyra.home.apps.rmpc.enable;
     config = ''
       #![enable(implicit_some)]
       #![enable(unwrap_newtypes)]
