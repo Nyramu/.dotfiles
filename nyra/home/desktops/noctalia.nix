@@ -58,7 +58,7 @@ in
               displayMode = "alwaysShow";
               hideIfNotDetected = true;
               id = "Battery";
-              showNoctaliaPerformance = true;
+              showNoctaliaPerformance = false;
               showPowerProfiles = false;
               warningThreshold = 30;
             }
