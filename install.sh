@@ -95,7 +95,7 @@ echo ""
 print_info "Installing $profile profile"
 echo ""
 
-sudo nixos-rebuild switch --flake ~/.dotfiles#"$profile"
+sudo nixos-rebuild switch -- option extra-experimental-features "nix-command flakes pipe-operators" ~/.dotfiles#"$profile"
 
 echo ""
 print_success "System part of the $profile profile has been installed"
