@@ -9,6 +9,7 @@
   # Apps
   nyra.home.apps = {
     terminals.default = "kitty";
+    defaultBrowser = "zen-beta";
     editors = {
       nvf.enable = false;
       helix.enable = true;
@@ -16,7 +17,6 @@
       gimp.enable = true;
       aseprite.enable = false;
     };
-    browsers.default = "zen-beta";
     gaming = {
       minecraft.enable = true;
       cemu.enable = true;
