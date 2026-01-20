@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, pkgs, ... }:
 
 let
   # Fetch themes
@@ -14,9 +14,9 @@ let
 in
 {
   options.nyra.home.shells.zsh = {
-    enable = mkEnableOption "zsh";
-    theme = mkOption {
-      type = types.enum [ "nyra" ];
+    enable = lib.mkEnableOption "zsh";
+    theme = lib.mkOption {
+      type = lib.types.enum [ "nyra" ];
       default = "nyra";
       description = "choose zsh theme";
     };
