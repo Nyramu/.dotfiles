@@ -9,7 +9,13 @@ in
     config = {
       # Window rules
       windowrule = [
-        "match:class ^(org.qutebrowser.qutebrowser)$, decorate off"
+        "match:class ^(mpv)$, float on"
+        "match:class ^(mpv)$, size 1280 720"  
+        "match:class ^(mpv)$, center on"
+
+        "match:class ^(imv)$, float on"
+        "match:class ^(mpv)$, size 1280 720"
+        "match:class ^(imv)$, center on"
         
         # Custom titles for kitty
         "match:initial_title ^(rmpc)$, float on"
