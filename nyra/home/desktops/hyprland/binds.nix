@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, pkgs, ... }:
 
 let
   apps = config.nyra.home.apps;
@@ -9,9 +9,9 @@ in
       MOUSE_L = "mouse:272";
       MOUSE_R = "mouse:273";
 
-      terminal = "${getExe pkgs.${apps.terminals.default}}";
+      terminal = "${lib.getExe pkgs.${apps.defaultTerminal}}";
       browser = "${apps.defaultBrowser}";
-      fileManager = "${getExe pkgs.yazi}";
+      fileManager = "${lib.getExe pkgs.yazi}";
       groups = {
         launchApps = {
           bind = {
@@ -98,14 +98,14 @@ in
         };
 
         audioControl = {
-          binde.", XF86AudioRaiseVolume" = "exec, ${getExe pkgs.pamixer} -i 5";
-          binde.", XF86AudioLowerVolume" = "exec, ${getExe pkgs.pamixer} -d 5";
-          bind.", XF86AudioMute" = "exec, ${getExe pkgs.pamixer} -t";
+          binde.", XF86AudioRaiseVolume" = "exec, ${lib.getExe pkgs.pamixer} -i 5";
+          binde.", XF86AudioLowerVolume" = "exec, ${lib.getExe pkgs.pamixer} -d 5";
+          bind.", XF86AudioMute" = "exec, ${lib.getExe pkgs.pamixer} -t";
         };
 
         brightnessControl = {
-          binde.", XF86MonBrightnessUp" = "exec, ${getExe pkgs.brightnessctl} set +5%";
-          binde.", XF86MonBrightnessDown" = "exec, ${getExe pkgs.brightnessctl} set 5%-";
+          binde.", XF86MonBrightnessUp" = "exec, ${lib.getExe pkgs.brightnessctl} set +5%";
+          binde.", XF86MonBrightnessDown" = "exec, ${lib.getExe pkgs.brightnessctl} set 5%-";
         };
         
         powerControl = {
@@ -148,7 +148,7 @@ in
         };
       };
       in
-        mkMerge [
+        lib.mkMerge [
           # System control
           groups.powerControl
           groups.audioControl
