@@ -2,7 +2,7 @@
 
 {
   imports  = [
-    ./zen.nix
+    ./zen
   ];
 
   options.nyra.home.apps = {
