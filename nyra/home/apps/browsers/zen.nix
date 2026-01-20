@@ -1,7 +1,7 @@
 { inputs, config, lib, pkgs, ... }: with lib;
 
 let
-  cfg = config.nyra.home.apps.browsers;
+  defaultBrowser = config.nyra.home.apps.defaultBrowser;
 
   # Fix for unfree packages not being installed despite being allowed
   firefox-addons = pkgs.callPackage inputs.firefox-addons {
@@ -11,17 +11,17 @@ in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
-  options.nyra.home.apps.browsers = {
-    zen.enable = mkOption {
+  options.nyra.home.apps = {
+    zen-browser.enable = mkOption {
       type = types.bool;
-      default = cfg.default == "zen-beta";
+      default = defaultBrowser == "zen-beta";
       description = "Enable Zen Browser";
     };
   };
 
   config = {
     programs.zen-browser = {
-      enable = cfg.zen.enable;
+      enable = config.nyra.home.apps.zen-browser.enable;
       profiles.nyramu.bookmarks = {
         force = true;
         settings = [
