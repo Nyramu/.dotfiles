@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./editors
+    ./productivity
     ./terminals
     ./browsers
     ./gaming
