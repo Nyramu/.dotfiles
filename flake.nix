@@ -55,7 +55,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ayugram-desktop = {
+    ayugram = {
       type = "git";
       submodules = true;
       url = "https://github.com/ndfined-crp/ayugram-desktop/";
