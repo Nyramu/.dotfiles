@@ -3,19 +3,18 @@
   lib,
   pkgs,
   ...
-}:
-with lib; let
-  shellCfg = config.nyra.home.shells;
-  cfg = config.nyra.home.apps.miscellaneous.yazi;
+}: let
+  shells = config.nyra.home.shells;
+  cfg = config.nyra.home.apps.yazi;
 in {
-  options.nyra.home.apps.miscellaneous.yazi = {
-    enable = mkEnableOption "yazi";
+  options.nyra.home.apps.yazi = {
+    enable = lib.mkEnableOption "yazi";
   };
 
   config = {
     programs.yazi = {
       enable = cfg.enable;
-      enableZshIntegration = shellCfg.zsh.enable;
+      enableZshIntegration = shells.zsh.enable;
       settings = {
         mgr = {
           sort_by = "alphabetical";

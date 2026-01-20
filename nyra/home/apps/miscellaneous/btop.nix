@@ -1,13 +1,13 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, pkgs, ... }:
 
 let 
-  cfg = config.nyra.home.apps.miscellaneous.btop;
+  cfg = config.nyra.home.apps.btop;
 in 
 {
-  options.nyra.home.apps.miscellaneous.btop = {
-    enable = mkEnableOption "btop";
-    gpu-name = mkOption {
-      type = types.str;
+  options.nyra.home.apps.btop = {
+    enable = lib.mkEnableOption "btop";
+    gpu-name = lib.mkOption {
+      type = lib.types.str;
       default = "";
       description = "GPU name to display in btop++";
     };

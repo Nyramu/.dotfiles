@@ -1,12 +1,12 @@
-{ config, lib, ... }: with lib;
+{ config, lib, ... }:
 
 let
-  cfg = config.nyra.home.apps.miscellaneous.zellij;
+  cfg = config.nyra.home.apps.zellij;
 in
 {
-  options.nyra.home.apps.miscellaneous.zellij = {
-    enable = mkOption {
-      type = types.bool;
+  options.nyra.home.apps.zellij = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
       default = true;
       description = "zellij";
     };

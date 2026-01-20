@@ -1,13 +1,13 @@
-{ config, lib, ... }: with lib;
+{ config, lib, ... }:
 
 let 
-  cfg = config.nyra.home.apps.miscellaneous.fastfetch;
+  cfg = config.nyra.home.apps.fastfetch;
 in 
 {
-  options.nyra.home.apps.miscellaneous.fastfetch = {
-    enable = mkEnableOption "fastfetch";
-    logo = mkOption {
-      type = types.enum [ "burrito-ascii" ];
+  options.nyra.home.apps.fastfetch = {
+    enable = lib.mkEnableOption "fastfetch";
+    logo = lib.mkOption {
+      type = lib.types.enum [ "burrito-ascii" ];
       default = "burrito-ascii";
     };
   };
