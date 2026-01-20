@@ -1,22 +1,21 @@
-{ config, lib, ... }: with lib;
+{ config, lib, ... }:
 
 let
-  shellCfg = config.nyra.home.shells;
-  cfg = config.nyra.home.apps.terminals;
+  shells = config.nyra.home.shells;
 in
 {
-  options.nyra.home.apps.terminals.ghostty = {
-    enable = mkOption {
-      type = types.bool;
-      default = cfg.default == "ghostty";
+  options.nyra.home.apps.ghostty = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.nyra.home.apps.defaultTerminal == "ghostty";
       description = "ghostty";
     };
   };
 
   config = {
     programs.ghostty = {
-      enable = cfg.ghostty.enable;
-      enableZshIntegration = shellCfg.zsh.enable;
+      enable = config.nyra.home.apps.ghostty.enable;
+      enableZshIntegration = shells.zsh.enable;
       settings = {
         background-blur = false;
         working-directory = "inherit";

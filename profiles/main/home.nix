@@ -8,7 +8,7 @@
 
   # Apps
   nyra.home.apps = {
-    terminals.default = "kitty";
+    defaultTerminal = "kitty";
     defaultBrowser = "zen-beta";
     
     # Productivity

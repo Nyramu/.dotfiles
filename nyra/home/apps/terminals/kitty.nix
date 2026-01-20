@@ -2,23 +2,22 @@
 
 let
   stylix-palette = config.stylix.base16Scheme;
-  shellCfg = config.nyra.home.shells;
-  cfg = config.nyra.home.apps.terminals;
+  shells = config.nyra.home.shells;
 in
 {
-  options.nyra.home.apps.terminals = {
-    kitty.enable = mkOption {
+  options.nyra.home.apps.kitty = {
+    enable = mkOption {
       type = types.bool;
-      default = cfg.default == "kitty";
+      default = config.nyra.home.apps.defaultTerminal == "kitty";
       description = "kitty";
     };
   };
 
   config = {
     programs.kitty = {
-      enable = cfg.kitty.enable;
+      enable = config.nyra.home.apps.kitty.enable;
       enableGitIntegration = true;
-      shellIntegration.enableZshIntegration = shellCfg.zsh.enable;
+      shellIntegration.enableZshIntegration = shells.zsh.enable;
       settings = {
         shell_integration = "enabled";
         confirm_os_window_close = 0;
