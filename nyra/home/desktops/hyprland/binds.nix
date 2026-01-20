@@ -20,7 +20,7 @@ in
             "SUPER, B" = "exec, ${browser}";
             "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
             "SUPER, S" = "exec, steam %U";
-            "SUPER, T" = "exec, ${getExe pkgs.telegram-desktop}";
+            "SUPER, T" = "exec, AyuGram"; # Telegram
             "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
             "SUPER, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 ${getExe pkgs.rmpc}"; # RMPC but in a cool window
             "SUPER, SPACE" = "exec, vicinae toggle";
