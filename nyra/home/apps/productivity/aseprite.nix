@@ -5,8 +5,7 @@
   };
 
   config = {
-    home.packages = with pkgs;
-      optionals (config.nyra.home.apps.aseprite.enable) [ aseprite ];
+    home.packages = lib.optionals (config.nyra.home.apps.aseprite.enable) [ pkgs.aseprite ];
   };
 }
 

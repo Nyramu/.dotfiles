@@ -1,15 +1,15 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, pkgs, ... }:
 
 {
   options.nyra.home.apps.intellij = {
-    enable = mkEnableOption "intellij";
+    enable = lib.mkEnableOption "intellij";
   };
 
   config = {
-    home.packages = with pkgs;
-      optionals (config.nyra.home.apps.intellij.enable) [
-       jetbrains.idea openjdk25
-     ];
+    home.packages = lib.optionals (config.nyra.home.apps.intellij.enable) [
+      pkgs.jetbrains.idea
+      pkgs.openjdk25
+    ];
   };
 }
 

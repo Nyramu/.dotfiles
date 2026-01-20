@@ -1,13 +1,13 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, pkgs, ... }:
 
 {
   options.nyra.home.apps.gimp = {
-    enable = mkEnableOption "gimp";
+    enable = lib.mkEnableOption "gimp";
   };
 
   config = {
-    home.packages = with pkgs;
-      optionals (config.nyra.home.apps.gimp.enable) [ gimp-with-plugins ];
+    home.packages =
+      lib.optionals (config.nyra.home.apps.gimp.enable) [ pkgs.gimp-with-plugins ];
   };
 }
 
