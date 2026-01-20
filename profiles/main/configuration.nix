@@ -5,10 +5,10 @@
 { pkgs, ... }:
 
 {
-  imports = [ 
-    ./hardware-configuration.nix
-    ../base/configuration.nix
+  imports = [
     ./common.nix
+    ../base/configuration.nix
+    ./hardware-configuration.nix
   ];
 
   # Theming and fonts
@@ -17,12 +17,10 @@
 
   # Apps
   nyra.system.apps = {
-    gaming = {
-      steam.enable = true;
-      gamemode.enable = true;
-      gamescope.enable = true;
-      lossless-scaling.enable = true;
-    };
+    steam.enable = true;
+    gamemode.enable = true;
+    gamescope.enable = true;
+    lossless-scaling.enable = true;
   };
 
   # Use latest kernel.
