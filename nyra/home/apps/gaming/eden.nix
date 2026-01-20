@@ -10,8 +10,7 @@
   };
 
   config = {
-    home.packages = with pkgs; 
-      optionals config.nyra.home.apps.eden.enable [ nsz ];
+    home.packages = lib.optionals config.nyra.home.apps.eden.enable [ pkgs.nsz ];
 
     programs.eden.enable = config.nyra.home.apps.eden.enable;
   };

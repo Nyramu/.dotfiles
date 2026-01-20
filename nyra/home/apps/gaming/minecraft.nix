@@ -6,8 +6,8 @@
   };
 
   config = {
-    home.packages = with pkgs; 
-      optionals config.nyra.home.apps.minecraft.enable [ prismlauncher ];
+    home.packages =
+      lib.optionals config.nyra.home.apps.minecraft.enable [ pkgs.prismlauncher ];
   };
 }
 

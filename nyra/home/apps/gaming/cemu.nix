@@ -10,9 +10,9 @@ in
   };
 
   config = {
-    home.packages = with pkgs; 
-      optionals cfg.enable [ cemu ] ++
-      optionals cfg.enable && cfg.ukmm.enable [ ukmm ];
+    home.packages =
+      lib.optionals cfg.enable [ pkgs.cemu ] ++
+      lib.optionals cfg.enable && cfg.ukmm.enable [ pkgs.ukmm ];
   };
 }
 

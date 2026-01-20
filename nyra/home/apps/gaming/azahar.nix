@@ -6,8 +6,9 @@
   };
 
   config = {
-    home.packages = with pkgs; 
-      optionals config.nyra.home.apps.azahar.enable [ azahar ];
+    home.packages = lib.optionals (config.nyra.home.apps.azahar.enable) [
+       pkgs.azahar
+    ];
   };
 }
 
