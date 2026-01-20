@@ -10,6 +10,14 @@ in
     ./binds.nix
     # ./plugins.nix
   ];
+
+  # Fix for Hyprnix
+  options.wayland.windowManager.hyprland.settings = {
+    decoration = mkOption {default = {};};
+    general = mkOption {default = {};};
+    group = mkOption {default = {};};
+    misc = mkOption {default = {};};
+  };
   
   config.services.hyprpaper.enable = mkForce false;
   config.wayland.windowManager.hyprland = {
