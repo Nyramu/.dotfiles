@@ -57,6 +57,7 @@ in
               deviceNativePath = "";
               displayMode = "alwaysShow";
               hideIfNotDetected = true;
+              hideIfIdle = true;
               id = "Battery";
               showNoctaliaPerformance = false;
               showPowerProfiles = false;
