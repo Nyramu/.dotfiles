@@ -95,6 +95,7 @@ in {
           A-y = "yank_to_clipboard"; # Yank selection to clipboard
           A-d = "delete_selection"; # Delete selection
           A-c = ["yank_to_clipboard" "delete_selection"]; # Cut selection
+          A-n = ":new"; # New file from scratch
 
           A-esc = ":buffer-close!"; # Force close current file
           A-ret = ":write-buffer-close"; # Save and close current file
