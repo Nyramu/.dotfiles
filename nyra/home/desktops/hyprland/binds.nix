@@ -2,8 +2,6 @@
 
 let
   apps = config.nyra.home.apps;
-  screenShot = pkgs.callPackage ../../../commands/screen-shot {};
-  screenRecord = pkgs.callPackage ../../../commands/screen-record {};
 in
 {
   wayland.windowManager.hyprland = {
@@ -12,7 +10,7 @@ in
       MOUSE_R = "mouse:273";
 
       terminal = "${getExe pkgs.${apps.terminals.default}}";
-      browser = "${apps.browsers.default}";
+      browser = "${apps.defaultBrowser}";
       fileManager = "${getExe pkgs.yazi}";
       groups = {
         launchApps = {
@@ -21,13 +19,13 @@ in
             "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
             "SUPER, S" = "exec, steam %U";
             "SUPER, T" = "exec, AyuGram"; # Telegram
-            "SUPER, H" = "exec, ${terminal} -e ${getExe pkgs.btop-rocm}";
-            "SUPER, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 ${getExe pkgs.rmpc}"; # RMPC but in a cool window
+            "SUPER, H" = "exec, ${terminal} -e btop";
+            "SUPER, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 rmpc"; # RMPC but in a cool window
             "SUPER, SPACE" = "exec, vicinae toggle";
 
             # Terminal keybinds
             "SUPER, RETURN" = "exec, ${terminal}";
-            "SUPER_ALT, RETURN" = "exec, ${terminal} --title fastfetch --hold ${getExe pkgs.fastfetch}"; # Fastfetch but in a cool window
+            "SUPER_ALT, RETURN" = "exec, ${terminal} --title fastfetch --hold fastfetch"; # Fastfetch but in a cool window
 
             "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
           };
@@ -43,14 +41,14 @@ in
 
         screenCapture = {
           # Press to start recording, then press again to stop and save
-          bind.", F9" = "exec, ${getExe screenRecord}"; # Max quality, 60 fps
-          bind."SUPER, F9" = "exec, ${getExe screenRecord} --low-quality"; # Lower bitrate, 30 fps
+          bind.", F9" = "exec, screen-record"; # Max quality, 60 fps
+          bind."SUPER, F9" = "exec, screen-record --low-quality"; # Lower bitrate, 30 fps
           # Copy screenshot to clipboard without saving
-          bind.", F10" = "exec, ${getExe screenShot}";
-          bind.", Print" = "exec, ${getExe screenShot}";
+          bind.", F10" = "exec, screen-shot";
+          bind.", Print" = "exec, screen-shot";
           # Copy screenshot to clipboard and save
-          bind."SUPER, F10" = "exec, ${getExe screenShot} --save";
-          bind."SUPER, Print" = "exec, ${getExe screenShot} --save";
+          bind."SUPER, F10" = "exec, screen-shot --save";
+          bind."SUPER, Print" = "exec, screen-shot --save";
         };
 
         windowControl = {
