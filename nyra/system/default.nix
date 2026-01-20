@@ -9,8 +9,7 @@ in
     ./apps
     ./hardware
     ./desktops
-    ./login
-    ./security
+    ./services
     ../common
   ];
 
