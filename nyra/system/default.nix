@@ -1,14 +1,14 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
-    ../common
+    inputs.stylix.nixosModules.stylix
     ./apps
     ./hardware
     ./desktops
     ./fonts
     ./login
     ./security
-    ./theme
+    ../common
   ];
 }
