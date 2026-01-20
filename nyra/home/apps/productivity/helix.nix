@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-with lib; let
-  cfg = config.nyra.home.apps.editors.helix;
+}: let
 
   helix-wrapped = pkgs.writeShellScriptBin "hx" ''
     if [ -z "$ZELLIJ" ]; then
@@ -26,13 +24,13 @@ with lib; let
     fi
   '';
 in {
-  options.nyra.home.apps.editors.helix = {
-    enable = mkEnableOption "helix";
+  options.nyra.home.apps.helix = {
+    enable = lib.mkEnableOption "helix";
   };
 
   config = {
     programs.helix = {
-      enable = cfg.enable;
+      enable = config.nyra.home.apps.helix.enable;
       package = helix-wrapped;
       defaultEditor = true;
 
@@ -97,7 +95,7 @@ in {
           A-y = "yank_to_clipboard"; # Yank selection to clipboard
           A-d = "delete_selection"; # Delete selection
           A-c = ["yank_to_clipboard" "delete_selection"]; # Cut selection
-          
+
           A-esc = ":buffer-close!"; # Force close current file
           A-ret = ":write-buffer-close"; # Save and close current file
           A-right = ":buffer-next"; # Go to the next opened file
@@ -110,7 +108,7 @@ in {
           C-left = "search_prev"; # Select previous search match
 
           space = {
-            g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${getExe pkgs.lazygit}";
+            g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${lib.getExe pkgs.lazygit}";
             d = [":cd ~/.dotfiles" "file_picker"];
             s = "global_search";
             f = "file_picker";
@@ -135,7 +133,7 @@ in {
           C-right = "search_next"; # Select next search match
           C-left = "search_prev"; # Select previous search match
           C-space = "toggle_comments"; # Comment/uncomment current line or selection
-          
+
           S-ret = "insert_newline";
 
           A-right = "move_next_word_end"; # Move to end of next word
@@ -164,20 +162,20 @@ in {
 
       languages = {
         language-server = {
-          nixd.command = "${getExe pkgs.nixd}";
-          nil.command = "${getExe pkgs.nil}";
-          bash-language-server.command = "${getExe pkgs.bash-language-server}";
+          nixd.command = "${lib.getExe pkgs.nixd}";
+          nil.command = "${lib.getExe pkgs.nil}";
+          bash-language-server.command = "${lib.getExe pkgs.bash-language-server}";
           clangd.command = "${pkgs.clang-tools}/bin/clangd";
-          cmake-language-server.command = "${getExe pkgs.cmake-language-server}";
-          csharp-ls.command = "${getExe pkgs.csharp-ls}";
+          cmake-language-server.command = "${lib.getExe pkgs.cmake-language-server}";
+          csharp-ls.command = "${lib.getExe pkgs.csharp-ls}";
           #kotlin-language-server.command = "${getExe pkgs.kotlin-language-server}";
-          gopls.command = "${getExe pkgs.gopls}";
-          intelephense.command = "${getExe pkgs.intelephense}"; # PHP
-          superhtml.command = "${getExe pkgs.superhtml}";
-          markdown-oxide.command = "${getExe pkgs.markdown-oxide}";
+          gopls.command = "${lib.getExe pkgs.gopls}";
+          intelephense.command = "${lib.getExe pkgs.intelephense}"; # PHP
+          superhtml.command = "${lib.getExe pkgs.superhtml}";
+          markdown-oxide.command = "${lib.getExe pkgs.markdown-oxide}";
           vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
           typescript-language-server = {
-            command = "${getExe pkgs.typescript-language-server}";
+            command = "${lib.getExe pkgs.typescript-language-server}";
             config = {
               typescript.inlayHints = {
                 includeInlayEnumMemberValueHints = true;
@@ -196,7 +194,7 @@ in {
           {
             name = "nix";
             file-types = ["nix"];
-            formatter.command = "${getExe pkgs.alejandra}";
+            formatter.command = "${lib.getExe pkgs.alejandra}";
           }
         ];
       };

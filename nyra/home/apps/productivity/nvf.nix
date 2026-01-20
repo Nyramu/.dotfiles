@@ -1,18 +1,15 @@
-{ config, lib, inputs, ... }: with lib;
+{ config, lib, inputs, ... }:
 
-let
-  cfg = config.nyra.home.apps.editors;
-in
 {
   imports = [ inputs.nvf.homeManagerModules.default ];
 
-  options.nyra.home.apps.editors.nvf = {
-    enable = mkEnableOption "nvf";
+  options.nyra.home.apps.nvf = {
+    enable = lib.mkEnableOption "nvf";
   };
 
   config = {
     programs.nvf = {
-      enable = cfg.nvf.enable;
+      enable = config.nyra.home.apps.nvf.enable;
       settings = {
         vim.vimAlias = true;
         vim.notes.todo-comments.enable = true;

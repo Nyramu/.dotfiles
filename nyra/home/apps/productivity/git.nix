@@ -1,13 +1,13 @@
-{ config, lib, pkgs, userSettings, ... }: with lib;
+{ config, lib, pkgs, userSettings, ... }:
 
 let 
-  shellCfg = config.nyra.home.shells;
-  cfg = config.nyra.home.apps.miscellaneous.git;
+  shells = config.nyra.home.shells;
+  cfg = config.nyra.home.apps.git;
 in
 {
-  options.nyra.home.apps.miscellaneous.git = {
-    enable = mkOption {
-      type = types.bool;
+  options.nyra.home.apps.git = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
       default = true;
       description = "enables git and some utility tools";
     };
@@ -27,13 +27,13 @@ in
       extensions = [ pkgs.gh-dash ];
       settings = {
         git_protocol = "ssh";
-        editor = "nvim"; # TODO: check if it supports something like "$EDITOR"
+        editor = "$EDITOR"; # TODO: check if it supports something like "$EDITOR"
       };
     };
 
     programs.lazygit = {
       enable = cfg.enable;
-      enableZshIntegration = shellCfg.zsh.enable;
+      enableZshIntegration = shells.zsh.enable;
     };
   };
 }
