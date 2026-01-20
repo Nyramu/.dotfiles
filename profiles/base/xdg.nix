@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
-  
+
+  let
+    defaultBrowser = config.nyra.home.apps.defaultBrowser;
+  in
 {
   defaultApplications = let
     allMimeTypes = builtins.readFile "${pkgs.shared-mime-info}/share/mime/types";
@@ -14,7 +17,7 @@
       |> builtins.filter matchesGlob
       |> builtins.filter isNotExcluded;
 
-    browser = "zen-beta.desktop";
+    browser = "${defaultBrowser}.desktop";
     imageViewer = "imv.desktop";
     gimp = "gimp.desktop";
     videoViewer = "mpv.desktop";
