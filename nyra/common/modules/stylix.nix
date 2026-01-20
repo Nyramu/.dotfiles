@@ -24,5 +24,7 @@ in
       dark = "gruvbox-plus";
       light = "gruvbox-plus";
     };
+
+    targets.qt.enable = true;
   };
 }
