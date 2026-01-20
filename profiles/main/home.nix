@@ -17,12 +17,13 @@
       gimp.enable = true;
       aseprite.enable = false;
     };
-    gaming = {
-      minecraft.enable = true;
-      cemu.enable = true;
-      eden.enable = true;
-      azahar.enable = false;
+    minecraft.enable = true;
+    cemu = {
+      enable = true;
+      ukmm.enable = true;
     };
+    eden.enable = true;
+    azahar.enable = false;
     telegram.enable = true;
     discord.enable = true;
     rmpc.enable = true;
