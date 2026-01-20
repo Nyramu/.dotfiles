@@ -4,12 +4,8 @@
   imports = [ inputs.stylix.homeModules.stylix ]; 
   config.stylix = {
     targets = {
-      hyprpaper.enable = mkForce false;
-      waybar.enable = mkForce false;
-      nixcord.enable = mkForce true;
       kitty.enable = mkForce true;
       qutebrowser.enable = mkForce true;
-      librewolf.profileNames = [ "nyramu" ];
       zen-browser.profileNames = [ "nyramu" ];
     };
   };
