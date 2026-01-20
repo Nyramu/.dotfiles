@@ -10,13 +10,15 @@
   nyra.home.apps = {
     terminals.default = "kitty";
     defaultBrowser = "zen-beta";
-    editors = {
-      nvf.enable = false;
-      helix.enable = true;
-      intellij.enable = true;
-      gimp.enable = true;
-      aseprite.enable = false;
-    };
+    
+    # Productivity
+    nvf.enable = false;
+    helix.enable = true;
+    intellij.enable = true;
+    gimp.enable = true;
+    aseprite.enable = false;
+    
+    # Gaming
     minecraft.enable = true;
     cemu = {
       enable = true;
@@ -24,27 +26,31 @@
     };
     eden.enable = true;
     azahar.enable = false;
+    
+    # Socials
     telegram.enable = true;
     discord.enable = true;
+    
+    # Miscellaneous
     rmpc.enable = true;
-    miscellaneous = {
-      btop = {
-        enable = true;
-        gpu-name = "Radeon 780M"; 
-      }; 
-      fastfetch.enable = true;
-      yazi.enable = true;
-      ptracer.enable = false;
-      packages = with pkgs; [
-        hyprpicker
-        croc
-        carbon-now-cli #TODO: Test
-        fontfor
-        figlet
-        cmatrix
-        wev
-      ];
-    };
+    btop = {
+      enable = true;
+      gpu-name = "Radeon 780M"; 
+    }; 
+    fastfetch.enable = true;
+    yazi.enable = true;
+    ptracer.enable = false;
+    
+    # Packages without configuration
+    packages = with pkgs; [
+      hyprpicker
+      croc
+      carbon-now-cli #TODO: Test
+      fontfor
+      figlet
+      cmatrix
+      wev
+    ];
   };
 
   # Services
