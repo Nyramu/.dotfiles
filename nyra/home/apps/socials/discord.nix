@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: with lib;
 {
   options.nyra.home.apps = {
-    discord.enable = lib.mkEnableOption "discord";
+    discord.enable = mkEnableOption "discord";
   };
 
   config = {
