@@ -41,9 +41,6 @@
   # fprintd-enroll <user>
   nyra.system.fingerprint.enable = true;
 
-  # Enable Hyprland
-  nyra.system.desktops.hyprland.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "it";

@@ -57,7 +57,4 @@
   nyra.home.services = {
     mpd.enable = true;
   };
-  
-  # Desktop Environments and Window Managers
-  nyra.home.desktops.hyprland.enable = true;
 }
