@@ -26,7 +26,7 @@
   };
 
   # Login settings
-  nyra.system.login.sddm.enable = true;
+  nyra.system.sddm.enable = true;
 
   # Default shell
   users.defaultUserShell = pkgs.zsh;
@@ -57,7 +57,9 @@
     setgid = false;
   };
 
-
+  # Gives real-time priority to services and apps
+  security.rtkit.enable = true;
+  
   # Support NTFS file system
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -109,7 +111,7 @@
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
-  nyra.system.hardware.bluetooth.enable = true;
+  nyra.system.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true; 

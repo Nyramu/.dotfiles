@@ -12,7 +12,7 @@
   ];
 
   # Theming and fonts
-  nyra.system.login.icon = "nyramu";
+  nyra.system.sddm.avatar = "nyramu";
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
   # Apps
@@ -27,7 +27,8 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # AMD management tools and features
-  nyra.system.hardware.amd = {
+  nyra.system.amd = {
+    enable = true;
     ryzen-smu.enable = true;
     ryzenadj.enable = false;
   };
@@ -38,7 +39,7 @@
 
   # Enable fingerprints support, register one running
   # fprintd-enroll <user>
-  nyra.system.security.fprint.enable = true;
+  nyra.system.fingerprint.enable = true;
 
   # Enable Hyprland
   nyra.system.desktops.hyprland.enable = true;
