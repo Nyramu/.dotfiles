@@ -7,8 +7,8 @@
 
 {
   imports = [
-    ../../nyra/system
     ./cache.nix
+    ../../nyra/system
   ];
 
   # Kernel.
