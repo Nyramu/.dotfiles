@@ -1,24 +1,33 @@
-{ config, lib, pkgs, ... }: with lib;
+{ config, lib, pkgs, ... }:
 
 let
-  cfg = config.nyra.system.hardware.amd;
+  cfg = config.nyra.system.amd;
 in
 {
-  options.nyra.system.hardware.amd = {
-    ryzen-smu.enable = mkEnableOption "ryzen-smu";
-    ryzenadj.enable = mkEnableOption "ryzenadj";
+  options.nyra.system.amd = rec {
+    enable = lib.mkEnableOption "AMD Optimizations";
+    ryzen-smu.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = enable;
+      description = "ryzen-smu";
+    };
+    ryzenadj.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = enable;
+      description = "ryzenadj";
+    };
   };
 
   config = {
     hardware = {
-      amdgpu.initrd.enable = true;
-      amdgpu.overdrive.enable = true;
-      graphics.extraPackages = [ pkgs.libva ];
+      amdgpu.initrd.enable = cfg.enable;
+      amdgpu.overdrive.enable = cfg.enable;
+      graphics.extraPackages = lib.mkIf (cfg.enable) [ pkgs.libva ];
       cpu.amd.ryzen-smu.enable = cfg.ryzen-smu.enable;
     };
-    nixpkgs.config.rocmSupport = true;
+    nixpkgs.config.rocmSupport = cfg.enable;
 
     environment.systemPackages = 
-      optionals cfg.ryzenadj.enable [ pkgs.ryzenadj ];
+      lib.optionals cfg.ryzenadj.enable [ pkgs.ryzenadj ];
   };
 }
