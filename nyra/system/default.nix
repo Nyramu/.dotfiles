@@ -1,7 +1,13 @@
-{ config, lib, inputs, pkgs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
-  theme = import ../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
+  theme = import ../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -16,10 +22,10 @@ in
   options.nyra.system = {
     fonts = lib.mkOption {
       type = lib.types.listOf lib.types.package;
-      default = [];
+      default = [ ];
     };
   };
-  
+
   # "fc-list : family | sort | uniq" to list
   config = {
     nyra.system.fonts = lib.mkIf (config.nyra.theme.enable) [

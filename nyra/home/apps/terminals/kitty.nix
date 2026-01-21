@@ -1,4 +1,5 @@
-{ config, lib, ... }: with lib;
+{ config, lib, ... }:
+with lib;
 
 let
   stylix-palette = config.stylix.base16Scheme;

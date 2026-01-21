@@ -24,11 +24,15 @@
         mouse = {
           hide_when_typing = true;
           bindings = [
-            { mouse = "Right"; mods = "Control"; action = "Paste"; }
+            {
+              mouse = "Right";
+              mods = "Control";
+              action = "Paste";
+            }
           ];
         };
         selection.save_to_clipboard = true;
       };
-    };   
+    };
   };
 }

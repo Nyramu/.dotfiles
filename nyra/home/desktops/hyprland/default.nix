@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -11,12 +17,12 @@
   # Fix for Hyprnix
   config.services.hyprpaper.enable = lib.mkForce false;
   options.wayland.windowManager.hyprland.settings = {
-    decoration = lib.mkOption {default = {};};
-    general = lib.mkOption {default = {};};
-    group = lib.mkOption {default = {};};
-    misc = lib.mkOption {default = {};};
+    decoration = lib.mkOption { default = { }; };
+    general = lib.mkOption { default = { }; };
+    group = lib.mkOption { default = { }; };
+    misc = lib.mkOption { default = { }; };
   };
-  
+
   config.wayland.windowManager.hyprland = {
     enable = config.nyra.desktops.hyprland.enable;
     package = pkgs.hyprland;
@@ -24,7 +30,7 @@
     xwayland.enable = true;
     reloadConfig = true;
     recommendedEnvironment = true;
-    
+
     config.monitor = [
       "eDP-1, 1920x1200@60, auto, 1"
       ", preferred, auto, 1"
@@ -38,12 +44,12 @@
     };
 
     config.input = {
-        kb_layout = "it";
-        numlock_by_default = true;
-        follow_mouse = 1;
-        mouse_refocus = true;
-        resolve_binds_by_sym = true;
-        kb_options = "fkeys:basic_13-24"; 
+      kb_layout = "it";
+      numlock_by_default = true;
+      follow_mouse = 1;
+      mouse_refocus = true;
+      resolve_binds_by_sym = true;
+      kb_options = "fkeys:basic_13-24";
     };
 
     config.cursor = {

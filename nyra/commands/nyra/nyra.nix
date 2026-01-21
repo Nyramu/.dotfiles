@@ -17,7 +17,11 @@ stdenv.mkDerivation rec {
     makeWrapper
   ];
 
-  buildInputs = [nh jmtpfs jq];
+  buildInputs = [
+    nh
+    jmtpfs
+    jq
+  ];
 
   buildPhase = ''
     bashly add completions

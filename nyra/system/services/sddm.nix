@@ -1,21 +1,28 @@
-{ config, lib, inputs, pkgs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
-  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
+  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
   stylix = config.stylix;
   cfg = config.nyra.system.sddm;
 
-  bg-name = bg:
-    if lib.isDerivation bg
-    then bg.name
-    else baseNameOf bg;
-in {
-  imports = [inputs.silentSDDM.nixosModules.default];
+  bg-name = bg: if lib.isDerivation bg then bg.name else baseNameOf bg;
+in
+{
+  imports = [ inputs.silentSDDM.nixosModules.default ];
 
   options.nyra.system.sddm = {
     enable = lib.mkEnableOption "SDDM with silentSDDM theme";
     avatar = lib.mkOption {
-      type = lib.types.enum ["burrito-ascii" "nyramu"];
+      type = lib.types.enum [
+        "burrito-ascii"
+        "nyramu"
+      ];
       default = "nyramu";
       description = "Icon file for the user";
     };

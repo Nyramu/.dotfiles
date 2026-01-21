@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.nyra.home.apps.cemu;
@@ -11,8 +16,7 @@ in
 
   config = {
     home.packages =
-      lib.optionals cfg.enable [ pkgs.cemu ] ++
-      lib.optionals (cfg.enable && cfg.ukmm.enable) [ pkgs.ukmm ];
+      lib.optionals cfg.enable [ pkgs.cemu ]
+      ++ lib.optionals (cfg.enable && cfg.ukmm.enable) [ pkgs.ukmm ];
   };
 }
-

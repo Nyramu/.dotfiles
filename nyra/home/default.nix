@@ -1,4 +1,5 @@
-{ lib, inputs, ... }: with lib;
+{ lib, inputs, ... }:
+with lib;
 
 {
   imports = [
@@ -9,7 +10,7 @@
     ./desktops
     ../common
   ];
-  
+
   stylix = {
     targets = {
       kitty.enable = mkForce true;

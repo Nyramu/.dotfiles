@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.nyra.system.amd;
@@ -27,7 +32,6 @@ in
     };
     nixpkgs.config.rocmSupport = cfg.enable;
 
-    environment.systemPackages = 
-      lib.optionals cfg.ryzenadj.enable [ pkgs.ryzenadj ];
+    environment.systemPackages = lib.optionals cfg.ryzenadj.enable [ pkgs.ryzenadj ];
   };
 }

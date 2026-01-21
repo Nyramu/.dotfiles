@@ -54,7 +54,7 @@
     enable = true;
     keyboards = {
       dell-wmi = {
-        ids = ["*"];
+        ids = [ "*" ];
         settings = {
           main = {
             "leftmeta+leftshift+f23" = "rightmeta";

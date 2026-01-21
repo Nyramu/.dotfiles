@@ -1,8 +1,14 @@
-{ config, lib, pkgs, userSettings, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 let
-  screenShot = pkgs.callPackage ../../nyra/commands/screen-shot {};
-  screenRecord = pkgs.callPackage ../../nyra/commands/screen-record {};
+  screenShot = pkgs.callPackage ../../nyra/commands/screen-shot { };
+  screenRecord = pkgs.callPackage ../../nyra/commands/screen-record { };
 in
 {
   imports = [
@@ -19,7 +25,10 @@ in
     username = userSettings.username;
     homeDirectory = "/home/${userSettings.username}";
     stateVersion = "26.05";
-    packages = [screenShot screenRecord];
+    packages = [
+      screenShot
+      screenRecord
+    ];
   };
   news.display = "silent";
 
@@ -29,14 +38,16 @@ in
   nyra.home.shells.zsh.enable = true;
 
   # XDG configuration
-  xdg = let
-    xdg = import ./xdg.nix {inherit config lib pkgs;};
-  in {
-    enable = true;
-    desktopEntries = xdg.desktopEntries;
-    mimeApps = {
+  xdg =
+    let
+      xdg = import ./xdg.nix { inherit config lib pkgs; };
+    in
+    {
       enable = true;
-      defaultApplications = xdg.defaultApplications;
+      desktopEntries = xdg.desktopEntries;
+      mimeApps = {
+        enable = true;
+        defaultApplications = xdg.defaultApplications;
+      };
     };
-  };
 }

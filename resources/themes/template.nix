@@ -8,7 +8,7 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
   polarity = "dark"; # Or "light", but we don't use flashbangs here
 
   background = /path/to/background.jpg; # Or a fetchurl
-    
+
   fonts = {
     serif = {
       package = pkgs.foobar;
@@ -32,7 +32,7 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
       popups = 10;
       terminal = 12;
     };
-  }; 
+  };
 
   opacity = {
     terminal = 0.63; # Default: 0.63
@@ -66,7 +66,7 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
     active_border_color = "rgb(eeeeee) rgb(eeeeee) rgb(eeeeee) 270deg";
     inactive_border_color = "rgb(eeeeee)";
     locked_group_active_border_color = "rgb(eeeeee) rgb(eeeeee) rgb(eeeeee) 270deg"; # Tip: Pick from wallpaper
-    
+
     text_color = "rgb(eeeeee)";
     inactive_text_color = "rgb(eeeeee)";
     locked_group_active_text_color = "rgb(eeeeee)"; # Tip: Lighter than locked active border
@@ -90,7 +90,7 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
       control-center-logo = "primary"; # "primary" | "secondary" | "tertiary" | "error"
     };
   };
-  
+
   # Vicinae configuration
   vicinae = {
     ui = {

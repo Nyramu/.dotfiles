@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.nyra.home.apps.intellij = {
@@ -12,4 +17,3 @@
     ];
   };
 }
-

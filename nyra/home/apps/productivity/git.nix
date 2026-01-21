@@ -1,6 +1,12 @@
-{ config, lib, pkgs, userSettings, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
-let 
+let
   shells = config.nyra.home.shells;
   cfg = config.nyra.home.apps.git;
 in

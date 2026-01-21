@@ -13,7 +13,7 @@
       alacritty.enable = true;
     };
     editors = {
-      nvf.enable = true; 
+      nvf.enable = true;
     };
     browsers.default = "zen-beta";
     media = {
@@ -22,9 +22,9 @@
     miscellaneous = {
       btop = {
         enable = true;
-        gpu-name = "Radeon R8M445DX"; 
+        gpu-name = "Radeon R8M445DX";
       };
-      yazi.enable = true; 
+      yazi.enable = true;
       fastfetch.enable = true;
       packages = with pkgs; [
         hyprpicker

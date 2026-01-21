@@ -1,8 +1,13 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let 
+let
   cfg = config.nyra.home.apps.btop;
-in 
+in
 {
   options.nyra.home.apps.btop = {
     enable = lib.mkEnableOption "btop";

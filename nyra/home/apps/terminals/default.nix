@@ -1,4 +1,4 @@
-{ lib,  ... }:
+{ lib, ... }:
 
 {
   imports = [
@@ -9,7 +9,11 @@
 
   options.nyra.home.apps = {
     defaultTerminal = lib.mkOption {
-      type = lib.types.enum [ "alacritty" "ghostty" "kitty" ];
+      type = lib.types.enum [
+        "alacritty"
+        "ghostty"
+        "kitty"
+      ];
       default = "kitty";
       description = "Choose your terminal emulator";
     };

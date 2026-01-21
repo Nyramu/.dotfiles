@@ -1,4 +1,9 @@
-{ config, lib, inputs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [ inputs.nvf.homeManagerModules.default ];
@@ -30,8 +35,8 @@
           enableExtraDiagnostics = true;
           nix = {
             enable = true;
-            format.type = ["alejandra"];
-            extraDiagnostics.types = ["deadnix"];
+            format.type = [ "alejandra" ];
+            extraDiagnostics.types = [ "deadnix" ];
           };
           #sql.enable = true;
           #clang.enable = true;

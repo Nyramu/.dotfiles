@@ -1,11 +1,10 @@
 { pkgs }:
 
 let
-  neospleen-font = pkgs.callPackage ../../nyra/custom-derivations/neospleen-nerd-font.nix {};
+  neospleen-font = pkgs.callPackage ../../nyra/custom-derivations/neospleen-nerd-font.nix { };
 in
 
-rec
-{
+rec {
   system = "base16";
   name = "Apocalypse";
   author = "https://github.com/Nyramu";
@@ -17,7 +16,7 @@ rec
     serif = {
       package = neospleen-font;
       name = "NeoSpleen Nerd Font";
-    }; 
+    };
     sansSerif = {
       package = neospleen-font;
       name = "NeoSpleen Nerd Font";
@@ -61,9 +60,9 @@ rec
   # Hyprland color configuration
   hypr = {
     active_border_color = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) rgb(ed6830) rgb(e98c44) 220deg";
-    inactive_border_color = "rgb(2a1c14) rgb(3a2618) 220deg"; 
+    inactive_border_color = "rgb(2a1c14) rgb(3a2618) 220deg";
     locked_group_active_border_color = "rgb(1a1210) rgb(c84018) rgb(e13820) 220deg";
-    
+
     text_color = "rgb(ffc898)"; # palette.base07
     inactive_text_color = "rgb(d88860)"; # palette.base05
     locked_group_active_text_color = "rgb(ffc898)"; # palette.base07
@@ -86,7 +85,7 @@ rec
       mOnHover = palette.base0A;
     };
   };
-  
+
   # Vicinae configuration
   vicinae = {
     ui.opacity = 0.83;

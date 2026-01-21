@@ -13,7 +13,7 @@
   options.nyra.home.apps = {
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
-      default = [];
+      default = [ ];
     };
   };
 

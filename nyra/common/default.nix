@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
-let 
-   theme = import ../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
+let
+  theme = import ../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -10,13 +10,13 @@ in
     ./desktops.nix
     ./modules
   ];
-  
+
   stylix = {
     enable = config.nyra.theme.enable;
     autoEnable = config.nyra.theme.enable;
 
     base16Scheme = theme.palette;
-    fonts = theme.fonts; 
+    fonts = theme.fonts;
     image = theme.background;
     polarity = theme.polarity;
     opacity = {

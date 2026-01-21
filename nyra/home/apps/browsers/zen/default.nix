@@ -3,9 +3,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   defaultBrowser = config.nyra.home.apps.defaultBrowser;
-in {
+in
+{
   imports = [
     inputs.zen-browser.homeModules.beta
     ./policies.nix

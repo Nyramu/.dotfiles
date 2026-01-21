@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.nyra.system.bluetooth;
@@ -27,10 +32,12 @@ in
 
     services.blueman.enable = lib.mkDefault cfg.enable;
 
-    environment.systemPackages = with pkgs; lib.optionals cfg.enable [
-      bluez
-      blueman
-      bluetuith
-    ];
+    environment.systemPackages =
+      with pkgs;
+      lib.optionals cfg.enable [
+        bluez
+        blueman
+        bluetuith
+      ];
   };
 }

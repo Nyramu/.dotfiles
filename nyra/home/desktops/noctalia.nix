@@ -1,7 +1,13 @@
-{ config, lib, inputs, pkgs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
-  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
+  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
   cfg = config.nyra.desktops;
 in
 {
@@ -36,10 +42,10 @@ in
         dayTemp = "6500";
         manualSunrise = "06:30";
         manualSunset = "21:30";
-      };   
+      };
       bar = {
         position = "top";
-        monitors = [];
+        monitors = [ ];
         density = "spacious";
         showOutline = false;
         showCapsule = false;
@@ -84,12 +90,12 @@ in
               id = "plugin:privacy-indicator";
             }
             {
-              blacklist = [];
+              blacklist = [ ];
               colorizeIcons = false;
               drawerEnabled = false;
               hidePassive = false;
               id = "Tray";
-              pinned = [];
+              pinned = [ ];
             }
           ];
           center = [
@@ -152,22 +158,40 @@ in
             { id = "NightLight"; }
             { id = "NoctaliaPerformance"; }
           ];
-          right = [];
+          right = [ ];
         };
         cards = [
-          { enabled = true; id = "profile-card"; }
-          { enabled = true; id = "shortcuts-card"; }
-          { enabled = true; id = "media-sysmon-card"; }
-          { enabled = true; id = "weather-card"; }
-          { enabled = false; id = "brightness-card"; }
-          { enabled = false; id = "audio-card"; }
+          {
+            enabled = true;
+            id = "profile-card";
+          }
+          {
+            enabled = true;
+            id = "shortcuts-card";
+          }
+          {
+            enabled = true;
+            id = "media-sysmon-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
+          {
+            enabled = false;
+            id = "brightness-card";
+          }
+          {
+            enabled = false;
+            id = "audio-card";
+          }
         ];
       };
       notifications = {
         enabled = false;
         location = "top_center";
         overlayLayer = true;
-        backgroundOpacity =  0.7;
+        backgroundOpacity = 0.7;
         respectExpireTimeout = true;
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 3;
@@ -186,8 +210,12 @@ in
         location = "top";
         autoHideMs = 600;
         overlayLayer = true;
-        enabledTypes = [0 2 3];
-        monitors = [];
+        enabledTypes = [
+          0
+          2
+          3
+        ];
+        monitors = [ ];
       };
       general = {
         avatarImage = ../../../resources/nyramu.png;
@@ -212,9 +240,18 @@ in
       };
       calendar = {
         cards = [
-          { enabled = true; id = "calendar-header-card"; }
-          { enabled = true; id = "calendar-month-card"; }
-          { enabled = false; id = "weather-card"; }
+          {
+            enabled = true;
+            id = "calendar-header-card";
+          }
+          {
+            enabled = true;
+            id = "calendar-month-card";
+          }
+          {
+            enabled = false;
+            id = "weather-card";
+          }
         ];
       };
       sessionMenu = {
@@ -278,7 +315,7 @@ in
         };
         todo = {
           enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";          
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
       };
     };
@@ -300,7 +337,7 @@ in
           }
         ];
         showCompleted = true;
-        showBackground = false;   
+        showBackground = false;
       };
     };
     colors = lib.mkIf (config.stylix.enable) {

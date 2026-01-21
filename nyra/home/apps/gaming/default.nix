@@ -6,5 +6,5 @@
     ./cemu.nix
     ./eden.nix
     ./azahar.nix
-  ];  
+  ];
 }

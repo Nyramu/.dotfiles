@@ -1,11 +1,17 @@
-{ config, lib, inputs, pkgs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
-  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
+  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
   cfg = config.nyra.desktops;
 in
 {
-  imports = [inputs.vicinae.homeManagerModules.default];
+  imports = [ inputs.vicinae.homeManagerModules.default ];
 
   services.vicinae = {
     enable = cfg.hyprland.enable;
@@ -28,7 +34,9 @@ in
           normal = lib.mkIf (theme ? vicinae.font.normal.normal) theme.vicinae.font.normal.normal;
         };
       };
-      launcher_window.opacity = lib.mkIf (theme ? vicinae.ui.opacity) (lib.mkForce theme.vicinae.ui.opacity);
+      launcher_window.opacity = lib.mkIf (theme ? vicinae.ui.opacity) (
+        lib.mkForce theme.vicinae.ui.opacity
+      );
     };
     extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
       aria2-manager

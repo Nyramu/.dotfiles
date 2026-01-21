@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  imports = [ 
+  imports = [
     ./zsh.nix
     ./commands
   ];

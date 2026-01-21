@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  imports  = [
+  imports = [
     ./zen
   ];
 
@@ -11,5 +11,5 @@
       default = "zen-beta";
       description = "Choose your default browser";
     };
-  };  
+  };
 }

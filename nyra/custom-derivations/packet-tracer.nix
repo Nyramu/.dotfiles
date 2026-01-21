@@ -32,12 +32,13 @@
   makeDesktopItem,
   version ? "9.0.0",
   packetTracerSource ? null,
-}: let
+}:
+let
   pname = "ciscoPacketTracer9";
 
   src =
-    if (packetTracerSource != null)
-    then packetTracerSource
+    if (packetTracerSource != null) then
+      packetTracerSource
     else
       fetchurl {
         url = "https://archive.org/download/packettracer900/CiscoPacketTracer_900_Ubuntu_64bit.deb";
@@ -48,7 +49,7 @@
     name = "${pname}-${version}-appimage";
     inherit src;
 
-    nativeBuildInputs = [binutils];
+    nativeBuildInputs = [ binutils ];
 
     unpackPhase = ''
       ar x $src
@@ -77,48 +78,47 @@
       makeWrapper
     ];
 
-    buildInputs =
-      [
-        alsa-lib
-        brotli
-        dbus
-        expat
-        fontconfig
-        freetype
-        glib
-        harfbuzz
-        libdrm
-        libglvnd
-        libpulseaudio
-        libudev0-shim
-        libxkbcommon
-        libxkbfile
-        mesa
-        nspr
-        nss
-        stdenv.cc.cc.lib
-        wayland
-        zlib
-      ]
-      ++ (with xorg; [
-        libICE
-        libSM
-        libX11
-        libXcomposite
-        libXcursor
-        libXdamage
-        libXext
-        libXfixes
-        libXi
-        libXrandr
-        libXrender
-        libXtst
-        libxcb
-        xcbutilimage
-        xcbutilkeysyms
-        xcbutilrenderutil
-        xcbutilwm
-      ]);
+    buildInputs = [
+      alsa-lib
+      brotli
+      dbus
+      expat
+      fontconfig
+      freetype
+      glib
+      harfbuzz
+      libdrm
+      libglvnd
+      libpulseaudio
+      libudev0-shim
+      libxkbcommon
+      libxkbfile
+      mesa
+      nspr
+      nss
+      stdenv.cc.cc.lib
+      wayland
+      zlib
+    ]
+    ++ (with xorg; [
+      libICE
+      libSM
+      libX11
+      libXcomposite
+      libXcursor
+      libXdamage
+      libXext
+      libXfixes
+      libXi
+      libXrandr
+      libXrender
+      libXtst
+      libxcb
+      xcbutilimage
+      xcbutilkeysyms
+      xcbutilrenderutil
+      xcbutilwm
+    ]);
 
     autoPatchelfIgnoreMissingDeps = [
       "libQt6UiTools.so.6"
@@ -157,52 +157,52 @@
     ];
   };
 in
-  stdenvNoCC.mkDerivation {
-    inherit pname version;
+stdenvNoCC.mkDerivation {
+  inherit pname version;
 
-    dontUnpack = true;
+  dontUnpack = true;
 
-    nativeBuildInputs = [
-      copyDesktopItems
-    ];
+  nativeBuildInputs = [
+    copyDesktopItems
+  ];
 
-    installPhase = ''
-      runHook preInstall
+  installPhase = ''
+    runHook preInstall
 
-      mkdir -p $out/bin
-      ln -s ${fhs-env}/bin/${fhs-env.name} $out/bin/packettracer9
+    mkdir -p $out/bin
+    ln -s ${fhs-env}/bin/${fhs-env.name} $out/bin/packettracer9
 
-      mkdir -p $out/share/icons/hicolor/48x48/apps
-      if [ -f ${unwrapped}/opt/pt/app.png ]; then
-        ln -s ${unwrapped}/opt/pt/app.png $out/share/icons/hicolor/48x48/apps/cisco-packet-tracer-9.png
-      fi
+    mkdir -p $out/share/icons/hicolor/48x48/apps
+    if [ -f ${unwrapped}/opt/pt/app.png ]; then
+      ln -s ${unwrapped}/opt/pt/app.png $out/share/icons/hicolor/48x48/apps/cisco-packet-tracer-9.png
+    fi
 
-      runHook postInstall
-    '';
+    runHook postInstall
+  '';
 
-    desktopItems = [
-      (makeDesktopItem {
-        name = "cisco-pt9.desktop";
-        desktopName = "Cisco Packet Tracer 9";
-        icon = "cisco-packet-tracer-9";
-        exec = "packettracer9 %f";
-        mimeTypes = [
-          "application/x-pkt"
-          "application/x-pka"
-          "application/x-pkz"
-          "application/x-pksz"
-          "application/x-pks"
-        ];
-        categories = ["Education"];
-      })
-    ];
+  desktopItems = [
+    (makeDesktopItem {
+      name = "cisco-pt9.desktop";
+      desktopName = "Cisco Packet Tracer 9";
+      icon = "cisco-packet-tracer-9";
+      exec = "packettracer9 %f";
+      mimeTypes = [
+        "application/x-pkt"
+        "application/x-pka"
+        "application/x-pkz"
+        "application/x-pksz"
+        "application/x-pks"
+      ];
+      categories = [ "Education" ];
+    })
+  ];
 
-    meta = {
-      description = "Network simulation tool from Cisco";
-      homepage = "https://www.netacad.com/courses/packet-tracer";
-      license = lib.licenses.unfree;
-      mainProgram = "packettracer9";
-      platforms = ["x86_64-linux"];
-      sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
-    };
-  }
+  meta = {
+    description = "Network simulation tool from Cisco";
+    homepage = "https://www.netacad.com/courses/packet-tracer";
+    license = lib.licenses.unfree;
+    mainProgram = "packettracer9";
+    platforms = [ "x86_64-linux" ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+  };
+}

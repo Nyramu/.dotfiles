@@ -24,6 +24,6 @@ in
       };
     };
     # Needed to make the renice setting work
-    users.users.nyramu.extraGroups = lib.optionals cfg.enable ["gamemode"];
+    users.users.nyramu.extraGroups = lib.optionals cfg.enable [ "gamemode" ];
   };
 }

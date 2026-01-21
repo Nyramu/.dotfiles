@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib;
 
 let
   cfg = config.nyra.home.apps.ptracer;
@@ -9,9 +15,12 @@ in
   };
 
   config = {
-    home.packages = optionals (cfg.enable) [ (pkgs.callPackage ../../../custom-derivations/packet-tracer.nix {}) ];
+    home.packages = optionals (cfg.enable) [
+      (pkgs.callPackage ../../../custom-derivations/packet-tracer.nix { })
+    ];
 
-    nixpkgs.config.permittedInsecurePackages = with pkgs; 
+    nixpkgs.config.permittedInsecurePackages =
+      with pkgs;
       optionals (cfg.enable) [ "ciscoPacketTracer9-9.0.0" ];
   };
 

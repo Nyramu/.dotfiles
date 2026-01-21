@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.nyra.system.apps.lossless-scaling;
@@ -9,8 +14,11 @@ in
   };
 
   config = {
-    environment.systemPackages = with pkgs;
-      lib.optionals (cfg.enable) [ lsfg-vk lsfg-vk-ui ];
+    environment.systemPackages =
+      with pkgs;
+      lib.optionals (cfg.enable) [
+        lsfg-vk
+        lsfg-vk-ui
+      ];
   };
 }
-

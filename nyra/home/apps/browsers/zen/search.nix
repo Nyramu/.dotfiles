@@ -67,6 +67,6 @@
         Default = "DuckDuckGo";
         PreventInstalls = true;
       };
-    };    
+    };
   };
 }

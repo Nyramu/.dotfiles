@@ -1,8 +1,8 @@
 { config, lib, ... }:
 
-let 
+let
   cfg = config.nyra.home.apps.fastfetch;
-in 
+in
 {
   options.nyra.home.apps.fastfetch = {
     enable = lib.mkEnableOption "fastfetch";
@@ -11,7 +11,7 @@ in
       default = "burrito-ascii";
     };
   };
-  
+
   config = {
     programs.fastfetch = {
       enable = cfg.enable;
@@ -26,13 +26,34 @@ in
             "type" = "custom";
             "format" = "┌──────────────────────Hardware──────────────────────┐";
           }
-          { "type" = "host"; "key" = " PC "; }
-          { "type" = "cpu"; "key" = "│ ├ "; }
-          { "type" = "gpu"; "key" = "│ ├ "; }
-          { "type" = "memory"; "key" = "│ ├ "; }
-          { "type" = "disk"; "key" = "│ ├ "; }
-          { "type" = "display"; "key" = "│ ├󰍹 "; }
-          { "type" = "battery"; "key" = "└ └ "; }
+          {
+            "type" = "host";
+            "key" = " PC ";
+          }
+          {
+            "type" = "cpu";
+            "key" = "│ ├ ";
+          }
+          {
+            "type" = "gpu";
+            "key" = "│ ├ ";
+          }
+          {
+            "type" = "memory";
+            "key" = "│ ├ ";
+          }
+          {
+            "type" = "disk";
+            "key" = "│ ├ ";
+          }
+          {
+            "type" = "display";
+            "key" = "│ ├󰍹 ";
+          }
+          {
+            "type" = "battery";
+            "key" = "└ └ ";
+          }
           {
             "type" = "custom";
             "format" = "└────────────────────────────────────────────────────┘";
@@ -43,16 +64,46 @@ in
             "type" = "custom";
             "format" = "┌──────────────────────Software──────────────────────┐";
           }
-          { "type" = "os"; "key" = " OS "; }
-          { "type" = "kernel"; "key" = "│ ├󰹣 "; }
-          { "type" = "bios"; "key" = "│ ├ "; "format" = "{type} {vendor} {version}"; }
-          { "type" = "title"; "key" = "│ ├ "; "format" = "{host-name}"; }
-          { "type" = "shell"; "key" = "└ └ "; }
+          {
+            "type" = "os";
+            "key" = " OS ";
+          }
+          {
+            "type" = "kernel";
+            "key" = "│ ├󰹣 ";
+          }
+          {
+            "type" = "bios";
+            "key" = "│ ├ ";
+            "format" = "{type} {vendor} {version}";
+          }
+          {
+            "type" = "title";
+            "key" = "│ ├ ";
+            "format" = "{host-name}";
+          }
+          {
+            "type" = "shell";
+            "key" = "└ └ ";
+          }
           "break"
-          { "type" = "wm"; "key" = " WM "; }
-          { "type" = "title"; "key" = "│ ├ "; "format" = "{user-name}"; }
-          { "type" = "lm"; "key" = "│ ├󰍂 "; }
-          { "type" = "terminal"; "key" = "└ └ "; }
+          {
+            "type" = "wm";
+            "key" = " WM ";
+          }
+          {
+            "type" = "title";
+            "key" = "│ ├ ";
+            "format" = "{user-name}";
+          }
+          {
+            "type" = "lm";
+            "key" = "│ ├󰍂 ";
+          }
+          {
+            "type" = "terminal";
+            "key" = "└ └ ";
+          }
           {
             "type" = "custom";
             "format" = "└────────────────────────────────────────────────────┘";
@@ -66,16 +117,29 @@ in
           {
             "type" = "command";
             "key" = "  OS Age ";
-            "text" = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+            "text" =
+              "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
           }
-          { "type" = "uptime"; "key" = "  Uptime "; }
-          { "type" = "datetime"; "key" = "  Date and Time"; "format" = "{weekday} {day-pretty}/{month-pretty}/{year} | {hour-pretty}:{minute-pretty}:{second-pretty}"; }
           {
-              "type" = "custom";
-              "format" = "└────────────────────────────────────────────────────┘";
+            "type" = "uptime";
+            "key" = "  Uptime ";
+          }
+          {
+            "type" = "datetime";
+            "key" = "  Date and Time";
+            "format" =
+              "{weekday} {day-pretty}/{month-pretty}/{year} | {hour-pretty}:{minute-pretty}:{second-pretty}";
+          }
+          {
+            "type" = "custom";
+            "format" = "└────────────────────────────────────────────────────┘";
           }
 
-          { "type" = "colors"; "paddingLeft" = 2; "symbol" = "circle"; }
+          {
+            "type" = "colors";
+            "paddingLeft" = 2;
+            "symbol" = "circle";
+          }
         ];
       };
     };

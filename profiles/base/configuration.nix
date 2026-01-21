@@ -1,9 +1,14 @@
-{ lib, pkgs, systemSettings, ... }:
+{
+  lib,
+  pkgs,
+  systemSettings,
+  ...
+}:
 
 {
   imports = [
     ../../nyra/system
-    ./cachix.nix
+    ./cache.nix
   ];
 
   # Kernel.
@@ -22,7 +27,10 @@
       "jackaudio"
       "networkmanager"
     ];
-    packages = with pkgs; [ neovim ];
+    packages = with pkgs; [
+      neovim
+      nixfmt-tree
+    ];
   };
 
   # Login settings
@@ -59,7 +67,7 @@
 
   # Gives real-time priority to services and apps
   security.rtkit.enable = true;
-  
+
   # Support NTFS file system
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -69,12 +77,12 @@
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
-  
-    supportedLocales = [ 
-      "it_IT.UTF-8/UTF-8" 
-      "en_US.UTF-8/UTF-8" 
+
+    supportedLocales = [
+      "it_IT.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
     ];
-  
+
     extraLocaleSettings = {
       LC_TIME = "it_IT.UTF-8";
       LC_NUMERIC = "en_US.UTF-8";
@@ -84,7 +92,7 @@
       LC_NAME = "it_IT.UTF-8";
       LC_ADDRESS = "it_IT.UTF-8";
       LC_TELEPHONE = "it_IT.UTF-8";
-      LC_IDENTIFICATION = "it_IT.UTF-8"; 
+      LC_IDENTIFICATION = "it_IT.UTF-8";
     };
   };
 
@@ -114,7 +122,7 @@
   nyra.system.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true; 
+  services.xserver.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -133,6 +141,9 @@
 
   system.stateVersion = "26.05";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+    "pipe-operators"
+  ];
 }
-

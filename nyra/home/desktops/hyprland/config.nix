@@ -2,26 +2,26 @@
 
 let
   themeName = config.nyra.theme.defaultTheme;
-  theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; }; 
+  theme = import ../../../../resources/themes/${themeName}.nix { inherit pkgs; };
 in
-{   
+{
   wayland.windowManager.hyprland = {
     config = {
       # Window rules
       windowrule = [
         "match:class ^(mpv)$, float on"
-        "match:class ^(mpv)$, size 1280 720"  
+        "match:class ^(mpv)$, size 1280 720"
         "match:class ^(mpv)$, center on"
 
         "match:class ^(imv)$, float on"
         "match:class ^(mpv)$, size 1280 720"
         "match:class ^(imv)$, center on"
-        
+
         # Custom titles for kitty
         "match:initial_title ^(rmpc)$, float on"
         "match:initial_title ^(rmpc)$, size 942 558"
         "match:initial_title ^(rmpc)$, center on"
-        
+
         "match:initial_title ^(fastfetch)$, float on"
         "match:initial_title ^(fastfetch)$, size 1100 736"
         "match:initial_title ^(fastfetch)$, center on"
@@ -32,7 +32,7 @@ in
         "2, persistent:true"
         "3, persistent:true"
         "4, persistent:true"
-        "5, persistent:true"  
+        "5, persistent:true"
       ];
 
       env = [
@@ -85,7 +85,7 @@ in
           rounding = 8;
           rounding_power = 4.0; # Default: 2.0
           blur = true;
-          
+
           text_color = theme.hypr.text_color;
           text_color_inactive = theme.hypr.inactive_text_color;
           text_color_locked_active = theme.hypr.locked_group_active_text_color;
@@ -141,7 +141,7 @@ in
         style = "gnomed";
       };
 
-     # Idk what it does, maybe it's associated with windowsIn 
+      # Idk what it does, maybe it's associated with windowsIn
       fadeIn = {
         enable = true;
         duration = 300;
@@ -171,9 +171,12 @@ in
         duration = 400;
         curve = "easeOutExpo";
         style = "fade";
-      }; 
+      };
     };
   };
-    
-  home.packages = with pkgs; [ swaybg rose-pine-hyprcursor ];
-}   
+
+  home.packages = with pkgs; [
+    swaybg
+    rose-pine-hyprcursor
+  ];
+}

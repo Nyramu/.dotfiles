@@ -5,7 +5,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
     ../base/configuration.nix
     ./common.nix

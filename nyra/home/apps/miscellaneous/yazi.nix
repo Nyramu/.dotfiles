@@ -3,10 +3,12 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   shells = config.nyra.home.shells;
   cfg = config.nyra.home.apps.yazi;
-in {
+in
+{
   options.nyra.home.apps.yazi = {
     enable = lib.mkEnableOption "yazi";
   };
@@ -65,24 +67,27 @@ in {
           # Keybinds
           {
             run = "cd ~/.dotfiles";
-            on = ["g" "d"];
+            on = [
+              "g"
+              "d"
+            ];
             desc = "Go ~/.dotfiles";
           }
           {
             run = "find --previous --smart";
-            on = ["\\"];
+            on = [ "\\" ];
             desc = "Find previous file";
           }
           {
             run = "help";
-            on = ["?"];
+            on = [ "?" ];
             desc = "Open help";
           }
 
           # Plugins keybinds
           {
             run = "plugin zoxide";
-            on = ["z"];
+            on = [ "z" ];
             desc = "Jump to a directory via zoxide";
           }
 
@@ -123,7 +128,10 @@ in {
           }
           {
             run = "noop";
-            on = ["g" "f"];
+            on = [
+              "g"
+              "f"
+            ];
           }
           {
             run = "noop";

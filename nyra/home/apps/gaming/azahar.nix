@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.nyra.home.apps.azahar = {
@@ -7,8 +12,7 @@
 
   config = {
     home.packages = lib.optionals (config.nyra.home.apps.azahar.enable) [
-       pkgs.azahar
+      pkgs.azahar
     ];
   };
 }
-

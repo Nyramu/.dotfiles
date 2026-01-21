@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.nyra.system.fingerprint;
@@ -15,7 +20,7 @@ in
       type = lib.types.ints.positive;
       default = 2;
       description = "Fingerprint timeout (s) for sddm authentication (integer)";
-    }; 
+    };
   };
 
   config = {
@@ -27,7 +32,7 @@ in
     };
 
     # Pam sudo and sddm config overrides due
-    # to fingerprint timeout and priority 
+    # to fingerprint timeout and priority
     security.pam.services = lib.mkIf (config.services.fprintd.enable) {
       # Enable fingerprint on sudo giving priority to fingerprint with 3 seconds timeout
       sudo.text = lib.mkForce ''

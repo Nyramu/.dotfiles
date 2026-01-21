@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   # Fetch themes
@@ -10,7 +15,7 @@ let
   };
   theme-path = { nyra = "${nyra}/nyra.zsh-theme"; }.${cfg.theme};
 
-  cfg = config.nyra.home.shells.zsh; 
+  cfg = config.nyra.home.shells.zsh;
 in
 {
   options.nyra.home.shells.zsh = {
@@ -44,11 +49,11 @@ in
           "sudo"
         ];
       };
-    
+
       initContent = ''
         # Set theme
         source ${theme-path}
       '';
-    };  
+    };
   };
 }

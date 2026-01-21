@@ -10,14 +10,14 @@
   nyra.home.apps = {
     defaultTerminal = "kitty";
     defaultBrowser = "zen-beta";
-    
+
     # Productivity
     nvf.enable = false;
     helix.enable = true;
     intellij.enable = true;
     gimp.enable = true;
     aseprite.enable = false;
-    
+
     # Gaming
     minecraft.enable = true;
     cemu = {
@@ -26,26 +26,26 @@
     };
     eden.enable = true;
     azahar.enable = false;
-    
+
     # Socials
     telegram.enable = true;
     discord.enable = true;
-    
+
     # Miscellaneous
     rmpc.enable = true;
     btop = {
       enable = true;
-      gpu-name = "Radeon 780M"; 
-    }; 
+      gpu-name = "Radeon 780M";
+    };
     fastfetch.enable = true;
     yazi.enable = true;
     ptracer.enable = false;
-    
+
     # Packages without configuration
     packages = with pkgs; [
       hyprpicker
       croc
-      carbon-now-cli #TODO: Test
+      carbon-now-cli # TODO: Test
       fontfor
       figlet
       cmatrix

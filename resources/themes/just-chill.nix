@@ -1,7 +1,6 @@
 { pkgs }:
 
-rec
-{
+rec {
   system = "base16";
   name = "Just Chill";
   author = "https://github.com/Nyramu";
@@ -9,9 +8,9 @@ rec
 
   background = pkgs.fetchurl {
     url = "https://r4.wallpaperflare.com/wallpaper/342/168/1015/waneella-pixel-art-city-sunset-hd-wallpaper-b40612242749e2adddac705dda8a0e2a.jpg";
-    hash = "sha256-xAz9egVTCnrM2gqU6T3lMVwA3lt2B4abOySq0Pd9/FM="; 
+    hash = "sha256-xAz9egVTCnrM2gqU6T3lMVwA3lt2B4abOySq0Pd9/FM=";
   };
-  
+
   fonts = {
     serif = {
       package = pkgs.monocraft;
@@ -35,7 +34,7 @@ rec
       popups = 10;
       terminal = 12;
     };
-  }; 
+  };
 
   palette = {
     base00 = "#1a1214"; # Default Background - deep dark burgundy-black
@@ -62,7 +61,7 @@ rec
     active_border_color = "rgb(542624) rgb(d66e65) rgb(fa696e) 270deg";
     inactive_border_color = "rgb(152927)";
     locked_group_active_border_color = "rgb(13160d) rgb(274044) rgb(90b7b2) 270deg"; # Picked from wallpaper
-    
+
     text_color = "rgb(ffb0b4)"; # palette.base07
     inactive_text_color = "rgb(909090)"; # palette.base04
     locked_group_active_text_color = "rgb(b9f9e1)"; # Picked from wallpaper, lighter than locked active border
@@ -81,7 +80,7 @@ rec
       control-center-logo = "primary"; # "primary" | "secondary" | "tertiary" | "error"
     };
   };
-  
+
   # Vicinae configuration
   vicinae.font.normal.normal = fonts.monospace.name;
 }

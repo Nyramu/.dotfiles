@@ -1,5 +1,9 @@
-{ lib, stdenvNoCC, nerd-font-patcher }:
-  
+{
+  lib,
+  stdenvNoCC,
+  nerd-font-patcher,
+}:
+
 stdenvNoCC.mkDerivation rec {
   pname = "neospleen-nerd-font";
   version = "1.0.62";
@@ -9,7 +13,7 @@ stdenvNoCC.mkDerivation rec {
     sha256 = "sha256:1ar71p1jqpgy3z0i1wzckicj64s7ilza70bmm0sgawlqgb55fhsc";
   };
 
-  nativeBuildInputs = [nerd-font-patcher];
+  nativeBuildInputs = [ nerd-font-patcher ];
 
   dontUnpack = true;
 

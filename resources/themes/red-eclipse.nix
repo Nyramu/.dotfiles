@@ -1,7 +1,6 @@
 { pkgs }:
 
-rec
-{
+rec {
   system = "base16";
   name = "Red Eclipse";
   author = "https://github.com/Nyramu";
@@ -13,7 +12,7 @@ rec
     serif = {
       package = pkgs.nerd-fonts.bigblue-terminal;
       name = "BigBlueTermPlus Nerd Font";
-    }; 
+    };
     sansSerif = {
       package = pkgs.nerd-fonts.bigblue-terminal;
       name = "BigBlueTermPlus Nerd Font";
@@ -67,7 +66,7 @@ rec
     active_color = "rgb(983050)"; # Last color from active border
     inactive_color = "rgb(1a1625)"; # Color from inactive border
     locked_group_active_color = "rgb(ccb0ad)"; # Last color from locked active border
-    
+
   };
 
   # Noctalia configuration
@@ -78,7 +77,7 @@ rec
       mOnHover = palette.base0A;
     };
   };
-  
+
   # Vicinae configuration
-  vicinae.font.normal.size = 12.0;  
+  vicinae.font.normal.size = 12.0;
 }

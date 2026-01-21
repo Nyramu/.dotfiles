@@ -1,4 +1,5 @@
-{ config, lib, ... }: with lib;
+{ config, lib, ... }:
+with lib;
 
 let
   cfg = config.nyra.home.shells;
@@ -27,5 +28,3 @@ in
     };
   };
 }
-
-

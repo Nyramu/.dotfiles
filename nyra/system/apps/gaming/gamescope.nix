@@ -10,12 +10,12 @@
       enable = config.nyra.system.apps.gamescope.enable;
       env = {
         # IMPORTANT: gamescope uses american keyboard layout by default
-        "XKB_DEFAULT_LAYOUT" = config.services.xserver.xkb.layout; 
+        "XKB_DEFAULT_LAYOUT" = config.services.xserver.xkb.layout;
         "-W" = "1920";
         "-H" = "1200";
         "-w" = "1920";
         "-h" = "1200";
-        "-r" = "60"; 
+        "-r" = "60";
       };
       args = [
         #"--mangoapp" # mango hud (mainly for test)
@@ -26,4 +26,3 @@
     };
   };
 }
-
