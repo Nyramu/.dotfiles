@@ -5,6 +5,7 @@
   ...
 }:
 with lib;
+
 {
   options.nyra.home.apps = {
     discord.enable = mkEnableOption "discord";
