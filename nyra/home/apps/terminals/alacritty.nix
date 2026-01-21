@@ -13,7 +13,7 @@
       enable = config.nyra.home.apps.alacritty.enable;
       settings = {
         general = {
-          working_directory = "/home/nyramu/.dotfiles";
+          working_directory = "~/.dotfiles";
           live_config_reload = true;
         };
         window = {
