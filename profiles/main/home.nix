@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../base/home.nix
     ./common.nix
+    ../base/home.nix
   ];
 
   # Apps
