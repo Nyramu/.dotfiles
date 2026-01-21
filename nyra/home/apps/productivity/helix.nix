@@ -3,8 +3,9 @@
   lib,
   pkgs,
   ...
-}: let
+}:
 
+let
   helix-wrapped = pkgs.writeShellScriptBin "hx" ''
     if [ -z "$ZELLIJ" ]; then
       LAYOUT=$(mktemp --suffix=.kdl)
@@ -23,7 +24,8 @@
       exec ${pkgs.helix}/bin/hx "$@"
     fi
   '';
-in {
+in
+{
   options.nyra.home.apps.helix = {
     enable = lib.mkEnableOption "helix";
   };
@@ -56,9 +58,21 @@ in {
           };
 
           statusline = {
-            left = ["mode" "spacer" "file-name" "read-only-indicator" "file-modification-indicator"];
-            center = ["version-control"];
-            right = ["spinner" "file-type" "diagnostics" "position" "position-percentage"];
+            left = [
+              "mode"
+              "spacer"
+              "file-name"
+              "read-only-indicator"
+              "file-modification-indicator"
+            ];
+            center = [ "version-control" ];
+            right = [
+              "spinner"
+              "file-type"
+              "diagnostics"
+              "position"
+              "position-percentage"
+            ];
             mode.normal = "NORMAL";
             mode.insert = "INSERT";
             mode.select = "SELECT";
@@ -94,7 +108,7 @@ in {
           A-p = "paste_clipboard_before"; # Paste clipboard content before selection
           A-y = "yank_to_clipboard"; # Yank selection to clipboard
           A-d = "delete_selection"; # Delete selection
-          A-c = ["yank_to_clipboard" "delete_selection"]; # Cut selection
+          A-c = [ "yank_to_clipboard" "delete_selection" ]; # Cut selection
           A-n = ":new"; # New file from scratch
 
           A-esc = ":buffer-close!"; # Force close current file
@@ -110,7 +124,10 @@ in {
 
           space = {
             g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${lib.getExe pkgs.lazygit}";
-            d = [":cd ~/.dotfiles" "file_picker"];
+            d = [
+              ":cd ~/.dotfiles"
+              "file_picker"
+            ];
             s = "global_search";
             f = "file_picker";
           };
@@ -126,7 +143,7 @@ in {
           A-p = "paste_clipboard_before"; # Paste clipboard content before selection
           A-y = "yank_to_clipboard"; # Yank selection to clipboard
           A-d = "delete_selection"; # Delete selection
-          A-c = ["yank_to_clipboard" "delete_selection"]; # Cut selection
+          A-c = [ "yank_to_clipboard" "delete_selection" ]; # Cut selection
 
           C-d = "kill_to_line_start"; # Delete till start of line
           C-z = "undo"; # Undo changes
@@ -195,8 +212,8 @@ in {
         language = [
           {
             name = "nix";
-            file-types = ["nix"];
-            formatter.command = "${lib.getExe pkgs.alejandra}";
+            file-types = [ "nix" ];
+            formatter.command = "${lib.getExe pkgs.nixfmt}";
           }
         ];
       };
