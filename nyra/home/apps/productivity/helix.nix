@@ -121,6 +121,7 @@ in {
         };
 
         keys.insert = {
+          A-f = ":format"; # Format code
           A-r = "replace_selections_with_clipboard"; # Replace selection with clipboard content
           A-p = "paste_clipboard_before"; # Paste clipboard content before selection
           A-y = "yank_to_clipboard"; # Yank selection to clipboard
