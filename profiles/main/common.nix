@@ -9,4 +9,7 @@
 
   # Common settings
   nyra.audio.server = "pipewire";
+  nyra.desktops = {
+    hyprland.enable = true;
+  };
 }

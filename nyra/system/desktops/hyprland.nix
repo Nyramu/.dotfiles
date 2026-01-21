@@ -1,17 +1,8 @@
-{ config, lib, ... }: with lib;
+{ config, ... }:
 
-let
-  cfg = config.nyra.system.desktops.hyprland;
-in
 {
-  options.nyra.system.desktops = {
-    hyprland.enable = mkEnableOption "hyprland";
-  };
-
-  config = {
-    programs.hyprland = {
-      enable = cfg.enable;
-      xwayland.enable = true;
-    }; 
-  };
+  programs.hyprland = {
+    enable = config.nyra.desktops.hyprland.enable;
+    xwayland.enable = true;
+  }; 
 }

@@ -7,6 +7,7 @@ in
   imports = [
     ./audio.nix
     ./theme.nix
+    ./desktops.nix
     ./modules
   ];
   

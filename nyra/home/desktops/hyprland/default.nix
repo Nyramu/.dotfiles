@@ -1,8 +1,5 @@
-{ config, lib, pkgs, inputs, ... }: with lib;
+{ config, lib, pkgs, inputs, ... }:
 
-let
-  cfg = config.nyra.home.desktops.hyprland;
-in
 {
   imports = [
     inputs.hyprnix.homeManagerModules.hyprland
@@ -12,18 +9,17 @@ in
   ];
 
   # Fix for Hyprnix
+  config.services.hyprpaper.enable = lib.mkForce false;
   options.wayland.windowManager.hyprland.settings = {
-    decoration = mkOption {default = {};};
-    general = mkOption {default = {};};
-    group = mkOption {default = {};};
-    misc = mkOption {default = {};};
+    decoration = lib.mkOption {default = {};};
+    general = lib.mkOption {default = {};};
+    group = lib.mkOption {default = {};};
+    misc = lib.mkOption {default = {};};
   };
   
-  config.services.hyprpaper.enable = mkForce false;
   config.wayland.windowManager.hyprland = {
-    enable = cfg.enable;
+    enable = config.nyra.desktops.hyprland.enable;
     package = pkgs.hyprland;
-
     systemd.enable = true;
     xwayland.enable = true;
     reloadConfig = true;
