@@ -1,14 +1,10 @@
+{ config, lib, inputs, pkgs, ... }:
+
+let
+  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix {inherit pkgs;};
+  cfg = config.nyra.desktops;
+in
 {
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: let
-  cfg = config.nyra.home.desktops;
-  themeName = config.nyra.theme.defaultTheme;
-  theme = import ../../../resources/themes/${themeName}.nix {inherit pkgs;};
-in {
   imports = [inputs.vicinae.homeManagerModules.default];
 
   services.vicinae = {
