@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  userSettings,
   systemSettings,
   ...
 }:
@@ -17,9 +18,10 @@
   networking.hostName = systemSettings.hostName;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nyramu = {
+  nix.settings.trusted-users = [ userSettings.userName ];
+  users.users.${userSettings.userName} = {
     isNormalUser = true;
-    description = "Nyramu";
+    description = "${userSettings.name}";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -111,7 +113,9 @@
     };
   };
 
-  # Bootloader.
+  # Bootloader
+  boot.initrd.systemd.enable = true;
+  boot.initrd.systemd.emergencyAccess = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
