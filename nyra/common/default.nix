@@ -8,7 +8,6 @@ in
     ./audio.nix
     ./theme.nix
     ./desktops.nix
-    ./modules
   ];
 
   stylix = {
