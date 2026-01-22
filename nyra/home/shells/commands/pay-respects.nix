@@ -17,6 +17,7 @@ in
     programs.pay-respects = {
       enable = cfg.commands.pay-respects.enable;
       enableZshIntegration = cfg.zsh.enable;
+      enableNushellIntegration = cfg.nushell.enable;
       options = [
         "--alias f"
         "--alias fuck"

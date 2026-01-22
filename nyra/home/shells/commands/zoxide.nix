@@ -17,6 +17,7 @@ in
     programs.zoxide = {
       enable = cfg.commands.zoxide.enable;
       enableZshIntegration = cfg.zsh.enable;
+      enableNushellIntegration = cfg.nushell.enable;
       options = [ "--cmd cd" ];
     };
   };

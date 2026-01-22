@@ -17,6 +17,7 @@ in
     programs.yazi = {
       enable = cfg.enable;
       enableZshIntegration = shells.zsh.enable;
+      enableNushellIntegration = shells.nushell.enable;
       settings = {
         mgr = {
           sort_by = "alphabetical";

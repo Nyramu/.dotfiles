@@ -40,6 +40,7 @@ in
     programs.lazygit = {
       enable = cfg.enable;
       enableZshIntegration = shells.zsh.enable;
+      enableNushellIntegration = shells.nushell.enable;
     };
   };
 }

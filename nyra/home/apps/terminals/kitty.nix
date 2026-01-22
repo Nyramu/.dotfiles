@@ -18,7 +18,10 @@ in
     programs.kitty = {
       enable = config.nyra.home.apps.kitty.enable;
       enableGitIntegration = true;
-      shellIntegration.enableZshIntegration = shells.zsh.enable;
+      shellIntegration = {
+        enableZshIntegration = shells.zsh.enable;
+        # enableNushellIntegration = shells.nushell.enable;
+      };
       settings = {
         shell_integration = "enabled";
         confirm_os_window_close = 0;

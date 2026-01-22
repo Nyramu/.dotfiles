@@ -16,6 +16,7 @@ in
     programs.ghostty = {
       enable = config.nyra.home.apps.ghostty.enable;
       enableZshIntegration = shells.zsh.enable;
+      # enableNushellIntegration = shells.nushell.enable;
       settings = {
         background-blur = false;
         working-directory = "inherit";

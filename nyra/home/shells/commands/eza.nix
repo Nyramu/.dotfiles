@@ -17,6 +17,7 @@ in
     programs.eza = {
       enable = cfg.commands.eza.enable;
       enableZshIntegration = cfg.zsh.enable;
+      enableNushellIntegration = cfg.nushell.enable;
       git = true;
       icons = "always";
       colors = "always";
