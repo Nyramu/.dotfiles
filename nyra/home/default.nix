@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ userSettings, lib, inputs, ... }:
 with lib;
 
 {
@@ -15,7 +15,7 @@ with lib;
     targets = {
       kitty.enable = mkForce true;
       qutebrowser.enable = mkForce true;
-      zen-browser.profileNames = [ "nyramu" ];
+      zen-browser.profileNames = [ "${userSettings.username}" ];
     };
   };
 }

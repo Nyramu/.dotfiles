@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ userSettings, inputs, pkgs, ... }:
 
 let
   # Fix for unfree packages not being installed despite being allowed
@@ -8,7 +8,7 @@ let
 in
 {
   programs.zen-browser = {
-    profiles.nyramu.extensions.packages = with firefox-addons; [
+    profiles.${userSettings.username}.extensions.packages = with firefox-addons; [
       ublock-origin
       dearrow
       return-youtube-dislikes
