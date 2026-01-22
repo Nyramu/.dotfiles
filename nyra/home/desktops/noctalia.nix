@@ -95,15 +95,15 @@ in
             }
           ];
           center = [
-            {
-              colorizeDistroLogo = true;
-              colorizeSystemIcon = theme.noctalia.colors.control-center-logo or "none";
-              customIconPath = "";
-              enableColorization = true;
-              icon = "noctalia";
-              id = "ControlCenter";
-              useDistroLogo = true;
-            }
+            # {
+            #   colorizeDistroLogo = true;
+            #   colorizeSystemIcon = theme.noctalia.colors.control-center-logo or "none";
+            #   customIconPath = "";
+            #   enableColorization = true;
+            #   icon = "noctalia";
+            #   id = "ControlCenter";
+            #   useDistroLogo = true;
+            # }
             {
               compactMode = true;
               compactShowAlbumArt = true;
