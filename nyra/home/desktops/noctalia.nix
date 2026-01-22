@@ -62,15 +62,11 @@ in
               deviceNativePath = "";
               displayMode = "alwaysShow";
               hideIfNotDetected = true;
-              hideIfIdle = true;
+              hideIfIdle = false;
               id = "Battery";
               showNoctaliaPerformance = false;
               showPowerProfiles = false;
               warningThreshold = 30;
-            }
-            {
-              id = "Spacer";
-              width = 5;
             }
             {
               characterCount = 2;
@@ -109,16 +105,28 @@ in
               useDistroLogo = true;
             }
             {
-              colorName = "primary";
-              hideWhenIdle = true;
-              id = "AudioVisualizer";
-              width = 200;
+              compactMode = true;
+              compactShowAlbumArt = true;
+              compactShowVisualizer = false;
+              hideMode = "hidden";
+              hideWhenIdle = false;
+              id = "MediaMini";
+              maxWidth = 500;
+              panelShowAlbumArt = true;
+              panelShowVisualizer = true;
+              scrollingMode = "hover";
+              showAlbumArt = true;
+              showArtistFirst = true;
+              showProgressRing = true;
+              showVisualizer = false;
+              useFixedWidth = false;
+              visualizerType = "linear";
             }
           ];
           right = [
-            {
-              id = "plugin:todo";
-            }
+            # {
+            #   id = "plugin:todo";
+            # }
             {
               displayMode = "alwaysShow";
               id = "Volume";
@@ -255,6 +263,7 @@ in
         ];
       };
       sessionMenu = {
+        position = "top_center";
         powerOptions = [
           {
             action = "reboot";
