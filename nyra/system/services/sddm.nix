@@ -1,4 +1,5 @@
 {
+  userSettings,
   config,
   lib,
   inputs,
@@ -39,7 +40,7 @@ in
     programs.silentSDDM = rec {
       enable = cfg.enable;
       backgrounds.stylix = lib.optionals (stylix.enable) stylix.image;
-      profileIcons.nyramu = ../../../resources/${cfg.avatar}.png;
+      profileIcons.${userSettings.username} = ../../../resources/${cfg.avatar}.png;
       settings = lib.mkIf (stylix.enable) {
         "General" = {
           enable-animations = true;
