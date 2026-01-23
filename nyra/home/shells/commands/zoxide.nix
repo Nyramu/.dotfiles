@@ -1,23 +1,23 @@
 { config, lib, ... }:
-with lib;
 
 let
-  cfg = config.nyra.home.shells;
+  shells = config.nyra.shells;
+  cfg = config.nyra.home.shells.commands.zoxide;
 in
 {
   options.nyra.home.shells.commands.zoxide = {
-    enable = mkOption {
-      type = types.bool;
-      default = cfg.zsh.enable;
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
       description = "zoxide";
     };
   };
 
   config = {
     programs.zoxide = {
-      enable = cfg.commands.zoxide.enable;
-      enableZshIntegration = cfg.zsh.enable;
-      enableNushellIntegration = cfg.nushell.enable;
+      enable = cfg.enable;
+      enableZshIntegration = shells.zsh.enable;
+      enableNushellIntegration = shells.nushell.enable;
       options = [ "--cmd cd" ];
     };
   };

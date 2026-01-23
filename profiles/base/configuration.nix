@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   userSettings,
@@ -39,8 +40,8 @@
   nyra.system.sddm.enable = true;
 
   # Default shell
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.${config.nyra.shells.defaultShell};
+  programs.zsh.enable = config.nyra.shells.zsh.enable;
 
   # System packages
   environment.systemPackages = with pkgs; [

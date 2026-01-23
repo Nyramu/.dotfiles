@@ -7,7 +7,7 @@
 }:
 
 let
-  shells = config.nyra.home.shells;
+  shells = config.nyra.shells;
   cfg = config.nyra.home.apps.git;
 in
 {

@@ -1,23 +1,23 @@
 { config, lib, ... }:
-with lib;
 
 let
-  cfg = config.nyra.home.shells;
+  shells = config.nyra.shells;
+  cfg = config.nyra.home.shells.commands.eza;
 in
 {
   options.nyra.home.shells.commands.eza = {
-    enable = mkOption {
-      type = types.bool;
-      default = cfg.zsh.enable;
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
       description = "eza";
     };
   };
 
   config = {
     programs.eza = {
-      enable = cfg.commands.eza.enable;
-      enableZshIntegration = cfg.zsh.enable;
-      enableNushellIntegration = cfg.nushell.enable;
+      enable = cfg.enable;
+      enableZshIntegration = shells.zsh.enable;
+      enableNushellIntegration = shells.nushell.enable;
       git = true;
       icons = "always";
       colors = "always";

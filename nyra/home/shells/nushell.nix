@@ -1,37 +1,27 @@
-{
-  config,
-  lib,
-  ...
-}:
-  
+{ config, ... }:
+
 let
-  cfg = config.nyra.home.shells.nushell;
+  cfg = config.nyra.shells.nushell;
 in
 {
-  options.nyra.home.shells.nushell = {
-    enable = lib.mkEnableOption "nushell";
-  };
+  programs.nushell = {
+    enable = cfg.enable;
+    extraConfig = ''
+      $env.config = {
+        # to hide default banner
+        show_banner: false,
 
-  config = {
-    programs.nushell = {
-      enable = cfg.enable;
-      extraConfig = ''
-        $env.config = {
-          # to hide default banner
-          show_banner: false,
+        # needed to make direnv work automatically
+        hooks: {
+          pre_prompt: [{ ||
+            if (which direnv | is-empty) {
+              return
+            }
 
-          # needed to make direnv work automatically
-          hooks: {
-            pre_prompt: [{ ||
-              if (which direnv | is-empty) {
-                return
-              }
-
-              direnv export json | from json | default {} | load-env
-            }]
-          }
+            direnv export json | from json | default {} | load-env
+          }]
         }
-      '';
-    };
+      }
+    '';
   };
 }

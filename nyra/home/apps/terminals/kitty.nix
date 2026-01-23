@@ -1,9 +1,9 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 
 let
   stylix-palette = config.stylix.base16Scheme;
-  shells = config.nyra.home.shells;
+  shells = config.nyra.shells;
 in
 {
   options.nyra.home.apps.kitty = {
@@ -23,6 +23,7 @@ in
         # enableNushellIntegration = shells.nushell.enable;
       };
       settings = {
+        shell = lib.getExe pkgs.${shells.defaultShell};
         shell_integration = "enabled";
         confirm_os_window_close = 0;
         # Does not work for some reason

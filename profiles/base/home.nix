@@ -34,9 +34,6 @@ in
 
   programs.home-manager.enable = true;
 
-  # Use zsh by default
-  nyra.home.shells.zsh.enable = true;
-
   # XDG configuration
   xdg =
     let

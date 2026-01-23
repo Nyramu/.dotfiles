@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  shells = config.nyra.home.shells;
+  shells = config.nyra.shells;
 in
 {
   options.nyra.home.apps.ghostty = {
