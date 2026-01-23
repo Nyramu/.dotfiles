@@ -41,6 +41,8 @@ in
         cursor_trail = 60;
         cursor_trail_color = stylix-palette.base0A;
         cursor_shape_unfocused = "unchanged";
+
+        window_padding_width = "0 8";
       };
       # Fix for Stylix overriding normal settings
       extraConfig = "
