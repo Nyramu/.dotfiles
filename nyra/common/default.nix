@@ -9,6 +9,7 @@ in
     ./theme.nix
     ./shells.nix
     ./desktops.nix
+    ./settings.nix
   ];
 
   stylix = {

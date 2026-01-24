@@ -1,14 +1,21 @@
-{ userSettings, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
   # Fix for unfree packages not being installed despite being allowed
   firefox-addons = pkgs.callPackage inputs.firefox-addons {
     inherit (pkgs) fetchurl stdenv lib;
   };
+
+  nyraSettings = config.nyra.settings;
 in
 {
   programs.zen-browser = {
-    profiles.${userSettings.username}.extensions.packages = with firefox-addons; [
+    profiles.${nyraSettings.username}.extensions.packages = with firefox-addons; [
       ublock-origin
       dearrow
       return-youtube-dislikes

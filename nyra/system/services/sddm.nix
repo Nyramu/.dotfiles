@@ -1,5 +1,4 @@
 {
-  userSettings,
   config,
   lib,
   inputs,
@@ -8,6 +7,7 @@
 }:
 
 let
+  nyraSettings = config.nyra.settings;
   theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
   stylix = config.stylix;
   cfg = config.nyra.system.sddm;
@@ -40,7 +40,7 @@ in
     programs.silentSDDM = rec {
       enable = cfg.enable;
       backgrounds.stylix = lib.optionals (stylix.enable) stylix.image;
-      profileIcons.${userSettings.username} = ../../../resources/${cfg.avatar}.png;
+      profileIcons.${nyraSettings.username} = ../../../resources/${cfg.avatar}.png;
       settings = lib.mkIf (stylix.enable) {
         "General" = {
           enable-animations = true;

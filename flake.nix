@@ -61,6 +61,11 @@
       submodules = true;
       url = "https://github.com/ndfined-crp/ayugram-desktop/";
     };
+
+    spotiflac = {
+      url = "github:RoccoRakete/SpotiFLAC";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -71,17 +76,6 @@
       ...
     }@inputs:
     let
-      systemSettings = {
-        hostName = "nixos";
-        dotfiles = "~/.dotfiles";
-      };
-
-      userSettings = {
-        name = "Nyramu";
-        username = "nyramu";
-        email = "107689027+Nyramu@users.noreply.github.com";
-      };
-
       inherit (nixpkgs) lib;
 
       createNixosProfile =
@@ -90,7 +84,7 @@
           inherit system;
           modules = [ ./profiles/${name}/configuration.nix ];
           specialArgs = {
-            inherit systemSettings userSettings inputs;
+            inherit inputs;
           };
         };
 
@@ -103,7 +97,7 @@
           };
           modules = [ ./profiles/${name}/home.nix ];
           extraSpecialArgs = {
-            inherit systemSettings userSettings inputs;
+            inherit inputs;
           };
         };
     in

@@ -1,8 +1,8 @@
-{ userSettings, ... }:
+{ config, ... }:
 
 {
   programs.zen-browser = {
-    profiles.${userSettings.username}.bookmarks = {
+    profiles.${config.nyra.settings.username}.bookmarks = {
       force = true;
       settings = [
         {

@@ -1,4 +1,4 @@
-{ userSettings, config, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.nyra.system.apps.gamemode;
@@ -24,6 +24,6 @@ in
       };
     };
     # Needed to make the renice setting work
-    users.users.${userSettings.username}.extraGroups = lib.optionals cfg.enable [ "gamemode" ];
+    users.users.${config.nyra.settings.username}.extraGroups = lib.optionals cfg.enable [ "gamemode" ];
   };
 }

@@ -2,13 +2,13 @@
   config,
   lib,
   pkgs,
-  userSettings,
   ...
 }:
 
 let
   screenShot = pkgs.callPackage ../../nyra/commands/screen-shot { };
   screenRecord = pkgs.callPackage ../../nyra/commands/screen-record { };
+  nyraSettings = config.nyra.settings;
 in
 {
   imports = [
@@ -22,8 +22,8 @@ in
   };
 
   home = {
-    username = userSettings.username;
-    homeDirectory = "/home/${userSettings.username}";
+    username = nyraSettings.username;
+    homeDirectory = "/home/${nyraSettings.username}";
     stateVersion = "26.05";
     packages = [
       screenShot

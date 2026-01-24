@@ -2,11 +2,12 @@
   config,
   lib,
   pkgs,
-  userSettings,
-  systemSettings,
   ...
 }:
 
+let
+  nyraSettings = config.nyra.settings;
+in
 {
   imports = [
     ./cache.nix
@@ -16,13 +17,13 @@
   # Kernel.
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
-  networking.hostName = systemSettings.hostName;
+  networking.hostName = nyraSettings.hostname;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  nix.settings.trusted-users = [ userSettings.username ];
-  users.users.${userSettings.username} = {
+  nix.settings.trusted-users = [ nyraSettings.username ];
+  users.users.${nyraSettings.username} = {
     isNormalUser = true;
-    description = "${userSettings.name}";
+    description = "${nyraSettings.name}";
     extraGroups = [
       "networkmanager"
       "wheel"

@@ -1,5 +1,4 @@
 {
-  userSettings,
   inputs,
   config,
   lib,
@@ -8,6 +7,7 @@
   
 let
   defaultBrowser = config.nyra.home.apps.defaultBrowser;
+  nyraSettings = config.nyra.settings;
 in
 {
   imports = [
@@ -30,7 +30,7 @@ in
   config = {
     programs.zen-browser = {
       enable = config.nyra.home.apps.zen-browser.enable;
-      profiles.${userSettings.username} = {
+      profiles.${nyraSettings.username} = {
         isDefault = true;
         settings = {
           # Sidebar and toolbar

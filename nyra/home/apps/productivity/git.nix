@@ -2,11 +2,11 @@
   config,
   lib,
   pkgs,
-  userSettings,
   ...
 }:
 
 let
+  nyraSettings = config.nyra.settings;
   shells = config.nyra.shells;
   cfg = config.nyra.home.apps.git;
 in
@@ -23,8 +23,8 @@ in
     programs.git = {
       enable = cfg.enable;
       settings.user = {
-        inherit (userSettings) name;
-        inherit (userSettings) email;
+        inherit (nyraSettings) name;
+        inherit (nyraSettings) email;
       };
     };
 

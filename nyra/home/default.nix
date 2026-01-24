@@ -1,6 +1,14 @@
-{ userSettings, lib, inputs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 with lib;
 
+let
+  nyraSettings = config.nyra.settings;
+in
 {
   imports = [
     inputs.stylix.homeModules.stylix
@@ -15,7 +23,7 @@ with lib;
     targets = {
       kitty.enable = mkForce true;
       qutebrowser.enable = mkForce true;
-      zen-browser.profileNames = [ "${userSettings.username}" ];
+      zen-browser.profileNames = [ "${nyraSettings.username}" ];
     };
   };
 }
