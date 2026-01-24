@@ -33,6 +33,7 @@
 
     # Miscellaneous
     rmpc.enable = true;
+    spotiflac.enable = true;
     btop = {
       enable = true;
       gpu-name = "Radeon 780M";

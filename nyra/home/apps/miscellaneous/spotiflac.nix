@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
   ...
 }:
@@ -17,7 +16,7 @@ in
 
   config = {
     home.packages = lib.mkIf (cfg.enable) [
-      inputs.spotiflac.packages.${pkgs.stdenv.hostPlatform.system}.default
+      (pkgs.callPackage ../../../custom-derivations/spotiflac.nix { })
     ];
   };
 }
