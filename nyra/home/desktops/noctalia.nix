@@ -31,6 +31,7 @@ in
         mprisBlacklist = [
           "Mozilla zen"
           "Telegram Desktop"
+          "AyuGram Desktop"
         ];
         preferredPlayer = "";
       };
