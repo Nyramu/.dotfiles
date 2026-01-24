@@ -16,6 +16,7 @@ in
     ./extensions.nix
     ./bookmarks.nix
     ./search.nix
+    ./mods.nix
   ];
 
   options.nyra.home.apps = {
