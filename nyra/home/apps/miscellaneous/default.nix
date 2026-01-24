@@ -8,5 +8,6 @@
     ./fastfetch.nix
     ./zellij.nix
     ./packet-tracer.nix
+    ./spotiflac.nix
   ];
 }
