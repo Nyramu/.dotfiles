@@ -61,11 +61,6 @@
       submodules = true;
       url = "https://github.com/ndfined-crp/ayugram-desktop/";
     };
-
-    spotiflac = {
-      url = "github:RoccoRakete/SpotiFLAC";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
