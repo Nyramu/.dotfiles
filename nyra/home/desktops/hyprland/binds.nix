@@ -59,11 +59,13 @@ in
 
           windowControl = {
             bind."SUPER, K" = "killactive"; # Kills active window
+            
             # Fullscreen toggle
             bind = {
               ", F11" = "fullscreen";
               ", Home" = "fullscreen";
             };
+            
             # Window toggles
             bind = {
               "SUPER, P" = "pseudo";
@@ -114,12 +116,9 @@ in
             binde.", XF86MonBrightnessDown" = "exec, ${lib.getExe pkgs.brightnessctl} set 5%-";
           };
 
-          powerControl = {
+          sessionControl = {
             bind."SUPER_SHIFT, R" = "exec, systemctl reboot";
             bind."SUPER_SHIFT, P" = "exec, systemctl poweroff";
-          };
-
-          sessionControl = {
             bind."SUPER_SHIFT, L" = "exit";
           };
 
@@ -156,7 +155,6 @@ in
       in
       lib.mkMerge [
         # System control
-        groups.powerControl
         groups.audioControl
         groups.brightnessControl
         groups.sessionControl
