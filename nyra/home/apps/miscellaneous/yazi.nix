@@ -75,6 +75,19 @@ in
             desc = "Go ~/.dotfiles";
           }
           {
+            run = "cd /run/media/${config.nyra.settings.username}";
+            on = [
+              "g"
+              "e"
+            ];
+            desc = "Go to external drives";
+          }
+          {
+            run = "shell --block --interactive bashmount";
+            on = [ "b" ];
+            desc = "Open bashmount";
+          }
+          {
             run = "find --previous --smart";
             on = [ "\\" ];
             desc = "Find previous file";

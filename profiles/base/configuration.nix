@@ -33,6 +33,7 @@ in
     ];
     packages = with pkgs; [
       neovim
+      bashmount
       nixfmt-tree
     ];
   };
