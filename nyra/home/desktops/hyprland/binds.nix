@@ -59,13 +59,13 @@ in
 
           windowControl = {
             bind."SUPER, K" = "killactive"; # Kills active window
-            
+
             # Fullscreen toggle
             bind = {
               ", F11" = "fullscreen";
               ", Home" = "fullscreen";
             };
-            
+
             # Window toggles
             bind = {
               "SUPER, P" = "pseudo";

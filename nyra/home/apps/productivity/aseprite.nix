@@ -4,7 +4,7 @@
   pkgs,
   ...
 }:
-  
+
 {
   options.nyra.home.apps.aseprite = {
     enable = lib.mkEnableOption "aseprite";

@@ -3,7 +3,8 @@
   appimageTools,
   webkitgtk_4_1,
   gtk3,
-}: let
+}:
+let
   pname = "spotiflac";
   version = "7.0.6";
 
@@ -12,18 +13,21 @@
     hash = "sha256-y27eQYNi+ysScaOymPPJAW92uKAIQQLOSdwy7LaD5U4=";
   };
 
-  appimageContents = appimageTools.extractType2 {inherit pname version src;};
+  appimageContents = appimageTools.extractType2 { inherit pname version src; };
 in
-  appimageTools.wrapType2 {
-    inherit pname version src;
+appimageTools.wrapType2 {
+  inherit pname version src;
 
-    extraPkgs = pkgs: [webkitgtk_4_1 gtk3];
+  extraPkgs = pkgs: [
+    webkitgtk_4_1
+    gtk3
+  ];
 
-    extraInstallCommands = ''
-      install -Dm444 ${appimageContents}/spotiflac.desktop -t $out/share/applications
-      install -Dm444 ${appimageContents}/spotiflac.png $out/share/pixmaps/spotiflac.png
+  extraInstallCommands = ''
+    install -Dm444 ${appimageContents}/spotiflac.desktop -t $out/share/applications
+    install -Dm444 ${appimageContents}/spotiflac.png $out/share/pixmaps/spotiflac.png
 
-      substituteInPlace $out/share/applications/spotiflac.desktop \
-      --replace-fail 'Exec=SpotiFLAC' 'Exec=${pname}'
-    '';
-  }
+    substituteInPlace $out/share/applications/spotiflac.desktop \
+    --replace-fail 'Exec=SpotiFLAC' 'Exec=${pname}'
+  '';
+}

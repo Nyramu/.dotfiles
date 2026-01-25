@@ -4,7 +4,7 @@
   lib,
   ...
 }:
-  
+
 let
   defaultBrowser = config.nyra.home.apps.defaultBrowser;
   nyraSettings = config.nyra.settings;
