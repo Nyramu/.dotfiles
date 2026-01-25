@@ -21,5 +21,8 @@ in
         "--max-columns-preview"
       ];
     };
+    home.shellAliases = {
+      "grep" = "rg";
+    };
   };
 }
