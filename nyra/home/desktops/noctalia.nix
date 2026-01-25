@@ -143,7 +143,7 @@ in
               id = "Network";
             }
             {
-              displayMode = "alwaysShow";
+              displayMode = "onHover";
               id = "Bluetooth";
             }
             {
