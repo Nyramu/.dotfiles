@@ -26,6 +26,7 @@ in
     };
   };
 
+  # "fc-cache -fv" to manually refresh cache
   # "fc-list : family | sort | uniq" to list
   config = {
     nyra.system.fonts = lib.mkIf (config.nyra.theme.enable) [
@@ -36,5 +37,13 @@ in
     ];
     fonts.packages = config.nyra.system.fonts;
     fonts.enableDefaultPackages = true;
+    fonts.fontconfig.defaultFonts = lib.mkIf (config.nyra.theme.enable) {
+      serif = [ "${theme.fonts.serif.name}" ];
+      sansSerif = [ "${theme.fonts.sansSerif.name}" ];
+      monospace = [
+        "${theme.fonts.monospace.name}"
+        "${theme.fonts.emoji.name}"
+      ];
+    };
   };
 }
