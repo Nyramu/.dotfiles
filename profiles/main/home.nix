@@ -14,7 +14,7 @@
     # Productivity
     nvf.enable = false;
     helix.enable = true;
-    intellij.enable = true;
+    intellij.enable = false;
     gimp.enable = true;
     aseprite.enable = false;
 
