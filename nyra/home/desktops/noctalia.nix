@@ -23,6 +23,9 @@ in
         fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
         boxBorderEnabled = true;
         tooltipsEnabled = false;
+        wifiDetailsViewMode = "list";
+        bluetoothDetailsViewMode = "list";
+        bluetoothHideUnnamedDevices = true;
       };
       audio = {
         cavaFrameRate = 60;
@@ -33,7 +36,7 @@ in
           "Telegram Desktop"
           "AyuGram Desktop"
         ];
-        preferredPlayer = "";
+        preferredPlayer = "MPD";
       };
       nightLight = {
         enabled = false;
@@ -56,6 +59,9 @@ in
         marginHorizontal = 4;
         outerCorners = true;
         exclusive = true;
+        displayMode = "always_visible";
+        autoHideDelay = 100;
+        autoShowDelay = 150;
         hideOnOverview = false;
         widgets = {
           left = [
@@ -82,6 +88,7 @@ in
               showApplications = false;
               showLabelsOnlyWhenOccupied = true;
               unfocusedIconsOpacity = 1;
+              emptyColor = "tertiary";
             }
             {
               id = "plugin:privacy-indicator";
@@ -101,7 +108,6 @@ in
             #   colorizeSystemIcon = theme.noctalia.colors.control-center-logo or "none";
             #   customIconPath = "";
             #   enableColorization = true;
-            #   icon = "noctalia";
             #   id = "ControlCenter";
             #   useDistroLogo = true;
             # }
@@ -143,13 +149,13 @@ in
               id = "Network";
             }
             {
-              displayMode = "onHover";
+              displayMode = "onhover";
               id = "Bluetooth";
             }
             {
               customFont = "";
               formatHorizontal = "HH:mm:ss";
-              formatVertical = "HH mm - dd MM";
+              formatVertical = "HH:mm:ss --------- dd/MM/yyyy";
               id = "Clock";
               tooltipFormat = "dddd, dd/MM/yyyy";
               useCustomFont = false;
@@ -180,11 +186,11 @@ in
           }
           {
             enabled = true;
-            id = "media-sysmon-card";
+            id = "weather-card";
           }
           {
-            enabled = true;
-            id = "weather-card";
+            enabled = false;
+            id = "media-sysmon-card";
           }
           {
             enabled = false;
@@ -198,7 +204,7 @@ in
       };
       notifications = {
         enabled = false;
-        location = "top_center";
+        location = "top";
         overlayLayer = true;
         backgroundOpacity = 0.7;
         respectExpireTimeout = true;
@@ -231,11 +237,14 @@ in
         radiusRatio = 0.6;
         iRadiusRatio = 0.6;
         compactLockScreen = true;
+        autoStartAuth = true;
+        allowPasswordWithFprintd = true;
         lockOnSuspend = false;
         showSessionButtonsOnLockScreen = true;
         shadowDirection = "bottom";
         shadowOffsetX = 0;
         shadowOffsetY = 3;
+        animationSpeed = 1.2;
         telemetryEnabled = true;
       };
       network = {
@@ -245,6 +254,7 @@ in
       location = {
         analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
         showWeekNumberInCalendar = true;
+        weatherShowEffects = false;
         firstDayOfWeek = 1;
       };
       calendar = {
@@ -267,6 +277,12 @@ in
         position = "top_center";
         powerOptions = [
           {
+            action = "lock";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+          }
+          {
             action = "reboot";
             command = "";
             countdownEnabled = true;
@@ -283,12 +299,6 @@ in
             command = "";
             countdownEnabled = true;
             enabled = true;
-          }
-          {
-            action = "lock";
-            command = "";
-            countdownEnabled = true;
-            enabled = false;
           }
           {
             action = "suspend";
@@ -314,12 +324,16 @@ in
       sources = [
         {
           enabled = true;
-          name = "Official Noctalia Plugins";
+          name = "Noctalia Plugins";
           url = "https://github.com/noctalia-dev/noctalia-plugins";
         }
       ];
       states = {
         privacy-indicator = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        weather-indicator = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
