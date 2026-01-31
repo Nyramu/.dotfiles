@@ -32,6 +32,7 @@
     discord.enable = true;
 
     # Miscellaneous
+    spicetify.enable = true;
     rmpc.enable = true;
     spotiflac.enable = true;
     btop = {
