@@ -46,15 +46,6 @@ else
   exit 1
 fi
 
-# Check dependencies
-if ! command -v git &> /dev/null; then
-  print_error "Missing dependencies. Please run:"
-  echo -e "  ${GREEN}nix shell nixpkgs#git${NC}"
-  exit 1
-fi
-print_success "All dependencies found"
-echo ""
-
 print_header "Profile selection"
 echo ""
 
