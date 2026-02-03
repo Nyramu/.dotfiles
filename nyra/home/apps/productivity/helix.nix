@@ -124,6 +124,7 @@ in
 
           space = {
             g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${lib.getExe pkgs.lazygit}";
+            h = ":cd ~";
             d = [
               ":cd ~/.dotfiles"
               "file_picker"
@@ -184,29 +185,29 @@ in
           nixd.command = "${lib.getExe pkgs.nixd}";
           nil.command = "${lib.getExe pkgs.nil}";
           bash-language-server.command = "${lib.getExe pkgs.bash-language-server}";
-          clangd.command = "${pkgs.clang-tools}/bin/clangd";
-          cmake-language-server.command = "${lib.getExe pkgs.cmake-language-server}";
-          csharp-ls.command = "${lib.getExe pkgs.csharp-ls}";
+          # clangd.command = "${pkgs.clang-tools}/bin/clangd";
+          # cmake-language-server.command = "${lib.getExe pkgs.cmake-language-server}";
+          # csharp-ls.command = "${lib.getExe pkgs.csharp-ls}";
           #kotlin-language-server.command = "${getExe pkgs.kotlin-language-server}";
           gopls.command = "${lib.getExe pkgs.gopls}";
           intelephense.command = "${lib.getExe pkgs.intelephense}"; # PHP
           superhtml.command = "${lib.getExe pkgs.superhtml}";
           markdown-oxide.command = "${lib.getExe pkgs.markdown-oxide}";
           vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
-          typescript-language-server = {
-            command = "${lib.getExe pkgs.typescript-language-server}";
-            config = {
-              typescript.inlayHints = {
-                includeInlayEnumMemberValueHints = true;
-                includeInlayFunctionLikeReturnTypeHints = false;
-                includeInlayFunctionParameterTypeHints = false;
-                includeInlayParameterNameHints = "literals";
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-                includeInlayPropertyDeclarationTypeHints = false;
-                includeInlayVariableTypeHints = true;
-              };
-            };
-          };
+          # typescript-language-server = {
+          #   command = "${lib.getExe pkgs.typescript-language-server}";
+          #   config = {
+          #     typescript.inlayHints = {
+          #       includeInlayEnumMemberValueHints = true;
+          #       includeInlayFunctionLikeReturnTypeHints = false;
+          #       includeInlayFunctionParameterTypeHints = false;
+          #       includeInlayParameterNameHints = "literals";
+          #       includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+          #       includeInlayPropertyDeclarationTypeHints = false;
+          #       includeInlayVariableTypeHints = true;
+          #     };
+          #   };
+          # };
         };
 
         language = [
