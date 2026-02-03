@@ -4,6 +4,25 @@
   # Theming
   nyra.theme = {
     enable = true;
-    defaultTheme = "red-eclipse"; # just-chill | red-eclipse | apocalypse
+    defaultTheme = "just-chill"; # just-chill | red-eclipse | apocalypse
+  };
+
+  # Common settings
+  nyra.audio.server = "pulseaudio";
+  nyra.shells = {
+    defaultShell = "zsh";
+    nushell.enable = false;
+  };
+  nyra.desktops = {
+    hyprland.enable = true;
+  };
+
+  # User and System settings
+  nyra.settings = {
+    hostname = "nixos";
+    username = "nyramu";
+    name = "Nyramu";
+    email = "107689027+Nyramu@users.noreply.github.com";
+    dotfiles = "~/.dotfiles";
   };
 }

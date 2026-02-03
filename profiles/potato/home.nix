@@ -2,48 +2,38 @@
 
 {
   imports = [
-    ../base/home.nix
     ./common.nix
+    ../base/home.nix
   ];
 
   # Apps
   nyra.home.apps = {
-    terminals = {
-      default = "kitty";
-      alacritty.enable = true;
-    };
-    editors = {
-      nvf.enable = true;
-    };
-    browsers.default = "zen-beta";
-    media = {
-      vlc.enable = true;
-    };
-    miscellaneous = {
-      btop = {
-        enable = true;
-        gpu-name = "Radeon R8M445DX";
-      };
-      yazi.enable = true;
-      fastfetch.enable = true;
-      packages = with pkgs; [
-        hyprpicker
-        dtrx
-        croc
-        figlet
-        cmatrix
-        wev
-      ];
-    };
-  };
+    defaultTerminal = "kitty";
+    defaultBrowser = "zen-beta";
 
-  # Shells and commands
-  nyra.home.shells = {
-    zsh.enable = true;
-    commands = {
-      pay-respects.enable = true;
-    };
-  };
+    # Productivity
+    nvf.enable = false;
+    helix.enable = true;
+    intellij.enable = true;
 
-  nyra.home.desktops.hyprland.enable = true;
+    # Socials
+    telegram.enable = true;
+
+    # Miscellaneous
+    btop = {
+      enable = true;
+      gpu-name = "Radeon R8 M445DX";
+    };
+    fastfetch.enable = true;
+    yazi.enable = true;
+    ptracer.enable = true;
+
+    # Packages without configuration
+    packages = with pkgs; [
+      hyprpicker
+      croc
+      fontfor
+      wev
+    ];
+  };
 }

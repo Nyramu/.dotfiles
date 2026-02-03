@@ -6,28 +6,21 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ../base/configuration.nix
     ./common.nix
+    ../base/configuration.nix
+    ./hardware-configuration.nix
   ];
 
-  # Apps
-  nyra.system.apps = {
-    miscellaneous = {
-      ptracer.enable = true;
-    };
-  };
-
   # Theming and fonts
-  nyra.system.login.userIcon = "nyramu";
-  nyra.system.login.sddm.theme = "silentSDDM"; # Set SDDM theme
+  nyra.system.sddm.avatar = "nyramu";
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
-  # Choose audio server
-  nyra.system.hardware.audio.server = "pulseaudio";
-
-  # Enable Hyprland
-  nyra.system.desktops.hyprland.enable = true;
+  # AMD management tools and features
+  nyra.system.amd = {
+    enable = true;
+    ryzen-smu.enable = false;
+    ryzenadj.enable = false;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
