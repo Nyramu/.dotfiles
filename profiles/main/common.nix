@@ -14,7 +14,12 @@
     nushell.enable = true;
   };
   nyra.desktops = {
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      monitors = [
+        "eDP-1, 1920x1200@60, auto, 1"
+      ];
+    };
   };
 
   # User and System settings

@@ -8,6 +8,7 @@
 
 let
   theme = import ../../../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
+  cfg = config.nyra.desktops.hyprland;
 in
 {
   imports = [
@@ -29,17 +30,14 @@ in
   };
 
   config.wayland.windowManager.hyprland = {
-    enable = config.nyra.desktops.hyprland.enable;
+    enable = cfg.enable;
     package = pkgs.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     reloadConfig = true;
     recommendedEnvironment = true;
     config = {
-      monitor = [
-        "eDP-1, 1920x1200@60, auto, 1"
-        ", preferred, auto, 1"
-      ];
+      monitor = cfg.monitors or [ ", preferred, auto, 1" ];
 
       render.direct_scanout = true;
 
