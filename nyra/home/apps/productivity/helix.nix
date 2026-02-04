@@ -194,6 +194,9 @@ in
           superhtml.command = "${lib.getExe pkgs.superhtml}";
           markdown-oxide.command = "${lib.getExe pkgs.markdown-oxide}";
           vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
+          vscode-json-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
+          tombi.command = "{lib.getExe pkgs.tombi}"; # TOML
+          yaml-language-server.command = "{lib.getExe pkgs.yaml-language-server}";
           # typescript-language-server = {
           #   command = "${lib.getExe pkgs.typescript-language-server}";
           #   config = {
