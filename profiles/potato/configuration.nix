@@ -28,5 +28,5 @@
     variant = "";
   };
   # Configure console keymap
-  console.keyMap = "it2";
+  console.keyMap = "it";
 }

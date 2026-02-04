@@ -8,7 +8,7 @@
   };
 
   # Common settings
-  nyra.audio.server = "pulseaudio";
+  nyra.audio.server = "pipewire";
   nyra.shells = {
     defaultShell = "zsh";
     nushell.enable = false;
