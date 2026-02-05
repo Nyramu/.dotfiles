@@ -48,6 +48,7 @@ in
         manualSunset = "21:30";
       };
       bar = {
+        barType = "simple";
         position = "top";
         monitors = [ ];
         density = "spacious";
@@ -57,6 +58,8 @@ in
         floating = false;
         marginVertical = 6;
         marginHorizontal = 4;
+        frameThickness = 8;
+        frameRadius = 12;
         outerCorners = true;
         exclusive = true;
         displayMode = "always_visible";
@@ -66,29 +69,33 @@ in
         widgets = {
           left = [
             {
-              deviceNativePath = "";
-              displayMode = "alwaysShow";
+              deviceNativePath = "__default__";
+              displayMode = "icon-always";
               hideIfNotDetected = true;
               hideIfIdle = false;
               id = "Battery";
-              showNoctaliaPerformance = false;
+              showNoctaliaPerformance = true;
               showPowerProfiles = false;
               warningThreshold = 30;
             }
             {
               characterCount = 2;
-              colorizeIcons = false;
+              colorizeIcons = true;
+              focusedColor = "primary";
+              occupiedColor = "secondary";
+              emptyColor = "tertiary";
               enableScrollWheel = true;
               followFocusedScreen = false;
               groupedBorderOpacity = 1;
               hideUnoccupied = false;
               iconScale = 0.8;
+              pillSize = 0.67;
               id = "Workspace";
               labelMode = "index";
+              showBadge = true;
               showApplications = false;
               showLabelsOnlyWhenOccupied = true;
-              unfocusedIconsOpacity = 1;
-              emptyColor = "tertiary";
+              unfocusedIconsOpacity = 0.5;
             }
             {
               id = "plugin:privacy-indicator";
@@ -96,10 +103,13 @@ in
             {
               blacklist = [ ];
               colorizeIcons = false;
-              drawerEnabled = false;
+              drawerEnabled = true;
+              pinned = [
+                "AyuGram Desktop"
+                "steam"
+              ];     
               hidePassive = false;
               id = "Tray";
-              pinned = [ ];
             }
           ];
           center = [
@@ -153,13 +163,12 @@ in
               id = "Bluetooth";
             }
             {
-              customFont = "";
               formatHorizontal = "HH:mm:ss";
               formatVertical = "HH:mm:ss --------- dd/MM/yyyy";
               id = "Clock";
               tooltipFormat = "dddd, dd/MM/yyyy";
               useCustomFont = false;
-              usePrimaryColor = true;
+              clockColor = "primary";
             }
           ];
         };
@@ -234,7 +243,7 @@ in
       };
       general = {
         avatarImage = ../../../resources/nyramu.png;
-        radiusRatio = 0.6;
+        radiusRatio = 0.5;
         iRadiusRatio = 0.6;
         compactLockScreen = true;
         autoStartAuth = true;
@@ -246,6 +255,8 @@ in
         shadowOffsetY = 3;
         animationSpeed = 1.2;
         telemetryEnabled = true;
+        clockStyle = "custom";
+        clockFormat = "HH:mm:ss\\n--------\\ndd/MM/yyyy";
       };
       network = {
         bluetoothRssiPollingEnabled = true;
@@ -275,6 +286,7 @@ in
       };
       sessionMenu = {
         position = "top_center";
+        largeButtonsStyle = false;
         powerOptions = [
           {
             action = "lock";
@@ -314,7 +326,7 @@ in
           }
         ];
       };
-      wallpaper.enabled = false;
+      wallpaper.enabled = true;
       dock.enabled = false;
       hooks.enabled = false;
       desktopWidgets.enabled = false;
