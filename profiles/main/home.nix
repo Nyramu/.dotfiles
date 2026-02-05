@@ -20,6 +20,7 @@
 
     # Gaming
     minecraft.enable = true;
+    heroic.enable = true;
     cemu = {
       enable = true;
       ukmm.enable = true;
