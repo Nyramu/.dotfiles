@@ -16,6 +16,10 @@ in
 
   # Kernel.
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+    "btusb.enable_autosuspend=0"
+    "iwlwifi.bt_coex_active=0"
+  ];
 
   networking.hostName = nyraSettings.hostname;
 
