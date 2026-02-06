@@ -52,6 +52,7 @@ in
         position = "top";
         monitors = [ ];
         density = "spacious";
+        capsuleColorKey = "none";
         showOutline = false;
         showCapsule = false;
         useSeparateOpacity = false;
@@ -102,25 +103,17 @@ in
             }
             {
               blacklist = [ ];
-              colorizeIcons = false;
+              chevronColor = "primary";
+              colorizeIcons = true;
               drawerEnabled = true;
               pinned = [
                 "AyuGram Desktop"
-                "steam"
               ];     
               hidePassive = false;
               id = "Tray";
             }
           ];
           center = [
-            # {
-            #   colorizeDistroLogo = true;
-            #   colorizeSystemIcon = theme.noctalia.colors.control-center-logo or "none";
-            #   customIconPath = "";
-            #   enableColorization = true;
-            #   id = "ControlCenter";
-            #   useDistroLogo = true;
-            # }
             {
               compactMode = true;
               compactShowAlbumArt = true;
@@ -148,19 +141,27 @@ in
               displayMode = "alwaysShow";
               id = "Volume";
               middleClickCommand = "pwvucontrol || pavucontrol";
+              iconColor = "primary";
+              textColor = "secondary";
             }
             {
               displayMode = "alwaysShow";
               id = "Microphone";
               middleClickCommand = "pwvucontrol  pavucontrol";
+              iconColor = "primary";
+              textColor = "secondary";
             }
             {
               displayMode = "alwaysShow";
               id = "Network";
+              iconColor = "primary";
+              textColor = "secondary";
             }
             {
               displayMode = "onhover";
               id = "Bluetooth";
+              iconColor = "primary";
+              textColor = "secondary";
             }
             {
               formatHorizontal = "HH:mm:ss";
@@ -178,9 +179,9 @@ in
         diskPath = "/";
         shortcuts = {
           left = [
+            { id = "plugin:timer"; }
             { id = "Notifications"; }
             { id = "NightLight"; }
-            { id = "NoctaliaPerformance"; }
           ];
           right = [ ];
         };
@@ -326,6 +327,7 @@ in
           }
         ];
       };
+      plugins.autoUpdate = true;
       wallpaper.enabled = true;
       dock.enabled = false;
       hooks.enabled = false;
@@ -350,6 +352,10 @@ in
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         todo = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        timer = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
