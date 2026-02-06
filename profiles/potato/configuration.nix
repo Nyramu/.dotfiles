@@ -11,6 +11,12 @@
     ./hardware-configuration.nix
   ];
 
+  # Local server configuration
+  nyra.system = {
+    mysql.enable = true;
+    httpd.enable = true;
+  };
+
   # Theming and fonts
   nyra.system.sddm.avatar = "nyramu";
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
