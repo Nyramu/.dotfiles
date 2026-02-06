@@ -4,7 +4,7 @@
   # Theming
   nyra.theme = {
     enable = true;
-    defaultTheme = "just-chill"; # just-chill | red-eclipse | apocalypse
+    defaultTheme = "red-eclipse"; # just-chill | red-eclipse | apocalypse
   };
 
   # Common settings
