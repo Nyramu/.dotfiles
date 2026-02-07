@@ -11,6 +11,7 @@ in
 {
   options.nyra.system.bluetooth = {
     enable = lib.mkEnableOption "bluetooth";
+    useDongle = lib.mkEnableOption "use external USB Bluetooth dongle (disables internal Bluetooth)";
   };
 
   config = {
@@ -30,7 +31,16 @@ in
       };
     };
 
+    systemd.services.bluetooth.serviceConfig = lib.mkIf cfg.enable {
+      Nice = -15;
+    };
+
     services.blueman.enable = lib.mkDefault cfg.enable;
+
+    # Must be tested
+    services.udev.extraRules = lib.mkIf (cfg.enable && cfg.useDongle) ''
+      ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="886c", ATTR{authorized}="0"
+    '';
 
     environment.systemPackages =
       with pkgs;
