@@ -22,9 +22,9 @@ in
       group = "users";
 
       virtualHosts."localhost" = {
-        documentRoot = "/home/${nyraSettings.username}/www";
+        documentRoot = "/home/${nyraSettings.username}/localhost";
         extraConfig = ''
-          <Directory "/home/${nyraSettings.username}/www">;
+          <Directory "/home/${nyraSettings.username}/localhost">;
             Options Indexes FollowSymLinks
             AllowOverride All
             Require all granted
