@@ -19,8 +19,17 @@
     extraConfig.pipewire = {
       "10-clock-rate" = {
         "context.properties" = {
-          # Fix for audio popping and crackling while playing through Proton
+          # Fix audio popping/crackling while playing with Proton
           "default.clock.min-quantum" = 512; # Default: 32
+        };
+      };
+      # Fix audio lag
+      "92-bt-config" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 1024;
+          "default.clock.min-quantum" = 512;
+          "default.clock.max-quantum" = 2048;
         };
       };
     };
