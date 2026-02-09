@@ -73,6 +73,7 @@ rec {
   noctalia = {
     colors = {
       mPrimary = palette.base0A;
+      mSecondary = palette.base07;
       mHover = palette.base02;
       mOnHover = palette.base0A;
     };
