@@ -385,6 +385,8 @@ in
     colors = lib.mkIf (config.stylix.enable) {
       mPrimary = lib.mkIf (theme ? noctalia.colors.mPrimary) (lib.mkForce theme.noctalia.colors.mPrimary);
       mSecondary = lib.mkIf (theme ? noctalia.colors.mSecondary) (lib.mkForce theme.noctalia.colors.mSecondary);
+      mTertiary = lib.mkIf (theme ? noctalia.colors.mTertiary) (lib.mkForce theme.noctalia.colors.mTertiary);
+      mOutline = lib.mkIf (theme ? noctalia.colors.mOutline) (lib.mkForce theme.noctalia.colors.mOutline);
       mHover = lib.mkIf (theme ? noctalia.colors.mHover) (lib.mkForce theme.noctalia.colors.mHover);
       mOnHover = lib.mkIf (theme ? noctalia.colors.mOnHover) (lib.mkForce theme.noctalia.colors.mOnHover);
     };

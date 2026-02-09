@@ -86,8 +86,10 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
     colors = {
       mPrimary = palette.base0A; # Or some hex code
       mSecondary = palette.base07; # Same here
-      mHover = palette.base02; # And here
-      mOnHover = palette.base0A; # And also here
+      mTertiary = palette.base03; # And here
+      mOutline = palette.base02; # And here
+      mHover = palette.base02; # Also here
+      mOnHover = palette.base0A; # And even here
       control-center-logo = "primary"; # "primary" | "secondary" | "tertiary" | "error"
     };
   };
