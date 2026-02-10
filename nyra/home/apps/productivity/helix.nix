@@ -191,7 +191,7 @@ in
           #kotlin-language-server.command = "${getExe pkgs.kotlin-language-server}";
           gopls.command = "${lib.getExe pkgs.gopls}";
           intelephense.command = "${lib.getExe pkgs.intelephense}"; # PHP
-          superhtml.command = "${lib.getExe pkgs.superhtml}";
+          # superhtml.command = "${lib.getExe pkgs.superhtml}";
           markdown-oxide.command = "${lib.getExe pkgs.markdown-oxide}";
           vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
           vscode-json-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
