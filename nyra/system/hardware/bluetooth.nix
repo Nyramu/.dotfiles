@@ -31,8 +31,13 @@ in
       };
     };
 
+    boot.kernelParams = lib.mkIf cfg.enable [
+      "btusb.enable_autosuspend=0"
+      "iwlwifi.bt_coex_active=0"
+    ];
+
     systemd.services.bluetooth.serviceConfig = lib.mkIf cfg.enable {
-      Nice = -15;
+      Nice = -17;
     };
 
     services.blueman.enable = lib.mkDefault cfg.enable;
