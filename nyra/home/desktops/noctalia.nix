@@ -246,7 +246,10 @@ in
         avatarImage = ../../../resources/nyramu.png;
         radiusRatio = 0.5;
         iRadiusRatio = 0.6;
-        compactLockScreen = true;
+        lockScreenAnimations = true;
+        compactLockScreen = false;
+        lockScreenTint = 0.25;
+        lockScreenBlur = 0;
         autoStartAuth = true;
         allowPasswordWithFprintd = true;
         lockOnSuspend = false;
@@ -256,8 +259,7 @@ in
         shadowOffsetY = 3;
         animationSpeed = 1.2;
         telemetryEnabled = true;
-        clockStyle = "custom";
-        clockFormat = "HH:mm:ss\\n--------\\ndd/MM/yyyy";
+        clockStyle = "digital";
       };
       network = {
         bluetoothRssiPollingEnabled = true;
@@ -363,6 +365,8 @@ in
     };
     pluginSettings = {
       privacy-indicator = {
+        activeColor = "primary";
+        inactiveColor = "tertiary";
         hideInactive = true;
         iconSpacing = 9;
         removeMargins = false;
