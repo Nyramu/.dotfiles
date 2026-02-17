@@ -9,7 +9,7 @@
   # Apps
   nyra.home.apps = {
     defaultTerminal = "kitty";
-    defaultBrowser = "zen-beta";
+    defaultBrowser = "zen-twilight";
 
     # Productivity
     nvf.enable = false;

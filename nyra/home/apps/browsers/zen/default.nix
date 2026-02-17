@@ -11,7 +11,7 @@ let
 in
 {
   imports = [
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight
     ./policies.nix
     ./extensions.nix
     ./bookmarks.nix
@@ -22,7 +22,7 @@ in
   options.nyra.home.apps = {
     zen-browser.enable = lib.mkOption {
       type = lib.types.bool;
-      default = defaultBrowser == "zen-beta";
+      default = defaultBrowser == "zen-twilight";
       description = "Enable Zen Browser";
     };
   };
