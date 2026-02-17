@@ -23,9 +23,6 @@ in
         fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
         boxBorderEnabled = true;
         tooltipsEnabled = false;
-        wifiDetailsViewMode = "list";
-        bluetoothDetailsViewMode = "list";
-        bluetoothHideUnnamedDevices = true;
       };
       audio = {
         cavaFrameRate = 60;
@@ -214,6 +211,7 @@ in
       };
       notifications = {
         enabled = false;
+        enableMarkdown = true;
         location = "top";
         overlayLayer = true;
         backgroundOpacity = 0.7;
@@ -253,17 +251,24 @@ in
         autoStartAuth = true;
         allowPasswordWithFprintd = true;
         lockOnSuspend = false;
-        showSessionButtonsOnLockScreen = true;
+        showSessionButtonsOnLockScreen = false;
         shadowDirection = "bottom";
         shadowOffsetX = 0;
         shadowOffsetY = 3;
         animationSpeed = 1.2;
         telemetryEnabled = true;
         clockStyle = "digital";
+        clockFormat = "hh:mm";
       };
       network = {
+        wifiEnabled = true;
+        wifiDetailsViewMode = "list";
+        airplaneModeEnabled = false;
+        bluetoothDetailsViewMode = "grid";
         bluetoothRssiPollingEnabled = true;
+        bluetoothRssiPollIntervalMs = 60000;
         bluetoothHideUnnamedDevices = true;
+        disableDiscoverability = false;
       };
       location = {
         analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
@@ -296,24 +301,35 @@ in
             command = "";
             countdownEnabled = true;
             enabled = true;
+            keybind = "1";
           }
           {
             action = "reboot";
             command = "";
             countdownEnabled = true;
             enabled = true;
+            keybind = "2";
           }
           {
             action = "shutdown";
             command = "";
             countdownEnabled = true;
             enabled = true;
+            keybind = "3";
           }
           {
             action = "logout";
             command = "";
             countdownEnabled = true;
             enabled = true;
+            keybind = "4";
+          }
+          {
+            action = "rebootToUefi";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "5";
           }
           {
             action = "suspend";
