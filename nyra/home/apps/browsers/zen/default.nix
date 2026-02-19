@@ -30,6 +30,7 @@ in
   config = {
     programs.zen-browser = {
       enable = config.nyra.home.apps.zen-browser.enable;
+      suppressXdgMigrationWarning = true;
       profiles.${nyraSettings.username} = {
         isDefault = true;
         settings = {
