@@ -33,7 +33,7 @@ in
           "Telegram Desktop"
           "AyuGram Desktop"
         ];
-        preferredPlayer = "MPD";
+        preferredPlayer = "Spotify";
       };
       nightLight = {
         enabled = false;
