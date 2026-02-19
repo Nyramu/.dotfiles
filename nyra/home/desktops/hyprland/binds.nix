@@ -28,6 +28,7 @@ in
               "SUPER, H" = "exec, ${terminal} -e btop";
               "SUPER, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 rmpc"; # RMPC but in a cool window
               "SUPER, SPACE" = "exec, vicinae toggle";
+              "SUPER, C" = "exec, vicinae vicinae://extensions/vicinae/clipboard/history";
 
               # Terminal keybinds
               "SUPER, RETURN" = "exec, ${terminal}";
