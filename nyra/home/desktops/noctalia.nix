@@ -105,6 +105,7 @@ in
               drawerEnabled = true;
               pinned = [
                 "AyuGram Desktop"
+                "spotify-client"
               ];     
               hidePassive = false;
               id = "Tray";
