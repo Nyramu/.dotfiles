@@ -85,5 +85,8 @@ rec {
   };
 
   # Vicinae configuration
-  vicinae.font.normal.normal = fonts.monospace.name;
+  vicinae = {
+    ui.opacity = 0.9;
+    font.normal.normal = fonts.monospace.name;
+  };
 }
