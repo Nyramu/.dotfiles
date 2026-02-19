@@ -15,32 +15,138 @@ in
 
   services.vicinae = {
     enable = cfg.hyprland.enable;
-    systemd = {
-      enable = true;
-      autoStart = true; # default: false
-      environment = {
-        USE_LAYER_SHELL = 1;
-      };
-    };
+    systemd.enable = true;
     settings = {
       close_on_focus_loss = false;
-      consider_preedit = true;
+      consider_preedit = false;
       pop_to_root_on_close = true;
       favicon_service = "twenty";
       search_files_in_root = true;
+      escape_key_behavior = "navigate_back";
+      launcher_window = {
+        opacity = lib.mkIf (theme ? vicinae.ui.opacity) (lib.mkForce theme.vicinae.ui.opacity);
+        layer_shell = {
+          enabled = true;
+          keyboard_interactivity = "on_demand";
+          layer = "top";
+        };
+        size = {
+          width = 900;
+          height = 561;
+        };
+      };
+      client_side_decorations.enabled = true;
       font = {
         normal = {
           size = theme.vicinae.font.normal.size or 10.5;
           normal = lib.mkIf (theme ? vicinae.font.normal.normal) theme.vicinae.font.normal.normal;
         };
       };
-      launcher_window.opacity = lib.mkIf (theme ? vicinae.ui.opacity) (
-        lib.mkForce theme.vicinae.ui.opacity
-      );
+      favorites = [
+        # "clipboard:history"
+        "@mattisssa/spotify-player:yourLibrary"
+        "@leonkohli/vicinae-extension-process-manager-0:processes"
+        "@Costeer/vicinae-extension-color-converter-0:convert-color"
+
+      ];
+      providers = {
+        applications = {
+          entrypoints = {
+            auto-cpufreq-gtk.enabled = false;
+            cups.enabled = false;
+            kvantummanager.enabled = false;
+            nixos-manual.enabled = false;
+            nvim.enabled = false;
+            qt5ct.enabled = false;
+            qt6ct.enabled = false;
+            rmpc.enabled = false;
+            vicinae.enabled = false;
+            xterm.enabled = false;
+            blueman-manager.enabled = false;
+            yazi.enabled = false;
+            btop.enabled = false;
+          };
+        };
+        browser-extension.enabled = false;
+        calculator.entrypoints = {
+          history.enabled = false;
+          refresh-rates.enabled = false;
+        };
+        clipboard = {
+          entrypoints = {
+            history.enabled = false;
+            clear.enabled = false;
+            clear-history.enabled = false;
+          };
+        };
+        core = {
+          entrypoints = {
+            about.enabled = false;
+            documentation.enabled = false;
+            inspect-local-storage.enabled = false;
+            keybind-settings.enabled = false;
+            manage-fallback.enabled = false;
+            oauth-token-store.enabled = false;
+            open-config-file.enabled = false;
+            open-default-config.enabled = false;
+            prune-memory.enabled = false;
+            refresh-apps.enabled = false;
+            reload-scripts.enabled = false;
+            report-bug.enabled = false;
+            search-builtin-icons.enabled = false;
+            search-emojis.enabled = false;
+            sponsor.enabled = false;
+          };
+        };
+        "@leonkohli/vicinae-extension-process-manager-0" = {
+          entrypoints = {
+            kill.enabled = false;
+          };
+        };
+        "@mattisssa/spotify-player" = {
+          entrypoints = {
+            devices.enabled = false;
+            generatePlaylist.enabled = false;
+            next.enabled = false;
+            previous.enabled = false;
+            togglePlayPause.enabled = false;
+            nowPlaying.enabled = false;
+            findLyrics.enabled = false;
+            toggleShuffle.enabled = true;
+          };
+        };
+        "@thomaslombart/todoist" = {
+          entrypoints = {
+            show-labels.enabled = false;
+            show-filters.enabled = false;
+          };
+        };
+        developer.enabled = false;
+        files.enabled = false;
+        font.enabled = false;
+        manage-shortcuts.enabled = false;
+        power.enabled = false;
+        system.enabled = false;
+        theme.enabled = false;
+        wm.enabled = false;
+      };
     };
-    extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
-      aria2-manager
-      nix
-    ];
+    extensions =
+      with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system};
+      with inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system};
+      [
+        color-converter
+        process-manager
+        (mkRayCastExtension {
+          name = "spotify-player";
+          rev = "485fb0acf5701f8e1aec3f632726a4d2ccfb7256";
+          hash = "sha256-VZInT6zhp19/hgpzBVmWAOvkTaM7T0sZSSmpvhOvCkc=";
+        })
+        (mkRayCastExtension {
+          name = "todoist";
+          rev = "8cd2a7562107d2118e417ba028505d9caf3b4ffb";
+          hash = "sha256-9xCBBbE6r8dqK+o4PaYOOnjTcsbt5hCUyZFEWeAqgp8=";
+        })
+      ];
   };
 }
