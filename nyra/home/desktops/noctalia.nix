@@ -7,7 +7,7 @@
 }:
 
 let
-  theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
+  theme = import ../../../resources/themes/${config.nyra.theme.name}.nix { inherit pkgs; };
   nyraSettings = config.nyra.settings;
   cfg = config.nyra.desktops;
 in
