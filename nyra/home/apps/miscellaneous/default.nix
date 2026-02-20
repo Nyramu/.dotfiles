@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   imports = [
@@ -11,4 +11,12 @@
     ./spotiflac.nix
     ./spicetify.nix
   ];
+
+  options.nyra.home.apps = {
+    defaultFileManager = lib.mkOption {
+      type = lib.types.enum [ "yazi" ];
+      default = "yazi";
+      description = "Choose your default file manager";
+    };
+  };
 }

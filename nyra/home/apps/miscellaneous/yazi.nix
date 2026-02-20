@@ -6,11 +6,16 @@
 }:
 let
   shells = config.nyra.shells;
+  defaultFileManager = config.nyra.home.apps.defaultFileManager;
   cfg = config.nyra.home.apps.yazi;
 in
 {
   options.nyra.home.apps.yazi = {
-    enable = lib.mkEnableOption "yazi";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = defaultFileManager == "yazi";
+      description = "yazi";
+    };
   };
 
   config = {

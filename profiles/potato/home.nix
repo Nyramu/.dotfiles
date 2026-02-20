@@ -10,6 +10,7 @@
   nyra.home.apps = {
     defaultTerminal = "kitty";
     defaultBrowser = "zen-twilight";
+    defaultFileManager = "yazi";
 
     # Productivity
     nvf.enable = false;
@@ -25,7 +26,6 @@
       gpu-name = "Radeon R8 M445DX";
     };
     fastfetch.enable = true;
-    yazi.enable = true;
     ptracer.enable = true;
 
     # Packages without configuration

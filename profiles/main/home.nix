@@ -10,6 +10,7 @@
   nyra.home.apps = {
     defaultTerminal = "kitty";
     defaultBrowser = "zen-twilight";
+    defaultFileManager = "yazi";
 
     # Productivity
     nvf.enable = false;
@@ -41,7 +42,6 @@
       gpu-name = "Radeon 780M";
     };
     fastfetch.enable = true;
-    yazi.enable = true;
     ptracer.enable = false;
 
     # Packages without configuration
