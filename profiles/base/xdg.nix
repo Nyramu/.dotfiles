@@ -42,6 +42,11 @@ in
         "application/xml"
       ];
 
+      textEditorFormats = [
+        "application/json"
+        "application/yaml"
+      ] ++ textFormats;
+
       imageFormats = expandMimeGlobExcluding "image/*" gimpFormats;
       videoFormats = expandMimeGlobExcluding "video/*" [ ];
       textFormats = expandMimeGlobExcluding "text/*" [ ];
@@ -61,7 +66,7 @@ in
       (toMimeAttrs gimpFormats gimp)
       (toMimeAttrs videoFormats videoViewer)
       (toMimeAttrs audioFormats videoViewer)
-      (toMimeAttrs textFormats textEditor)
+      (toMimeAttrs textEditorFormats textEditor)
       (toMimeAttrs browserFormats browser)
     ];
 
