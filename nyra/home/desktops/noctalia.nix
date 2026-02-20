@@ -106,7 +106,7 @@ in
               pinned = [
                 "AyuGram Desktop"
                 "spotify-client"
-              ];     
+              ];
               hidePassive = false;
               id = "Tray";
             }
@@ -177,11 +177,21 @@ in
         diskPath = "/";
         shortcuts = {
           left = [
-            { id = "plugin:timer"; }
-            { id = "Notifications"; }
-            { id = "NightLight"; }
+            {
+              id = "AirplaneMode";
+            }
+            {
+              id = "plugin:timer";
+            }
           ];
-          right = [ ];
+          right = [
+            {
+              id = "Notifications";
+            }
+            {
+              id = "NightLight";
+            }
+          ];
         };
         cards = [
           {
@@ -220,7 +230,7 @@ in
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 3;
         criticalUrgencyDuration = 3;
-        enableKeyboardLayoutToast = true;
+        enableKeyboardLayoutToast = false;
         saveToHistory = {
           low = true;
           normal = true;
@@ -405,8 +415,12 @@ in
     };
     colors = lib.mkIf (config.stylix.enable) {
       mPrimary = lib.mkIf (theme ? noctalia.colors.mPrimary) (lib.mkForce theme.noctalia.colors.mPrimary);
-      mSecondary = lib.mkIf (theme ? noctalia.colors.mSecondary) (lib.mkForce theme.noctalia.colors.mSecondary);
-      mTertiary = lib.mkIf (theme ? noctalia.colors.mTertiary) (lib.mkForce theme.noctalia.colors.mTertiary);
+      mSecondary = lib.mkIf (theme ? noctalia.colors.mSecondary) (
+        lib.mkForce theme.noctalia.colors.mSecondary
+      );
+      mTertiary = lib.mkIf (theme ? noctalia.colors.mTertiary) (
+        lib.mkForce theme.noctalia.colors.mTertiary
+      );
       mOutline = lib.mkIf (theme ? noctalia.colors.mOutline) (lib.mkForce theme.noctalia.colors.mOutline);
       mHover = lib.mkIf (theme ? noctalia.colors.mHover) (lib.mkForce theme.noctalia.colors.mHover);
       mOnHover = lib.mkIf (theme ? noctalia.colors.mOnHover) (lib.mkForce theme.noctalia.colors.mOnHover);
