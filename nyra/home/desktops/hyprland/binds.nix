@@ -17,33 +17,42 @@ in
 
         terminal = "${lib.getExe pkgs.${apps.defaultTerminal}}";
         browser = "${apps.defaultBrowser}";
-        fileManager = "${lib.getExe pkgs.yazi}";
+        fileManager = "${apps.defaultFileManager}";
         groups = {
           launchApps = {
             bind = {
               "SUPER, B" = "exec, ${browser}";
-              "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
               "SUPER, S" = "exec, steam %U";
               "SUPER, T" = "exec, AyuGram"; # Telegram
-              "SUPER, H" = "exec, ${terminal} -e btop";
-              "SUPER, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 rmpc"; # RMPC but in a cool window
-              "SUPER, SPACE" = "exec, vicinae toggle";
-              "SUPER, C" = "exec, vicinae vicinae://extensions/vicinae/clipboard/history";
+            };
+          };
 
-              # Terminal keybinds
+          launchTerminalApps = {
+            bind = {
               "SUPER, RETURN" = "exec, ${terminal}";
+              "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
+
               "SUPER_ALT, RETURN" = "exec, ${terminal} --title fastfetch --hold fastfetch"; # Fastfetch but in a cool window
 
-              "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
+              "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
+              "SUPER, H" = "exec, ${terminal} -e btop";
+              "SUPER_SHIFT, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 rmpc"; # RMPC but in a cool window
             };
           };
 
           restartApps = {
             # Noctalia
             bind."SUPER_SHIFT, W" = "exec, systemctl --user restart noctalia-shell.service";
-
             # Vicinae
             bind."SUPER_SHIFT, SPACE" = "exec, vicinae server --replace";
+          };
+
+          vicinae = {
+            bind = {
+              "SUPER, SPACE" = "exec, vicinae toggle";
+              "SUPER, C" = "exec, vicinae vicinae://extensions/vicinae/clipboard/history"; # Clipboard History
+              "SUPER, M" = "exec, vicinae vicinae://extensions/mattisssa/spotify-player/nowPlaying"; # Now Playing on Spotify
+            };
           };
 
           screenCapture = {
@@ -168,6 +177,8 @@ in
         groups.moveToWorkspace
         # Launch apps
         groups.launchApps
+        groups.launchTerminalApps
+        groups.vicinae
         groups.restartApps
         groups.screenCapture
       ];
