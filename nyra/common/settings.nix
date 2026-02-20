@@ -24,7 +24,7 @@
     };
     pfp = lib.mkOption {
       type = lib.types.path;
-      default = ../../resources/nyramu.png;
+      default = ../../resources/pics/nyramu.png;
       description = "set your profile pic";
     };
     dotfiles = lib.mkOption {
