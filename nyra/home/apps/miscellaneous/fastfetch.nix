@@ -18,7 +18,7 @@ in
       settings = {
         logo = {
           type = "auto";
-          source = ../../../../resources/${cfg.logo}.png;
+          source = ../../../../resources/pics/${cfg.logo}.png;
         };
         modules = [
           "break"
