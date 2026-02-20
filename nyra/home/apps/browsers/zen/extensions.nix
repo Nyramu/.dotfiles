@@ -9,8 +9,10 @@ let
   # Fix for unfree packages not being installed despite being allowed
   firefox-addons = pkgs.callPackage inputs.firefox-addons {
     inherit (pkgs) fetchurl stdenv lib;
+    buildMozillaXpiAddon =
+      (import "${inputs.firefox-addons}/../../lib/mozilla.nix" { lib = pkgs.lib; }).mkBuildMozillaXpiAddon
+        { inherit (pkgs) fetchurl stdenv; };
   };
-
   nyraSettings = config.nyra.settings;
 in
 {
