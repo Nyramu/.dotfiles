@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 {
   options.nyra.theme = rec {
@@ -17,5 +17,9 @@
       default = ../../resources/themes/${name}.nix;
       description = "Path to theme";
     };
+  };
+
+  config.nyra.theme = {
+    path = lib.mkDefault ../../resources/themes/${config.nyra.theme.name}.nix;
   };
 }
