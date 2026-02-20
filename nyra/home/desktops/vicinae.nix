@@ -34,8 +34,8 @@ in
           width = 900;
           height = 561;
         };
+        client_side_decorations.enabled = true;
       };
-      client_side_decorations.enabled = true;
       font = {
         normal = {
           size = theme.vicinae.font.normal.size or 10.5;
@@ -47,8 +47,13 @@ in
         "@mattisssa/spotify-player:yourLibrary"
         "@leonkohli/vicinae-extension-process-manager-0:processes"
         "@Costeer/vicinae-extension-color-converter-0:convert-color"
-
       ];
+      keybinds = {
+        "toggle-action-panel" = "control+return";
+        "action.duplicate" = "control+t";
+        "action.dangerous-remove" = "control+shift+d";
+        "action.remove" = "control+d";
+      };
       providers = {
         applications = {
           entrypoints = {
@@ -67,14 +72,16 @@ in
             btop.enabled = false;
           };
         };
-        browser-extension.enabled = false;
         calculator.entrypoints = {
           history.enabled = false;
           refresh-rates.enabled = false;
         };
         clipboard = {
           entrypoints = {
-            history.enabled = false;
+            history = {
+              enabled = false;
+              alias = ":";
+            };
             clear.enabled = false;
             clear-history.enabled = false;
           };
@@ -99,35 +106,66 @@ in
           };
         };
         "@leonkohli/vicinae-extension-process-manager-0" = {
+          preferences = {
+            clear-search-after-kill = true;
+            process-limit = 100;
+            refresh-interval = 1000;
+            show-path = true;
+            show-system-processes = false;
+            sort-by-memory = true;
+          };
           entrypoints = {
             kill.enabled = false;
           };
         };
         "@mattisssa/spotify-player" = {
           entrypoints = {
+            search = {
+              preferences = {
+                musicOnly = true;
+                topView = "tracks";
+              };
+            };
+            yourLibrary = {
+              preferences = {
+                Default-View = "playlists";
+              };
+            };
             devices.enabled = false;
             generatePlaylist.enabled = false;
             next.enabled = false;
             previous.enabled = false;
             togglePlayPause.enabled = false;
-            nowPlaying.enabled = false;
+            nowPlaying.enabled = true;
             findLyrics.enabled = false;
             toggleShuffle.enabled = true;
           };
         };
-        "@thomaslombart/todoist" = {
+        files = {
+          enabled = false;
+          # preferences = {
+          #   autoIndexing = false;
+          # };
+        };
+        system = {
           entrypoints = {
-            show-labels.enabled = false;
-            show-filters.enabled = false;
+            browse-apps.enabled = false;
+            run = {
+              enabled = false;
+              alias = ">";
+              preferences = {
+                default-action = "run-in-terminal-hold";
+              };
+            };
           };
         };
-        developer.enabled = false;
-        files.enabled = false;
         font.enabled = false;
         manage-shortcuts.enabled = false;
         power.enabled = false;
-        system.enabled = false;
+        developer.enabled = false;
         theme.enabled = false;
+        browser-extension.enabled = false;
+        raycast-compat.enabled = false;
         wm.enabled = false;
       };
     };
@@ -141,11 +179,6 @@ in
           name = "spotify-player";
           rev = "485fb0acf5701f8e1aec3f632726a4d2ccfb7256";
           hash = "sha256-VZInT6zhp19/hgpzBVmWAOvkTaM7T0sZSSmpvhOvCkc=";
-        })
-        (mkRayCastExtension {
-          name = "todoist";
-          rev = "8cd2a7562107d2118e417ba028505d9caf3b4ffb";
-          hash = "sha256-9xCBBbE6r8dqK+o4PaYOOnjTcsbt5hCUyZFEWeAqgp8=";
         })
       ];
   };
