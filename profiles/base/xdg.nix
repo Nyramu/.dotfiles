@@ -36,6 +36,7 @@ in
         "image/x-psd"
         "image/x-xcfgz"
       ];
+ 
       browserFormats = [
         "application/xhtml+xml"
         "application/pdf"
