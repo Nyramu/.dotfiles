@@ -19,14 +19,6 @@ in
 
   options.nyra.system.sddm = {
     enable = lib.mkEnableOption "SDDM with silentSDDM theme";
-    avatar = lib.mkOption {
-      type = lib.types.enum [
-        "burrito-ascii"
-        "nyramu"
-      ];
-      default = "nyramu";
-      description = "Icon file for the user";
-    };
   };
 
   config = {
@@ -40,7 +32,7 @@ in
     programs.silentSDDM = rec {
       enable = cfg.enable;
       backgrounds.stylix = lib.optionals (stylix.enable) stylix.image;
-      profileIcons.${nyraSettings.username} = ../../../resources/${cfg.avatar}.png;
+      profileIcons.${nyraSettings.username} = nyraSettings.pfp;
       settings = lib.mkIf (stylix.enable) {
         "General" = {
           enable-animations = true;

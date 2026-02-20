@@ -8,6 +8,7 @@
 
 let
   theme = import ../../../resources/themes/${config.nyra.theme.defaultTheme}.nix { inherit pkgs; };
+  nyraSettings = config.nyra.settings;
   cfg = config.nyra.desktops;
 in
 {
@@ -252,7 +253,7 @@ in
         monitors = [ ];
       };
       general = {
-        avatarImage = ../../../resources/nyramu.png;
+        avatarImage = nyraSettings.pfp;
         radiusRatio = 0.5;
         iRadiusRatio = 0.6;
         lockScreenAnimations = true;

@@ -18,7 +18,6 @@
   };
 
   # Theming and fonts
-  nyra.system.sddm.avatar = "nyramu";
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
   # AMD management tools and features

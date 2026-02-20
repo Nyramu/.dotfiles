@@ -15,7 +15,6 @@
   nyra.system.bluetooth.onlyUseDongle = true;
 
   # Theming and fonts
-  nyra.system.sddm.avatar = "nyramu";
   nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
   # Apps

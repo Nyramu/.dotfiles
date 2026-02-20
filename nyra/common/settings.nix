@@ -22,6 +22,11 @@
       default = "107689027+Nyramu@users.noreply.github.com";
       description = "set your email";
     };
+    pfp = lib.mkOption {
+      type = lib.types.path;
+      default = ../../resources/nyramu.png;
+      description = "set your profile pic";
+    };
     dotfiles = lib.mkOption {
       type = lib.types.str;
       default = "~/.dotfiles";
