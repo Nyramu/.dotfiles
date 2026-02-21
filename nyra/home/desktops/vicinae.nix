@@ -54,6 +54,7 @@ in
         "action.dangerous-remove" = "control+shift+d";
         "action.remove" = "control+d";
       };
+      fallbacks = [];
       providers = {
         applications = {
           entrypoints = {
