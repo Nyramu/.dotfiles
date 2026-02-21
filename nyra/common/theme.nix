@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 {
-  options.nyra.theme = rec {
+  options.nyra.theme = {
     enable = lib.mkEnableOption "Enable theming";
     name = lib.mkOption {
       type = lib.types.enum [
@@ -14,12 +14,12 @@
     };
     path = lib.mkOption {
       type = lib.types.path;
-      default = ../../resources/themes/${name}.nix;
       description = "Path to theme";
     };
   };
 
   config.nyra.theme = {
+    # You don't want to touch this
     path = lib.mkDefault ../../resources/themes/${config.nyra.theme.name}.nix;
   };
 }
