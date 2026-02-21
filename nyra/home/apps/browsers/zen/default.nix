@@ -52,7 +52,7 @@ in
           # Compact mode
           "zen.view.compact.enable-at-startup" = false;
           "zen.view.compact.hide-tabbar" = false;
-          "zen.view.compact.hide-toolbar" = false;
+          "zen.view.compact.hide-toolbar" = true;
           "zen.view.compat.show-sidebar-and-toolbar-on-hover" = false;
           "zen.view.compact.toolbar-flash-popup" = false;
 
