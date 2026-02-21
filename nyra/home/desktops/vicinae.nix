@@ -7,7 +7,7 @@
 }:
 
 let
-  theme = import ../../../resources/themes/${config.nyra.theme.name}.nix { inherit pkgs; };
+  theme = import config.nyra.theme.path { inherit pkgs; };
   cfg = config.nyra.desktops;
 in
 {
@@ -54,7 +54,7 @@ in
         "action.dangerous-remove" = "control+shift+d";
         "action.remove" = "control+d";
       };
-      fallbacks = [];
+      fallbacks = [ ];
       providers = {
         applications = {
           entrypoints = {

@@ -7,7 +7,7 @@
 }:
 
 let
-  theme = import ../../../resources/themes/${config.nyra.theme.name}.nix { inherit pkgs; };
+  theme = import config.nyra.theme.path  { inherit pkgs; };
   nyraSettings = config.nyra.settings;
   cfg = config.nyra.desktops;
 in
@@ -285,7 +285,7 @@ in
       location = {
         analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
         showWeekNumberInCalendar = true;
-        weatherShowEffects = false;
+        weatherShowEffects = true;
         firstDayOfWeek = 1;
       };
       calendar = {

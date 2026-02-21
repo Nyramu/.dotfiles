@@ -7,7 +7,7 @@
 }:
 
 let
-  theme = import ../../resources/themes/${config.nyra.theme.name}.nix { inherit pkgs; };
+  theme = import config.nyra.theme.path  { inherit pkgs; };
 in
 {
   imports = [
