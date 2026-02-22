@@ -74,6 +74,11 @@ rec {
 
   # Noctalia configuration
   noctalia = {
+    workspace = {
+      focusedColor = "primary";
+      occupiedColor = "tertiary";
+      emptyColor = "tertiary";
+    };
     ui = {
       fontDefaultScale = 1.25;
       fontFixedScale = 1.25;
