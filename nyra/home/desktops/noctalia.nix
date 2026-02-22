@@ -80,9 +80,9 @@ in
             {
               characterCount = 2;
               colorizeIcons = true;
-              focusedColor = "primary";
-              occupiedColor = "secondary";
-              emptyColor = "tertiary";
+              focusedColor = theme.noctalia.workspace.focusedColor or "primary";
+              occupiedColor = theme.noctalia.workspace.occupiedColor or "secondary";
+              emptyColor = theme.noctalia.workspace.emptyColor or "tertiary";
               enableScrollWheel = true;
               followFocusedScreen = false;
               groupedBorderOpacity = 1;
@@ -168,7 +168,7 @@ in
               id = "Clock";
               tooltipFormat = "dddd, dd/MM/yyyy";
               useCustomFont = false;
-              clockColor = "primary";
+              clockColor = theme.noctalia.clock.color or "primary";
             }
           ];
         };
