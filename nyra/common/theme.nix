@@ -8,9 +8,10 @@
         "just-chill"
         "red-eclipse"
         "apocalypse"
+        "greenpath"
       ];
       default = "just-chill";
-      description = "Choose a theme: just-chill, red-eclipse, apocalypse";
+      description = "Choose a theme from resources/themes folder";
     };
     path = lib.mkOption {
       type = lib.types.path;
