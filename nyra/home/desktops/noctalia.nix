@@ -54,6 +54,7 @@ in
         showOutline = false;
         showCapsule = false;
         useSeparateOpacity = false;
+        widgetSpacing = 0;
         floating = false;
         marginVertical = 6;
         marginHorizontal = 4;
