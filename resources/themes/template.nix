@@ -110,7 +110,7 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
     font = {
       normal = {
         size = 10.5; # It's generally better between 10.5 and 12
-        normal = fonts.monospace.name; # monospace | sansSerif | serif
+        family = fonts.monospace.name; # monospace | sansSerif | serif
       };
     };
   };

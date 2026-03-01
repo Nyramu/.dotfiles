@@ -39,7 +39,7 @@ in
       font = {
         normal = {
           size = theme.vicinae.font.normal.size or 10.5;
-          normal = lib.mkIf (theme ? vicinae.font.normal.normal) theme.vicinae.font.normal.normal;
+          family = theme.vicinae.font.normal.family or "${config.stylix.fonts.serif.name}";
         };
       };
       favorites = [

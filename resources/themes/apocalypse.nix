@@ -97,7 +97,7 @@ rec {
   # Vicinae configuration
   vicinae = {
     ui.opacity = 0.83;
-    font.normal.size = 13.0;
+    font.normal.size = 13.5;
   };
 
   # SilentSDDM configuration
