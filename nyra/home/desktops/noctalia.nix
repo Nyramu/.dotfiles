@@ -7,7 +7,7 @@
 }:
 
 let
-  theme = import config.nyra.theme.path  { inherit pkgs; };
+  theme = import config.nyra.theme.path { inherit pkgs; };
   nyraSettings = config.nyra.settings;
   cfg = config.nyra.desktops;
 in
@@ -66,6 +66,7 @@ in
         autoHideDelay = 100;
         autoShowDelay = 150;
         hideOnOverview = false;
+        showOnWorkspaceSwitch = false;
         widgets = {
           left = [
             {
@@ -258,6 +259,7 @@ in
         radiusRatio = 0.5;
         iRadiusRatio = 0.6;
         lockScreenAnimations = true;
+        enableLockScreenMediaControls = true;
         compactLockScreen = false;
         lockScreenTint = 0.25;
         lockScreenBlur = 0;
@@ -265,6 +267,7 @@ in
         allowPasswordWithFprintd = true;
         lockOnSuspend = false;
         showSessionButtonsOnLockScreen = false;
+        showChangelogOnStartup = true;
         shadowDirection = "bottom";
         shadowOffsetX = 0;
         shadowOffsetY = 3;
@@ -282,6 +285,14 @@ in
         bluetoothRssiPollIntervalMs = 60000;
         bluetoothHideUnnamedDevices = true;
         disableDiscoverability = false;
+      };
+      idle = {
+        enabled = true;
+        screenOffTimeout = 300;
+        lockTimeout = 0;
+        suspendTimeout = 0;
+        fadeDuration = 5;
+        customCommands = [ ];
       };
       location = {
         analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
