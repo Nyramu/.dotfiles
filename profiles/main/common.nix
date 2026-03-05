@@ -4,7 +4,7 @@
   # Theming
   nyra.theme = {
     enable = true;
-    name = "apocalypse";
+    name = "just-chill";
   };
 
   # Common settings
