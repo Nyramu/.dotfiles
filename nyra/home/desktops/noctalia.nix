@@ -22,6 +22,9 @@ in
       ui = {
         fontDefaultScale = theme.noctalia.ui.fontDefaultScale or 1;
         fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
+        panelsAttachedToBar = true;
+        settingsPanelMode = "attached";
+        settingsPanelSideBarCardStyle = false;
         boxBorderEnabled = true;
         tooltipsEnabled = false;
       };
@@ -54,6 +57,7 @@ in
         showOutline = false;
         showCapsule = false;
         useSeparateOpacity = false;
+        contentPadding = 2;
         widgetSpacing = 0;
         floating = false;
         marginVertical = 6;
@@ -86,8 +90,9 @@ in
               occupiedColor = theme.noctalia.workspace.occupiedColor or "secondary";
               emptyColor = theme.noctalia.workspace.emptyColor or "tertiary";
               enableScrollWheel = true;
-              followFocusedScreen = false;
+              followFocusedScreen = true;
               groupedBorderOpacity = 1;
+              fontWeight = theme.noctalia.workspace.fontWeight or "medium";
               hideUnoccupied = false;
               iconScale = 0.8;
               pillSize = 0.67;
@@ -135,9 +140,9 @@ in
             }
           ];
           right = [
-            # {
-            #   id = "plugin:todo";
-            # }
+            {
+              id = "plugin:todo";
+            }
             {
               displayMode = "alwaysShow";
               id = "Volume";
@@ -174,6 +179,15 @@ in
             }
           ];
         };
+        mouseWheelAction = "workspace";
+        reverseScroll = false;
+        mouseWheelWrap = true;
+        middleClickAction = "settings";
+        middleClickFollowMouse = true;
+        middleClickCommand = "";
+        rightClickAction = "controlCenter";
+        rightClickFollowMouse = true;
+        rightClickCommand = "";
       };
       controlCenter = {
         position = "close_to_bar_button";
@@ -258,6 +272,8 @@ in
         avatarImage = nyraSettings.pfp;
         radiusRatio = 0.5;
         iRadiusRatio = 0.6;
+        enableShadows = true;
+        enableBlurBehind = true;
         lockScreenAnimations = true;
         enableLockScreenMediaControls = true;
         compactLockScreen = false;
@@ -287,7 +303,7 @@ in
         disableDiscoverability = false;
       };
       idle = {
-        enabled = true;
+        enabled = false;
         screenOffTimeout = 300;
         lockTimeout = 0;
         suspendTimeout = 0;
@@ -318,6 +334,8 @@ in
       };
       sessionMenu = {
         position = "top_center";
+        showHeader = true;
+        showKeybinds = true;
         largeButtonsStyle = false;
         powerOptions = [
           {
@@ -394,7 +412,7 @@ in
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         todo = {
-          enabled = true;
+          enabled = false;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         timer = {
