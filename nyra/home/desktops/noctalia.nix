@@ -140,9 +140,9 @@ in
             }
           ];
           right = [
-            {
-              id = "plugin:todo";
-            }
+            # {
+            #   id = "plugin:todo";
+            # }
             {
               displayMode = "alwaysShow";
               id = "Volume";
