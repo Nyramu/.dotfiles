@@ -31,7 +31,7 @@ in
 
   config.wayland.windowManager.hyprland = {
     enable = cfg.enable;
-    package = pkgs.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     reloadConfig = true;
