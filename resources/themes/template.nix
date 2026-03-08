@@ -85,6 +85,7 @@ rec # Needed to "cross-link" variables (does how I wrote it even make sense? ugh
       focusedColor = "primary"; # primary | secondary | tertiary
       occupiedColor = "secondary"; # same here
       emptyColor = "tertiary"; # and here
+      fontWeight = "medium"; # regular | medium | semi-bold | bold
     };
     ui = {
       fontDefaultScale = 1; # Must be between 0.75 and 1.25
