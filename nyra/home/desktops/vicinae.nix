@@ -120,6 +120,7 @@ in
           };
         };
         "@mattisssa/spotify-player" = {
+          enabled = false;
           entrypoints = {
             search = {
               preferences = {
@@ -149,6 +150,7 @@ in
           # };
         };
         system = {
+          enabled = false;
           entrypoints = {
             browse-apps.enabled = false;
             run = {
@@ -167,6 +169,8 @@ in
         theme.enabled = false;
         browser-extension.enabled = false;
         raycast-compat.enabled = false;
+        shortcuts.enabled = false;
+        scripts.enabled = false;
         wm.enabled = false;
       };
     };
