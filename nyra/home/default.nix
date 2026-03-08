@@ -24,6 +24,7 @@ in
       kitty.enable = mkForce true;
       qutebrowser.enable = mkForce true;
       zen-browser.profileNames = [ "${nyraSettings.username}" ];
+      # vicinae.enable = false;
     };
   };
 }
