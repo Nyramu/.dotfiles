@@ -79,7 +79,6 @@ in
             # Window toggles
             bind = {
               "SUPER, P" = "pseudo";
-              "SUPER, J" = "togglesplit";
               "SUPER, V" = "togglefloating";
             };
 
