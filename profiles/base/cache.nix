@@ -1,24 +1,27 @@
 { ... }:
 
 {
-  nix.settings.extra-substituters = [
-    # Vicinae
-    "https://vicinae.cachix.org"
-    # Hyprland
-    "https://hyprland.cachix.org"
-    # Eden Emulator
-    "https://eden-flake.cachix.org"
-    # Ayugram (Telegram)
-    "https://cache.garnix.io"
-  ];
-  nix.settings.extra-trusted-public-keys = [
-    # Vicinae
-    "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
-    # Hyprland
-    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    # Eden Emulator
-    "eden-flake.cachix.org-1:9orwA5vFfBgb67pnnpsxBqILQlb2UI2grWt4zHHAxs8="
-    # Ayugram (Telegram)
-    "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-  ];
+  nix.settings = rec {
+    substituters = [
+      # Vicinae
+      "https://vicinae.cachix.org"
+      # Hyprland
+      "https://hyprland.cachix.org"
+      # Eden Emulator
+      "https://eden-flake.cachix.org"
+      # Ayugram (Telegram)
+      "https://cache.garnix.io"
+    ];
+    trusted-substituters = substituters;
+    trusted-public-keys = [
+      # Vicinae
+      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+      # Hyprland
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      # Eden Emulator
+      "eden-flake.cachix.org-1:9orwA5vFfBgb67pnnpsxBqILQlb2UI2grWt4zHHAxs8="
+      # Ayugram (Telegram)
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    ];
+  };
 }
