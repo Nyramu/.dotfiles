@@ -27,6 +27,7 @@ in
         settingsPanelSideBarCardStyle = false;
         boxBorderEnabled = true;
         tooltipsEnabled = false;
+        translucentWidgets = true;
       };
       audio = {
         cavaFrameRate = 60;
@@ -91,15 +92,16 @@ in
               emptyColor = theme.noctalia.workspace.emptyColor or "tertiary";
               enableScrollWheel = true;
               followFocusedScreen = true;
-              groupedBorderOpacity = 1;
+              groupedBorderOpacity = 0;
               fontWeight = theme.noctalia.workspace.fontWeight or "medium";
-              hideUnoccupied = false;
-              iconScale = 0.8;
+              hideUnoccupied = true;
+              iconScale = 0.75;
               pillSize = 0.67;
               id = "Workspace";
               labelMode = "index";
               showBadge = true;
-              showApplications = false;
+              showApplications = true;
+              showApplicationsHover = true;
               showLabelsOnlyWhenOccupied = true;
               unfocusedIconsOpacity = 0.5;
             }
@@ -112,6 +114,7 @@ in
               colorizeIcons = true;
               drawerEnabled = true;
               pinned = [
+                "steam"
                 "AyuGram Desktop"
                 "spotify-client"
               ];
