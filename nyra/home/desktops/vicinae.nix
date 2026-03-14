@@ -43,8 +43,8 @@ in
         };
       };
       favorites = [
-        # "clipboard:history"
-        "@mattisssa/spotify-player:yourLibrary"
+        # "@mattisssa/spotify-player:yourLibrary"
+        "@sovereign/vicinae-extension-hypr-keybinds-0:hyprland-keybinds"
         "@leonkohli/vicinae-extension-process-manager-0:processes"
         "@Costeer/vicinae-extension-color-converter-0:convert-color"
       ];
@@ -178,6 +178,7 @@ in
       with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system};
       with inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system};
       [
+        hypr-keybinds
         color-converter
         process-manager
         (mkRayCastExtension {
