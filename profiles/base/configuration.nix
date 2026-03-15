@@ -143,8 +143,21 @@ in
   # Storage optimization
   nix.settings.auto-optimise-store = true;
 
+  # The maximum number of parallel TCP connections used to fetch files from binary caches and by other downloads.
+  # It defaults to 25. 0 means no limit.
+  nix.settings.http-connections = 64;
+
+  # This option defines the maximum number of substitution jobs that Nix will try to run in
+  # parallel. The default is 16. The minimum value one can choose is 1 and lower values will be
+  # interpreted as 1.
+  nix.settings.max-substitution-jobs = 64;
+  nix.settings.max-jobs = "auto";
+
   # Allow unfree packages and experimental features
   nixpkgs.config.allowUnfree = true;
+
+  # Whether to warn about dirty Git/Mercurial trees.
+  nix.settings.warn-dirty = false;
 
   system.stateVersion = "26.05";
 
