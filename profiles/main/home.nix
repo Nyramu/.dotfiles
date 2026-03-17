@@ -21,7 +21,7 @@
 
     # Gaming
     minecraft.enable = true;
-    heroic.enable = false;
+    heroic.enable = false; # TODO: enable again when it's fixed
     cemu = {
       enable = true;
       ukmm.enable = true;
