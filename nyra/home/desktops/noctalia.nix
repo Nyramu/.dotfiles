@@ -23,6 +23,7 @@ in
         fontDefaultScale = theme.noctalia.ui.fontDefaultScale or 1;
         fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
         panelsAttachedToBar = true;
+        scrollbarAlwaysVisible = true;
         settingsPanelMode = "attached";
         settingsPanelSideBarCardStyle = false;
         boxBorderEnabled = true;
@@ -291,6 +292,7 @@ in
         shadowOffsetX = 0;
         shadowOffsetY = 3;
         animationSpeed = 1.2;
+        animationDisabled = false;
         telemetryEnabled = true;
         clockStyle = "digital";
         clockFormat = "hh:mm";
@@ -315,6 +317,8 @@ in
       };
       location = {
         analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
+        weatherEnabled = true;
+        showCalendarWeather = true;
         showWeekNumberInCalendar = true;
         weatherShowEffects = true;
         firstDayOfWeek = 1;
@@ -390,7 +394,14 @@ in
           }
         ];
       };
-      plugins.autoUpdate = true;
+      noctaliaPerformance = {
+        disableWallpaper = true;
+        disableDesktopWidgets = true;
+      };
+      plugins = {
+        autoUpdate = true;
+        notifyUpdates = false;
+      };
       wallpaper.enabled = true;
       dock.enabled = false;
       hooks.enabled = false;
