@@ -7,7 +7,7 @@
 }:
 
 let
-  theme = import config.nyra.theme.path  { inherit pkgs; };
+  theme = import config.nyra.theme.path { inherit pkgs; };
   cfg = config.nyra.desktops.hyprland;
 in
 {
@@ -31,7 +31,7 @@ in
 
   config.wayland.windowManager.hyprland = {
     enable = cfg.enable;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = pkgs.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     reloadConfig = true;
