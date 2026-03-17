@@ -73,7 +73,7 @@ in
           "zen.view.use-single-toolbar" = true;
           "zen.view.window.scheme" = 0;
           "zen.welcome-screen.seen" = true;
-          "zen.widget.linux.transparency" = true;
+          "zen.widget.linux.transparency" = false;
         };
         containersForce = true;
         containers = {
