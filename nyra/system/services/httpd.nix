@@ -20,6 +20,7 @@ in
       adminAddr = "admin@localhost";
       user = "${nyraSettings.username}";
       group = "users";
+      extraModules = [ "rewrite" ];
 
       virtualHosts."localhost" = {
         documentRoot = "/home/${nyraSettings.username}/localhost";
@@ -29,6 +30,7 @@ in
             AllowOverride All
             Require all granted
           </Directory>
+          DirectoryIndex index.php index.html
         '';
       };
     };
