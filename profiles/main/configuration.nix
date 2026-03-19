@@ -25,6 +25,10 @@
     lossless-scaling.enable = true;
   };
 
+  # MySQL
+  nyra.system.mysql.enable = true;
+  nyra.system.httpd.enable = true;
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
