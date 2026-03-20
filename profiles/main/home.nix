@@ -34,6 +34,7 @@
     discord.enable = true;
 
     # Miscellaneous
+    ghostty.enable = true;
     spicetify.enable = true;
     rmpc.enable = true;
     spotiflac.enable = true;
