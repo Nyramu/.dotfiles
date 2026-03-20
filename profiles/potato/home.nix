@@ -15,7 +15,7 @@
     # Productivity
     nvf.enable = false;
     helix.enable = true;
-    intellij.enable = true;
+    intellij.enable = false;
 
     # Socials
     telegram.enable = true;
