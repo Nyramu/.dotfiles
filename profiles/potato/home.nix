@@ -26,7 +26,7 @@
       gpu-name = "Radeon R8 M445DX";
     };
     fastfetch.enable = true;
-    ptracer.enable = true;
+    ptracer.enable = false;
 
     # Packages without configuration
     packages = with pkgs; [
