@@ -43,7 +43,7 @@ in
         };
       };
       favorites = [
-        # "@mattisssa/spotify-player:yourLibrary"
+        "@mattisssa/spotify-player:yourLibrary"
         "@sovereign/vicinae-extension-hypr-keybinds-0:hyprland-keybinds"
         "@leonkohli/vicinae-extension-process-manager-0:processes"
         "@Costeer/vicinae-extension-color-converter-0:convert-color"
@@ -181,11 +181,12 @@ in
         hypr-keybinds
         color-converter
         process-manager
-        (mkRayCastExtension {
-          name = "spotify-player";
-          rev = "485fb0acf5701f8e1aec3f632726a4d2ccfb7256";
-          hash = "sha256-VZInT6zhp19/hgpzBVmWAOvkTaM7T0sZSSmpvhOvCkc=";
-        })
+        nerdfont-search
+        # (mkRayCastExtension {
+        #   name = "spotify-player";
+        #   rev = "6a460e74c44e389ff5a12534a0f64ed82c92bd31";
+        #   hash = "sha256-iyJctGxLx5Tso2JRJxHpYUJlRnKVLBty7gV8kO5WSbk=";
+        # })
       ];
   };
 }
