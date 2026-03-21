@@ -179,11 +179,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1773979456,
-        "narHash": "sha256-9kBMJ5IvxqNlkkj/swmE8uK1Sc7TL/LIRUI958m7uBM=",
+        "lastModified": 1774065775,
+        "narHash": "sha256-anJXbdfZMhXWjHSfB5v6e8+yv1ASTHM4TwikH8tloMI=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "81e28f47ac18d9e89513929c77e711e657b64851",
+        "rev": "4b3bbb9dc3c80d1b62228c9a2ca0bef74a24a192",
         "type": "gitlab"
       },
       "original": {
@@ -1025,11 +1025,11 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1774048159,
-        "narHash": "sha256-FA+uYaGUygEk+xWquJThl69J7+vgKvN+oLoMf1wHHPs=",
+        "lastModified": 1774097158,
+        "narHash": "sha256-FSh7z+ms3CW58S0HqR3gkGe8cY3H0y8+c9rvxwHUpR8=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "56f3dbec827951db92da73ecb3565689edf47e64",
+        "rev": "5eaefd8bfdcc7bfa7695002e91815405442f4323",
         "type": "github"
       },
       "original": {
