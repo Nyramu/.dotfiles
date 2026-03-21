@@ -36,7 +36,7 @@ in
 
               "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
               "SUPER, H" = "exec, ${terminal} -e btop";
-              "SUPER_SHIFT, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 rmpc"; # RMPC but in a cool window
+              "SUPER, M" = "exec, ${terminal} --title rmpc -e -o background_opacity=0.9 rmpc"; # RMPC but in a cool window
             };
           };
 
@@ -51,7 +51,7 @@ in
             bind = {
               "SUPER, SPACE" = "exec, vicinae toggle";
               "SUPER, C" = "exec, vicinae vicinae://extensions/vicinae/clipboard/history"; # Clipboard History
-              "SUPER, M" = "exec, vicinae vicinae://extensions/mattisssa/spotify-player/nowPlaying"; # Now Playing on Spotify
+              # "SUPER, M" = "exec, vicinae vicinae://extensions/mattisssa/spotify-player/nowPlaying"; # Now Playing on Spotify
             };
           };
 
