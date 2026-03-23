@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "neospleen-nerd-font";
-  version = "1.0.62";
+  version = "1.1.63";
 
   src = builtins.fetchurl {
     url = "https://github.com/mbwilding/NeoSpleen/releases/download/${version}/NeoSpleen-Regular.ttf";
