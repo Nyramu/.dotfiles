@@ -17,11 +17,10 @@ in
     ./groups.nix
     ./animations.nix
     ./windowrules.nix
-    # ./plugins.nix
+    ./plugins.nix
   ];
 
   # Fix for Hyprnix
-  config.services.hyprpaper.enable = lib.mkForce false;
   options.wayland.windowManager.hyprland.settings = {
     decoration = lib.mkOption { default = { }; };
     general = lib.mkOption { default = { }; };
@@ -116,9 +115,6 @@ in
         force_default_wallpaper = 0;
         animate_mouse_windowdragging = false; # Just lags for some reason
       };
-
-      # Set wallpaper
-      exec = [ "nice -n -20 ${lib.getExe pkgs.swaybg} -m fill -i ${config.stylix.image}" ];
 
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
