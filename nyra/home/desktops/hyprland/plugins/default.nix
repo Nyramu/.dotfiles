@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  imports = [
+    ./dynamic-cursors.nix
+  ];
+}

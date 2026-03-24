@@ -17,7 +17,7 @@ in
     ./groups.nix
     ./animations.nix
     ./windowrules.nix
-    ./plugins.nix
+    ./plugins
   ];
 
   # Fix for Hyprnix

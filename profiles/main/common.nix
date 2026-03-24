@@ -19,6 +19,9 @@
       monitors = [
         "eDP-1, 1920x1200@60, auto, 1"
       ];
+      dynamic-cursors = {
+        enable = true;
+      };
     };
   };
 
