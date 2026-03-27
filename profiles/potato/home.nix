@@ -15,6 +15,7 @@
     # Productivity
     nvf.enable = false;
     helix.enable = true;
+    zed.enable = true;
     intellij.enable = false;
 
     # Socials

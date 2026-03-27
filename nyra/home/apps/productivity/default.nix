@@ -8,5 +8,6 @@
     ./aseprite.nix
     ./helix.nix
     ./intellij.nix
+    ./zed.nix
   ];
 }
