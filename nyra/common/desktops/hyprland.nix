@@ -60,7 +60,7 @@ in
 
   config.nyra.desktops.hyprland = {
     shader = {
-      path = ../../resources/shaders/hyprland/${cfg.shader.name}.frag;
+      path = ../../../resources/shaders/hyprland/${cfg.shader.name}.frag;
     };
   };
 }
