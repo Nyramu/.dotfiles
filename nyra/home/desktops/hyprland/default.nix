@@ -97,6 +97,7 @@ in
           render_power = 3;
           color = "rgba(26, 26, 26, 0.93)";
         };
+        screen_shader = lib.mkIf (cfg.shader.enable) "shader.frag";
         blur.enabled = false;
       };
 
@@ -123,4 +124,5 @@ in
     };
   };
   config.home.packages = with pkgs; [ rose-pine-hyprcursor ];
+  config.xdg.configFile."hypr/shader.frag".source = cfg.shader.path;
 }
