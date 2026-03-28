@@ -7,6 +7,7 @@
 
 let
   apps = config.nyra.home.apps;
+  plugins = config.nyra.desktops.hyprland;
 in
 {
   wayland.windowManager.hyprland = {
@@ -68,7 +69,9 @@ in
           };
 
           windowControl = {
-            bind."SUPER, K" = "killactive"; # Kills active window
+            bind."SUPER, K" = "killactive"; # Closes active window
+            # TODO: wait for hyprexpo to update to 0.54.x
+            # bind."SUPER_SHIFT, K" = lib.mkIf (plugins.xtra-dispatchers.enable) "plugin:xtd:closeunfocused"; # Closes all unfocused windows
 
             # Fullscreen toggle
             bind = {
@@ -143,6 +146,11 @@ in
               "SUPER, 8" = "workspace, 8";
               "SUPER, 9" = "workspace, 9";
               "SUPER, 0" = "workspace, 0";
+            };
+
+            bind = {
+              # TODO: wait for hyprexpo to update to 0.54.x
+              # "SUPER, Esc" = lib.mkIf (plugins.hyprexpo.enable) "hyprexpo:expo, toggle";
             };
           };
 
