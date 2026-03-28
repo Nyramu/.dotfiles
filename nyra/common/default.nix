@@ -8,8 +8,8 @@ in
     ./audio.nix
     ./theme.nix
     ./shells.nix
-    ./desktops.nix
     ./settings.nix
+    ./desktops
   ];
 
   stylix = {
