@@ -16,7 +16,7 @@
     nvf.enable = false;
     helix.enable = true;
     intellij.enable = false;
-    zed.enable = true;
+    zed.enable = false;
     gimp.enable = true;
     aseprite.enable = false;
 
