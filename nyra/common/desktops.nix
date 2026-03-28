@@ -1,5 +1,8 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
+let
+  cfg = config.nyra.desktops;
+in
 {
   options.nyra.desktops = {
     hyprland = {
@@ -8,6 +11,18 @@
         type = lib.types.listOf lib.types.str;
         default = [ ];
         description = "list of hyprland monitors";
+      };
+      shader = {
+        enable = lib.mkEnableOption "enable screen shader";
+        name = lib.mkOption {
+          type = lib.types.enum [ "vibrant" ];
+          default = "vibrant";
+          description = "Choose a screen shader: vibrant";
+        };
+        path = lib.mkOption {
+          type = lib.types.path;
+          description = "Path to chosen screen shader";
+        };
       };
       dynamic-cursors = {
         enable = lib.mkEnableOption "hyprland dynamic-cursors plugin";
@@ -18,6 +33,31 @@
           ];
           default = "rotate";
         };
+      };
+      hyprexpo = {
+        enable = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+          description = "hyprland hyprexpo plugin";
+        };
+      };
+      hyprfocus = {
+        enable = lib.mkEnableOption "hyprland hyprfocus plugin";
+      };
+      xtra-dispatchers = {
+        enable = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+          description = "hyprland xtra-dispatchers plugin";
+        };
+      };
+    };
+  };
+
+  config.nyra.desktops = {
+    hyprland = {
+      shader = {
+        path = ../../resources/shaders/hyprland/${cfg.hyprland.shader.name}.frag;
       };
     };
   };
