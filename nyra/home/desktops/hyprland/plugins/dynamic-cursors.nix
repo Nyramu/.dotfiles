@@ -25,7 +25,7 @@ in
 
           # length in px of the simulated stick used to rotate the cursor
           # most realistic if this is your actual cursor size
-          length = 30
+          length = 36
 
           # clockwise offset applied to the angle in degrees
           # this will apply to ALL shapes
