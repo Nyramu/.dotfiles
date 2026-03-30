@@ -7,5 +7,6 @@
     ./cemu.nix
     ./eden.nix
     ./azahar.nix
+    ./lutris.nix
   ];
 }
