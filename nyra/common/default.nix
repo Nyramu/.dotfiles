@@ -34,5 +34,6 @@ in
     };
 
     targets.qt.enable = true;
+    targets.gtksourceview.enable = false;
   };
 }
