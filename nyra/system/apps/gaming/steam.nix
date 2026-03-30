@@ -13,6 +13,11 @@
   config = {
     programs.steam = {
       enable = config.nyra.system.apps.steam.enable;
+      gamescopeSession = {
+        enable = true;
+      };
+      protontricks.enable = true;
+      extest.enable = true;
       extraPackages = with pkgs; [
         xdg-utils
         desktop-file-utils
