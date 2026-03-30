@@ -148,19 +148,40 @@ in
             #   id = "plugin:todo";
             # }
             {
+              compactMode = false;
+              diskPath = "/";
+              iconColor = "primary";
+              id = "SystemMonitor";
+              showCpuCores = false;
+              showCpuFreq = false;
+              showCpuTemp = true;
+              showDiskAvailable = false;
+              showDiskUsage = false;
+              showDiskUsageAsPercent = false;
+              showGpuTemp = false;
+              showLoadAverage = false;
+              showMemoryAsPercent = false;
+              showMemoryUsage = false;
+              showNetworkStats = false;
+              showSwapUsage = false;
+              textColor = "none";
+              useMonospaceFont = true;
+              usePadding = false;
+            }
+            {
               displayMode = "alwaysShow";
               id = "Volume";
               middleClickCommand = "pwvucontrol || pavucontrol";
               iconColor = "primary";
               textColor = "secondary";
             }
-            {
-              displayMode = "alwaysShow";
-              id = "Microphone";
-              middleClickCommand = "pwvucontrol  pavucontrol";
-              iconColor = "primary";
-              textColor = "secondary";
-            }
+            # {
+            #   displayMode = "alwaysShow";
+            #   id = "Microphone";
+            #   middleClickCommand = "pwvucontrol  pavucontrol";
+            #   iconColor = "primary";
+            #   textColor = "secondary";
+            # }
             {
               displayMode = "alwaysShow";
               id = "Network";
