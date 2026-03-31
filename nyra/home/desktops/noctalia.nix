@@ -173,7 +173,7 @@ in
               showMemoryUsage = false;
               showNetworkStats = false;
               showSwapUsage = false;
-              textColor = "none";
+              textColor = "secondary";
               useMonospaceFont = true;
               usePadding = false;
             } # {
