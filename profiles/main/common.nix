@@ -19,7 +19,7 @@
       monitors = [
         "eDP-1, 1920x1200@60, auto, 1"
       ];
-      shader.enable = true;
+      # shader.enable = true;
       dynamic-cursors = {
         enable = true;
       };
