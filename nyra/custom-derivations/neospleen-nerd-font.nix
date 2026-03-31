@@ -10,7 +10,7 @@ stdenvNoCC.mkDerivation rec {
 
   src = builtins.fetchurl {
     url = "https://github.com/mbwilding/NeoSpleen/releases/download/${version}/NeoSpleen-Regular.ttf";
-    sha256 = "sha256:1ar71p1jqpgy3z0i1wzckicj64s7ilza70bmm0sgawlqgb55fhsc";
+    sha256 = "sha256:1578c3qr4cahm8pfqawmpw28mcmybb26xf4zq0qqjq2d6j2964xs";
   };
 
   nativeBuildInputs = [ nerd-font-patcher ];
