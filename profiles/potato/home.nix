@@ -13,13 +13,8 @@
     defaultFileManager = "yazi";
 
     # Productivity
-    nvf.enable = false;
     helix.enable = true;
-    zed.enable = false;
     intellij.enable = false;
-
-    # Socials
-    telegram.enable = true;
 
     # Miscellaneous
     btop = {
@@ -31,6 +26,7 @@
 
     # Packages without configuration
     packages = with pkgs; [
+      figlet
       hyprpicker
       croc
       fontfor
