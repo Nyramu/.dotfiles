@@ -131,7 +131,8 @@ in
               id = "SystemMonitor";
               showCpuCores = false;
               showCpuFreq = false;
-              showCpuTemp = true;
+              showCpuTemp = false;
+              showCpuUsage = true;
               showDiskAvailable = false;
               showDiskUsage = false;
               showDiskUsageAsPercent = false;
@@ -145,7 +146,37 @@ in
               useMonospaceFont = true;
               usePadding = false;
             }
-            # {
+            {
+              colorizeDistroLogo = false;
+              colorizeSystemIcon = theme.noctalia.colors.control-center-logo or "primary";
+              customIconPath = "";
+              enableColorization = true;
+              icon = "noctalia";
+              id = "ControlCenter";
+              useDistroLogo = true;
+            }
+            {
+              compactMode = false;
+              diskPath = "/";
+              iconColor = "primary";
+              id = "SystemMonitor";
+              showCpuCores = false;
+              showCpuFreq = false;
+              showCpuTemp = true;
+              showCpuUsage = false;
+              showDiskAvailable = false;
+              showDiskUsage = false;
+              showDiskUsageAsPercent = false;
+              showGpuTemp = false;
+              showLoadAverage = false;
+              showMemoryAsPercent = false;
+              showMemoryUsage = false;
+              showNetworkStats = false;
+              showSwapUsage = false;
+              textColor = "none";
+              useMonospaceFont = true;
+              usePadding = false;
+            } # {
             #   compactMode = true;
             #   compactShowAlbumArt = true;
             #   compactShowVisualizer = false;
@@ -165,9 +196,9 @@ in
             # }
           ];
           right = [
-            # {
-            #   id = "plugin:todo";
-            # }
+            {
+              id = "plugin:usb-drive-manager";
+            }
             {
               displayMode = "alwaysShow";
               id = "Volume";
@@ -446,8 +477,8 @@ in
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
-        todo = {
-          enabled = false;
+        usb-drive-manager = {
+          enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         timer = {
@@ -464,20 +495,29 @@ in
         iconSpacing = 9;
         removeMargins = false;
       };
-      todo = {
-        pages = [
-          {
-            id = 0;
-            name = "General";
-          }
-          {
-            id = 1;
-            name = "Dotfiles";
-          }
-        ];
-        showCompleted = true;
-        showBackground = false;
+      usb-drive-manager = {
+        autoMount = false;
+        fileBrowser = config.nyra.home.apps.defaultFileManager;
+        terminalCommand = config.nyra.home.apps.defaultTerminal;
+        showNotifications = true;
+        hideWhenEmpty = true;
+        showBadge = true;
+        iconColor = "primary";
       };
+      # todo = {
+      #   pages = [
+      #     {
+      #       id = 0;
+      #       name = "General";
+      #     }
+      #     {
+      #       id = 1;
+      #       name = "Dotfiles";
+      #     }
+      #   ];
+      #   showCompleted = true;
+      #   showBackground = false;
+      # };
     };
     colors = lib.mkIf (config.stylix.enable) {
       mPrimary = lib.mkIf (theme ? noctalia.colors.mPrimary) (lib.mkForce theme.noctalia.colors.mPrimary);
