@@ -1,13 +1,18 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.nyra.home.services.mpd = {
     enable = lib.mkEnableOption "mpd";
   };
 
-  config = {
+  config = lib.mkIf config.nyra.home.services.mpd.enable {
     services.mpd = {
-      enable = config.nyra.home.services.mpd.enable;
+      enable = true;
       musicDirectory = "${config.home.homeDirectory}/Music";
       playlistDirectory = "${config.home.homeDirectory}/Music/Playlists";
       extraConfig =
@@ -37,9 +42,10 @@
             }
           '';
     };
-    services.mpd-mpris.enable = config.services.mpd.enable;
+    services.mpd-mpris.enable = true;
     programs.cava = {
-      enable = config.nyra.home.services.mpd.enable;
+      enable = true;
     };
+    home.packages = [ pkgs.mpc ];
   };
 }
