@@ -125,29 +125,6 @@ in
           ];
           center = [
             {
-              compactMode = true;
-              compactShowAlbumArt = true;
-              compactShowVisualizer = false;
-              hideMode = "hidden";
-              hideWhenIdle = false;
-              id = "MediaMini";
-              maxWidth = 500;
-              panelShowAlbumArt = true;
-              panelShowVisualizer = true;
-              scrollingMode = "hover";
-              showAlbumArt = true;
-              showArtistFirst = true;
-              showProgressRing = true;
-              showVisualizer = false;
-              useFixedWidth = false;
-              visualizerType = "linear";
-            }
-          ];
-          right = [
-            # {
-            #   id = "plugin:todo";
-            # }
-            {
               compactMode = false;
               diskPath = "/";
               iconColor = "primary";
@@ -164,10 +141,33 @@ in
               showMemoryUsage = false;
               showNetworkStats = false;
               showSwapUsage = false;
-              textColor = "none";
+              textColor = "secondary";
               useMonospaceFont = true;
               usePadding = false;
             }
+            # {
+            #   compactMode = true;
+            #   compactShowAlbumArt = true;
+            #   compactShowVisualizer = false;
+            #   hideMode = "hidden";
+            #   hideWhenIdle = false;
+            #   id = "MediaMini";
+            #   maxWidth = 500;
+            #   panelShowAlbumArt = true;
+            #   panelShowVisualizer = true;
+            #   scrollingMode = "hover";
+            #   showAlbumArt = true;
+            #   showArtistFirst = true;
+            #   showProgressRing = true;
+            #   showVisualizer = false;
+            #   useFixedWidth = false;
+            #   visualizerType = "linear";
+            # }
+          ];
+          right = [
+            # {
+            #   id = "plugin:todo";
+            # }
             {
               displayMode = "alwaysShow";
               id = "Volume";
@@ -175,13 +175,13 @@ in
               iconColor = "primary";
               textColor = "secondary";
             }
-            # {
-            #   displayMode = "alwaysShow";
-            #   id = "Microphone";
-            #   middleClickCommand = "pwvucontrol  pavucontrol";
-            #   iconColor = "primary";
-            #   textColor = "secondary";
-            # }
+            {
+              displayMode = "alwaysShow";
+              id = "Microphone";
+              middleClickCommand = "pwvucontrol  pavucontrol";
+              iconColor = "primary";
+              textColor = "secondary";
+            }
             {
               displayMode = "alwaysShow";
               id = "Network";
