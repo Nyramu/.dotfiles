@@ -8,14 +8,13 @@ in
     enable = lib.mkEnableOption "gamemode";
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     programs.gamemode = {
-      enable = cfg.enable;
+      enable = true;
       enableRenice = true;
       settings = {
         general = {
           renice = 10;
-          igpu_desiredgov = "performance";
           #igpu_power_threshold = -1;
         };
         #gpu = {
@@ -24,6 +23,6 @@ in
       };
     };
     # Needed to make the renice setting work
-    users.users.${config.nyra.settings.username}.extraGroups = lib.optionals cfg.enable [ "gamemode" ];
+    users.users.${config.nyra.settings.username}.extraGroups = [ "gamemode" ];
   };
 }
