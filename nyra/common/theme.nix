@@ -8,8 +8,6 @@
         "just-chill"
         "red-eclipse"
         "apocalypse"
-        "greenpath"
-        "gruvbox-dark"
       ];
       default = "just-chill";
       description = "Choose a theme from resources/themes folder";
