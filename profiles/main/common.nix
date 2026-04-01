@@ -4,7 +4,7 @@
   # Theming
   nyra.theme = {
     enable = true;
-    name = "gruvbox-dark";
+    name = "just-chill";
   };
 
   # Common settings
