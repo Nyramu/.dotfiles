@@ -10,9 +10,12 @@
     enable = lib.mkEnableOption "steam";
   };
 
-  config = {
+  config = lib.mkIf config.nyra.system.apps.steam.enable {
+    boot.kernelModules = [
+      "ntsync"
+    ];
     programs.steam = {
-      enable = config.nyra.system.apps.steam.enable;
+      enable = true;
       gamescopeSession = {
         enable = true;
       };
