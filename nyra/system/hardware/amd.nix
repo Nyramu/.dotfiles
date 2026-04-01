@@ -23,14 +23,18 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     hardware = {
-      amdgpu.initrd.enable = cfg.enable;
-      amdgpu.overdrive.enable = cfg.enable;
-      graphics.extraPackages = lib.mkIf (cfg.enable) [ pkgs.libva ];
+      amdgpu.initrd.enable = true;
+      amdgpu.overdrive.enable = true;
+      amdgpu.opencl.enable = true;
+      graphics.extraPackages = with pkgs; [
+        libva
+        rocmPackages.clr
+      ];
       cpu.amd.ryzen-smu.enable = cfg.ryzen-smu.enable;
     };
-    nixpkgs.config.rocmSupport = cfg.enable;
+    nixpkgs.config.rocmSupport = true;
 
     environment.systemPackages = lib.optionals cfg.ryzenadj.enable [ pkgs.ryzenadj ];
   };
