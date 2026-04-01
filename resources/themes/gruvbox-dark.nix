@@ -41,7 +41,7 @@ rec {
   };
 
   opacity = {
-    # terminal = 0.8;
+    terminal = 0.77;
   };
 
   palette = {
@@ -81,19 +81,23 @@ rec {
   # Noctalia configuration
   noctalia = {
     colors = {
-      # mPrimary = palette.base0A;
-      # mSecondary = palette.base07;
-      # mTertiary = palette.base03;
-      # mOutline = palette.base02;
-      # mHover = palette.base02;
-      # mOnHover = palette.base0A;
+      mPrimary = "#b8bb26";
+      mSecondary = "#fabd2f";
+      mTertiary = "#83a598";
+      mOutline = "#57514e";
+      mHover = "#83a598";
+      mOnHover = "#282828";
       control-center-logo = "primary"; # "primary" | "secondary" | "tertiary" | "error"
+    };
+    ui = {
+      fontDefaultScale = 1.25;
+      fontFixedScale = 1.25;
     };
   };
 
   # Vicinae configuration
   vicinae = {
-    ui.opacity = 0.9;
-    font.normal.family = fonts.monospace.name;
+    ui.opacity = 0.83;
+    font.normal.size = 13.5;
   };
 }
