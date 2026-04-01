@@ -5,21 +5,21 @@
     enable = lib.mkEnableOption "gamescope";
   };
 
-  config = {
+  config = lib.mkIf config.nyra.system.apps.gamescope.enable {
     programs.gamescope = {
-      enable = config.nyra.system.apps.gamescope.enable;
+      enable = true;
+      capSysNice = true;
       env = {
         # IMPORTANT: gamescope uses american keyboard layout by default
         "XKB_DEFAULT_LAYOUT" = config.services.xserver.xkb.layout;
-        "-W" = "1920";
-        "-H" = "1200";
-        "-w" = "1920";
-        "-h" = "1200";
-        "-r" = "60";
       };
       args = [
-        #"--mangoapp" # mango hud (mainly for test)
         "-f"
+        "-W" "1920"
+        "-H" "1200"
+        "-w" "1920"
+        "-h" "1200"
+        "-r" "60"
         #"-e"          # enable steam integration
         "--force-windows-fullscreen"
       ];
