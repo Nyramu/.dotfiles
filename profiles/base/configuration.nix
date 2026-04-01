@@ -16,6 +16,7 @@ in
 
   # Kernel.
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+  boot.kernel.sysctl."vm.max_map_count" = lib.mkForce 2147483642; # Set virtual memory areas limit a single process can map. It's set like on Steam Deck
 
   networking.hostName = nyraSettings.hostname;
 
@@ -114,6 +115,12 @@ in
       platform_profile = "performance";
       turbo = "auto";
     };
+  };
+
+  # Graphics
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   # Bootloader
