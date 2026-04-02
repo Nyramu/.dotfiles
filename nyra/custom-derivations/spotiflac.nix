@@ -6,7 +6,7 @@
 }:
 let
   pname = "spotiflac";
-  version = "7.1.1";
+  version = "7.1.3";
 
   src = fetchurl {
     url = "https://github.com/afkarxyz/SpotiFLAC/releases/download/v${version}/SpotiFLAC.AppImage";
