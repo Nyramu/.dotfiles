@@ -24,7 +24,7 @@ in
             bind = {
               "SUPER, B" = "exec, ${browser}";
               "SUPER, S" = "exec, steam %U";
-              "SUPER, T" = "exec, AyuGram"; # Telegram
+              "SUPER, T" = "exec, Telegram";
             };
           };
 
