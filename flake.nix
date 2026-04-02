@@ -19,6 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
+    
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,12 +58,6 @@
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ayugram = {
-      type = "git";
-      submodules = true;
-      url = "https://github.com/ndfined-crp/ayugram-desktop/";
     };
   };
 
