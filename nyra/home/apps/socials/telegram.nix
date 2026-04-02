@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
   ...
 }:
@@ -16,7 +15,7 @@ with lib;
     home.packages =
       with pkgs;
       optionals config.nyra.home.apps.telegram.enable [
-        inputs.ayugram.packages.${pkgs.stdenv.hostPlatform.system}.ayugram-desktop
+        telegram-desktop
       ];
   };
 }
