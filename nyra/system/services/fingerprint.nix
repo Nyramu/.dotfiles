@@ -51,7 +51,7 @@ in
       '';
 
       # Enable fingerprint log-in on sddm giving priority to password
-      sddm.text = lib.optionals (config.nyra.system.sddm.enable) lib.mkForce ''
+      sddm.text = lib.optionalString (config.nyra.system.sddm.enable) lib.mkForce ''
         auth      optional      ${pkgs.pam}/lib/security/pam_faildelay.so delay=2000000
         auth      sufficient    ${pkgs.pam}/lib/security/pam_unix.so try_first_pass nullok nodelay
         auth      sufficient    ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=${toString cfg.sddmTimeout}
