@@ -37,7 +37,6 @@ in
         mprisBlacklist = [
           "Mozilla zen"
           "Telegram Desktop"
-          "AyuGram Desktop"
         ];
         preferredPlayer = "Spotify";
       };
@@ -116,7 +115,7 @@ in
               drawerEnabled = true;
               pinned = [
                 "steam"
-                "AyuGram Desktop"
+                "Telegram Desktop"
                 "spotify-client"
               ];
               hidePassive = false;
