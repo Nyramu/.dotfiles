@@ -374,6 +374,7 @@ in
         showWeekNumberInCalendar = true;
         weatherShowEffects = true;
         firstDayOfWeek = 1;
+        autoLocate = false;
       };
       calendar = {
         cards = [
@@ -454,7 +455,7 @@ in
         autoUpdate = true;
         notifyUpdates = false;
       };
-      wallpaper.enabled = true;
+      wallpaper.enabled = false;
       dock.enabled = false;
       hooks.enabled = false;
       desktopWidgets.enabled = false;
