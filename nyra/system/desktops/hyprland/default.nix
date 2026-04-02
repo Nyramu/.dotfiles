@@ -1,8 +1,16 @@
-{ ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
-    ./hyprland.nix
     ./hyprlock.nix
   ];
+  programs.hyprland = {
+    enable = config.nyra.desktops.hyprland.enable;
+    package = pkgs.hyprland;
+    xwayland.enable = true;
+  };
 }
