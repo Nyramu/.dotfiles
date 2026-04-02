@@ -30,7 +30,6 @@ in
       amdgpu.opencl.enable = true;
       graphics.extraPackages = with pkgs; [
         libva
-        rocmPackages.clr
       ];
       cpu.amd.ryzen-smu.enable = cfg.ryzen-smu.enable;
     };
