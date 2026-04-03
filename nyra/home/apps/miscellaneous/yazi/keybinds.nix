@@ -14,6 +14,14 @@
           desc = "Go ~/.dotfiles";
         }
         {
+          run = "cd ~/.local/share";
+          on = [
+            "g"
+            "l"
+          ];
+          desc = "Go ~/.local/share";
+        }
+        {
           run = "cd /run/media/${config.nyra.settings.username}";
           on = [
             "g"
@@ -22,7 +30,7 @@
           desc = "Go to external drives";
         }
         {
-          run = "shell --block --interactive bashmount";
+          run = "shell --block bashmount";
           on = [ "b" ];
           desc = "Open bashmount";
         }
@@ -93,6 +101,13 @@
           on = [
             "g"
             "f"
+          ];
+        }
+        {
+          run = "noop";
+          on = [
+            "g"
+            "g"
           ];
         }
         {
