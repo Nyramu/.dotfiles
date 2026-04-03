@@ -19,6 +19,13 @@
       monitors = [
         "eDP-1, 1920x1080@60, auto, 1"
       ];
+      shader = {
+        enable = true;
+        name = "less-saturation";
+      };
+      dynamic-cursors = {
+        enable = true;
+      };
     };
   };
 
