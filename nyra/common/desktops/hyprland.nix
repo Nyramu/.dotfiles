@@ -16,9 +16,9 @@ in
     shader = {
       enable = lib.mkEnableOption "enable screen shader";
       name = lib.mkOption {
-        type = lib.types.enum [ "vibrant" ];
+        type = lib.types.enum [ "vibrant" "less-saturation" ];
         default = "vibrant";
-        description = "Choose a screen shader: vibrant";
+        description = "Choose a screen shader: vibrant, less-saturation";
       };
       path = lib.mkOption {
         type = lib.types.path;
