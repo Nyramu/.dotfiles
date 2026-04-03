@@ -42,15 +42,15 @@
     systemd.user.services.sway-audio-idle-inhibit = {
       Unit = {
         Description = "Inhibit idle when audio is playing";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
+        PartOf = [ config.wayland.systemd.target ];
+        After = [ config.wayland.systemd.target ];
       };
       Service = {
         ExecStart = "${lib.getExe pkgs.sway-audio-idle-inhibit}";
         Restart = "on-failure";
       };
       Install = {
-        WantedBy = [ "graphical-session.target" ];
+        WantedBy = [ config.wayland.systemd.target ];
       };
     };
   };
