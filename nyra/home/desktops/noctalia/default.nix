@@ -13,281 +13,19 @@ let
   cfg = config.nyra.desktops;
 in
 {
-  imports = [ inputs.noctalia.homeModules.default ];
+  imports = [
+    inputs.noctalia.homeModules.default
+    ./bar.nix
+    ./panels.nix
+    ./desktop.nix
+    ./region.nix
+    ./plugins.nix
+  ];
 
   programs.noctalia-shell = {
     enable = cfg.hyprland.enable;
     systemd.enable = true;
     settings = {
-      location.name = "Sassari";
-      ui = {
-        fontDefaultScale = theme.noctalia.ui.fontDefaultScale or 1;
-        fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
-        panelsAttachedToBar = true;
-        scrollbarAlwaysVisible = true;
-        settingsPanelMode = "attached";
-        settingsPanelSideBarCardStyle = false;
-        boxBorderEnabled = true;
-        tooltipsEnabled = false;
-        translucentWidgets = true;
-      };
-      audio = {
-        cavaFrameRate = 60;
-        visualizerType = "mirrored";
-        volumeOverdrive = true;
-        mprisBlacklist = [
-          "Mozilla zen"
-          "Telegram Desktop"
-        ];
-        preferredPlayer = "Spotify";
-      };
-      nightLight = {
-        enabled = false;
-        forced = false;
-        autoSchedule = true;
-        nightTemp = "5000";
-        dayTemp = "6500";
-        manualSunrise = "06:30";
-        manualSunset = "21:30";
-      };
-      bar = {
-        barType = "simple";
-        position = "top";
-        monitors = [ ];
-        density = "spacious";
-        capsuleColorKey = "none";
-        showOutline = false;
-        showCapsule = false;
-        useSeparateOpacity = false;
-        contentPadding = 2;
-        widgetSpacing = 0;
-        floating = false;
-        marginVertical = 6;
-        marginHorizontal = 4;
-        frameThickness = 8;
-        frameRadius = 12;
-        outerCorners = true;
-        exclusive = true;
-        displayMode = "always_visible";
-        autoHideDelay = 100;
-        autoShowDelay = 150;
-        hideOnOverview = false;
-        showOnWorkspaceSwitch = false;
-        widgets = {
-          left = [
-            {
-              deviceNativePath = "__default__";
-              displayMode = "icon-always";
-              hideIfNotDetected = true;
-              hideIfIdle = false;
-              id = "Battery";
-              showNoctaliaPerformance = true;
-              showPowerProfiles = false;
-              warningThreshold = 30;
-            }
-            {
-              characterCount = 2;
-              colorizeIcons = true;
-              focusedColor = theme.noctalia.workspace.focusedColor or "primary";
-              occupiedColor = theme.noctalia.workspace.occupiedColor or "secondary";
-              emptyColor = theme.noctalia.workspace.emptyColor or "tertiary";
-              enableScrollWheel = true;
-              followFocusedScreen = true;
-              groupedBorderOpacity = 0;
-              fontWeight = theme.noctalia.workspace.fontWeight or "medium";
-              hideUnoccupied = true;
-              iconScale = 0.75;
-              pillSize = 0.67;
-              id = "Workspace";
-              labelMode = "index";
-              showBadge = true;
-              showApplications = true;
-              showApplicationsHover = true;
-              showLabelsOnlyWhenOccupied = true;
-              unfocusedIconsOpacity = 0.5;
-            }
-            {
-              id = "plugin:privacy-indicator";
-            }
-            {
-              blacklist = [ ];
-              chevronColor = "primary";
-              colorizeIcons = true;
-              drawerEnabled = true;
-              pinned = [
-                "steam"
-                "Telegram Desktop"
-                "spotify-client"
-              ];
-              hidePassive = false;
-              id = "Tray";
-            }
-          ];
-          center = [
-            {
-              compactMode = true;
-              compactShowAlbumArt = true;
-              compactShowVisualizer = false;
-              hideMode = "hidden";
-              hideWhenIdle = true;
-              id = "MediaMini";
-              maxWidth = 600;
-              panelShowAlbumArt = true;
-              panelShowVisualizer = true;
-              scrollingMode = "hover";
-              showAlbumArt = true;
-              showArtistFirst = true;
-              showProgressRing = true;
-              showVisualizer = false;
-              useFixedWidth = false;
-              visualizerType = "linear";
-            }
-          ];
-          right = [
-            {
-              id = "plugin:usb-drive-manager";
-            }
-            {
-              compactMode = false;
-              diskPath = "/";
-              iconColor = "primary";
-              id = "SystemMonitor";
-              showCpuCores = false;
-              showCpuFreq = false;
-              showCpuTemp = true;
-              showCpuUsage = false;
-              showDiskAvailable = false;
-              showDiskUsage = false;
-              showDiskUsageAsPercent = false;
-              showGpuTemp = false;
-              showLoadAverage = false;
-              showMemoryAsPercent = false;
-              showMemoryUsage = false;
-              showNetworkStats = false;
-              showSwapUsage = false;
-              textColor = "secondary";
-              useMonospaceFont = true;
-              usePadding = false;
-            }
-            {
-              displayMode = "alwaysShow";
-              id = "Volume";
-              middleClickCommand = "pwvucontrol || pavucontrol";
-              iconColor = "primary";
-              textColor = "secondary";
-            }
-            {
-              displayMode = "alwaysShow";
-              id = "Network";
-              iconColor = "primary";
-              textColor = "secondary";
-            }
-            {
-              displayMode = "onhover";
-              id = "Bluetooth";
-              iconColor = "primary";
-              textColor = "secondary";
-            }
-            {
-              formatHorizontal = "HH:mm:ss";
-              id = "Clock";
-              tooltipFormat = "dddd, dd/MM/yyyy";
-              useCustomFont = false;
-              clockColor = theme.noctalia.clock.color or "primary";
-            }
-          ];
-        };
-        mouseWheelAction = "workspace";
-        reverseScroll = false;
-        mouseWheelWrap = true;
-        middleClickAction = "settings";
-        middleClickFollowMouse = true;
-        middleClickCommand = "";
-        rightClickAction = "controlCenter";
-        rightClickFollowMouse = true;
-        rightClickCommand = "";
-      };
-      controlCenter = {
-        position = "close_to_bar_button";
-        diskPath = "/";
-        shortcuts = {
-          left = [
-            {
-              id = "plugin:timer";
-            }
-            {
-              id = "WallpaperSelector";
-            }
-          ];
-          right = [
-            {
-              id = "Notifications";
-            }
-            {
-              id = "NightLight";
-            }
-          ];
-        };
-        cards = [
-          {
-            enabled = true;
-            id = "profile-card";
-          }
-          {
-            enabled = true;
-            id = "shortcuts-card";
-          }
-          {
-            enabled = true;
-            id = "weather-card";
-          }
-          {
-            enabled = false;
-            id = "media-sysmon-card";
-          }
-          {
-            enabled = false;
-            id = "brightness-card";
-          }
-          {
-            enabled = false;
-            id = "audio-card";
-          }
-        ];
-      };
-      notifications = {
-        enabled = true;
-        enableMarkdown = true;
-        clearDismissed = true;
-        density = "compact";
-        location = "bottom_right";
-        overlayLayer = true;
-        backgroundOpacity = lib.mkForce 0.8;
-        respectExpireTimeout = true;
-        lowUrgencyDuration = 3;
-        normalUrgencyDuration = 3;
-        criticalUrgencyDuration = 3;
-        enableKeyboardLayoutToast = false;
-        saveToHistory = {
-          low = true;
-          normal = true;
-          critical = true;
-        };
-        enableMediaToast = false;
-        sounds.enabled = false;
-      };
-      osd = {
-        enabled = true;
-        location = "top";
-        autoHideMs = 600;
-        overlayLayer = true;
-        enabledTypes = [
-          0
-          2
-          3
-        ];
-        monitors = [ ];
-      };
       general = {
         avatarImage = nyraSettings.pfp;
         radiusRatio = 0.5;
@@ -313,6 +51,19 @@ in
         clockStyle = "digital";
         clockFormat = "hh:mm";
       };
+
+      ui = {
+        fontDefaultScale = theme.noctalia.ui.fontDefaultScale or 1;
+        fontFixedScale = theme.noctalia.ui.fontFixedScale or 1;
+        panelsAttachedToBar = true;
+        scrollbarAlwaysVisible = true;
+        settingsPanelMode = "attached";
+        settingsPanelSideBarCardStyle = false;
+        boxBorderEnabled = true;
+        tooltipsEnabled = false;
+        translucentWidgets = true;
+      };
+
       network = {
         wifiEnabled = true;
         wifiDetailsViewMode = "list";
@@ -323,6 +74,18 @@ in
         bluetoothHideUnnamedDevices = true;
         disableDiscoverability = false;
       };
+
+      audio = {
+        cavaFrameRate = 60;
+        visualizerType = "mirrored";
+        volumeOverdrive = true;
+        mprisBlacklist = [
+          "Mozilla zen"
+          "Telegram Desktop"
+        ];
+        preferredPlayer = "Spotify";
+      };
+
       idle = {
         enabled = false;
         screenOffTimeout = 300;
@@ -331,123 +94,12 @@ in
         fadeDuration = 5;
         customCommands = [ ];
       };
-      location = {
-        analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
-        weatherEnabled = true;
-        showCalendarWeather = true;
-        weatherTaliaMascotAlways = false;
-        showWeekNumberInCalendar = true;
-        weatherShowEffects = true;
-        firstDayOfWeek = 1;
-        autoLocate = false;
-      };
-      calendar = {
-        cards = [
-          {
-            enabled = true;
-            id = "calendar-header-card";
-          }
-          {
-            enabled = true;
-            id = "calendar-month-card";
-          }
-          {
-            enabled = false;
-            id = "weather-card";
-          }
-        ];
-      };
-      sessionMenu = {
-        position = "top_center";
-        showHeader = true;
-        showKeybinds = true;
-        largeButtonsStyle = false;
-        powerOptions = [
-          {
-            action = "lock";
-            command = "";
-            countdownEnabled = true;
-            enabled = true;
-            keybind = "1";
-          }
-          {
-            action = "reboot";
-            command = "";
-            countdownEnabled = true;
-            enabled = true;
-            keybind = "2";
-          }
-          {
-            action = "shutdown";
-            command = "";
-            countdownEnabled = true;
-            enabled = true;
-            keybind = "3";
-          }
-          {
-            action = "logout";
-            command = "";
-            countdownEnabled = true;
-            enabled = true;
-            keybind = "4";
-          }
-          {
-            action = "rebootToUefi";
-            command = "";
-            countdownEnabled = true;
-            enabled = true;
-            keybind = "5";
-          }
-          {
-            action = "suspend";
-            command = "";
-            countdownEnabled = true;
-            enabled = false;
-          }
-          {
-            action = "hibernate";
-            command = "";
-            countdownEnabled = true;
-            enabled = false;
-          }
-        ];
-      };
+
       noctaliaPerformance = {
         disableWallpaper = true;
         disableDesktopWidgets = true;
       };
-      plugins = {
-        autoUpdate = true;
-        notifyUpdates = false;
-      };
-      dock.enabled = false;
-      desktopWidgets.enabled = false;
-      sounds.enabled = false;
-      wallpaper = {
-        enabled = true;
-        overviewEnabled = false;
-        directory = "${nyraSettings.dotfiles}/resources/wallpapers";
-        monitorDirectories = [ ];
-        showHiddenFiles = false;
-        viewMode = "single";
-        setWallpaperOnAllMonitors = true;
-        linkLightAndDarkWallpapers = true;
-        fillMode = "crop";
-        useSolidColor = false;
-        automationEnabled = false;
-        wallpaperChangeMode = "random";
-        randomIntervalSec = 300;
-        transitionDuration = 1000;
-        transitionType = [ "disc" ];
-        skipStartupTransition = false;
-        transitionEdgeSmoothness = 0;
-        panelPosition = "follow_bar";
-        hideWallpaperFilenames = false;
-        useOriginalImages = false;
-        useWallhaven = false;
-        sortOrder = "name";
-        favorites = [ ];
-      };
+
       hooks = {
         enabled = true;
         wallpaperChange = "";
@@ -461,65 +113,7 @@ in
         colorGeneration = "";
       };
     };
-    plugins = {
-      sources = [
-        {
-          enabled = true;
-          name = "Noctalia Plugins";
-          url = "https://github.com/noctalia-dev/noctalia-plugins";
-        }
-      ];
-      states = {
-        privacy-indicator = {
-          enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-        };
-        weather-indicator = {
-          enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-        };
-        usb-drive-manager = {
-          enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-        };
-        timer = {
-          enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-        };
-      };
-    };
-    pluginSettings = {
-      privacy-indicator = {
-        activeColor = "primary";
-        inactiveColor = "tertiary";
-        hideInactive = true;
-        iconSpacing = 9;
-        removeMargins = false;
-      };
-      usb-drive-manager = {
-        autoMount = false;
-        fileBrowser = config.nyra.home.apps.defaultFileManager;
-        terminalCommand = config.nyra.home.apps.defaultTerminal;
-        showNotifications = true;
-        hideWhenEmpty = true;
-        showBadge = true;
-        iconColor = "primary";
-      };
-      # todo = {
-      #   pages = [
-      #     {
-      #       id = 0;
-      #       name = "General";
-      #     }
-      #     {
-      #       id = 1;
-      #       name = "Dotfiles";
-      #     }
-      #   ];
-      #   showCompleted = true;
-      #   showBackground = false;
-      # };
-    };
+
     colors = lib.mkIf (config.stylix.enable) {
       mPrimary = lib.mkIf (theme ? noctalia.colors.mPrimary) (lib.mkForce theme.noctalia.colors.mPrimary);
       mSecondary = lib.mkIf (theme ? noctalia.colors.mSecondary) (
