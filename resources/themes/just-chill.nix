@@ -87,6 +87,5 @@ rec {
   # Vicinae configuration
   vicinae = {
     ui.opacity = 0.9;
-    font.normal.family = fonts.monospace.name;
   };
 }

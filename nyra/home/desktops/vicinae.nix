@@ -39,7 +39,7 @@ in
       font = {
         normal = {
           size = theme.vicinae.font.normal.size or 10.5;
-          family = theme.vicinae.font.normal.family or "${config.stylix.fonts.serif.name}";
+          family = "system";
         };
       };
       favorites = [
