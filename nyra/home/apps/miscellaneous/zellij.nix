@@ -5,11 +5,7 @@ let
 in
 {
   options.nyra.home.apps.zellij = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "zellij";
-    };
+    enable = lib.mkEnableOption "zellij";
   };
 
   config = {
