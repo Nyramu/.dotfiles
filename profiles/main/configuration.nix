@@ -26,10 +26,10 @@
   };
 
   # MySQL
-  nyra.system.mysql.enable = true;
-  nyra.system.httpd.enable = true;
+  nyra.system.mysql.enable = false;
+  nyra.system.httpd.enable = false;
 
-  # Use latest kernel.
+  # Use zen kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # AMD management tools and features

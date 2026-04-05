@@ -17,7 +17,7 @@
     helix.enable = true;
     intellij.enable = false;
     zed.enable = false;
-    gimp.enable = true;
+    gimp.enable = false;
     aseprite.enable = false;
 
     # Gaming
@@ -51,7 +51,6 @@
     packages = with pkgs; [
       hyprpicker
       croc
-      carbon-now-cli # TODO: Test
       fontfor
       figlet
       cmatrix
