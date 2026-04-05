@@ -19,7 +19,7 @@
       enable = true;
       settings = {
         general = {
-          lock_cmd = "pidof hyprlock || hyprlock";
+          lock_cmd = "noctalia-shell ipc call lockScreen lock";
           ignore_dbus_inhibit = false;
           ignore_systemd_inhibit = false;
           ignore_wayland_inhibit = false;
@@ -33,7 +33,7 @@
           }
           {
             timeout = 600;
-            on-timeout = "pidof hyprlock || hyprlock";
+            on-timeout = "noctalia-shell ipc call lockScreen lock";
             ignore_inhibit = false;
           }
         ];
