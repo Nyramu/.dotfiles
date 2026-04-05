@@ -5,26 +5,6 @@
   ...
 }:
 
-let
-  helix-wrapped = pkgs.writeShellScriptBin "hx" ''
-    if [ -z "$ZELLIJ" ]; then
-      LAYOUT=$(mktemp --suffix=.kdl)
-      cat > "$LAYOUT" <<EOF
-    layout {
-      pane command="${pkgs.helix}/bin/hx" {
-        args "$@"
-        close_on_exit true
-      }
-    }
-    EOF
-      ${pkgs.zellij}/bin/zellij \
-        --layout "$LAYOUT"
-      rm -f "$LAYOUT"
-    else
-      exec ${pkgs.helix}/bin/hx "$@"
-    fi
-  '';
-in
 {
   options.nyra.home.apps.helix = {
     enable = lib.mkEnableOption "helix";
@@ -33,7 +13,6 @@ in
   config = {
     programs.helix = {
       enable = config.nyra.home.apps.helix.enable;
-      package = helix-wrapped;
       defaultEditor = true;
 
       settings = {
@@ -123,7 +102,6 @@ in
           C-left = "search_prev"; # Select previous search match
 
           space = {
-            g = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- ${lib.getExe pkgs.lazygit}";
             h = ":cd ~";
             d = [
               ":cd ~/.dotfiles"
