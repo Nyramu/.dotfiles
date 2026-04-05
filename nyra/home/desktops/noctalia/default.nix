@@ -9,6 +9,7 @@
 let
   theme = import config.nyra.theme.path { inherit pkgs; };
   nyraSettings = config.nyra.settings;
+  ipc = "noctalia-shell ipc call";
   cfg = config.nyra.desktops;
 in
 {
@@ -124,35 +125,27 @@ in
           ];
           center = [
             {
-              compactMode = false;
-              diskPath = "/";
-              iconColor = "primary";
-              id = "SystemMonitor";
-              showCpuCores = false;
-              showCpuFreq = false;
-              showCpuTemp = false;
-              showCpuUsage = true;
-              showDiskAvailable = false;
-              showDiskUsage = false;
-              showDiskUsageAsPercent = false;
-              showGpuTemp = false;
-              showLoadAverage = false;
-              showMemoryAsPercent = false;
-              showMemoryUsage = false;
-              showNetworkStats = false;
-              showSwapUsage = false;
-              textColor = "secondary";
-              useMonospaceFont = true;
-              usePadding = false;
+              compactMode = true;
+              compactShowAlbumArt = true;
+              compactShowVisualizer = false;
+              hideMode = "hidden";
+              hideWhenIdle = true;
+              id = "MediaMini";
+              maxWidth = 600;
+              panelShowAlbumArt = true;
+              panelShowVisualizer = true;
+              scrollingMode = "hover";
+              showAlbumArt = true;
+              showArtistFirst = true;
+              showProgressRing = true;
+              showVisualizer = false;
+              useFixedWidth = false;
+              visualizerType = "linear";
             }
+          ];
+          right = [
             {
-              colorizeDistroLogo = false;
-              colorizeSystemIcon = theme.noctalia.colors.control-center-logo or "primary";
-              customIconPath = "";
-              enableColorization = true;
-              icon = "noctalia";
-              id = "ControlCenter";
-              useDistroLogo = true;
+              id = "plugin:usb-drive-manager";
             }
             {
               compactMode = false;
@@ -175,40 +168,11 @@ in
               textColor = "secondary";
               useMonospaceFont = true;
               usePadding = false;
-            } # {
-            #   compactMode = true;
-            #   compactShowAlbumArt = true;
-            #   compactShowVisualizer = false;
-            #   hideMode = "hidden";
-            #   hideWhenIdle = false;
-            #   id = "MediaMini";
-            #   maxWidth = 500;
-            #   panelShowAlbumArt = true;
-            #   panelShowVisualizer = true;
-            #   scrollingMode = "hover";
-            #   showAlbumArt = true;
-            #   showArtistFirst = true;
-            #   showProgressRing = true;
-            #   showVisualizer = false;
-            #   useFixedWidth = false;
-            #   visualizerType = "linear";
-            # }
-          ];
-          right = [
-            {
-              id = "plugin:usb-drive-manager";
             }
             {
               displayMode = "alwaysShow";
               id = "Volume";
               middleClickCommand = "pwvucontrol || pavucontrol";
-              iconColor = "primary";
-              textColor = "secondary";
-            }
-            {
-              displayMode = "alwaysShow";
-              id = "Microphone";
-              middleClickCommand = "pwvucontrol  pavucontrol";
               iconColor = "primary";
               textColor = "secondary";
             }
@@ -226,7 +190,6 @@ in
             }
             {
               formatHorizontal = "HH:mm:ss";
-              formatVertical = "HH:mm:ss --------- dd/MM/yyyy";
               id = "Clock";
               tooltipFormat = "dddd, dd/MM/yyyy";
               useCustomFont = false;
@@ -250,10 +213,10 @@ in
         shortcuts = {
           left = [
             {
-              id = "AirplaneMode";
+              id = "plugin:timer";
             }
             {
-              id = "plugin:timer";
+              id = "WallpaperSelector";
             }
           ];
           right = [
@@ -293,11 +256,13 @@ in
         ];
       };
       notifications = {
-        enabled = false;
+        enabled = true;
         enableMarkdown = true;
-        location = "top";
+        clearDismissed = true;
+        density = "compact";
+        location = "bottom_right";
         overlayLayer = true;
-        backgroundOpacity = 0.7;
+        backgroundOpacity = lib.mkForce 0.8;
         respectExpireTimeout = true;
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 3;
@@ -331,7 +296,7 @@ in
         enableBlurBehind = true;
         lockScreenAnimations = true;
         enableLockScreenMediaControls = true;
-        compactLockScreen = false;
+        compactLockScreen = true;
         lockScreenTint = 0.25;
         lockScreenBlur = 0;
         autoStartAuth = true;
@@ -370,6 +335,7 @@ in
         analogClockInCalendar = theme.noctalia.ui.analogClockInCalendar or true;
         weatherEnabled = true;
         showCalendarWeather = true;
+        weatherTaliaMascotAlways = false;
         showWeekNumberInCalendar = true;
         weatherShowEffects = true;
         firstDayOfWeek = 1;
@@ -454,11 +420,46 @@ in
         autoUpdate = true;
         notifyUpdates = false;
       };
-      wallpaper.enabled = false;
       dock.enabled = false;
-      hooks.enabled = false;
       desktopWidgets.enabled = false;
       sounds.enabled = false;
+      wallpaper = {
+        enabled = true;
+        overviewEnabled = false;
+        directory = "${nyraSettings.dotfiles}/resources/wallpapers";
+        monitorDirectories = [ ];
+        showHiddenFiles = false;
+        viewMode = "single";
+        setWallpaperOnAllMonitors = true;
+        linkLightAndDarkWallpapers = true;
+        fillMode = "crop";
+        useSolidColor = false;
+        automationEnabled = false;
+        wallpaperChangeMode = "random";
+        randomIntervalSec = 300;
+        transitionDuration = 1000;
+        transitionType = [ "disc" ];
+        skipStartupTransition = false;
+        transitionEdgeSmoothness = 0;
+        panelPosition = "follow_bar";
+        hideWallpaperFilenames = false;
+        useOriginalImages = false;
+        useWallhaven = false;
+        sortOrder = "name";
+        favorites = [ ];
+      };
+      hooks = {
+        enabled = true;
+        wallpaperChange = "";
+        darkModeChange = "";
+        screenLock = "";
+        screenUnlock = "";
+        performanceModeEnabled = "";
+        performanceModeDisabled = "";
+        startup = "${ipc} notifications enableDND; ${ipc} notifications dismissAll";
+        session = "";
+        colorGeneration = "";
+      };
     };
     plugins = {
       sources = [
