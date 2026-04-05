@@ -68,6 +68,7 @@ in
         no_update_news = true;
         no_donation_nag = true;
       };
+
       workspace = [
         "1, persistent:true"
         "2, persistent:true"
@@ -81,7 +82,7 @@ in
         resize_on_border = true;
 
         gaps_in = 5;
-        gaps_out = 4;
+        gaps_out = 2;
 
         active_border_color = theme.hypr.active_border_color;
         inactive_border_color = theme.hypr.inactive_border_color;
