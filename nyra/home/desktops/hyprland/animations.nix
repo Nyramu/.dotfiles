@@ -15,7 +15,7 @@
           1
         ];
       };
-      
+
       animation = {
         windowsIn = {
           enable = true;

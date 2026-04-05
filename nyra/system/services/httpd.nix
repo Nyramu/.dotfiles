@@ -3,7 +3,7 @@
   lib,
   ...
 }:
-  
+
 let
   nyraSettings = config.nyra.settings;
   cfg = config.nyra.system.httpd;

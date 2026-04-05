@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  theme = import config.nyra.theme.path  { inherit pkgs; };
+  theme = import config.nyra.theme.path { inherit pkgs; };
 in
 {
   wayland.windowManager.hyprland = {

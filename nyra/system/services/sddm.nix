@@ -8,7 +8,7 @@
 
 let
   nyraSettings = config.nyra.settings;
-  theme = import config.nyra.theme.path  { inherit pkgs; };
+  theme = import config.nyra.theme.path { inherit pkgs; };
   stylix = config.stylix;
   cfg = config.nyra.system.sddm;
 
