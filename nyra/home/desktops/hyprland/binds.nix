@@ -8,6 +8,7 @@
 let
   apps = config.nyra.home.apps;
   plugins = config.nyra.desktops.hyprland;
+  noctalia = "noctalia-shell ipc call";
 in
 {
   wayland.windowManager.hyprland = {
@@ -48,14 +49,6 @@ in
             bind."SUPER_SHIFT, SPACE" = "exec, systemctl --user restart vicinae.service";
           };
 
-          vicinae = {
-            bind = {
-              "SUPER, SPACE" = "exec, vicinae toggle";
-              "SUPER, C" = "exec, vicinae vicinae://extensions/vicinae/clipboard/history"; # Clipboard History
-              # "SUPER, M" = "exec, vicinae vicinae://extensions/mattisssa/spotify-player/nowPlaying"; # Now Playing on Spotify
-            };
-          };
-
           screenCapture = {
             # Press to start recording, then press again to stop and save
             bind.", F9" = "exec, screen-record"; # Max quality, 60 fps
@@ -66,6 +59,56 @@ in
             # Copy screenshot to clipboard and save
             bind."SUPER, F10" = "exec, screen-shot --save";
             bind."SUPER, Print" = "exec, screen-shot --save";
+          };
+
+          miscellaneous = {
+            # Toggle DND on notifications
+            bind."SUPER_SHIFT, D" = "exec, ${noctalia} notifications toggleDND";
+          };
+
+          vicinae = {
+            bind = {
+              "SUPER, SPACE" = "exec, vicinae toggle";
+              "SUPER, C" = "exec, vicinae vicinae://extensions/vicinae/clipboard/history"; # Clipboard History
+            };
+          };
+
+          audioControl = {
+            bindle.", XF86AudioRaiseVolume" = "exec, ${lib.getExe pkgs.pamixer} -i 5";
+            bindle.", XF86AudioLowerVolume" = "exec, ${lib.getExe pkgs.pamixer} -d 5";
+            bindl.", XF86AudioMute" = "exec, ${lib.getExe pkgs.pamixer} -t";
+          };
+
+          mediaControl = {
+            bindl = {
+              # Play/Pause
+              ", XF86AudioPlay" = "exec, ${noctalia} media playPause";
+              # Previous
+              ", XF86AudioPrev" = "exec, ${noctalia} media previous";
+              "SUPER_CTRL, left" = "exec, ${noctalia} media previous";
+              # Next
+              ", XF86AudioNext" = "exec, ${noctalia} media next";
+              "SUPER_CTRL, right" = "exec, ${noctalia} media next";
+            };
+          };
+
+          brightnessControl = {
+            binde.", XF86MonBrightnessUp" = "exec, ${lib.getExe pkgs.brightnessctl} set +5%";
+            binde.", XF86MonBrightnessDown" = "exec, ${lib.getExe pkgs.brightnessctl} set 5%-";
+          };
+
+          sessionControl = {
+            bind."SUPER_SHIFT, R" = "exec, systemctl reboot";
+            bind."SUPER_SHIFT, P" = "exec, systemctl poweroff";
+            bind."SUPER_SHIFT, E" = "exit";
+            bind."SUPER_SHIFT, L" = "exec, ${noctalia} lockScreen lock";
+          };
+
+          mouseWindowControl = {
+            bindm = {
+              "SUPER, ${MOUSE_L}" = "movewindow";
+              "SUPER, ${MOUSE_R}" = "resizewindow";
+            };
           };
 
           windowControl = {
@@ -81,7 +124,6 @@ in
 
             # Window toggles
             bind = {
-              "SUPER, P" = "pseudo";
               "SUPER, V" = "togglefloating";
             };
 
@@ -91,13 +133,6 @@ in
               "SUPER, down" = "movefocus, d";
               "SUPER, left" = "movefocus, l";
               "SUPER, right" = "movefocus, r";
-            };
-          };
-
-          mouseWindowControl = {
-            bindm = {
-              "SUPER, ${MOUSE_L}" = "movewindow";
-              "SUPER, ${MOUSE_R}" = "resizewindow";
             };
           };
 
@@ -115,23 +150,6 @@ in
               "SUPER, Tab" = "changegroupactive, f"; # Move forward
               "SUPER_SHIFT, Tab" = "changegroupactive, b"; # Move back
             };
-          };
-
-          audioControl = {
-            binde.", XF86AudioRaiseVolume" = "exec, ${lib.getExe pkgs.pamixer} -i 5";
-            binde.", XF86AudioLowerVolume" = "exec, ${lib.getExe pkgs.pamixer} -d 5";
-            bind.", XF86AudioMute" = "exec, ${lib.getExe pkgs.pamixer} -t";
-          };
-
-          brightnessControl = {
-            binde.", XF86MonBrightnessUp" = "exec, ${lib.getExe pkgs.brightnessctl} set +5%";
-            binde.", XF86MonBrightnessDown" = "exec, ${lib.getExe pkgs.brightnessctl} set 5%-";
-          };
-
-          sessionControl = {
-            bind."SUPER_SHIFT, R" = "exec, systemctl reboot";
-            bind."SUPER_SHIFT, P" = "exec, systemctl poweroff";
-            bind."SUPER_SHIFT, L" = "exit";
           };
 
           changeWorkspace = {
@@ -171,8 +189,18 @@ in
         };
       in
       lib.mkMerge [
+        # Launch apps
+        groups.launchApps
+        groups.launchTerminalApps
+        groups.restartApps
+        groups.screenCapture
+        # Miscellaneous
+        groups.miscellaneous
+        # Vicinae
+        groups.vicinae
         # System control
         groups.audioControl
+        groups.mediaControl
         groups.brightnessControl
         groups.sessionControl
         # Window control
@@ -182,12 +210,6 @@ in
         # Workspace control
         groups.changeWorkspace
         groups.moveToWorkspace
-        # Launch apps
-        groups.launchApps
-        groups.launchTerminalApps
-        groups.vicinae
-        groups.restartApps
-        groups.screenCapture
       ];
   };
 }
