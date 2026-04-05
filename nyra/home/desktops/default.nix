@@ -3,8 +3,8 @@
 {
   imports = [
     ./hyprland
-    ./noctalia.nix
-    ./vicinae.nix
+    ./noctalia
+    ./vicinae
   ];
 
   home.packages = with pkgs; [
