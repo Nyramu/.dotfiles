@@ -10,7 +10,7 @@
     };
 
     hyprnix = {
-      url = "github:Nyramu/hyprnix";
+      url = "github:Nyramu/hyprnix-old";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
