@@ -51,6 +51,7 @@
     packages = with pkgs; [
       hyprpicker
       croc
+      android-tools
       fontfor
       figlet
       cmatrix
