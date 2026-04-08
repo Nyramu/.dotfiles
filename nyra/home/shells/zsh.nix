@@ -19,7 +19,6 @@ in
         "git"
         "gh"
         #"git-commit"
-        "git-prompt"
         "golang"
         "ssh"
         "sudo"
