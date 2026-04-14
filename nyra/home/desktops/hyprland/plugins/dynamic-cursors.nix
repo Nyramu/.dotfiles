@@ -10,11 +10,11 @@ let
 in
 {
   config = lib.mkIf (cfg.enable) {
-    wayland.windowManager.hyprland.plugins = with pkgs.hyprlandPlugins; [
+    hyprnix.plugins = with pkgs.hyprlandPlugins; [
       hypr-dynamic-cursors
     ];
 
-    wayland.windowManager.hyprland.extraConfig = ''
+    hyprnix.extraConfig = ''
       plugin:dynamic-cursors {
         enabled = true
         mode = ${cfg.mode}

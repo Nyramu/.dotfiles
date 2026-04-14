@@ -1,26 +1,50 @@
 { ... }:
 
 {
-  wayland.windowManager.hyprland = {
-    config = {
-      windowrule = [
-        "match:class ^(mpv)$, float on"
-        "match:class ^(mpv)$, size 1280 720"
-        "match:class ^(mpv)$, center on"
-
-        "match:class ^(imv)$, float on"
-        "match:class ^(imv)$, size 1280 720"
-        "match:class ^(imv)$, center on"
-
-        # Custom titles for kitty
-        "match:initial_title ^(rmpc)$, float on"
-        "match:initial_title ^(rmpc)$, size 942 558"
-        "match:initial_title ^(rmpc)$, center on"
-
-        "match:initial_title ^(fastfetch)$, float on"
-        "match:initial_title ^(fastfetch)$, size 1100 736"
-        "match:initial_title ^(fastfetch)$, center on"
+  hyprnix.settings.windowrules = [
+    {
+      name = "floating-mpv";
+      match.class = "mpv";
+      float = true;
+      center = true;
+      size = [
+        1280
+        720
       ];
-    };
-  };
+    }
+
+    {
+      name = "floating-imv";
+      match.class = "imv";
+      float = true;
+      center = true;
+      size = [
+        1280
+        720
+      ];
+    }
+
+    # Custom titles for kitty
+    {
+      name = "cassette-rmpc";
+      match.initial_title = "rmpc";
+      float = true;
+      center = true;
+      size = [
+        942
+        558
+      ];
+    }
+
+    {
+      name = "welcome-fastfetch";
+      match.initial_title = "fastfetch";
+      float = true;
+      center = true;
+      size = [
+        1100
+        736
+      ];
+    }
+  ];
 }

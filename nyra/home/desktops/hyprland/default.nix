@@ -12,7 +12,7 @@ let
 in
 {
   imports = [
-    inputs.hyprnix.homeManagerModules.hyprland
+    inputs.hyprnix.homeModules.default
     ./binds.nix
     ./groups.nix
     ./animations.nix
@@ -20,29 +20,33 @@ in
     ./plugins
   ];
 
-  # Fix for Hyprnix
-  options.wayland.windowManager.hyprland.settings = {
-    decoration = lib.mkOption { default = { }; };
-    general = lib.mkOption { default = { }; };
-    group = lib.mkOption { default = { }; };
-    misc = lib.mkOption { default = { }; };
-  };
-
-  config.wayland.windowManager.hyprland = {
+  config.hyprnix = {
     enable = cfg.enable;
-    package = pkgs.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
-    reloadConfig = true;
-    recommendedEnvironment = true;
-    config = {
-      monitor = cfg.monitors or [ ", preferred, auto, 1" ];
+    settings = {
+      permissions = [
+        {
+          executable = "${lib.getExe pkgs.grim}";
+          permission = "screencopy";
+          mode = "deny";
+        }
+      ];
 
-      render.direct_scanout = true;
+      monitors = [
+        {
+          output = "eDP-1";
+          mode = "1920x1200@60";
+          position = "auto";
+          scale = 1;
+        }
+      ];
+
+      render.direct_scanout = 1;
 
       misc = {
         vfr = false;
-        vrr = false;
+        vrr = 0;
       };
 
       input = {
@@ -55,6 +59,12 @@ in
       };
 
       cursor = {
+        hyprcursor = {
+          enable = true;
+          package = pkgs.rose-pine-hyprcursor;
+          name = "rose-pine-hyprcursor";
+          size = 36;
+        };
         inactive_timeout = 0;
         warp_on_change_workspace = 0;
         hide_on_touch = false;
@@ -69,12 +79,27 @@ in
         no_donation_nag = true;
       };
 
-      workspace = [
-        "1, persistent:true"
-        "2, persistent:true"
-        "3, persistent:true"
-        "4, persistent:true"
-        "5, persistent:true"
+      workspaces = [
+        {
+          id = 1;
+          rules.persistent = true;
+        }
+        {
+          id = 2;
+          rules.persistent = false;
+        }
+        {
+          id = 3;
+          rules.persistent = false;
+        }
+        {
+          id = 4;
+          rules.persistent = true;
+        }
+        {
+          id = 5;
+          rules.persistent = true;
+        }
       ];
 
       general = {
@@ -84,8 +109,8 @@ in
         gaps_in = 5;
         gaps_out = 2;
 
-        active_border_color = theme.hypr.active_border_color;
-        inactive_border_color = theme.hypr.inactive_border_color;
+        # active_border_color = theme.hypr.active_border_color;
+        # inactive_border_color = theme.hypr.inactive_border_color;
 
         layout = "dwindle";
         allow_tearing = false;
@@ -96,7 +121,7 @@ in
         shadow = {
           range = 5;
           render_power = 3;
-          color = "rgba(26, 26, 26, 0.93)";
+          # color = "rgba(26, 26, 26, 0.93)";
         };
         screen_shader = lib.mkIf (cfg.shader.enable) "shader.frag";
         blur.enabled = false;
@@ -104,13 +129,26 @@ in
 
       # Gives more freedom in windows management compared to Master
       dwindle = {
-        pseudotile = "yes";
+        pseudotile = true;
         preserve_split = true;
       };
 
       master.new_status = "master";
 
-      gesture = "3, pinch, fullscreen";
+      gesture = {
+        gestures = [
+          {
+            fingers = 3;
+            direction = "pinch";
+            action = "fullscreen";
+          }
+          {
+            fingers = 3;
+            direction = "vertical";
+            action = "workspace";
+          }
+        ];
+      };
 
       misc = {
         disable_hyprland_logo = true;
@@ -118,12 +156,12 @@ in
         animate_mouse_windowdragging = false; # Just lags for some reason
       };
 
-      env = [
-        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-        "HYPRCURSOR_SIZE,36"
-      ];
+      # env = {
+      #   HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+      #   HYPRCURSOR_SIZE = 36;
+      # };
     };
   };
-  config.home.packages = with pkgs; [ rose-pine-hyprcursor ];
+  # config.home.packages = with pkgs; [ rose-pine-hyprcursor ];
   config.xdg.configFile."hypr/shader.frag".source = cfg.shader.path;
 }
