@@ -25,7 +25,7 @@
     lutris.enable = false;
     heroic.enable = true;
     cemu = {
-      enable = true;
+      # enable = true; # Temporarily broken
       ukmm.enable = true;
     };
     eden.enable = true;
