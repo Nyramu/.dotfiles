@@ -33,14 +33,7 @@ in
         }
       ];
 
-      monitors = [
-        {
-          output = "eDP-1";
-          mode = "1920x1200@60";
-          position = "auto";
-          scale = 1;
-        }
-      ];
+      monitors = cfg.monitors;
 
       render.direct_scanout = 1;
 

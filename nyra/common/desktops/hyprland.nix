@@ -8,7 +8,7 @@ in
     enable = lib.mkEnableOption "hyprland";
 
     monitors = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
+      type = lib.types.listOf lib.types.attrs;
       default = [ ];
       description = "list of hyprland monitors";
     };

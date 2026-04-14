@@ -17,7 +17,12 @@
     hyprland = {
       enable = true;
       monitors = [
-        "eDP-1, 1920x1080@60, auto, 1"
+        {
+          output = "eDP-1";
+          mode = "1920x1080@60";
+          position = "auto";
+          scale = 1;
+        }
       ];
       shader = {
         enable = true;
