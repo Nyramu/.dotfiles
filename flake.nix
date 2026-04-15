@@ -10,7 +10,7 @@
     };
 
     hyprnix = {
-      url = "path:/home/nyramu/hyprnix";
+      url = "github:Nyramu/hyprnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
