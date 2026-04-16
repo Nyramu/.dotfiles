@@ -23,7 +23,7 @@
     # Gaming
     minecraft.enable = true;
     lutris.enable = false;
-    heroic.enable = true;
+    # heroic.enable = true; # Temporarily broken
     cemu = {
       # enable = true; # Temporarily broken
       ukmm.enable = true;
