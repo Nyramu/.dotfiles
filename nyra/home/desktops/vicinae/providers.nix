@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   services.vicinae = {
@@ -54,6 +54,12 @@
             sponsor.enabled = false;
           };
         };
+        "@Gimblet/vicinae-extension-noctalia-shell-wallpaper-selector-0" = {
+          preferences = {
+            display_name = "eDP-1";
+            wallpaper_directory = "/home/${config.nyra.settings.username}/.dotfiles/resources/wallpapers";
+          };
+        };
         "@leonkohli/vicinae-extension-process-manager-0" = {
           preferences = {
             clear-search-after-kill = true;
@@ -67,30 +73,7 @@
             kill.enabled = false;
           };
         };
-        "@mattisssa/spotify-player" = {
-          enabled = false;
-          entrypoints = {
-            search = {
-              preferences = {
-                musicOnly = true;
-                topView = "tracks";
-              };
-            };
-            yourLibrary = {
-              preferences = {
-                Default-View = "playlists";
-              };
-            };
-            devices.enabled = false;
-            generatePlaylist.enabled = false;
-            next.enabled = false;
-            previous.enabled = false;
-            togglePlayPause.enabled = false;
-            nowPlaying.enabled = true;
-            findLyrics.enabled = false;
-            toggleShuffle.enabled = true;
-          };
-        };
+
         files = {
           enabled = false;
           # preferences = {
