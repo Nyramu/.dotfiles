@@ -36,6 +36,7 @@ in
           # Sidebar and toolbar
           "zen.tabs.show-newtab-vertical" = true;
           "zen.theme.content-element-separation" = 12;
+      
           "zen.theme.gradient" = false;
           "zen.view.sidebar-expanded" = false;
 
@@ -68,6 +69,7 @@ in
 
           # Other
           "privacy.userContext.ui.colorize" = false;
+          "zen.theme.acrylic-elements" = true;
           "zen.view.hide-window-controls" = false;
           "zen.view.show-newtab-button-top" = false;
           "zen.view.use-single-toolbar" = true;
