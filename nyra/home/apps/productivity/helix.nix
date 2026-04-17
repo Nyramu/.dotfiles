@@ -27,7 +27,7 @@
 
           cursor-shape = {
             normal = "block";
-            insert = "bar";
+            insert = "block";
             select = "underline";
           };
 
