@@ -12,10 +12,12 @@ in
     merge_groups_on_drag = false;
     # group_on_movetoworkspace = true; # Must test
 
-    # active_border_color = theme.hypr.active_border_color;
-    # inactive_border_color = theme.hypr.inactive_border_color;
-    # locked_active_border_color = theme.hypr.locked_group_active_border_color;
-    # locked_inactive_border_color = theme.hypr.inactive_border_color;
+    col = {
+      border_active = theme.hypr.active_border_color;
+      border_inactive = theme.hypr.inactive_border_color;
+      border_locked_active = theme.hypr.locked_group_active_border_color;
+      border_locked_inactive = theme.hypr.inactive_border_color;
+    };
 
     groupbar = {
       font_size = 13;
@@ -25,15 +27,17 @@ in
       rounding_power = 4.0; # Default: 2.0
       blur = true;
 
-      # text_color = theme.hypr.text_color;
-      # text_color_inactive = theme.hypr.inactive_text_color;
-      # text_color_locked_active = theme.hypr.locked_group_active_text_color;
-      # text_color_locked_inactive = theme.hypr.inactive_text_color;
+      text_color = theme.hypr.text_color;
+      text_color_inactive = theme.hypr.inactive_text_color;
+      text_color_locked_active = theme.hypr.locked_group_active_text_color;
+      text_color_locked_inactive = theme.hypr.inactive_text_color;
 
-      # active_color = theme.hypr.active_color;
-      # inactive_color = theme.hypr.inactive_color;
-      # locked_active_color = theme.hypr.locked_group_active_color;
-      # locked_inactive_color = theme.hypr.inactive_color;
+      col = {
+        active = theme.hypr.active_color;
+        inactive = theme.hypr.inactive_color;
+        locked_active = theme.hypr.locked_group_active_color;
+        locked_inactive = theme.hypr.inactive_color;
+      };
     };
   };
 }
