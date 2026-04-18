@@ -87,7 +87,11 @@
           A-p = "paste_clipboard_before"; # Paste clipboard content before selection
           A-y = "yank_to_clipboard"; # Yank selection to clipboard
           A-d = "delete_selection"; # Delete selection
-          A-c = [ "yank_to_clipboard" "delete_selection" ]; # Cut selection
+          # Cut selection
+          A-c = [
+            "yank_to_clipboard"
+            "delete_selection"
+          ];
           A-n = ":new"; # New file from scratch
 
           A-esc = ":buffer-close!"; # Force close current file
@@ -122,7 +126,11 @@
           A-p = "paste_clipboard_before"; # Paste clipboard content before selection
           A-y = "yank_to_clipboard"; # Yank selection to clipboard
           A-d = "delete_selection"; # Delete selection
-          A-c = [ "yank_to_clipboard" "delete_selection" ]; # Cut selection
+          # Cut selection
+          A-c = [
+            "yank_to_clipboard"
+            "delete_selection"
+          ];
 
           C-d = "kill_to_line_start"; # Delete till start of line
           C-z = "undo"; # Undo changes
@@ -196,6 +204,22 @@
             name = "nix";
             file-types = [ "nix" ];
             formatter.command = "${lib.getExe pkgs.nixfmt}";
+          }
+          {
+            name = "markdown";
+            file-types = [
+              "md"
+              "MD"
+            ];
+            formatter = {
+              command = "${lib.getExe pkgs.deno}";
+              args = [
+                "fmt"
+                "-"
+                "--ext"
+                "md"
+              ];
+            };
           }
         ];
       };
