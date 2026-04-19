@@ -8,9 +8,7 @@
       # Hyprland
       "https://hyprland.cachix.org"
       # Eden Emulator
-      "https://eden-flake.cachix.org"
-      # Ayugram (Telegram)
-      "https://cache.garnix.io"
+      "https://eden-emu-flake.cachix.org"
     ];
     trusted-substituters = substituters;
     trusted-public-keys = [
@@ -19,9 +17,7 @@
       # Hyprland
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       # Eden Emulator
-      "eden-flake.cachix.org-1:9orwA5vFfBgb67pnnpsxBqILQlb2UI2grWt4zHHAxs8="
-      # Ayugram (Telegram)
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "eden-emu-flake.cachix.org-1:qMKfHpBsRhMpxrc4FawVy+IeYAvFhhv94qiB69Bl0RU="
     ];
   };
 }
