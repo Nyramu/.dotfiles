@@ -11,6 +11,10 @@
         1280
         720
       ];
+      size = [
+        1280
+        720
+      ];
       dim_around = true;
     }
 
@@ -20,6 +24,10 @@
       float = true;
       center = true;
       min_size = [
+        1280
+        720
+      ];
+      size = [
         1280
         720
       ];
@@ -35,6 +43,10 @@
         1280
         720
       ];
+      size = [
+        1280
+        720
+      ];
     }
 
     {
@@ -46,6 +58,10 @@
         942
         558
       ];
+      size = [
+        942
+        558
+      ];
     }
 
     {
@@ -53,6 +69,10 @@
       match.initial_title = "fastfetch";
       float = true;
       center = true;
+      min_size = [
+        1100
+        736
+      ];
       size = [
         1100
         736
