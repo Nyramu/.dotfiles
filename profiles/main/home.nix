@@ -25,7 +25,7 @@
     lutris.enable = false;
     # heroic.enable = true; # Temporarily broken
     cemu = {
-      # enable = true; # Temporarily broken
+      enable = true;
       ukmm.enable = true;
     };
     eden.enable = true;
@@ -49,6 +49,7 @@
 
     # Packages without configuration
     packages = with pkgs; [
+      qbittorrent
       hyprpicker
       croc
       android-tools
