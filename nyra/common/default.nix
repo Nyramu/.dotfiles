@@ -33,7 +33,7 @@ in
       light = "gruvbox-plus";
     };
 
-    targets.qt.enable = true;
+    targets.qt.enable = false;
     targets.gtksourceview.enable = false;
   };
 }
