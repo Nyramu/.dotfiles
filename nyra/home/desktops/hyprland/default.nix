@@ -50,7 +50,7 @@ in
             name = "rose-pine-hyprcursor";
             size = 36;
           };
-          inactive_timeout = 20;
+          inactive_timeout = 12;
           persistent_warps = true;
           warp_on_change_workspace = 0;
           hide_on_touch = true;
@@ -118,10 +118,9 @@ in
             render_power = 3;
             color = "rgba(26, 26, 26, 0.93)";
           };
-          screen_shader = lib.mkIf (cfg.shader.enable) "shader.frag";
+          screen_shader = lib.mkIf (cfg.shader.enable) cfg.shader.path;
           blur = {
             enabled = true;
-            # xray = true;
             size = 1;
             passes = 2;
           };
@@ -138,7 +137,9 @@ in
             {
               fingers = 3;
               direction = "pinch";
-              action = "fullscreen";
+              action = {
+                dispatcher = "fullscreen, maximize";
+              };
             }
             {
               fingers = 3;
@@ -152,6 +153,8 @@ in
           disable_hyprland_logo = true;
           force_default_wallpaper = 0;
           animate_manual_resizes = true;
+          enable_swallow = true;
+          swallow_regex = "^(${config.nyra.home.apps.defaultTerminal})$";
           session_lock_xray = true; # Should test with hyprlock or something
           animate_mouse_windowdragging = false; # Just lags for some reason
           vfr = false;
@@ -159,6 +162,5 @@ in
         };
       };
     };
-    xdg.configFile."hypr/shader.frag".source = cfg.shader.path;
   };
 }
