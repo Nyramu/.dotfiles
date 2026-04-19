@@ -41,7 +41,7 @@
     };
 
     eden = {
-      url = "github:grantimatter/eden-flake";
+      url = "github:Nyramu/eden-emu-flake";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
