@@ -24,7 +24,6 @@ in
 
   programs.noctalia-shell = {
     enable = cfg.hyprland.enable;
-    systemd.enable = true;
     settings = {
       general = {
         avatarImage = nyraSettings.pfp;

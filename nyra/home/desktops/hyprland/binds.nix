@@ -45,7 +45,7 @@ in
 
         restartApps = {
           # Noctalia
-          bind."SUPER_SHIFT, W" = "exec, systemctl --user restart noctalia-shell.service";
+          bind."SUPER_SHIFT, W" = "exec, pkill .quickshell-wra ; noctalia-shell";
           # Vicinae
           bind."SUPER_SHIFT, SPACE" = "exec, systemctl --user restart vicinae.service";
         };
