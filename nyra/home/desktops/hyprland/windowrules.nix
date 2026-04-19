@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   hyprnix.settings.windowrules = [
@@ -7,10 +7,11 @@
       match.class = "mpv";
       float = true;
       center = true;
-      size = [
+      min_size = [
         1280
         720
       ];
+      dim_around = true;
     }
 
     {
@@ -18,19 +19,30 @@
       match.class = "imv";
       float = true;
       center = true;
-      size = [
+      min_size = [
         1280
         720
       ];
     }
 
-    # Custom titles for kitty
+    # Custom titles for terminal apps
+    {
+      name = "floating-${config.nyra.home.apps.defaultTerminal}";
+      match.class = "floating-${config.nyra.home.apps.defaultTerminal}";
+      float = true;
+      center = true;
+      min_size = [
+        1280
+        720
+      ];
+    }
+
     {
       name = "cassette-rmpc";
       match.initial_title = "rmpc";
       float = true;
       center = true;
-      size = [
+      min_size = [
         942
         558
       ];
