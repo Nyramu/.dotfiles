@@ -29,6 +29,7 @@ in
       screenShot
       screenRecord
     ];
+    file."Trash".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/Trash/files";
   };
   news.display = "silent";
 
