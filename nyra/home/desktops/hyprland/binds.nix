@@ -33,7 +33,9 @@ in
             "SUPER, RETURN" = "exec, ${terminal}";
             "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
 
-            "SUPER_ALT, RETURN" = "exec, ${terminal} --title fastfetch --hold fastfetch"; # Fastfetch but in a cool window
+            "SUPER_ALT, RETURN" = "exec, ${terminal} --class floating-${apps.defaultTerminal}";
+
+            # "SUPER_ALT, RETURN" = "exec, ${terminal} --title fastfetch --hold fastfetch"; # Fastfetch but in a cool window
 
             "SUPER, E" = "exec, ${terminal} -e ${fileManager}";
             "SUPER, H" = "exec, ${terminal} -e btop";
@@ -63,6 +65,10 @@ in
         miscellaneous = {
           # Toggle DND on notifications
           bind."SUPER_SHIFT, D" = "exec, ${noctalia} notifications toggleDND";
+          # Toggle X-Ray on floating windows
+          bind."SUPER, X" = " setprop, floating xray toggle";
+          # Toggle window swallowing
+          bind."SUPER_SHIFT, S" = "toggleswallow,";
         };
 
         vicinae = {
