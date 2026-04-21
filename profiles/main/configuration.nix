@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -29,13 +29,14 @@
   nyra.system.mysql.enable = false;
   nyra.system.httpd.enable = false;
 
-  # Use zen kernel.
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Use CachyOS Zen4 LTO kernel.
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
 
   # AMD management tools and features
   nyra.system.amd = {
     enable = true;
-    ryzen-smu.enable = true;
+    ryzen-smu.enable = false;
     ryzenadj.enable = false;
   };
 
