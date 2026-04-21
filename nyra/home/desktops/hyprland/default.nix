@@ -153,6 +153,10 @@ in
           "noctalia-shell"
         ];
 
+        exec = [
+          "pkill .quickshell-wra ; noctalia-shell"
+        ];
+
         misc = {
           disable_hyprland_logo = true;
           force_default_wallpaper = 0;
