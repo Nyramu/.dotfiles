@@ -15,11 +15,7 @@ in
       settings = {
         general = {
           renice = 10;
-          #igpu_power_threshold = -1;
         };
-        #gpu = {
-        #  amd_performance_level = "high";
-        #};
       };
     };
     # Needed to make the renice setting work
