@@ -43,7 +43,7 @@ in
       font = {
         normal = {
           size = theme.vicinae.font.normal.size or 10.5;
-          family = "system";
+          family = "${theme.fonts.serif.name}";
         };
       };
       favorites = [
