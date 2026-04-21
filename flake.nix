@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     hyprnix = {
       url = "github:Nyramu/hyprnix";
       inputs.nixpkgs.follows = "nixpkgs";
