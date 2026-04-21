@@ -36,8 +36,6 @@
   # AMD management tools and features
   nyra.system.amd = {
     enable = true;
-    ryzen-smu.enable = false;
-    ryzenadj.enable = false;
   };
 
   # Enable fingerprints support, register one running
