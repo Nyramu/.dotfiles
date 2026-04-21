@@ -9,18 +9,10 @@ let
   cfg = config.nyra.system.amd;
 in
 {
-  options.nyra.system.amd = rec {
+  options.nyra.system.amd = {
     enable = lib.mkEnableOption "AMD Optimizations";
-    ryzen-smu.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = enable;
-      description = "ryzen-smu";
-    };
-    ryzenadj.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = enable;
-      description = "ryzenadj";
-    };
+    ryzen-smu.enable = lib.mkEnableOption "ryzen-smu";
+    ryzenadj.enable = lib.mkEnableOption "ryzenadj";
   };
 
   config = lib.mkIf cfg.enable {
