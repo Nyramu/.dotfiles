@@ -6,11 +6,11 @@
 }:
 let
   pname = "spotiflac";
-  version = "7.1.3";
+  version = "7.1.5";
 
   src = fetchurl {
     url = "https://github.com/afkarxyz/SpotiFLAC/releases/download/v${version}/SpotiFLAC.AppImage";
-    hash = "sha256-X28bE3JEBvKpsDQ1uHKCFTxAa3IK2l/pK2WCq+3oMPY=";
+    hash = "sha256-3IjUblz61MuternDg2oqfkrs/gSlq0I9oqmE0oZGrsM=";
   };
 
   appimageContents = appimageTools.extractType2 { inherit pname version src; };
