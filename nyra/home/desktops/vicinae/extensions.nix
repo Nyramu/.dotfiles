@@ -15,6 +15,7 @@
         process-manager
         nerdfont-search
         noctalia-shell-wallpaper-selector
+        protondb-search
       ];
   };
 }
