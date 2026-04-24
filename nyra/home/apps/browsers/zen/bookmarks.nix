@@ -6,6 +6,20 @@
       force = true;
       settings = [
         {
+          name = "Miscellaneous";
+          toolbar = true;
+          bookmarks = [
+            {
+              name = "Linux Hub";
+              tags = [
+                "xda"
+                "linux"
+              ];
+              url = "https://www.xda-developers.com/linux-hub/";
+            }
+          ];
+        }
+        {
           name = "NixOS";
           toolbar = true;
           bookmarks = [
@@ -34,16 +48,6 @@
             {
               name = "Hyprnix";
               url = "https://github.com/Nyramu/hyprnix";
-            }
-          ];
-        }
-        {
-          name = "Configs for my dotfiles";
-          toolbar = false;
-          bookmarks = [
-            {
-              name = "Noctalia";
-              url = "https://docs.noctalia.dev/getting-started/nixos/";
             }
           ];
         }
