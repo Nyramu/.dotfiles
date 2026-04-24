@@ -17,6 +17,8 @@
             vicinae.enabled = false;
             xterm.enabled = false;
             blueman-manager.enabled = false;
+            protontricks.enabled = false;
+            helix.enabled = false;
             yazi.enabled = false;
             btop.enabled = false;
           };
@@ -51,6 +53,7 @@
             report-bug.enabled = false;
             search-builtin-icons.enabled = false;
             search-emojis.enabled = false;
+            settings.enabled = false;
             sponsor.enabled = false;
           };
         };
