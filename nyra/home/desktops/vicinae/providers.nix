@@ -18,7 +18,7 @@
             xterm.enabled = false;
             blueman-manager.enabled = false;
             protontricks.enabled = false;
-            helix.enabled = false;
+            Helix.enabled = false;
             yazi.enabled = false;
             btop.enabled = false;
           };
