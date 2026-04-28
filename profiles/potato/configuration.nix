@@ -13,7 +13,7 @@
 
   # Use CachyOS v3 LTO kernel.
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
-  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+  nixpkgs.overlays = [ inputs.cachyos-kernel.overlays.pinned ];
 
   # Local server configuration
   nyra.system = {

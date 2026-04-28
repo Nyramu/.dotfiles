@@ -31,7 +31,7 @@
 
   # Use CachyOS Zen4 LTO kernel.
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
-  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+  nixpkgs.overlays = [ inputs.cachyos-kernel.overlays.pinned ];
 
   # AMD management tools and features
   nyra.system.amd = {
