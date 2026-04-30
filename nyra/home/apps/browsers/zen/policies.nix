@@ -103,13 +103,15 @@
         Preferences = mkLockedAttrs {
           "browser.aboutConfig.showWarning" = false;
           "browser.aboutwelcome.enabled" = false;
-          "browser.ipProtection.enabled" = true; # Experimental
+          "browser.contentblocking.report.hide_vpn_banner" = true;
+          "browser.ipProtection.enabled" = false; # Mozilla VPN
           "browser.ipProtection.variant" = "treatment";
           "browser.tabs.allow_transparent_browser" = true;
           "browser.tabs.warnOnOpen" = false;
           "browser.tabs.warnOnClose" = false;
           "browser.taskbarTabs.enabled" = false;
           "browser.vpn_promo.enabled" = false;
+
           "extensions.autoDisableScopes" = 0;
           "widget.transparent-windows" = true;
 
