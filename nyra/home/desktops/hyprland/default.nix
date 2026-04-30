@@ -121,6 +121,7 @@ in
           screen_shader = lib.mkIf (cfg.shader.enable) cfg.shader.path;
           blur = {
             enabled = true;
+            new_optimizations = true;
             size = 1;
             passes = 2;
           };
