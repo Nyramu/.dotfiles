@@ -45,8 +45,9 @@ in
           "zen.view.sidebar-expanded.min-width" = 250;
 
           # URL bar
-          "zen.urlbar.behavior" = "normal";
+          "zen.urlbar.behavior" = "floating-on-type";
           "zen.urlbar.hide-one-offs" = false;
+          "zen.urlbar.replace-newtab" = false;
           "zen.urlbar.show-domain-only-in-sidebar" = false;
 
           # Compact mode
