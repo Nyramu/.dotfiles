@@ -16,9 +16,22 @@
         0.3
         1
       ];
+      
+      linear = [
+        0
+        0
+        1
+        1
+      ];
     };
 
     animations = [
+      {
+        name = "borderangle";
+        speed = 20;
+        curve = "linear";
+        style = "loop";
+      }
       {
         name = "windowsIn";
         speed = 5;
