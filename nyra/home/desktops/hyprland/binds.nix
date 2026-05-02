@@ -74,7 +74,7 @@ in
         vicinae = {
           bind = {
             "SUPER, SPACE" = "exec, vicinae toggle";
-            "SUPER, C" = "exec, vicinae vicinae://extensions/vicinae/clipboard/history"; # Clipboard History
+            "SUPER, C" = "exec, vicinae vicinae://launch/clipboard/history";
           };
         };
 
@@ -105,7 +105,7 @@ in
         sessionControl = {
           bind."SUPER_SHIFT, R" = "exec, systemctl reboot";
           bind."SUPER_SHIFT, P" = "exec, systemctl poweroff";
-          bind."SUPER_SHIFT, E" = "exit";
+          bind."SUPER_SHIFT, Q" = "exit";
           bind."SUPER_SHIFT, L" = "exec, ${noctalia} lockScreen lock";
         };
 
