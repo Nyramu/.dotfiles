@@ -31,7 +31,7 @@ in
         opacity = lib.mkIf (theme ? vicinae.ui.opacity) (lib.mkForce theme.vicinae.ui.opacity);
         layer_shell = {
           enabled = true;
-          keyboard_interactivity = "on_demand";
+          keyboard_interactivity = "exclusive";
           layer = "top";
         };
         size = {
