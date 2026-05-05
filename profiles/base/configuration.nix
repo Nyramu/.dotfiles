@@ -41,6 +41,12 @@ in
     ];
   };
 
+  # Enable wayland and xwayland
+  nyra.wayland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   # Login settings
   nyra.system.sddm.enable = true;
 
@@ -63,8 +69,8 @@ in
   # Support MTP devices
   services.gvfs.enable = true;
 
-  # Needed for gpu-screen-recorder
-  security.wrappers.gsr-kms-server = {
+  # Needed for gpu-screen-recorder in a wayland context
+  security.wrappers.gsr-kms-server = lib.mkIf (config.nyra.wayland.enable == true) {
     owner = "root";
     group = "root";
     capabilities = "cap_sys_admin+ep";

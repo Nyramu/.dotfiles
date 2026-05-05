@@ -19,7 +19,7 @@ in
 
   config.programs.spicetify = {
     enable = cfg.enable;
-    wayland = true;
+    wayland = config.nyra.wayland.enable;
     windowManagerPatch = true;
     enabledCustomApps = with spicePkgs.apps; [
       newReleases

@@ -27,7 +27,7 @@ in
     hyprnix = {
       enable = cfg.enable;
       systemd.enable = true;
-      xwayland.enable = true;
+      xwayland.enable = config.nyra.wayland.xwayland.enable;
       settings = {
         monitors = [
           {

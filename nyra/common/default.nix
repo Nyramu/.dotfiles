@@ -9,6 +9,7 @@ in
     ./theme.nix
     ./shells.nix
     ./settings.nix
+    ./wayland.nix
     ./desktops
   ];
 

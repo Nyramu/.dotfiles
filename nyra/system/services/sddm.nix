@@ -26,7 +26,7 @@ in
       enable = cfg.enable;
       enableHidpi = true;
       autoNumlock = true;
-      wayland.enable = lib.mkForce true;
+      wayland.enable = lib.mkForce config.nyra.wayland.enable;
     };
 
     programs.silentSDDM = rec {
