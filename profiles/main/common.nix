@@ -16,14 +16,6 @@
   nyra.desktops = {
     hyprland = {
       enable = true;
-      monitors = [
-        {
-          output = "eDP-1";
-          mode = "1920x1200@60";
-          position = "auto";
-          scale = 1;
-        }
-      ];
       # shader = {
       #   # enable = true;
       #   # name = "vibrant";
@@ -41,5 +33,11 @@
     name = "Nyramu";
     email = "107689027+Nyramu@users.noreply.github.com";
     dotfiles = "~/.dotfiles";
+    monitor = {
+      name = "eDP-1";
+      width = 1920;
+      height = 1200;
+      refreshRate = 60;
+    };
   };
 }

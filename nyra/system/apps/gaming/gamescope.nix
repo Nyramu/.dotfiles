@@ -1,5 +1,9 @@
 { config, lib, ... }:
 
+let
+  nyraSettings = config.nyra.settings;
+  monitor = nyraSettings.monitor;
+in
 {
   options.nyra.system.apps.gamescope = {
     enable = lib.mkEnableOption "gamescope";
@@ -15,11 +19,11 @@
       };
       args = [
         "-f"
-        "-W" "1920"
-        "-H" "1200"
-        "-w" "1920"
-        "-h" "1200"
-        "-r" "60"
+        "-W" "${monitor.width}"
+        "-H" "${monitor.height}"
+        "-w" "${monitor.width}"
+        "-h" "${monitor.height}"
+        "-r" "${monitor.refreshRate}"
         #"-e"          # enable steam integration
         "--force-windows-fullscreen"
       ];

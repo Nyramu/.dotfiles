@@ -9,6 +9,8 @@
 let
   theme = import config.nyra.theme.path { inherit pkgs; };
   cfg = config.nyra.desktops.hyprland;
+  nyraSettings = config.nyra.settings;
+  monitor = nyraSettings.monitor;
 in
 {
   imports = [
@@ -27,7 +29,14 @@ in
       systemd.enable = true;
       xwayland.enable = true;
       settings = {
-        monitors = cfg.monitors;
+        monitors = [
+          {
+            output = "${monitor.name}";
+            mode = "${monitor.width}x${monitor.height}@${monitor.refreshRate}";
+            position = "auto";
+            scale = 1;
+          }
+        ];
 
         render = {
           direct_scanout = 1;
