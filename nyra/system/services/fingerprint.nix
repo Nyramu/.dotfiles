@@ -6,34 +6,35 @@
 }:
 
 let
-  cfg = config.nyra.system.fingerprint;
+  inherit (lib.types) ints;
+  cfg = config.nyra.security.fingerprint;
 in
 {
-  options.nyra.system.fingerprint = {
+  options.nyra.security.fingerprint = {
     enable = lib.mkEnableOption "Fingerprint support";
     sudoTimeout = lib.mkOption {
-      type = lib.types.ints.positive;
+      type = ints.positive;
       default = 3;
       description = "Fingerprint timeout (s) for sudo authentication (integer)";
     };
     sddmTimeout = lib.mkOption {
-      type = lib.types.ints.positive;
+      type = ints.positive;
       default = 2;
       description = "Fingerprint timeout (s) for sddm authentication (integer)";
     };
   };
 
-  config = {
+  config = lib.mkIf (cfg.enable == true) {
     # Enable fingerprint support
     services.fprintd = {
-      enable = cfg.enable;
+      enable = true;
       #tod.enable = true; # For Touch OEM Drivers (Validity/Synaptics) sensors
       #tod.driver = pkgs.libfprint-2-tod1-goodix; # Adapts to your sensor
     };
 
     # Pam sudo and sddm config overrides due
     # to fingerprint timeout and priority
-    security.pam.services = lib.mkIf (config.services.fprintd.enable) {
+    security.pam.services = {
       # Enable fingerprint on sudo giving priority to fingerprint with 3 seconds timeout
       sudo.text = lib.mkForce ''
         # Account management.

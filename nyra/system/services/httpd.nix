@@ -6,10 +6,10 @@
 
 let
   nyraSettings = config.nyra.settings;
-  cfg = config.nyra.system.httpd;
+  cfg = config.nyra.services.httpd;
 in
 {
-  options.nyra.system.httpd = {
+  options.nyra.services.httpd = {
     enable = lib.mkEnableOption "httpd";
   };
 

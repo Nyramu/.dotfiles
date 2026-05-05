@@ -5,12 +5,16 @@
   ...
 }:
 
+let
+  cfg = config.nyra.gaming.steam;
+in
+
 {
-  options.nyra.system.apps.steam = {
+  options.nyra.gaming.steam = {
     enable = lib.mkEnableOption "steam";
   };
 
-  config = lib.mkIf config.nyra.system.apps.steam.enable {
+  config = lib.mkIf (cfg.enable) {
     boot.kernelModules = [
       "ntsync"
     ];

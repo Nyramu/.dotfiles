@@ -1,15 +1,16 @@
 { config, lib, ... }:
 
 let
+  cfg = config.nyra.gaming.gamescope;
   nyraSettings = config.nyra.settings;
   monitor = nyraSettings.monitor;
 in
 {
-  options.nyra.system.apps.gamescope = {
+  options.nyra.gaming.gamescope = {
     enable = lib.mkEnableOption "gamescope";
   };
 
-  config = lib.mkIf config.nyra.system.apps.gamescope.enable {
+  config = lib.mkIf (cfg.enable) {
     programs.gamescope = {
       enable = true;
       capSysNice = true;

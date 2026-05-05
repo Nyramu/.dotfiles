@@ -19,23 +19,21 @@ in
     ../common
   ];
 
-  options.nyra.system = {
-    fonts = lib.mkOption {
-      type = lib.types.listOf lib.types.package;
-      default = [ ];
-    };
+  options.nyra.fonts = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [ ];
   };
 
   # "fc-cache -fv" to manually refresh cache
   # "fc-list : family | sort | uniq" to list
   config = {
-    nyra.system.fonts = lib.mkIf (config.nyra.theme.enable) [
+    nyra.fonts = lib.mkIf (config.nyra.theme.enable) [
       theme.fonts.serif.package
       theme.fonts.sansSerif.package
       theme.fonts.monospace.package
       theme.fonts.emoji.package
     ];
-    fonts.packages = config.nyra.system.fonts;
+    fonts.packages = config.nyra.fonts;
     fonts.enableDefaultPackages = true;
     fonts.fontconfig.defaultFonts = lib.mkIf (config.nyra.theme.enable) {
       serif = [ "${theme.fonts.serif.name}" ];

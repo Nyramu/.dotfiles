@@ -6,12 +6,12 @@
 }:
 
 let
-  cfg = config.nyra.system.bluetooth;
+  cfg = config.nyra.hardware.bluetooth;
 in
 {
-  options.nyra.system.bluetooth = {
+  options.nyra.hardware.bluetooth = {
     enable = lib.mkEnableOption "bluetooth";
-    onlyUseDongle = lib.mkEnableOption "disables internal Bluetooth forcing to use an external controller";
+    useDongleOnly = lib.mkEnableOption "disables internal Bluetooth forcing to use an external controller";
   };
 
   config = {
@@ -31,18 +31,18 @@ in
       };
     };
 
-    boot.kernelParams = lib.mkIf cfg.enable [
+    boot.kernelParams = lib.mkIf (cfg.enable) [
       "btusb.enable_autosuspend=0"
       "iwlwifi.bt_coex_active=0"
     ];
 
-    systemd.services.bluetooth.serviceConfig = lib.mkIf cfg.enable {
+    systemd.services.bluetooth.serviceConfig = lib.mkIf (cfg.enable) {
       Nice = -17;
     };
 
     services.blueman.enable = lib.mkDefault cfg.enable;
 
-    services.udev.extraRules = lib.mkIf (cfg.enable && cfg.onlyUseDongle) ''
+    services.udev.extraRules = lib.mkIf (cfg.enable && cfg.useDongleOnly) ''
       ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTR{authorized}="0"
     '';
 

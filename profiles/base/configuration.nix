@@ -48,7 +48,7 @@ in
   };
 
   # Login settings
-  nyra.system.sddm.enable = true;
+  nyra.services.sddm.enable = true;
 
   # Default shell
   users.defaultUserShell = pkgs.${config.nyra.shells.defaultShell};
@@ -141,7 +141,7 @@ in
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
-  nyra.system.bluetooth.enable = true;
+  nyra.hardware.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

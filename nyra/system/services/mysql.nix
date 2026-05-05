@@ -6,16 +6,16 @@
 }:
 
 let
-  cfg = config.nyra.system.mysql;
+  cfg = config.nyra.services.mysql;
 in
 {
-  options.nyra.system.mysql = {
+  options.nyra.services.mysql = {
     enable = lib.mkEnableOption "mysql";
   };
 
-  config = {
+  config = lib.mkIf (cfg.enable == true) {
     services.mysql = {
-      enable = cfg.enable;
+      enable = true;
       package = pkgs.mariadb;
     };
   };

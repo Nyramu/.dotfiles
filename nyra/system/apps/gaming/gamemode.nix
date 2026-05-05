@@ -1,14 +1,14 @@
 { config, lib, ... }:
 
 let
-  cfg = config.nyra.system.apps.gamemode;
+  cfg = config.nyra.gaming.gamemode;
 in
 {
-  options.nyra.system.apps.gamemode = {
+  options.nyra.gaming.gamemode = {
     enable = lib.mkEnableOption "gamemode";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable) {
     programs.gamemode = {
       enable = true;
       enableRenice = true;

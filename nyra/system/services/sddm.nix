@@ -10,27 +10,27 @@ let
   nyraSettings = config.nyra.settings;
   theme = import config.nyra.theme.path { inherit pkgs; };
   stylix = config.stylix;
-  cfg = config.nyra.system.sddm;
+  cfg = config.nyra.services.sddm;
 
   bg-name = bg: if lib.isDerivation bg then bg.name else baseNameOf bg;
 in
 {
   imports = [ inputs.silentSDDM.nixosModules.default ];
 
-  options.nyra.system.sddm = {
+  options.nyra.services.sddm = {
     enable = lib.mkEnableOption "SDDM with silentSDDM theme";
   };
 
-  config = {
+  config = lib.mkIf (cfg.enable == true) {
     services.displayManager.sddm = {
-      enable = cfg.enable;
+      enable = true;
       enableHidpi = true;
       autoNumlock = true;
       wayland.enable = lib.mkForce config.nyra.wayland.enable;
     };
 
     programs.silentSDDM = rec {
-      enable = cfg.enable;
+      enable = true;
       backgrounds.stylix = lib.optionals (stylix.enable) stylix.image;
       profileIcons.${nyraSettings.username} = nyraSettings.pfp;
       settings = lib.mkIf (stylix.enable) {

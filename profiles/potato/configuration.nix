@@ -15,16 +15,16 @@
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
   # Local server configuration
-  nyra.system = {
+  nyra.services = {
     mysql.enable = true;
     httpd.enable = true;
   };
 
   # Theming and fonts
-  nyra.system.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
+  nyra.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ]; # Set fonts
 
   # AMD management tools and features
-  nyra.system.amd = {
+  nyra.hardware.amd = {
     enable = true;
     ryzen-smu.enable = false;
     ryzenadj.enable = false;

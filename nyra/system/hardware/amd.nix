@@ -6,16 +6,16 @@
 }:
 
 let
-  cfg = config.nyra.system.amd;
+  cfg = config.nyra.hardware.amd;
 in
 {
-  options.nyra.system.amd = {
+  options.nyra.hardware.amd = {
     enable = lib.mkEnableOption "AMD Optimizations";
     ryzen-smu.enable = lib.mkEnableOption "ryzen-smu";
     ryzenadj.enable = lib.mkEnableOption "ryzenadj";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable) {
     hardware = {
       amdgpu.initrd.enable = true;
       amdgpu.overdrive.enable = true;
@@ -27,6 +27,6 @@ in
     };
     nixpkgs.config.rocmSupport = true;
 
-    environment.systemPackages = lib.optionals cfg.ryzenadj.enable [ pkgs.ryzenadj ];
+    environment.systemPackages = lib.optionals (cfg.ryzenadj.enable) [ pkgs.ryzenadj ];
   };
 }
