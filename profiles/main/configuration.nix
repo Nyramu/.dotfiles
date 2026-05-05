@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -29,14 +29,11 @@
   nyra.system.mysql.enable = false;
   nyra.system.httpd.enable = false;
 
-  # Use CachyOS Zen4 LTO kernel.
+  # Use CachyOS Latest Zen4 LTO kernel.
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
-  nixpkgs.overlays = [ inputs.cachyos-kernel.overlays.pinned ];
 
   # AMD management tools and features
-  nyra.system.amd = {
-    enable = true;
-  };
+  nyra.system.amd.enable = true;
 
   # Enable fingerprints support, register one running
   # fprintd-enroll <user>

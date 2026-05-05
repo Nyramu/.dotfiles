@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -14,8 +15,10 @@ in
     ../../nyra/system
   ];
 
-  # Kernel.
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+  # Kernel
+  ## Use CachyOS Latest LTO Kernel
+  nixpkgs.overlays = [ inputs.cachyos-kernel.overlays.pinned ];
+  boot.kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
   boot.kernel.sysctl."vm.max_map_count" = lib.mkForce 2147483642; # Set virtual memory areas limit a single process can map. It's set like on Steam Deck
 
   networking.hostName = nyraSettings.hostname;
@@ -30,7 +33,6 @@ in
       "wheel"
       "audio"
       "jackaudio"
-      "networkmanager"
     ];
     packages = with pkgs; [
       neovim
