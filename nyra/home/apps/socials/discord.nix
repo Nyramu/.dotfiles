@@ -4,21 +4,21 @@
   pkgs,
   ...
 }:
-with lib;
 
+let
+  cfg = config.nyra.apps.socials.discord;
+in
 {
-  options.nyra.home.apps = {
-    discord.enable = mkEnableOption "discord";
+  options.nyra.apps.socials = {
+    discord.enable = lib.mkEnableOption "discord";
   };
 
-  config = {
-    home.packages =
-      with pkgs;
-      optionals config.nyra.home.apps.discord.enable [
-        (pkgs.discord.override {
-          withEquicord = true;
-          withOpenASAR = false;
-        })
-      ];
+  config = lib.mkIf (cfg.enable) {
+    home.packages = [
+      (pkgs.discord.override {
+        withEquicord = true;
+        withOpenASAR = false;
+      })
+    ];
   };
 }

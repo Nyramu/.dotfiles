@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.nyra.home.shells.commands.ripgrep;
+  cfg = config.nyra.shells.commands.ripgrep;
 in
 {
-  options.nyra.home.shells.commands.ripgrep = {
+  options.nyra.shells.commands.ripgrep = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;

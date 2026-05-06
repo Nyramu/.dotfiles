@@ -13,7 +13,7 @@ in
     enable = lib.mkEnableOption "mysql";
   };
 
-  config = lib.mkIf (cfg.enable == true) {
+  config = lib.mkIf (cfg.enable) {
     services.mysql = {
       enable = true;
       package = pkgs.mariadb;

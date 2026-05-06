@@ -172,7 +172,7 @@ in
           force_default_wallpaper = 0;
           animate_manual_resizes = true;
           enable_swallow = true;
-          swallow_regex = "^(${config.nyra.home.apps.defaultTerminal})$";
+          swallow_regex = "^(${config.nyra.apps.terminals.default})$";
           session_lock_xray = true; # Should test with hyprlock or something
           animate_mouse_windowdragging = false; # Just lags for some reason
           vfr = false;

@@ -6,7 +6,7 @@
 }:
 
 let
-  defaultBrowser = config.nyra.home.apps.defaultBrowser;
+  cfg = config.nyra.apps.browsers;
   nyraSettings = config.nyra.settings;
 in
 {
@@ -19,24 +19,21 @@ in
     ./mods.nix
   ];
 
-  options.nyra.home.apps = {
-    zen-browser.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = defaultBrowser == "zen-twilight";
-      description = "Enable Zen Browser";
-    };
+  options.nyra.apps.browsers.zen = {
+    enable = lib.mkEnableOption "zen browser";
   };
 
   config = {
+    nyra.apps.browsers.zen.enable = lib.mkDefault (cfg.default == "zen-twilight");
     programs.zen-browser = {
-      enable = config.nyra.home.apps.zen-browser.enable;
+      enable = cfg.zen.enable;
       profiles.${nyraSettings.username} = {
         isDefault = true;
         settings = {
           # Sidebar and toolbar
           "zen.tabs.show-newtab-vertical" = true;
           "zen.theme.content-element-separation" = 12;
-      
+
           "zen.theme.gradient" = false;
           "zen.view.sidebar-expanded" = false;
 

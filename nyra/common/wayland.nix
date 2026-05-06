@@ -23,7 +23,7 @@ in
     };
   };
 
-  config = lib.mkIf (cfg.enable == true) {
+  config = lib.mkIf (cfg.enable) {
     nyra.wayland.xwayland.enable = lib.mkDefault true;
   };
 }

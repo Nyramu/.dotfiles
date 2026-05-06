@@ -5,18 +5,22 @@
   ...
 }:
 
+let
+  audio = config.nyra.hardware.audio;
+  cfg = config.nyra.services.mpd;
+in
 {
-  options.nyra.home.services.mpd = {
+  options.nyra.services.mpd = {
     enable = lib.mkEnableOption "mpd";
   };
 
-  config = lib.mkIf config.nyra.home.services.mpd.enable {
+  config = lib.mkIf (cfg.enable) {
     services.mpd = {
       enable = true;
       musicDirectory = "${config.home.homeDirectory}/Music";
       playlistDirectory = "${config.home.homeDirectory}/Music/Playlists";
       extraConfig =
-        if (config.nyra.audio.server == "pipewire") then
+        if (audio.server == "pipewire") then
           ''
             audio_output {
               type       "pipewire"

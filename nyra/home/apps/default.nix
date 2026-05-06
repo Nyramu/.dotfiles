@@ -2,15 +2,15 @@
 
 {
   imports = [
-    ./productivity
+    ./editors
     ./terminals
     ./browsers
-    ./gaming
-    ./miscellaneous
+    ./files
+    ./misc
     ./socials
   ];
 
-  options.nyra.home.apps = {
+  options.nyra.apps = {
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [ ];
@@ -18,6 +18,6 @@
   };
 
   config = {
-    home.packages = config.nyra.home.apps.packages;
+    home.packages = config.nyra.apps.packages;
   };
 }

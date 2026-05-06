@@ -1,27 +1,23 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
-with lib;
 
 let
+  cfg = config.nyra.apps.terminals;
   stylix-palette = config.stylix.base16Scheme;
   shells = config.nyra.shells;
 in
 {
-  options.nyra.home.apps.kitty = {
-    enable = mkOption {
-      type = types.bool;
-      default = config.nyra.home.apps.defaultTerminal == "kitty";
-      description = "kitty";
-    };
+  options.nyra.apps.terminals.kitty = {
+    enable = lib.mkEnableOption "kitty";
   };
 
   config = {
+    nyra.apps.terminals.kitty.enable = lib.mkDefault (cfg.default == "kitty");
     programs.kitty = {
-      enable = config.nyra.home.apps.kitty.enable;
+      enable = cfg.kitty.enable;
       enableGitIntegration = true;
       shellIntegration = {
         enableZshIntegration = shells.zsh.enable;

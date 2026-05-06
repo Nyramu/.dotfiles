@@ -12,10 +12,11 @@ in
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    ./apps
     ./hardware
     ./desktops
     ./services
+    ./security
+    ./gaming
     ../common
   ];
 

@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  options.nyra.audio = {
+  options.nyra.hardware.audio = {
     server = lib.mkOption {
       type = lib.types.enum [
         "pipewire"

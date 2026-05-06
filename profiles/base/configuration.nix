@@ -51,8 +51,8 @@ in
   nyra.services.sddm.enable = true;
 
   # Default shell
-  users.defaultUserShell = pkgs.${config.nyra.shells.defaultShell};
-  programs.zsh.enable = config.nyra.shells.zsh.enable;
+  users.defaultUserShell = pkgs.${config.nyra.shells.default};
+  programs.zsh.enable = true; # Temporary fix until dendritic refactor
 
   # System packages
   environment.systemPackages = with pkgs; [

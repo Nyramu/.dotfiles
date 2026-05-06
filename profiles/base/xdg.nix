@@ -6,7 +6,7 @@
 }:
 
 let
-  defaultBrowser = config.nyra.home.apps.defaultBrowser;
+  dBrowser = config.nyra.apps.browsers.default;
 in
 {
   defaultApplications =
@@ -25,7 +25,7 @@ in
         |> builtins.filter matchesGlob
         |> builtins.filter isNotExcluded;
 
-      browser = "${defaultBrowser}.desktop";
+      browser = "${dBrowser}.desktop";
       imageViewer = "imv.desktop";
       gimp = "gimp.desktop";
       videoViewer = "mpv.desktop";
@@ -36,7 +36,7 @@ in
         "image/x-psd"
         "image/x-xcfgz"
       ];
- 
+
       browserFormats = [
         "application/xhtml+xml"
         "application/pdf"
@@ -46,7 +46,8 @@ in
       textEditorFormats = [
         "application/json"
         "application/yaml"
-      ] ++ textFormats;
+      ]
+      ++ textFormats;
 
       imageFormats = expandMimeGlobExcluding "image/*" gimpFormats;
       videoFormats = expandMimeGlobExcluding "video/*" [ ];

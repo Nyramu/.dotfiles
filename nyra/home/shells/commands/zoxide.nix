@@ -2,10 +2,10 @@
 
 let
   shells = config.nyra.shells;
-  cfg = config.nyra.home.shells.commands.zoxide;
+  cfg = config.nyra.shells.commands.zoxide;
 in
 {
-  options.nyra.home.shells.commands.zoxide = {
+  options.nyra.shells.commands.zoxide = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;

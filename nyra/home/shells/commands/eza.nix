@@ -2,10 +2,10 @@
 
 let
   shells = config.nyra.shells;
-  cfg = config.nyra.home.shells.commands.eza;
+  cfg = config.nyra.shells.commands.eza;
 in
 {
-  options.nyra.home.shells.commands.eza = {
+  options.nyra.shells.commands.eza = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;

@@ -47,8 +47,8 @@
       };
       usb-drive-manager = {
         autoMount = false;
-        fileBrowser = config.nyra.home.apps.defaultFileManager;
-        terminalCommand = config.nyra.home.apps.defaultTerminal;
+        fileBrowser = config.nyra.apps.terminals.default;
+        terminalCommand = config.nyra.apps.files.default;
         showNotifications = true;
         hideWhenEmpty = true;
         showBadge = true;

@@ -8,10 +8,10 @@
   };
 
   # Common settings
-  nyra.audio.server = "pipewire";
+  nyra.hardware.audio.server = "pipewire";
   nyra.shells = {
-    defaultShell = "zsh";
-    nushell.enable = false;
+    default = "zsh";
+    # nushell.enable = false;
   };
   nyra.desktops = {
     hyprland = {

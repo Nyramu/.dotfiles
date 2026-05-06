@@ -5,8 +5,11 @@
   ...
 }:
 
+let
+  cfg = config.nyra.services.hypridle;
+in
 {
-  options.nyra.home.services.hypridle = {
+  options.nyra.services.hypridle = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = config.nyra.desktops.hyprland.enable;
@@ -14,7 +17,7 @@
     };
   };
 
-  config = lib.mkIf config.nyra.home.services.hypridle.enable {
+  config = lib.mkIf (cfg.enable) {
     services.hypridle = {
       enable = true;
       settings = {

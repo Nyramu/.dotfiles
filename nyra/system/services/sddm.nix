@@ -21,7 +21,7 @@ in
     enable = lib.mkEnableOption "SDDM with silentSDDM theme";
   };
 
-  config = lib.mkIf (cfg.enable == true) {
+  config = lib.mkIf (cfg.enable) {
     services.displayManager.sddm = {
       enable = true;
       enableHidpi = true;

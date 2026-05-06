@@ -13,6 +13,7 @@ in
   imports = [
     inputs.stylix.homeModules.stylix
     ./apps
+    ./gaming
     ./services
     ./shells
     ./desktops

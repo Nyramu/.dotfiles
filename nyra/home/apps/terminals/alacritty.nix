@@ -1,16 +1,17 @@
 { config, lib, ... }:
 
+let
+  cfg = config.nyra.apps.terminals;
+in
 {
-  options.nyra.home.apps.alacritty = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = config.nyra.home.apps.defaultTerminal == "alacritty";
-    };
+  options.nyra.apps.terminals.alacritty = {
+    enable = lib.mkEnableOption "alacritty";
   };
 
   config = {
+    nyra.apps.terminals.alacritty.enable = lib.mkDefault (cfg.default == "alacritty");
     programs.alacritty = {
-      enable = config.nyra.home.apps.alacritty.enable;
+      enable = cfg.alacritty.enable;
       settings = {
         general = {
           working_directory = "~/.dotfiles";

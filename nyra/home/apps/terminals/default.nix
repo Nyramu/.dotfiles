@@ -7,8 +7,8 @@
     ./kitty.nix
   ];
 
-  options.nyra.home.apps = {
-    defaultTerminal = lib.mkOption {
+  options.nyra.apps.terminals = {
+    default = lib.mkOption {
       type = lib.types.enum [
         "alacritty"
         "ghostty"

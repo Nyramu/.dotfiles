@@ -2,19 +2,17 @@
 
 let
   shells = config.nyra.shells;
+  cfg = config.nyra.apps.terminals;
 in
 {
-  options.nyra.home.apps.ghostty = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = config.nyra.home.apps.defaultTerminal == "ghostty";
-      description = "ghostty";
-    };
+  options.nyra.apps.terminals.ghostty = {
+    enable = lib.mkEnableOption "ghostty";
   };
 
   config = {
+    nyra.apps.terminals.ghostty.enable = lib.mkDefault (cfg.default == "ghostty");
     programs.ghostty = {
-      enable = config.nyra.home.apps.ghostty.enable;
+      enable = cfg.ghostty.enable;
       enableZshIntegration = shells.zsh.enable;
       # enableNushellIntegration = shells.nushell.enable;
       settings = {

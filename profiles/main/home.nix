@@ -7,45 +7,39 @@
   ];
 
   # Apps
-  nyra.home.apps = {
-    defaultTerminal = "kitty";
-    defaultBrowser = "zen-twilight";
-    defaultFileManager = "yazi";
-
-    # Productivity
-    nvf.enable = false;
-    helix.enable = true;
-    intellij.enable = false;
-    zed.enable = false;
-    gimp.enable = false;
-    aseprite.enable = false;
-
-    # Gaming
-    minecraft.enable = true;
-    lutris.enable = false;
-    # heroic.enable = true; # Temporarily broken
-    cemu = {
-      enable = true;
-      ukmm.enable = true;
+  nyra.apps = {
+    terminals = {
+      default = "kitty";
+      ghostty.enable = true;
     };
-    eden.enable = true;
-    azahar.enable = false;
+    browsers.default = "zen-twilight";
+    files.default = "yazi";
 
-    # Socials
-    telegram.enable = true;
-    discord.enable = true;
-
-    # Miscellaneous
-    ghostty.enable = true;
-    spicetify.enable = true;
-    rmpc.enable = true;
-    spotiflac.enable = true;
-    btop = {
-      enable = true;
-      gpu-name = "Radeon 780M";
+    editors = {
+      nvf.enable = false;
+      helix.enable = true;
+      intellij.enable = false;
+      zed.enable = false;
+      gimp.enable = false;
+      aseprite.enable = false;
     };
-    fastfetch.enable = true;
-    ptracer.enable = false;
+
+    socials = {
+      telegram.enable = true;
+      discord.enable = false;
+    };
+
+    misc = {
+      spicetify.enable = true;
+      rmpc.enable = true;
+      spotiflac.enable = true;
+      btop = {
+        enable = true;
+        gpu-name = "Radeon 780M";
+      };
+      fastfetch.enable = true;
+      ptracer.enable = false;
+    };
 
     # Packages without configuration
     packages = with pkgs; [
@@ -61,8 +55,19 @@
     ];
   };
 
-  # Services
-  nyra.home.services = {
+  nyra.gaming = {
+    minecraft.enable = true;
+    lutris.enable = false;
+    # heroic.enable = true; # Temporarily broken
+    cemu = {
+      enable = true;
+      ukmm.enable = true;
+    };
+    eden.enable = true;
+    azahar.enable = false;
+  };
+
+  nyra.services = {
     mpd.enable = true;
   };
 }

@@ -35,8 +35,8 @@
 
     # Custom titles for terminal apps
     {
-      name = "floating-${config.nyra.home.apps.defaultTerminal}";
-      match.class = "floating-${config.nyra.home.apps.defaultTerminal}";
+      name = "floating-${config.nyra.apps.terminals.default}";
+      match.class = "floating-${config.nyra.apps.terminals.default}";
       float = true;
       center = true;
       min_size = [

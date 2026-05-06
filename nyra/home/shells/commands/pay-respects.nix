@@ -2,10 +2,10 @@
 
 let
   shells = config.nyra.shells;
-  cfg = config.nyra.home.shells.commands.pay-respects;
+  cfg = config.nyra.shells.commands.payRespects;
 in
 {
-  options.nyra.home.shells.commands.pay-respects = {
+  options.nyra.shells.commands.payRespects = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;

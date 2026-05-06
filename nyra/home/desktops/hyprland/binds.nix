@@ -6,7 +6,7 @@
 }:
 
 let
-  apps = config.nyra.home.apps;
+  apps = config.nyra.apps;
   plugins = config.nyra.desktops.hyprland;
   noctalia = "noctalia-shell ipc call";
 in
@@ -16,9 +16,9 @@ in
       MOUSE_L = "mouse:272";
       MOUSE_R = "mouse:273";
 
-      terminal = "${lib.getExe pkgs.${apps.defaultTerminal}}";
-      browser = "${apps.defaultBrowser}";
-      fileManager = "${apps.defaultFileManager}";
+      terminal = "${lib.getExe pkgs.${apps.terminals.default}}";
+      browser = "${apps.browsers.default}";
+      fileManager = "${apps.files.default}";
       groups = {
         launchApps = {
           bind = {
@@ -33,7 +33,7 @@ in
             "SUPER, RETURN" = "exec, ${terminal}";
             "SUPER, BACKSPACE" = "exec, ${terminal} -e hx"; # Helix
 
-            "SUPER_ALT, RETURN" = "exec, ${terminal} --class floating-${apps.defaultTerminal}";
+            "SUPER_ALT, RETURN" = "exec, ${terminal} --class floating-${apps.terminals.default}";
 
             # "SUPER_ALT, RETURN" = "exec, ${terminal} --title fastfetch --hold fastfetch"; # Fastfetch but in a cool window
 
