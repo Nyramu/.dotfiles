@@ -76,4 +76,31 @@
   outputs =
     { flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+
+  nixConfig = {
+    extra-substituters = [
+      # Vicinae
+      "https://vicinae.cachix.org"
+      # Hyprland
+      "https://hyprland.cachix.org"
+      # Noctalia Shell
+      "https://noctalia.cachix.org"
+      # Eden Emulator
+      "https://eden-emu-flake.cachix.org"
+      # CachyOS Kernels
+      "https://attic.xuyh0120.win/lantian"
+    ];
+    extra-trusted-public-keys = [
+      # Vicinae
+      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+      # Hyprland
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      # Noctalia Shell
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      # Eden Emulator
+      "eden-emu-flake.cachix.org-1:qMKfHpBsRhMpxrc4FawVy+IeYAvFhhv94qiB69Bl0RU="
+      # CachyOS Kernels
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    ];
+  };
 }

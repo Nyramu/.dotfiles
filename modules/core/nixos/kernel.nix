@@ -17,13 +17,6 @@
 
         # Set the maximum amount of virtual memory areas a single process can map. It's set like on Steam Deck
         boot.kernel.sysctl."vm.max_map_count" = lib.mkForce 2147483642;
-
-        # CachyOS Kernel Cache
-        nix.settings = rec {
-          substituters = [ "https://attic.xuyh0120.win/lantian" ];
-          trusted-substituters = substituters;
-          trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
-        };
       };
   };
 }
