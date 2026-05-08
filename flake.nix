@@ -2,11 +2,6 @@
   description = "Nyramu's Personal Flake";
 
   inputs = {
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     eden.url = "github:Nyramu/eden-emu-flake";
 
     spicetify = {
