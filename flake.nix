@@ -51,6 +51,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -69,52 +71,9 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
-    let
-      inherit (nixpkgs) lib;
-
-      createNixosProfile =
-        name: system:
-        lib.nixosSystem {
-          inherit system;
-          modules = [ ./profiles/${name}/configuration.nix ];
-          specialArgs = {
-            inherit inputs;
-          };
-        };
-
-      createHomeProfile =
-        name: system:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ ];
-          };
-          modules = [ ./profiles/${name}/home.nix ];
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-        };
-    in
-    {
-      nixosConfigurations = {
-        main = createNixosProfile "main" "x86_64-linux";
-        potato = createNixosProfile "potato" "x86_64-linux";
-      };
-
-      homeConfigurations = {
-        main = createHomeProfile "main" "x86_64-linux";
-        potato = createHomeProfile "potato" "x86_64-linux";
-      };
-    };
+    { flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
