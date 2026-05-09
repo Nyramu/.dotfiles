@@ -49,7 +49,7 @@
             "application/xhtml+xml"
             "application/pdf"
             "application/xml"
-            
+
           ];
 
           textEditorFormats = [
@@ -73,6 +73,7 @@
           {
             enable = true;
 
+            # TODO: add nyra options to manage dirs creation
             userDirs = {
               enable = true;
               createDirectories = true;
@@ -89,6 +90,7 @@
               extraConfig = {
                 SCREENSHOTS = "${home}/Pictures/Screenshots";
                 RECORDINGS = "${home}/Videos/Recordings";
+                GAMES = "${home}/Games";
                 LYRICS = "${home}/Music/Lyrics";
                 PLAYLISTS = "${home}/Music/Playlists";
               };
