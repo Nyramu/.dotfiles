@@ -14,7 +14,7 @@ let
     mapAttrs
     ;
 
-  # themeDir = self.outPath + "/resources/themes";
+  # themeDir = self.outPath + "/modules/themes";
   # themeType = types.enum (builtins.readDir themeDir |> builtins.attrNames);
 
   hostType = types.submodule {
@@ -94,10 +94,6 @@ let
         };
       };
 
-      # theme = mkOption {
-      #   type = themeType;
-      # };
-
       user = {
         name = mkOption {
           type = types.str;
@@ -140,11 +136,6 @@ let
           };
         };
 
-        # locale = mkOption {
-        #   type = types.str;
-        #   example = "en_US.UTF-8";
-        # };
-
         time = {
           zone = mkOption {
             type = types.str;
@@ -152,6 +143,10 @@ let
           };
           hardware-clock.enable = mkEnableOption "hardware clock (for dual boot)";
         };
+
+        # theme = mkOption {
+        #   type = themeType;
+        # };
       };
 
       nixos = mkOption {
