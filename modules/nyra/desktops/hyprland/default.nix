@@ -2,6 +2,7 @@
   self,
   inputs,
   lib,
+  ...
 }:
 {
   flake.modules.homeManager = {
@@ -68,7 +69,6 @@
               no_donation_nag = true;
             };
 
-            
             general = {
               border_size = 2;
               resize_on_border = true;
@@ -93,7 +93,7 @@
                 render_power = 3;
                 color = "rgba(26, 26, 26, 0.93)";
               };
-              screen_shader = lib.mkIf (cfg.shader.enable) shaderPath + "/${cfg.shader.name}.frag";
+              screen_shader = lib.mkIf (cfg.shader.enable) (shaderPath + "/${cfg.shader.name}.frag");
               blur = {
                 enabled = true;
                 new_optimizations = true;
@@ -106,7 +106,6 @@
             };
 
             dwindle.preserve_split = true;
-
 
             exec-once = [
               "noctalia-shell"
