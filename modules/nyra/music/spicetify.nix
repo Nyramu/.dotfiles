@@ -2,6 +2,7 @@
   self,
   inputs,
   lib,
+  ...
 }:
 {
   flake.modules.homeManager = {
