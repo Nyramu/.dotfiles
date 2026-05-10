@@ -34,7 +34,6 @@ in
       { pkgs, ... }:
       {
         imports = with homeManager; [
-          ../../../nyra/home
           stylix
           desktops
           terminals
@@ -99,7 +98,6 @@ in
 
       {
         imports = with nixos; [
-          ../../../nyra/system # Temporary
           ./_hardware-configuration.nix
           stylix
           desktops
