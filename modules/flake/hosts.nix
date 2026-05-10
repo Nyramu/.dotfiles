@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   config,
   lib,
@@ -14,8 +15,7 @@ let
     mapAttrs
     ;
 
-  # themeDir = self.outPath + "/modules/themes";
-  # themeType = types.enum (builtins.readDir themeDir |> builtins.attrNames);
+  themeType = types.enum (builtins.readDir (self.outPath + "/modules/themes") |> builtins.attrNames);
 
   hostType = types.submodule {
     options = {
@@ -149,9 +149,9 @@ let
           hardware-clock.enable = mkEnableOption "hardware clock (for dual boot)";
         };
 
-        # theme = mkOption {
-        #   type = themeType;
-        # };
+        theme = mkOption {
+          type = themeType;
+        };
       };
 
       nixos = mkOption {
