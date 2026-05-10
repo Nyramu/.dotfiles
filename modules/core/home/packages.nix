@@ -11,6 +11,7 @@
       in
       {
         home.packages = with flakePkgs; [
+          nyra
           screen-shot
           screen-record
         ];
