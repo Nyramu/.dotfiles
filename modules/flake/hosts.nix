@@ -114,6 +114,11 @@ let
           type = types.str;
           default = "~/.dotfiles";
         };
+
+        pfp = mkOption {
+          type = types.path;
+          default = ../../resources/pics/nyramu.png;
+        };
       };
 
       localization = {
