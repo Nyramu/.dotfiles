@@ -1,0 +1,63 @@
+{ inputs, lib, ... }:
+
+let
+  stylixCfg = pkgs: {
+    enable = lib.mkDefault true;
+    autoEnable = lib.mkDefault true;
+
+    base16Scheme = lib.mkDefault {
+      base00 = "#262626";
+      base01 = "#3a3a3a";
+      base02 = "#4e4e4e";
+      base03 = "#8a8a8a";
+      base04 = "#949494";
+      base05 = "#dab997";
+      base06 = "#d5c4a1";
+      base07 = "#ebdbb2";
+      base08 = "#d75f5f";
+      base09 = "#ff8700";
+      base0A = "#ffaf00";
+      base0B = "#afaf00";
+      base0C = "#85ad85";
+      base0D = "#83adad";
+      base0E = "#d485ad";
+      base0F = "#d65d0e";
+    };
+
+    image = lib.mkDefault pkgs.nixos-artwork.wallpapers.gear.gnomeFilePath;
+
+    polarity = lib.mkDefault "dark";
+
+    opacity = {
+      terminal = lib.mkDefault 0.63;
+      applications = lib.mkDefault 0.6;
+      desktop = lib.mkDefault 0.7;
+      popups = lib.mkDefault 0.7;
+    };
+
+    icons = {
+      enable = lib.mkDefault true;
+      package = lib.mkDefault pkgs.gruvbox-plus-icons;
+      dark = lib.mkDefault "gruvbox-plus";
+      light = lib.mkDefault "gruvbox-plus";
+    };
+
+    targets.qt.enable = lib.mkDefault false;
+    targets.gtksourceview.enable = lib.mkDefault false;
+  };
+in
+{
+  flake.modules.nixos.stylix =
+    { pkgs, ... }:
+    {
+      imports = [ inputs.stylix.nixosModules.stylix ];
+      stylix = stylixCfg pkgs;
+    };
+
+  flake.modules.homeManager.stylix =
+    { pkgs, ... }:
+    {
+      imports = [ inputs.stylix.homeModules.stylix ];
+      stylix = stylixCfg pkgs;
+    };
+}
