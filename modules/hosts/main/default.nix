@@ -38,7 +38,6 @@ in
       { pkgs, ... }:
       {
         imports = with homeManager; [
-          ../../../nyra/home
           stylix
           gaming
           music
@@ -136,7 +135,6 @@ in
 
       {
         imports = with nixos; [
-          ../../../nyra/system # Temporary
           ./_hardware-configuration.nix
           stylix
           desktop
@@ -155,10 +153,9 @@ in
           lsfg.enable = true;
         };
 
-        # Enable fingerprints support, register one running
-        # fprintd-enroll <user>
-        # TODO: replace with dedicated module
         nyra.services = {
+          # Enable fingerprints support, register one running
+          # fprintd-enroll <user>
           fingerprint.enable = true;
         };
 
