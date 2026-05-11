@@ -39,17 +39,17 @@ in
       {
         imports = with homeManager; [
           stylix
-          gaming
-          music
-          desktops
-          miscellaneous
-          terminals
           browsers
-          services
-          socials
+          desktops
           editors
-          login
           files
+          gaming
+          miscellaneous
+          music
+          services
+          shells
+          socials
+          terminals
         ];
 
         nyra.desktops.hyprland = {
@@ -140,8 +140,8 @@ in
           stylix
           desktops
           gaming
-          services
           login
+          services
         ];
 
         nyra.gaming = {
