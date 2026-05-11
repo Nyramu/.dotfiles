@@ -34,7 +34,7 @@ let
       };
 
       gpu = {
-        integrated.vendor = mkOption {
+        integrated = {
           vendor = mkOption {
             type = types.enum [
               "amd"
@@ -42,7 +42,7 @@ let
             ];
           };
         };
-        dedicated.vendor = mkOption {
+        dedicated = {
           vendor = mkOption {
             type = types.enum [
               "amd"
