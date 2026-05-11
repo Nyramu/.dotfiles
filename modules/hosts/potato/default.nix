@@ -28,7 +28,7 @@ in
       time.zone = "Europe/Rome";
     };
 
-    theme = "just-chill";
+    # theme = "just-chill";
 
     home =
       { pkgs, ... }:
@@ -37,6 +37,7 @@ in
           stylix
           desktops
           terminals
+          miscellaneous
           browsers
           services
           editors
@@ -81,7 +82,7 @@ in
             gpu-name = "Radeon R8 M445DX";
           };
           fastfetch.enable = true;
-          ptracer.enable = false;
+          packetTracer.enable = false;
         };
 
         home.packages = with pkgs; [
@@ -108,10 +109,6 @@ in
         nyra.services = {
           mysql.enable = true;
           httpd.enable = true;
-        };
-
-        nyra.login = {
-          silentSddm.enable = true;
         };
 
         # Use CachyOS Latest v3 LTO kernel.
