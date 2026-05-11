@@ -4,7 +4,7 @@ let
   path = ./.;
 in
 {
-  flake.modules.homeManager.browsers.default = {
+  flake.modules.homeManager.browsers = {
     options.nyra.browsers.default = lib.mkOption {
       type = lib.types.enum (
         builtins.readDir path
