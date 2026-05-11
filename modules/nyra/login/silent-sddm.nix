@@ -47,7 +47,7 @@
                 margin = -1;
               };
               "LoginScreen.LoginArea.Avatar" = {
-                shape = lib.mkDefault "square";
+                shape = "square";
                 active-size = 180;
                 border-radius = 1;
                 active-border-size = 2;
