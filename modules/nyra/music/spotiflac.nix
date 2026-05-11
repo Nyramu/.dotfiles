@@ -4,11 +4,7 @@
     music.imports = [ self.modules.homeManager.spotiflac ];
 
     spotiflac =
-      {
-        config,
-        host,
-        ...
-      }:
+      { config, host, ... }:
 
       let
         cfg = config.nyra.music.spotiflac;
@@ -20,7 +16,7 @@
 
         config = lib.mkIf (cfg.enable) {
           home.packages = [
-            config.flake.packages.${host.system}.spotiflac
+            self.packages.${host.system}.spotiflac
           ];
         };
       };
