@@ -40,7 +40,7 @@
               # Account management.
               account required ${pkgs.pam}/lib/security/pam_unix.so # unix (order 10900)
               # Authentication management.
-              auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=${toString cfg.sudoTimeout} # fprintd (order 11400)
+              auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=${toString cfg.timeout.sudo} # fprintd (order 11400)
               auth sufficient ${pkgs.pam}/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
               auth required ${pkgs.pam}/lib/security/pam_deny.so # deny (order 12400)
               # Password management.
@@ -55,7 +55,7 @@
             sddm.text = lib.mkForce ''
               auth      optional      ${pkgs.pam}/lib/security/pam_faildelay.so delay=2000000
               auth      sufficient    ${pkgs.pam}/lib/security/pam_unix.so try_first_pass nullok nodelay
-              auth      sufficient    ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=${toString cfg.sddmTimeout}
+              auth      sufficient    ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=${toString cfg.timeout.sddm}
               auth      required      ${pkgs.pam}/lib/security/pam_deny.so
               account   required      ${pkgs.pam}/lib/security/pam_unix.so
               password  required      ${pkgs.pam}/lib/security/pam_deny.so
