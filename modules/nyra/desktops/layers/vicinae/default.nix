@@ -6,7 +6,7 @@
 }:
 {
   flake.modules.homeManager = {
-    desktops.layers.imports = [ self.modules.homeManager.vicinae ];
+    desktops.imports = [ self.modules.homeManager.vicinae ];
 
     vicinae =
       { config, ... }:

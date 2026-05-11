@@ -6,7 +6,7 @@
 }:
 {
   flake.modules.homeManager = {
-    desktops.layers.imports = [ self.modules.homeManager.noctalia ];
+    desktops.imports = [ self.modules.homeManager.noctalia ];
 
     noctalia =
       { config, user, ... }:
