@@ -4,7 +4,7 @@ let
   path = ./.;
 in
 {
-  flake.modules.homeManager.terminals.default = {
+  flake.modules.homeManager.terminals = {
     options.nyra.terminals.default = lib.mkOption {
       type = lib.types.enum (
         builtins.readDir path
