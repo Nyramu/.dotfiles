@@ -6,7 +6,7 @@
     clipboard =
       { wayland, pkgs, ... }:
       {
-        services.wl-clip.persist = {
+        services.wl-clip-persist = {
           enable = wayland.enable;
         };
 
