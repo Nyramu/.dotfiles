@@ -1,46 +1,42 @@
-{ self, inputs, ... }:
+{ inputs, ... }:
 {
-  flake.modules.homeManager = {
-    browsers.imports = [ self.modules.homeManager.zen-twilight ];
+  flake.modules.homeManager.zen-twilight =
+    { user, pkgs, ... }:
 
-    zen-twilight =
-      { user, pkgs, ... }:
-
-      let
-        # Fix for unfree packages not being installed despite being allowed
-        firefox-addons = pkgs.callPackage inputs.firefox-addons {
-          inherit (pkgs) fetchurl stdenv lib;
-          buildMozillaXpiAddon =
-            (import "${inputs.firefox-addons}/../../lib/mozilla.nix" { lib = pkgs.lib; }).mkBuildMozillaXpiAddon
-              { inherit (pkgs) fetchurl stdenv; };
-        };
-      in
-      {
-        programs.zen-browser = {
-          profiles.${user.name}.extensions.packages = with firefox-addons; [
-            ublock-origin
-            dearrow
-            return-youtube-dislikes
-            augmented-steam
-            protondb-for-steam
-            #animalese-typing # Cool and cute but annoying
-            betterttv
-            censor-tracker
-            clearurls
-            copy-selection-as-markdown
-            #firenvim
-            image-search-options
-            indie-wiki-buddy
-            simplifygmail
-            the-camelizer-price-history-ch
-            to-google-translate
-            tampermonkey
-            youtube-no-translation
-            youtube-shorts-block
-            youtube-nonstop
-            darkreader
-          ];
-        };
+    let
+      # Fix for unfree packages not being installed despite being allowed
+      firefox-addons = pkgs.callPackage inputs.firefox-addons {
+        inherit (pkgs) fetchurl stdenv lib;
+        buildMozillaXpiAddon =
+          (import "${inputs.firefox-addons}/../../lib/mozilla.nix" { lib = pkgs.lib; }).mkBuildMozillaXpiAddon
+            { inherit (pkgs) fetchurl stdenv; };
       };
-  };
+    in
+    {
+      programs.zen-browser = {
+        profiles.${user.name}.extensions.packages = with firefox-addons; [
+          ublock-origin
+          dearrow
+          return-youtube-dislikes
+          augmented-steam
+          protondb-for-steam
+          #animalese-typing # Cool and cute but annoying
+          betterttv
+          censor-tracker
+          clearurls
+          copy-selection-as-markdown
+          #firenvim
+          image-search-options
+          indie-wiki-buddy
+          simplifygmail
+          the-camelizer-price-history-ch
+          to-google-translate
+          tampermonkey
+          youtube-no-translation
+          youtube-shorts-block
+          youtube-nonstop
+          darkreader
+        ];
+      };
+    };
 }
