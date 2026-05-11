@@ -152,7 +152,12 @@
     desktops.imports = [ self.modules.nixos.hyprland ];
 
     hyprland =
-      { config, pkgs, ... }:
+      {
+        config,
+        pkgs,
+        wayland,
+        ...
+      }:
 
       let
         cfg = config.nyra.desktops.hyprland;
@@ -166,7 +171,7 @@
           programs.hyprland = {
             enable = cfg.enable;
             package = pkgs.hyprland;
-            xwayland.enable = true;
+            xwayland.enable = wayland.xwayland.enable;
           };
         };
       };
