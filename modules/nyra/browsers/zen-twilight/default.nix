@@ -23,8 +23,8 @@
         };
 
         config = {
-          programs.zen-browser = {
-            enable = cfg.zen.enable;
+          programs.zen-browser = lib.mkIf (cfg.enable) {
+            enable = true;
             profiles.${user.name} = {
               isDefault = true;
               settings = {
@@ -94,7 +94,7 @@
             };
           };
           nyra.browsers.zen-twilight.enable = lib.mkDefault (default == "zen-twilight");
-          stylix.targets.zen-browser.profileNames = [ "${user.name}" ];
+          stylix.targets.zen-browser.profileNames = lib.mkIf (cfg.enable) [ "${user.name}" ];
         };
       };
   };
