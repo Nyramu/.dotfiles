@@ -13,7 +13,7 @@
 
       let
         cfg = config.nyra.music.mpd;
-        dirs = config.home.sessionVariables;
+        dirs = config.xdg.userDirs;
       in
       {
         options.nyra.music.mpd = {
@@ -23,10 +23,10 @@
         config = lib.mkIf (cfg.enable) {
           services.mpd = {
             enable = true;
-            musicDirectory = "${dirs.XDG_MUSIC_DIR}";
-            playlistDirectory = "${dirs.XDG_PLAYLISTS_DIR}";
+            musicDirectory = "${dirs.music}";
+            playlistDirectory = "${dirs.extraConfig.PLAYLISTS}";
             extraConfig =
-              if (audio.server == "pipewire") then
+              if (audio == "pipewire") then
                 ''
                   audio_output {
                     type       "pipewire"
@@ -43,7 +43,7 @@
 
                   auto_update "yes"
                 ''
-              else if (audio.server == "pulseaudio") then
+              else if (audio == "pulseaudio") then
                 ''
                   audio_output {
                     type       "pulse"
