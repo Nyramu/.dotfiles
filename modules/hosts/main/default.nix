@@ -54,10 +54,12 @@ in
 
         nyra.desktops.hyprland = {
           enable = true;
-          dynamic-cursors.enable = true;
           shader = {
             enable = false;
             name = "vibrant";
+          };
+          plugins = {
+            dynamic-cursors.enable = true;
           };
           monitors = [
             {
