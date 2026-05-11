@@ -8,7 +8,7 @@
 
       let
         cfg = config.nyra.music.rmpc;
-        dirs = config.home.sessionVariables;
+        dirs = config.xdg.userDirs;
       in
       {
         options.nyra.music.rmpc = {
@@ -23,7 +23,7 @@
               #![enable(unwrap_newtypes)]
               #![enable(unwrap_variant_newtypes)]
               (
-                lyrics_dir: Some("${dirs.XDG_LYRICS_DIR}"),
+                lyrics_dir: Some("${dirs.extraConfig.LYRICS}"),
                 rewind_to_start_sec: Some(90),
                 password: None,
                 theme: Some("theme.ron"),
