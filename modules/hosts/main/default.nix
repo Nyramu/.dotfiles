@@ -146,6 +146,10 @@ in
           services
         ];
 
+        nyra.desktops = {
+          hyprland.enable = true;
+        };
+
         nyra.gaming = {
           steam.enable = true;
           gamemode.enable = true;

@@ -110,6 +110,10 @@ in
           services
         ];
 
+        nyra.desktops = {
+          hyprland.enable = true;
+        };
+
         nyra.services = {
           mysql.enable = true;
           httpd.enable = true;
