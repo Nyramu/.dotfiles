@@ -400,6 +400,7 @@
                 ),
               )
             '';
+          nyra.music.mpd.enable = lib.mkDefault cfg.enable;
         };
       };
   };
