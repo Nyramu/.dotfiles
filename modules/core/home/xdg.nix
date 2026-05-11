@@ -55,7 +55,7 @@
 
           ];
 
-          textEditorFormats = [
+          textEditor = [
             "application/json"
             "application/yaml"
           ]
