@@ -14,15 +14,18 @@
       let
         palette = config.stylix.base16Scheme;
         serif = config.stylix.fonts.serif.name;
-        cfg = config.nyra.login.silentSDDM;
+        cfg = config.nyra.login.silentSddm;
 
         bg-name = bg: if lib.isDerivation bg then bg.name else baseNameOf bg;
       in
       {
         imports = [ inputs.silentSDDM.nixosModules.default ];
 
-        options.nyra.login.silentSDDM = {
-          enable = lib.mkEnableOption "SilentSDDM theming";
+        options.nyra.login.silentSddm = {
+          enable = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+          };
         };
 
         config = lib.mkIf (cfg.enable) {
