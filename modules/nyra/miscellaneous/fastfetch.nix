@@ -28,7 +28,8 @@
             settings = {
               logo = {
                 type = "auto";
-                source = if (cfg.logo != null) then self.outPath + "/resources/pics/${cfg.logo}.png" else "nixos_small";
+                source =
+                  if (cfg.logo != null) then self.outPath + "/resources/pics/${cfg.logo}.png" else "nixos_small";
               };
               modules = [
                 "break"
