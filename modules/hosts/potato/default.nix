@@ -35,14 +35,16 @@ in
       {
         imports = with homeManager; [
           stylix
-          desktops
-          terminals
-          miscellaneous
           browsers
-          services
+          desktops
           editors
-          login
           files
+          miscellaneous
+          music
+          services
+          shells
+          socials
+          terminals
         ];
 
         nyra.desktops.hyprland = {
@@ -102,8 +104,8 @@ in
           ./_hardware-configuration.nix
           stylix
           desktops
-          services
           login
+          services
         ];
 
         nyra.services = {
