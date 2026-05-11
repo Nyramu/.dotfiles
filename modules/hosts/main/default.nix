@@ -42,6 +42,7 @@ in
           gaming
           music
           desktops
+          miscellaneous
           terminals
           browsers
           services
@@ -114,7 +115,7 @@ in
             gpu-name = "Radeon 780M";
           };
           fastfetch.enable = true;
-          ptracer.enable = false;
+          packetTracer.enable = false;
         };
 
         home.packages = with pkgs; [
@@ -137,14 +138,11 @@ in
         imports = with nixos; [
           ./_hardware-configuration.nix
           stylix
-          desktop
+          desktops
           gaming
           services
           login
         ];
-
-        # Deprecated, TODO: reimplement nyra.fonts, or just use nixos options
-        # nyra.fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
         nyra.gaming = {
           steam.enable = true;
@@ -157,10 +155,6 @@ in
           # Enable fingerprints support, register one running
           # fprintd-enroll <user>
           fingerprint.enable = true;
-        };
-
-        nyra.login = {
-          silentSddm.enable = true;
         };
 
         # Use CachyOS latest Zen4 LTO kernel.
