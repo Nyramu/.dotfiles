@@ -49,10 +49,12 @@ in
 
         nyra.desktops.hyprland = {
           enable = true;
-          dynamic-cursors.enable = true;
           shader = {
             enable = true;
             name = "less-saturation";
+          };
+          plugins = {
+            dynamic-cursors.enable = true;
           };
           monitors = [
             {
