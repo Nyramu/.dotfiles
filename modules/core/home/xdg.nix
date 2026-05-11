@@ -7,6 +7,9 @@
       { config, pkgs, ... }:
 
       let
+        gaming = config.nyra.gaming;
+        mpd = config.nyra.music.mpd;
+
         allMimeTypes = builtins.readFile "${pkgs.shared-mime-info}/share/mime/types";
 
         expandMimeGlobExcluding =
@@ -68,31 +71,25 @@
       {
         xdg =
           let
-            home = config.home.homeDirectory;
+            dirs = config.xdg.userDirs;
           in
           {
             enable = true;
 
-            # TODO: add nyra options to manage dirs creation
             userDirs = {
-              enable = true;
-              createDirectories = true;
-              desktop = "${home}/Desktop";
-              download = "${home}/Downloads";
-              pictures = "${home}/Pictures";
-              documents = "${home}/Documents";
-              videos = "${home}/Videos";
-              music = "${home}/Music";
-
               templates = null;
               publicShare = null;
 
               extraConfig = {
-                SCREENSHOTS = "${home}/Pictures/Screenshots";
-                RECORDINGS = "${home}/Videos/Recordings";
-                GAMES = "${home}/Games";
-                LYRICS = "${home}/Music/Lyrics";
-                PLAYLISTS = "${home}/Music/Playlists";
+                SCREENSHOTS = "${dirs.pictures}/Screenshots";
+                RECORDINGS = "${dirs.videos}/Recordings";
+              }
+              // lib.optionalAttrs (mpd.enable) {
+                LYRICS = "${dirs.music}/Lyrics";
+                PLAYLISTS = "${dirs.music}/Playlists";
+              }
+              // lib.optionalAttrs (lib.any (x: x.enable) (lib.attrValues gaming)) {
+                GAMES = "${config.home.homeDirectory}/Games";
               };
             };
 
