@@ -1,96 +1,92 @@
-{ self, ... }:
+{ ... }:
 {
-  flake.modules.homeManager = {
-    editors.imports = [ self.modules.homeManager.helix ];
+  flake.modules.homeManager.helix = {
+    programs.helix = {
+      settings = {
+        keys.normal = {
+          A-q = ":write-quit"; # Save and quit Helix
+          A-s = ":write"; # Save
+          A-f = ":format"; # Format code
+          A-r = "replace_selections_with_clipboard"; # Replace selection with clipboard content
+          A-p = "paste_clipboard_before"; # Paste clipboard content before selection
+          A-y = "yank_to_clipboard"; # Yank selection to clipboard
+          A-d = "delete_selection"; # Delete selection
+          # Cut selection
+          A-c = [
+            "yank_to_clipboard"
+            "delete_selection"
+          ];
+          A-n = ":new"; # New file from scratch
 
-    helix = {
-      programs.helix = {
-        settings = {
-          keys.normal = {
-            A-q = ":write-quit"; # Save and quit Helix
-            A-s = ":write"; # Save
-            A-f = ":format"; # Format code
-            A-r = "replace_selections_with_clipboard"; # Replace selection with clipboard content
-            A-p = "paste_clipboard_before"; # Paste clipboard content before selection
-            A-y = "yank_to_clipboard"; # Yank selection to clipboard
-            A-d = "delete_selection"; # Delete selection
-            # Cut selection
-            A-c = [
-              "yank_to_clipboard"
-              "delete_selection"
+          A-esc = ":buffer-close!"; # Force close current file
+          A-ret = ":write-buffer-close"; # Save and close current file
+          A-right = ":buffer-next"; # Go to the next opened file
+          A-left = ":buffer-previous"; # Go to the previous opened file
+
+          C-z = "undo"; # Undo changes
+          C-y = "redo"; # Redo changes
+          C-f = "search"; # Search regex
+          C-right = "search_next"; # Select next search match
+          C-left = "search_prev"; # Select previous search match
+
+          space = {
+            h = ":cd ~";
+            d = [
+              ":cd ~/.dotfiles"
+              "file_picker"
             ];
-            A-n = ":new"; # New file from scratch
-
-            A-esc = ":buffer-close!"; # Force close current file
-            A-ret = ":write-buffer-close"; # Save and close current file
-            A-right = ":buffer-next"; # Go to the next opened file
-            A-left = ":buffer-previous"; # Go to the previous opened file
-
-            C-z = "undo"; # Undo changes
-            C-y = "redo"; # Redo changes
-            C-f = "search"; # Search regex
-            C-right = "search_next"; # Select next search match
-            C-left = "search_prev"; # Select previous search match
-
-            space = {
-              h = ":cd ~";
-              d = [
-                ":cd ~/.dotfiles"
-                "file_picker"
-              ];
-              s = "global_search";
-              f = "file_picker";
-            };
-
-            A-up = "no_op";
-            A-down = "no_op";
-            space."/" = "no_op";
+            s = "global_search";
+            f = "file_picker";
           };
 
-          keys.insert = {
-            A-f = ":format"; # Format code
-            A-r = "replace_selections_with_clipboard"; # Replace selection with clipboard content
-            A-p = "paste_clipboard_before"; # Paste clipboard content before selection
-            A-y = "yank_to_clipboard"; # Yank selection to clipboard
-            A-d = "delete_selection"; # Delete selection
-            # Cut selection
-            A-c = [
-              "yank_to_clipboard"
-              "delete_selection"
-            ];
+          A-up = "no_op";
+          A-down = "no_op";
+          space."/" = "no_op";
+        };
 
-            C-d = "kill_to_line_start"; # Delete till start of line
-            C-z = "undo"; # Undo changes
-            C-y = "redo"; # Redo changes
-            C-f = "search"; # Search regex
-            C-right = "search_next"; # Select next search match
-            C-left = "search_prev"; # Select previous search match
-            C-space = "toggle_comments"; # Comment/uncomment current line or selection
+        keys.insert = {
+          A-f = ":format"; # Format code
+          A-r = "replace_selections_with_clipboard"; # Replace selection with clipboard content
+          A-p = "paste_clipboard_before"; # Paste clipboard content before selection
+          A-y = "yank_to_clipboard"; # Yank selection to clipboard
+          A-d = "delete_selection"; # Delete selection
+          # Cut selection
+          A-c = [
+            "yank_to_clipboard"
+            "delete_selection"
+          ];
 
-            S-ret = "insert_newline";
+          C-d = "kill_to_line_start"; # Delete till start of line
+          C-z = "undo"; # Undo changes
+          C-y = "redo"; # Redo changes
+          C-f = "search"; # Search regex
+          C-right = "search_next"; # Select next search match
+          C-left = "search_prev"; # Select previous search match
+          C-space = "toggle_comments"; # Comment/uncomment current line or selection
 
-            A-right = "move_next_word_end"; # Move to end of next word
-            A-left = "move_prev_word_start"; # Move to start of previous word
-            A-up = "move_visual_line_up"; # Move up
-            A-down = "move_visual_line_down"; # Move down
+          S-ret = "insert_newline";
 
-            S-right = "extend_char_right"; # Extend to right
-            S-left = "extend_char_left"; # Extend to left
-            S-up = "extend_visual_line_up"; # Extend up
-            S-down = "extend_visual_line_down"; # Extend down
+          A-right = "move_next_word_end"; # Move to end of next word
+          A-left = "move_prev_word_start"; # Move to start of previous word
+          A-up = "move_visual_line_up"; # Move up
+          A-down = "move_visual_line_down"; # Move down
 
-            S-A-right = "extend_next_word_start"; # Extend to start of next word
-            S-A-left = "extend_prev_word_start"; # Extend to start of previous word
-            S-A-up = "extend_visual_line_up"; # Extend up
-            S-A-down = "extend_visual_line_down"; # Extend down
-          };
+          S-right = "extend_char_right"; # Extend to right
+          S-left = "extend_char_left"; # Extend to left
+          S-up = "extend_visual_line_up"; # Extend up
+          S-down = "extend_visual_line_down"; # Extend down
 
-          keys.select = {
-            S-right = "extend_next_word_start"; # Extend to start of next word
-            S-left = "extend_prev_word_start"; # Extend to start of previous word
+          S-A-right = "extend_next_word_start"; # Extend to start of next word
+          S-A-left = "extend_prev_word_start"; # Extend to start of previous word
+          S-A-up = "extend_visual_line_up"; # Extend up
+          S-A-down = "extend_visual_line_down"; # Extend down
+        };
 
-            C-space = "toggle_comments"; # Comment/uncomment current line or selection
-          };
+        keys.select = {
+          S-right = "extend_next_word_start"; # Extend to start of next word
+          S-left = "extend_prev_word_start"; # Extend to start of previous word
+
+          C-space = "toggle_comments"; # Comment/uncomment current line or selection
         };
       };
     };
