@@ -1,7 +1,7 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    shells.commands.imports = [ self.modules.homeManager.eza ];
+    shells.imports = [ self.modules.homeManager.eza ];
 
     eza =
       { config, shell, ... }:

@@ -1,7 +1,7 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    shells.commands.imports = [ self.modules.homeManager.ripgrep ];
+    shells.imports = [ self.modules.homeManager.ripgrep ];
 
     ripgrep =
       { config, ... }:

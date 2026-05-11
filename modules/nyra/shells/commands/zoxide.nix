@@ -1,7 +1,7 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    shells.commands.imports = [ self.modules.homeManager.zoxide ];
+    shells.imports = [ self.modules.homeManager.zoxide ];
 
     zoxide =
       { config, shell, ... }:
