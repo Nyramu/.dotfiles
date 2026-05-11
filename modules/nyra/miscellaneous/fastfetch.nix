@@ -18,7 +18,7 @@
         options.nyra.miscellaneous.fastfetch = {
           enable = lib.mkEnableOption "fastfetch";
           logo = lib.mkOption {
-            type = logoType;
+            type = lib.types.nullOr logoType;
           };
         };
 
