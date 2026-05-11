@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos = {
     core.imports = [ self.modules.nixos.sddm ];
@@ -10,7 +10,7 @@
           enable = true;
           enableHidpi = true;
           autoNumlock = true;
-          wayland.enable = wayland.enable;
+          wayland.enable = lib.mkForce wayland.enable;
         };
       };
   };
