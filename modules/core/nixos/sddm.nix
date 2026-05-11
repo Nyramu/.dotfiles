@@ -1,9 +1,9 @@
 { self, ... }:
 {
   flake.modules.nixos = {
-    core.imports = [ self.modules.nixos.login ];
+    core.imports = [ self.modules.nixos.sddm ];
 
-    login =
+    sddm =
       { wayland, ... }:
       {
         services.displayManager.sddm = {
