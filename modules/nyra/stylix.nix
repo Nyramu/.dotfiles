@@ -35,6 +35,31 @@ let
       popups = lib.mkDefault 0.7;
     };
 
+    fonts = {
+      serif = {
+        package = lib.mkDefault pkgs.nerd-fonts.jetbrains-mono;
+        name = lib.mkDefault "JetBrainsMono Nerd Font";
+      };
+      sansSerif = {
+        package = lib.mkDefault pkgs.nerd-fonts.jetbrains-mono;
+        name = lib.mkDefault "JetBrainsMono Nerd Font";
+      };
+      monospace = {
+        package = lib.mkDefault pkgs.nerd-fonts.jetbrains-mono;
+        name = lib.mkDefault "JetBrainsMono Nerd Font Mono";
+      };
+      emoji = {
+        package = lib.mkDefault pkgs.nerd-fonts.symbols-only;
+        name = lib.mkDefault "Symbols Nerd Font";
+      };
+      sizes = {
+        applications = lib.mkDefault 12;
+        desktop = lib.mkDefault 10;
+        popups = lib.mkDefault 10;
+        terminal = lib.mkDefault 12;
+      };
+    };
+
     icons = {
       enable = lib.mkDefault true;
       package = lib.mkDefault pkgs.gruvbox-plus-icons;
