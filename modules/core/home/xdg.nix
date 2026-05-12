@@ -68,61 +68,79 @@
         };
 
       in
+      let
+        dirs = config.xdg.userDirs;
+      in
       {
-        xdg =
-          let
-            dirs = config.xdg.userDirs;
-          in
-          {
+        home.sessionVariables = {
+          XDG_DESKTOP_DIR = dirs.desktop;
+          XDG_DOWNLOAD_DIR = dirs.download;
+          XDG_PICTURES_DIR = dirs.pictures;
+          XDG_VIDEOS_DIR = dirs.videos;
+          XDG_DOCUMENTS_DIR = dirs.documents;
+          XDG_MUSIC_DIR = dirs.music;
+          XDG_SCREENSHOTS_DIR = dirs.extraConfig.SCREENSHOTS;
+          XDG_RECORDINGS_DIR = dirs.extraConfig.RECORDINGS;
+        }
+        // lib.optionalAttrs (mpd.enable) {
+          XDG_LYRICS_DIR = dirs.extraConfig.LYRICS;
+          XDG_PLAYLISTS_DIR = dirs.extraConfig.PLAYLISTS;
+        }
+        // lib.optionalAttrs (lib.any (x: x.enable) (lib.attrValues gaming)) {
+          XDG_GAMES_DIR = dirs.extraConfig.GAMES;
+        };
+
+        xdg = {
+          enable = true;
+
+          userDirs = {
             enable = true;
+            templates = null;
+            publicShare = null;
 
-            userDirs = {
-              templates = null;
-              publicShare = null;
-
-              extraConfig = {
-                SCREENSHOTS = "${dirs.pictures}/Screenshots";
-                RECORDINGS = "${dirs.videos}/Recordings";
-              }
-              // lib.optionalAttrs (mpd.enable) {
-                LYRICS = "${dirs.music}/Lyrics";
-                PLAYLISTS = "${dirs.music}/Playlists";
-              }
-              // lib.optionalAttrs (lib.any (x: x.enable) (lib.attrValues gaming)) {
-                GAMES = "${config.home.homeDirectory}/Games";
-              };
-            };
-
-            desktopEntries = {
-              imv = {
-                name = "imv";
-                exec = "${lib.getExe pkgs.imv}";
-                noDisplay = true;
-              };
-              mpv = {
-                name = "mpv";
-                exec = "${lib.getExe pkgs.mpv} --vo=gpu --keep-open=yes";
-                noDisplay = true;
-              };
-              editor = {
-                name = "Text Editor";
-                exec = "${config.home.sessionVariables.EDITOR or (lib.getExe pkgs.helix)} %f";
-                noDisplay = true;
-              };
-            };
-
-            mimeApps = {
-              enable = true;
-              defaultApplications = lib.mkMerge [
-                (toMimeAttrs formats.image entries.imageViewer)
-                (toMimeAttrs formats.gimp entries.gimp)
-                (toMimeAttrs formats.video entries.videoViewer)
-                (toMimeAttrs formats.audio entries.videoViewer)
-                (toMimeAttrs formats.textEditor entries.textEditor)
-                (toMimeAttrs formats.browser entries.browser)
-              ];
+            extraConfig = {
+              SCREENSHOTS = "${dirs.pictures}/Screenshots";
+              RECORDINGS = "${dirs.videos}/Recordings";
+            }
+            // lib.optionalAttrs (mpd.enable) {
+              LYRICS = "${dirs.music}/Lyrics";
+              PLAYLISTS = "${dirs.music}/Playlists";
+            }
+            // lib.optionalAttrs (lib.any (x: x.enable) (lib.attrValues gaming)) {
+              GAMES = "${config.home.homeDirectory}/Games";
             };
           };
+
+          desktopEntries = {
+            imv = {
+              name = "imv";
+              exec = "${lib.getExe pkgs.imv}";
+              noDisplay = true;
+            };
+            mpv = {
+              name = "mpv";
+              exec = "${lib.getExe pkgs.mpv} --vo=gpu --keep-open=yes";
+              noDisplay = true;
+            };
+            editor = {
+              name = "Text Editor";
+              exec = "${config.home.sessionVariables.EDITOR or (lib.getExe pkgs.helix)} %f";
+              noDisplay = true;
+            };
+          };
+
+          mimeApps = {
+            enable = true;
+            defaultApplications = lib.mkMerge [
+              (toMimeAttrs formats.image entries.imageViewer)
+              (toMimeAttrs formats.gimp entries.gimp)
+              (toMimeAttrs formats.video entries.videoViewer)
+              (toMimeAttrs formats.audio entries.videoViewer)
+              (toMimeAttrs formats.textEditor entries.textEditor)
+              (toMimeAttrs formats.browser entries.browser)
+            ];
+          };
+        };
       };
   };
 }
