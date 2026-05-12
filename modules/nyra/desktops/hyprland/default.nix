@@ -141,7 +141,7 @@
           shader = {
             enable = mkEnableOption "enable screen shader";
             name = mkOption {
-              type = types.enum (builtins.readDir shaderPath |> builtins.attrNames);
+              type = types.enum (builtins.readDir shaderPath |> builtins.attrNames |> map (s: lib.removeSuffix ".frag" s));
             };
           };
         };
