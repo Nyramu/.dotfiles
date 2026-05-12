@@ -19,6 +19,7 @@
             enable = true;
             syntaxHighlighting.enable = true;
             autosuggestion.enable = true;
+            dotDir = "${config.xdg.configHome}/zsh";
             oh-my-zsh = {
               enable = true;
               plugins = [
