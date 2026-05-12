@@ -19,6 +19,8 @@
         text =
           # bash
           ''
+            readonly OUTPUT_DIR="''${XDG_SCREENSHOTS_DIR:-$HOME/Pictures/Screenshots}"
+
             if [ -z "$XDG_SESSION_TYPE" ]; then
               echo "XDG_SESSION_TYPE is not set, aborting" >&2
               exit 1
@@ -29,11 +31,14 @@
               save_file=true
             fi
 
-            mkdir -p "$HOME/Pictures/Screenshots/"
-            file_name="$HOME/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+            mkdir -p "$OUTPUT_DIR"
+            file_name="$OUTPUT_DIR/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
             if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-              slurp | grim -g - "$file_name"
+              if ! selection=$(slurp 2>/dev/null); then
+                exit 0
+              fi
+              grim -g "$selection" "$file_name"
               wl-copy < "$file_name"
               if [ "$save_file" = false ]; then
                 rm "$file_name"
