@@ -15,10 +15,8 @@
         text =
           # bash
           ''
-            set -euo pipefail
-
             readonly STATE_DIR="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/screen-record"
-            readonly OUTPUT_DIR="''${SCREEN_RECORD_DIR:-$HOME/Videos/Recordings}"
+            readonly OUTPUT_DIR="''${XDG_RECORDINGS_DIR:-$HOME/Videos/Recordings}"
             readonly STATE_FILE="$STATE_DIR/recording.state"
 
             die() {
@@ -64,7 +62,7 @@
               local audio_source
               local low_quality_flag="''${1:-}"
 
-              output="$OUTPUT_DIR/screenrecord_$(date +%Y-%m-%d-%T).mp4"
+              output="$OUTPUT_DIR/screenrecord_$(date +%Y-%m-%d_%H-%M-%S).mp4"
               audio_source=$(get_audio_source) || die "Cannot find audio source"
 
               mkdir -p "$STATE_DIR"
