@@ -39,6 +39,7 @@ in
           desktops
           editors
           files
+          gaming
           miscellaneous
           music
           services
@@ -106,6 +107,7 @@ in
           ./_hardware-configuration.nix
           stylix
           desktops
+          gaming
           login
           services
         ];
