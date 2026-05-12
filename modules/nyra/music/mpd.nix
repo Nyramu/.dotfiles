@@ -59,6 +59,20 @@
             enable = true;
           };
           home.packages = [ pkgs.mpc ];
+
+          home.sessionVariables = {
+            XDG_MUSIC_DIR = dirs.music;
+            XDG_LYRICS_DIR = dirs.extraConfig.LYRICS;
+            XDG_PLAYLISTS_DIR = dirs.extraConfig.PLAYLISTS;
+          };
+
+          xdg.userDirs = {
+            music = "${config.home.homeDirectory}/Music";
+            extraConfig = {
+              LYRICS = "${dirs.music}/Lyrics";
+              PLAYLISTS = "${dirs.music}/Playlists";
+            };
+          };
         };
       };
   };

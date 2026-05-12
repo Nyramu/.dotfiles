@@ -7,9 +7,6 @@
       { config, pkgs, ... }:
 
       let
-        gaming = config.nyra.gaming;
-        mpd = config.nyra.music.mpd;
-
         allMimeTypes = builtins.readFile "${pkgs.shared-mime-info}/share/mime/types";
 
         expandMimeGlobExcluding =
@@ -78,16 +75,9 @@
           XDG_PICTURES_DIR = dirs.pictures;
           XDG_VIDEOS_DIR = dirs.videos;
           XDG_DOCUMENTS_DIR = dirs.documents;
-          XDG_MUSIC_DIR = dirs.music;
+
           XDG_SCREENSHOTS_DIR = dirs.extraConfig.SCREENSHOTS;
           XDG_RECORDINGS_DIR = dirs.extraConfig.RECORDINGS;
-        }
-        // lib.optionalAttrs (mpd.enable) {
-          XDG_LYRICS_DIR = dirs.extraConfig.LYRICS;
-          XDG_PLAYLISTS_DIR = dirs.extraConfig.PLAYLISTS;
-        }
-        // lib.optionalAttrs (lib.any (x: x.enable) (lib.attrValues gaming)) {
-          XDG_GAMES_DIR = dirs.extraConfig.GAMES;
         };
 
         xdg = {
@@ -95,19 +85,14 @@
 
           userDirs = {
             enable = true;
+            music = lib.mkDefault null;
+
             templates = null;
             publicShare = null;
 
             extraConfig = {
               SCREENSHOTS = "${dirs.pictures}/Screenshots";
               RECORDINGS = "${dirs.videos}/Recordings";
-            }
-            // lib.optionalAttrs (mpd.enable) {
-              LYRICS = "${dirs.music}/Lyrics";
-              PLAYLISTS = "${dirs.music}/Playlists";
-            }
-            // lib.optionalAttrs (lib.any (x: x.enable) (lib.attrValues gaming)) {
-              GAMES = "${config.home.homeDirectory}/Games";
             };
           };
 
