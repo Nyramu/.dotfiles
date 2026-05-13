@@ -4,7 +4,7 @@
     { config, ... }:
 
     let
-      inherit (config.nyra) terminals miscellaneous music;
+      cfg = config.nyra;
     in
     {
       imports = with self.modules.homeManager; [
@@ -12,7 +12,7 @@
         fastfetch
         rmpc
       ];
-      
+
       hyprnix.settings.windowrules = [
         {
           name = "floating-mpv";
@@ -47,8 +47,8 @@
 
         # Custom titles for terminal apps
         {
-          name = "floating-${terminals.default}";
-          match.class = "floating-${terminals.default}";
+          name = "floating-${cfg.terminals.default}";
+          match.class = "floating-${cfg.terminals.default}";
           float = true;
           center = true;
           min_size = [
@@ -61,7 +61,7 @@
           ];
         }
       ]
-      ++ lib.optional (music.rmpc.enable) {
+      ++ lib.optional (cfg.music.rmpc.enable) {
         name = "cassette-rmpc";
         match.initial_title = "rmpc";
         float = true;
@@ -75,7 +75,7 @@
           558
         ];
       }
-      ++ lib.optional (miscellaneous.fastfetch.enable) {
+      ++ lib.optional (cfg.miscellaneous.fastfetch.enable) {
         name = "welcome-fastfetch";
         match.initial_title = "fastfetch";
         float = true;
