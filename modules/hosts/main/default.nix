@@ -128,7 +128,8 @@ in
           fontfor
           figlet
           cmatrix
-          oxipng # pngquant is the best to drop below 1 MB
+          oxipng
+          pngquant # pngquant is the best to drop below 1 MB
           wev
         ];
       };
