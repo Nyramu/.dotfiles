@@ -8,12 +8,12 @@
           mgr.prepend_keymap = [
             # Keybinds
             {
-              run = "cd ~/.dotfiles";
+              run = "cd ${user.dotfiles}";
               on = [
                 "g"
                 "d"
               ];
-              desc = "Go ~/.dotfiles";
+              desc = "Go to dotfiles";
             }
             {
               run = "cd ~/.local/share";
@@ -24,17 +24,12 @@
               desc = "Go ~/.local/share";
             }
             {
-              run = "cd /run/media/${user.name}";
+              run = "cd ~/Trash";
               on = [
                 "g"
-                "e"
+                "t"
               ];
-              desc = "Go to external drives";
-            }
-            {
-              run = "shell --block bashmount";
-              on = [ "b" ];
-              desc = "Open bashmount";
+              desc = "Go to Trash";
             }
             {
               run = "find --previous --smart";
