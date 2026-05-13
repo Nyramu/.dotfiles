@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.homeManager.hyprland =
     { config, ... }:
@@ -7,6 +7,12 @@
       inherit (config.nyra) terminals miscellaneous music;
     in
     {
+      imports = with self.modules.homeManager; [
+        terminals
+        fastfetch
+        rmpc
+      ];
+      
       hyprnix.settings.windowrules = [
         {
           name = "floating-mpv";

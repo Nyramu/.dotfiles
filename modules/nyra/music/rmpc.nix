@@ -11,6 +11,8 @@
         dirs = config.xdg.userDirs;
       in
       {
+        imports = [ self.modules.homeManager.mpd ];
+
         options.nyra.music.rmpc = {
           enable = lib.mkEnableOption "rmpc";
         };
