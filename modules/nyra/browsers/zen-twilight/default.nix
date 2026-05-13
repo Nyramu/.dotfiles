@@ -16,7 +16,10 @@
         default = config.nyra.browsers.default;
       in
       {
-        imports = [ inputs.zen-browser.homeModules.twilight ];
+        imports = [
+          inputs.zen-browser.homeModules.twilight
+          self.modules.homeManager.stylix
+        ];
 
         options.nyra.browsers.zen-twilight = {
           enable = lib.mkEnableOption "zen-twilight browser";
