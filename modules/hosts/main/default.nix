@@ -120,6 +120,8 @@ in
           packetTracer.enable = false;
         };
 
+        nyra.stylix.enable = true;
+
         home.packages = with pkgs; [
           qbittorrent
           hyprpicker
@@ -143,6 +145,7 @@ in
           stylix
           desktops
           gaming
+          miscellaneous
           login
           services
         ];
@@ -158,11 +161,17 @@ in
           lsfg.enable = true;
         };
 
+        nyra.miscellaneous = {
+          bashmount.enable = true;
+        };
+
         nyra.services = {
           # Enable fingerprints support, register one running
           # fprintd-enroll <user>
           fingerprint.enable = true;
         };
+
+        nyra.stylix.enable = true;
 
         # Use CachyOS latest Zen4 LTO kernel.
         boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;

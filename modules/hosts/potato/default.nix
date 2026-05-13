@@ -90,6 +90,8 @@ in
           packetTracer.enable = false;
         };
 
+        nyra.stylix.enable = true;
+
         home.packages = with pkgs; [
           figlet
           hyprpicker
@@ -107,7 +109,7 @@ in
           ./_hardware-configuration.nix
           stylix
           desktops
-          gaming
+          miscellaneous
           login
           services
         ];
@@ -120,6 +122,12 @@ in
           mysql.enable = true;
           httpd.enable = true;
         };
+
+        nyra.miscellaneous = {
+          bashmount.enable = true;
+        };
+
+        nyra.stylix.enable = true;
 
         # Use CachyOS Latest v3 LTO kernel.
         boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
