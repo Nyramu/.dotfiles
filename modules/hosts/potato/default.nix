@@ -14,7 +14,7 @@ in
     user = rec {
       name = "nyramu";
       description = "Nyramu";
-      email = "107689027+Nyramu@users.noreply.github.com";
+      email = "nyramu@noreply.codeberg.org";
       dotfiles = "/home/${name}/.dotfiles";
     };
     shell = "zsh";
