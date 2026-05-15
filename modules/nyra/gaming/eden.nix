@@ -9,10 +9,16 @@
     gaming.imports = [ self.modules.homeManager.eden ];
 
     eden =
-      { config, pkgs, ... }:
+      {
+        config,
+        pkgs,
+        host,
+        ...
+      }:
 
       let
         cfg = config.nyra.gaming.eden;
+        edenPkgs = inputs.eden.packages.${host.system};
       in
       {
         imports = [
@@ -23,10 +29,13 @@
           enable = lib.mkEnableOption "eden";
         };
 
-        config = {
-          home.packages = lib.optionals cfg.enable [ pkgs.nsz ];
+        config = lib.mkIf (cfg.enable) {
+          programs.eden = {
+            enable = true;
+            package = if (host.name == "main") then edenPkgs.zen4 else edenPkgs.default;
+          };
 
-          programs.eden.enable = cfg.enable;
+          home.packages = [ pkgs.nsz ];
         };
       };
   };
