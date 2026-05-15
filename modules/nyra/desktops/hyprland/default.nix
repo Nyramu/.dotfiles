@@ -141,7 +141,9 @@
           shader = {
             enable = mkEnableOption "enable screen shader";
             name = mkOption {
-              type = types.enum (builtins.readDir shaderPath |> builtins.attrNames |> map (s: lib.removeSuffix ".frag" s));
+              type = types.enum (
+                builtins.readDir shaderPath |> builtins.attrNames |> map (s: lib.removeSuffix ".frag" s)
+              );
             };
           };
         };
@@ -167,9 +169,9 @@
           enable = lib.mkEnableOption "hyprland";
         };
 
-        config = {
+        config = lib.mkIf (cfg.enable) {
           programs.hyprland = {
-            enable = cfg.enable;
+            enable = true;
             package = pkgs.hyprland;
             xwayland.enable = wayland.xwayland.enable;
           };
