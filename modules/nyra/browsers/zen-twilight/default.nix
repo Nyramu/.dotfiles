@@ -18,7 +18,6 @@
       {
         imports = [
           inputs.zen-browser.homeModules.twilight
-          self.modules.homeManager.stylix
         ];
 
         options.nyra.browsers.zen-twilight = {

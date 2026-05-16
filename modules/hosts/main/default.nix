@@ -31,14 +31,12 @@ in
       time.zone = "Europe/Rome";
     };
 
-    # TODO: rework themes
-    # theme = "just-chill";
+    # theme = "apocalypse";
 
     home =
       { pkgs, ... }:
       {
         imports = with homeManager; [
-          stylix
           browsers
           desktops
           editors
@@ -59,7 +57,7 @@ in
             name = "vibrant";
           };
           plugins = {
-            dynamic-cursors.enable = true;
+            # dynamic-cursors.enable = true;
           };
           monitors = [
             {
@@ -120,8 +118,6 @@ in
           packetTracer.enable = false;
         };
 
-        nyra.stylix.enable = true;
-
         home.packages = with pkgs; [
           qbittorrent
           hyprpicker
@@ -142,7 +138,6 @@ in
       {
         imports = with nixos; [
           ./_hardware-configuration.nix
-          stylix
           desktops
           gaming
           miscellaneous
@@ -170,8 +165,6 @@ in
           # fprintd-enroll <user>
           fingerprint.enable = true;
         };
-
-        nyra.stylix.enable = true;
 
         # Use CachyOS latest Zen4 LTO kernel.
         boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;

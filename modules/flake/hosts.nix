@@ -148,10 +148,10 @@ let
           };
           hardware-clock.enable = mkEnableOption "hardware clock (for dual boot)";
         };
+      };
 
-        theme = mkOption {
-          type = types.nullOr themeType;
-        };
+      theme = mkOption {
+        type = types.nullOr themeType;
       };
 
       nixos = mkOption {
@@ -182,7 +182,6 @@ in
         nixos = {
           imports = with modules.nixos; [
             core
-            themes
           ];
           system.stateVersion = mkDefault stateVersion;
         };
@@ -190,7 +189,6 @@ in
         home = {
           imports = with modules.homeManager; [
             core
-            themes
           ];
           home.stateVersion = mkDefault stateVersion;
         };
