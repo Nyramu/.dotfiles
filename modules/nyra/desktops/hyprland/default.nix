@@ -19,7 +19,7 @@
 
       let
         cfg = config.nyra.desktops.hyprland;
-        shaderPath = self.outPath + "/resources/shaders/hyprland";
+        shaderPath = ./shaders;
       in
       {
         imports = [
