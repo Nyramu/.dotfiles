@@ -24,6 +24,8 @@
       {
         imports = [
           inputs.hyprnix.homeModules.default
+
+          self.modules.homeManager.terminals
         ];
 
         config.hyprnix = {
@@ -91,7 +93,7 @@
               shadow = {
                 range = 5;
                 render_power = 3;
-                # color = "rgba(26, 26, 26, 0.93)";
+                color = "rgba(26, 26, 26, 0.93)";
               };
               screen_shader = lib.mkIf (cfg.shader.enable) (shaderPath + "/${cfg.shader.name}.frag");
               blur = {
