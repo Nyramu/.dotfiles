@@ -73,7 +73,7 @@ let
 in
 {
   flake.modules.nixos.stylix =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       imports = [ inputs.stylix.nixosModules.stylix ];
 
@@ -81,11 +81,13 @@ in
         enable = lib.mkEnableOption "stylix";
       };
 
-      config.stylix = stylixCfg pkgs;
+      config = lib.mkIf (config.nyra.stylix.enable) {
+        stylix = stylixCfg pkgs;
+      };
     };
 
   flake.modules.homeManager.stylix =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       imports = [ inputs.stylix.homeModules.stylix ];
 
@@ -93,6 +95,8 @@ in
         enable = lib.mkEnableOption "stylix";
       };
 
-      config.stylix = stylixCfg pkgs;
+      config = lib.mkIf (config.nyra.stylix.enable) {
+        stylix = stylixCfg pkgs;
+      };
     };
 }
