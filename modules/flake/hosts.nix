@@ -150,7 +150,7 @@ let
         };
 
         theme = mkOption {
-          type = themeType;
+          type = types.nullOr themeType;
         };
       };
 
@@ -180,12 +180,18 @@ in
         stateVersion = "26.05";
 
         nixos = {
-          imports = with modules.nixos; [ core ];
+          imports = with modules.nixos; [
+            core
+            themes
+          ];
           system.stateVersion = mkDefault stateVersion;
         };
 
         home = {
-          imports = with modules.homeManager; [ core ];
+          imports = with modules.homeManager; [
+            core
+            themes
+          ];
           home.stateVersion = mkDefault stateVersion;
         };
       };
@@ -200,6 +206,7 @@ in
           ];
           specialArgs = {
             inherit (host)
+              theme
               audio
               bluetooth
               cpu
@@ -227,6 +234,7 @@ in
           ];
           extraSpecialArgs = {
             inherit (host)
+              theme
               audio
               shell
               user
