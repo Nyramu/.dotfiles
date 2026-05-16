@@ -41,9 +41,9 @@
               {
                 characterCount = 2;
                 colorizeIcons = true;
-                focusedColor = lib.mkDefault "primary";
-                occupiedColor = lib.mkDefault "secondary";
-                emptyColor = lib.mkDefault "tertiary";
+                focusedColor = "primary";
+                occupiedColor = "secondary";
+                emptyColor = "tertiary";
                 enableScrollWheel = true;
                 followFocusedScreen = true;
                 groupedBorderOpacity = 0;
