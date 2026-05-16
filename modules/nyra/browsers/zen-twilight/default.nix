@@ -28,6 +28,7 @@
         config = {
           programs.zen-browser = lib.mkIf (cfg.enable) {
             enable = true;
+            setAsDefaultBrowser = (default == "zen-twilight");
             profiles.${user.name} = {
               isDefault = true;
               settings = {
@@ -44,6 +45,7 @@
 
                 # URL bar
                 "zen.urlbar.behavior" = "floating-on-type";
+                "zen.urlbar.open-on-startup" = false;
                 "zen.urlbar.hide-one-offs" = false;
                 "zen.urlbar.replace-newtab" = false;
                 "zen.urlbar.show-domain-only-in-sidebar" = false;
