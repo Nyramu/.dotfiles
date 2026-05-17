@@ -9,12 +9,7 @@
     core.imports = [ self.modules.homeManager.theming ];
 
     theming =
-      {
-        config,
-        theme,
-        pkgs,
-        ...
-      }:
+      { theme, pkgs, ... }:
       {
         imports = [
           inputs.stylix.homeModules.stylix

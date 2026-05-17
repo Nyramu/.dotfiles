@@ -9,12 +9,7 @@
     core.imports = [ self.modules.nixos.theming ];
 
     theming =
-      {
-        config,
-        theme,
-        pkgs,
-        ...
-      }:
+      { theme, pkgs, ... }:
       {
         imports = [
           inputs.stylix.nixosModules.stylix
