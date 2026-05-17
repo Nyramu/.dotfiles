@@ -94,10 +94,7 @@ echo ""
 nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ~/.dotfiles#"$host"
 
 echo ""
-print_success "Home-manager part of the $host host has been installed"
-echo ""
-
-print_success "Home user directories have been created"
+print_success "Home Manager part of the $host host has been installed"
 echo ""
 
 print_success "Installation finished, you can reboot now"
