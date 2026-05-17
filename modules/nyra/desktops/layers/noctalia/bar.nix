@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   flake.modules.homeManager.noctalia = {
     programs.noctalia-shell = {
@@ -47,7 +47,7 @@
                 enableScrollWheel = true;
                 followFocusedScreen = true;
                 groupedBorderOpacity = 0;
-                fontWeight = lib.mkDefault "medium";
+                fontWeight = "medium";
                 hideUnoccupied = true;
                 iconScale = 0.75;
                 pillSize = 0.67;
@@ -146,7 +146,7 @@
                 id = "Clock";
                 tooltipFormat = "dddd, dd/MM/yyyy";
                 useCustomFont = false;
-                clockColor = lib.mkDefault "primary";
+                clockColor = "primary";
               }
             ];
           };
