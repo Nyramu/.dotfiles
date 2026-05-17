@@ -125,7 +125,6 @@
               swallow_regex = "^(${config.nyra.terminals.default})$";
               session_lock_xray = true; # Should test with hyprlock or something
               animate_mouse_windowdragging = false; # Just lags for some reason
-              vfr = false;
               vrr = 0;
             };
           };
