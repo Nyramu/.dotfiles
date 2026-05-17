@@ -3,23 +3,23 @@
 let
   stylixCfg = pkgs: {
     base16Scheme = {
-      base00 = "#1a1214"; # Default Background - deep dark burgundy-black
-      base01 = "#2a1a1e"; # Lighter Background - dark burgundy-gray
-      base02 = "#3a2228"; # Selection Background - dark wine-purple
-      base03 = "#707070"; # Comments, Invisibles - medium gray
-      base04 = "#aaaaaa"; # Dark Foreground - light gray
-      base05 = "#ffb0b4"; # Default Foreground - light pink
-      base06 = "#ffc8cc"; # Light Foreground - lighter pink
-      base07 = "#ffb0b4"; # Light Background - light pink
+      base00 = "#1a1214"; # Default Background - deep wine black
+      base01 = "#24181b"; # Lighter Background
+      base02 = "#4a3438"; # Selection Background - elevated wine rose
+      base03 = "#8a666b"; # Comments, Invisibles - lifted dusty rose
+      base04 = "#b0898d"; # Dark Foreground - muted pink beige
+      base05 = "#e6b8bc"; # Default Foreground - soft rose
+      base06 = "#f0c8cb"; # Light Foreground - pale coral pink
+      base07 = "#f4b7ba"; # Bright Foreground - warm sakura
 
-      base08 = "#d94856"; # Variables, Deleted - deep burgundy-red
-      base09 = "#b83848"; # Integers, Constants - dark wine-red
-      base0A = "#fa696e"; # Classes, Bold - coral-pink
-      base0B = "#fb7a7f"; # Strings, Inserted - medium burgundy-red
-      base0C = "#c84850"; # Support, Regex - medium burgundy-red
-      base0D = "#c84048"; # Functions, Headings - muted burgundy
-      base0E = "#b84050"; # Keywords, Italic - medium burgundy
-      base0F = "#a83848"; # Deprecated - muted burgundy-red
+      base08 = "#fa696e"; # Variables, Errors - lantern coral
+      base09 = "#ff9b71"; # Integers, Constants - sunset orange
+      base0A = "#e7a27e"; # Classes, Search - muted sunset peach
+      base0B = "#ff8f88"; # Strings, Success - soft coral
+      base0C = "#ffb0b4"; # Support, Regex - signature pink
+      base0D = "#7cb2ae"; # Functions, Links - softened wallpaper cyan
+      base0E = "#ea968f"; # Keywords, Storage - soft salmon rose
+      base0F = "#b85a63"; # Deprecated, Diff Delete - wine red
     };
 
     image = pkgs.fetchurl {
@@ -39,6 +39,9 @@ let
       monospace = {
         package = pkgs.pixel-code;
         name = "Pixel Code";
+      };
+      sizes = {
+        terminal = 11.5;
       };
     };
   };
