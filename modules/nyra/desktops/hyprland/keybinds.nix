@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 {
   flake.modules.homeManager.hyprland =
     { config, pkgs, ... }:
@@ -9,6 +9,12 @@
       noctalia = "noctalia-shell ipc call";
     in
     {
+      imports = [
+        self.modules.homeManager.terminals
+        self.modules.homeManager.files
+        self.modules.homeManager.browsers
+      ];
+
       hyprnix.settings.keybinds =
         let
           MOUSE_L = "mouse:272";
