@@ -9,7 +9,12 @@
     desktops.imports = [ self.modules.homeManager.noctalia ];
 
     noctalia =
-      { config, user, ... }:
+      {
+        config,
+        performance,
+        user,
+        ...
+      }:
 
       let
         ipc = "noctalia-shell ipc call";
@@ -35,8 +40,8 @@
                 radiusRatio = 0.5;
                 iRadiusRatio = 0.6;
                 enableShadows = true;
-                enableBlurBehind = true;
-                lockScreenAnimations = true;
+                enableBlurBehind = if (performance != "potato") then true else false;
+                lockScreenAnimations = if (performance != "potato") then true else false;
                 enableLockScreenMediaControls = true;
                 compactLockScreen = true;
                 lockScreenTint = 0.25;
@@ -50,7 +55,7 @@
                 shadowOffsetX = 0;
                 shadowOffsetY = 3;
                 animationSpeed = 1.2;
-                animationDisabled = false;
+                animationDisabled = if (performance == "potato") then true else false;
                 telemetryEnabled = true;
                 clockStyle = "digital";
                 clockFormat = "hh:mm";
@@ -65,7 +70,7 @@
                 settingsPanelSideBarCardStyle = false;
                 boxBorderEnabled = true;
                 tooltipsEnabled = false;
-                translucentWidgets = true;
+                translucentWidgets = if (performance != "potato") then true else false;
               };
 
               network = {

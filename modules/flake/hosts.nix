@@ -154,6 +154,14 @@ let
         type = types.nullOr themeType;
       };
 
+      performance = mkOption {
+        type = types.enum [
+          "potato"
+          "normal"
+        ];
+        default = "normal";
+      };
+
       nixos = mkOption {
         type = types.deferredModule;
         default = { };
@@ -212,6 +220,7 @@ in
               shell
               user
               localization
+              performance
               wayland
               ;
             host = {
@@ -237,6 +246,7 @@ in
               shell
               user
               localization
+              performance
               wayland
               ;
             host = {

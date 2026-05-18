@@ -13,6 +13,7 @@
         config,
         pkgs,
         localization,
+        performance,
         wayland,
         ...
       }:
@@ -97,7 +98,7 @@
               };
               screen_shader = lib.mkIf (cfg.shader.enable) (shaderPath + "/${cfg.shader.name}.frag");
               blur = {
-                enabled = true;
+                enabled = if (performance != "potato") then true else false;
                 new_optimizations = true;
                 size = 1;
                 passes = 2;

@@ -28,6 +28,8 @@ in
       time.zone = "Europe/Rome";
     };
 
+    performance = "potato";
+
     home =
       { pkgs, ... }:
       {
