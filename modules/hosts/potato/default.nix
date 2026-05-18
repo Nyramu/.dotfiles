@@ -28,23 +28,17 @@ in
       time.zone = "Europe/Rome";
     };
 
-    # theme = "just-chill";
-
     home =
       { pkgs, ... }:
       {
         imports = with homeManager; [
-          stylix
           browsers
           desktops
           editors
           files
-          gaming
           miscellaneous
-          music
           services
           shells
-          socials
           terminals
         ];
 
@@ -53,9 +47,6 @@ in
           shader = {
             enable = true;
             name = "less-saturation";
-          };
-          plugins = {
-            dynamic-cursors.enable = true;
           };
           monitors = [
             {
@@ -77,8 +68,6 @@ in
 
         nyra.editors = {
           helix.enable = true;
-          intellij.enable = false;
-          zed.enable = false;
         };
 
         nyra.miscellaneous = {
@@ -89,8 +78,6 @@ in
           fastfetch.enable = true;
           packetTracer.enable = false;
         };
-
-        nyra.stylix.enable = true;
 
         home.packages = with pkgs; [
           figlet
@@ -107,7 +94,6 @@ in
       {
         imports = with nixos; [
           ./_hardware-configuration.nix
-          stylix
           desktops
           miscellaneous
           login
@@ -126,8 +112,6 @@ in
         nyra.miscellaneous = {
           bashmount.enable = true;
         };
-
-        nyra.stylix.enable = true;
 
         # Use CachyOS Latest v3 LTO kernel.
         boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
