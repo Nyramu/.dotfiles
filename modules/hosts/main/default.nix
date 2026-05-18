@@ -31,7 +31,7 @@ in
       time.zone = "Europe/Rome";
     };
 
-    theme = "apocalypse";
+    theme = "pixel-sunset";
 
     home =
       { pkgs, ... }:
