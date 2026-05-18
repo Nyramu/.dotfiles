@@ -1,16 +1,16 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    miscellaneous.imports = [ self.modules.homeManager.packetTracer ];
+    productivity.imports = [ self.modules.homeManager.packetTracer ];
 
     packetTracer =
       { config, pkgs, ... }:
 
       let
-        cfg = config.nyra.miscellaneous.packetTracer;
+        cfg = config.nyra.productivity.packetTracer;
       in
       {
-        options.nyra.miscellaneous.packetTracer = {
+        options.nyra.productivity.packetTracer = {
           enable = lib.mkEnableOption "packet tracer";
         };
 
