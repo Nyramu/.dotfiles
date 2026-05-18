@@ -31,7 +31,7 @@ in
       time.zone = "Europe/Rome";
     };
 
-    # theme = "apocalypse";
+    theme = "apocalypse";
 
     home =
       { pkgs, ... }:
@@ -53,7 +53,7 @@ in
         nyra.desktops.hyprland = {
           enable = true;
           shader = {
-            enable = false;
+            # enable = true;
             name = "vibrant";
           };
           plugins = {
