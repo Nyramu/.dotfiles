@@ -1,3 +1,3 @@
-packages=${args[packages]}
+eval "packages=(${args[packages]:-})"
 
-nix shell nixpkgs#${packages// / nixpkgs#}
+nix shell "${packages[@]/#/nixpkgs#}"

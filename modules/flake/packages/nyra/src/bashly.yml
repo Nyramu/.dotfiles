@@ -1,6 +1,6 @@
 name: nyra
 help: Utility script for managing Nix
-version: 1.6.0
+version: 1.7.0
 
 commands:
 - name: sync
@@ -53,21 +53,15 @@ commands:
 
 
 - name: search
-  help: Search packages in nixpkgs only by the title and display them as you see them on <search.nixos.org>
+  help: Search packages from nixpkgs unstable (wrapper over nh search)
 
   args:
   - name: query
     help: Which package to search
     required: true
-
-  flags:
-  - long: --classic
-    short: -c
-    help: Search query exactly like nix search does (it just wraps it)
   
   examples:
   - nyra search [query]
-  - nyra search -c [query]
 
 
 - name: shell
@@ -75,8 +69,9 @@ commands:
 
   args:
   - name: packages
-    help: Which packages to use in the shell
+    help: Create a shell with the specified packages
     required: true
+    repeatable: true
 
   examples:
   - nyra shell "[package1] ..."
