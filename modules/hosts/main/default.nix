@@ -39,7 +39,7 @@ in
         imports = with homeManager; [
           browsers
           desktops
-          editors
+          productivity
           files
           gaming
           miscellaneous
@@ -82,12 +82,14 @@ in
         nyra.browsers.default = "zen-twilight";
         nyra.files.default = "yazi";
 
-        nyra.editors = {
+        nyra.productivity = {
           helix.enable = true;
+          blanket.enable = true;
           intellij.enable = false;
           zed.enable = false;
           gimp.enable = false;
           aseprite.enable = false;
+          packetTracer.enable = false;
         };
 
         nyra.music = {
@@ -115,7 +117,6 @@ in
             gpu-name = "Radeon 780M";
           };
           fastfetch.enable = true;
-          packetTracer.enable = false;
         };
 
         home.packages = with pkgs; [
@@ -125,7 +126,8 @@ in
           android-tools
           fontfor
           figlet
-          cmatrix
+          cbonsai
+          pipes-rs
           oxipng
           pngquant # pngquant is the best to drop below 1 MB
           wev
