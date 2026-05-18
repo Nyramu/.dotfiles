@@ -27,19 +27,18 @@
               col = {
                 border_active = general.col.active_border;
                 border_inactive = general.col.inactive_border;
-                # Picked from wallpaper
                 border_locked_active = "rgb(1a1210) rgb(c84018) rgb(e13820) 220deg";
                 border_locked_inactive = general.col.inactive_border;
               };
               groupbar = {
-                text_color = "rgb(ffc898)"; # palette.base07
-                text_color_inactive = "rgb(d88860)"; # palette.base04
-                text_color_locked_active = "rgb(ffc898)"; # Picked from wallpaper, lighter than locked active border
+                text_color = "rgb(ffc898)";
+                text_color_inactive = "rgb(d88860)";
+                text_color_locked_active = "rgb(ffc898)";
                 text_color_locked_inactive = group.groupbar.text_color_inactive;
                 col = {
-                  active = "rgb(e98c44)"; # Last color from active border
-                  inactive = "rgb(2a1c14)"; # Color from inactive border
-                  locked_active = "rgb(c84018)"; # Last color from locked active border
+                  active = "rgb(e98c44)";
+                  inactive = "rgb(2a1c14)";
+                  locked_active = "rgb(c84018)";
                   locked_inactive = group.groupbar.col.inactive;
                 };
               };
@@ -49,20 +48,16 @@
           programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia.enable) {
             settings = {
               ui = {
-                fontDefaultScale = 1.25;
-                fontFixedScale = 1.25;
+                fontDefaultScale = 1.1;
+                fontFixedScale = 1.1;
               };
               location = {
                 analogClockInCalendar = false;
               };
             };
             colors = {
-              mPrimary = lib.mkForce palette.base0A;
-              mSecondary = lib.mkForce palette.base07;
-              mTertiary = lib.mkForce palette.base03;
-              mOutline = lib.mkForce palette.base02;
-              mHover = lib.mkForce palette.base02;
-              mOnHover = lib.mkForce palette.base0A;
+              mPrimary = lib.mkForce palette.base0C;
+              mSecondary = lib.mkForce palette.base05;
             };
           };
 
@@ -77,6 +72,11 @@
                 opacity = lib.mkForce 0.83;
               };
             };
+          };
+
+          programs.kitty.settings = lib.mkIf (cfg.terminals.kitty.enable) {
+            scrollbar_handle_color = lib.mkForce palette.base0D;
+            cursor_trail_color = lib.mkForce palette.base09;
           };
         };
       };
