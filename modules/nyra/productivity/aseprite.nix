@@ -1,16 +1,16 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    editors.imports = [ self.modules.homeManager.aseprite ];
+    productivity.imports = [ self.modules.homeManager.aseprite ];
 
     aseprite =
       { config, pkgs, ... }:
 
       let
-        cfg = config.nyra.editors.aseprite;
+        cfg = config.nyra.productivity.aseprite;
       in
       {
-        options.nyra.editors.aseprite = {
+        options.nyra.productivity.aseprite = {
           enable = lib.mkEnableOption "aseprite";
         };
 

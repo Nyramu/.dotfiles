@@ -1,16 +1,16 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    editors.imports = [ self.modules.homeManager.helix ];
+    productivity.imports = [ self.modules.homeManager.helix ];
 
     helix =
       { config, ... }:
 
       let
-        cfg = config.nyra.editors.helix;
+        cfg = config.nyra.productivity.helix;
       in
       {
-        options.nyra.editors.helix = {
+        options.nyra.productivity.helix = {
           enable = lib.mkEnableOption "helix";
         };
 

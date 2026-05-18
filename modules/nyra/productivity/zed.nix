@@ -1,16 +1,16 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    editors.imports = [ self.modules.homeManager.zed-editor ];
+    productivity.imports = [ self.modules.homeManager.zed-editor ];
 
     zed-editor =
       { config, ... }:
 
       let
-        cfg = config.nyra.editors.zed;
+        cfg = config.nyra.productivity.zed;
       in
       {
-        options.nyra.editors.zed = {
+        options.nyra.productivity.zed = {
           enable = lib.mkEnableOption "zed";
         };
 

@@ -1,16 +1,16 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    editors.imports = [ self.modules.homeManager.intellij ];
+    productivity.imports = [ self.modules.homeManager.intellij ];
 
     intellij =
       { config, pkgs, ... }:
 
       let
-        cfg = config.nyra.editors.intellij;
+        cfg = config.nyra.productivity.intellij;
       in
       {
-        options.nyra.editors.intellij = {
+        options.nyra.productivity.intellij = {
           enable = lib.mkEnableOption "intellij";
         };
 

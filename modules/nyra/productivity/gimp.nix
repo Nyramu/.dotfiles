@@ -1,16 +1,16 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    editors.imports = [ self.modules.homeManager.gimp ];
+    productivity.imports = [ self.modules.homeManager.gimp ];
 
     gimp =
       { config, pkgs, ... }:
 
       let
-        cfg = config.nyra.editors.gimp;
+        cfg = config.nyra.productivity.gimp;
       in
       {
-        options.nyra.editors.gimp = {
+        options.nyra.productivity.gimp = {
           enable = lib.mkEnableOption "gimp";
         };
 
