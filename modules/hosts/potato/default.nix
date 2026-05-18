@@ -34,7 +34,7 @@ in
         imports = with homeManager; [
           browsers
           desktops
-          editors
+          productivity
           files
           miscellaneous
           services
@@ -66,8 +66,9 @@ in
         nyra.browsers.default = "zen-twilight";
         nyra.files.default = "yazi";
 
-        nyra.editors = {
+        nyra.productivity = {
           helix.enable = true;
+          packetTracer.enable = false;
         };
 
         nyra.miscellaneous = {
@@ -76,7 +77,6 @@ in
             gpu-name = "Radeon R8 M445DX";
           };
           fastfetch.enable = true;
-          packetTracer.enable = false;
         };
 
         home.packages = with pkgs; [
