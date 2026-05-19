@@ -37,29 +37,62 @@
             # };
           };
 
-          language = [
-            {
-              name = "nix";
-              file-types = [ "nix" ];
-              formatter.command = "${lib.getExe pkgs.nixfmt}";
-            }
-            {
-              name = "markdown";
-              file-types = [
-                "md"
-                "MD"
-              ];
-              formatter = {
-                command = "${lib.getExe pkgs.deno}";
+          language =
+            let
+              prettier = filename: {
+                command = "${lib.getExe pkgs.prettier}";
                 args = [
-                  "fmt"
-                  "-"
-                  "--ext"
-                  "md"
+                  "--stdin-filepath"
+                  filename
                 ];
               };
-            }
-          ];
+            in
+            [
+              {
+                name = "nix";
+                file-types = [ "nix" ];
+                formatter.command = "${lib.getExe pkgs.nixfmt}";
+              }
+              {
+                name = "css";
+                file-types = [ "css" ];
+                formatter = prettier "file.css";
+              }
+              {
+                name = "html";
+                file-types = [ "html" ];
+                formatter = prettier "file.html";
+              }
+              {
+                name = "json";
+                file-types = [ "json" ];
+                formatter = prettier "file.json";
+              }
+              {
+                name = "yaml";
+                file-types = [
+                  "yaml"
+                  "yml"
+                ];
+                formatter = prettier "file.yaml";
+              }
+              {
+                name = "markdown";
+                file-types = [
+                  "md"
+                  "MD"
+                ];
+                formatter = {
+                  command = "${lib.getExe pkgs.deno}";
+                  args = [
+                    "fmt"
+                    "-"
+                    "--ext"
+                    "md"
+                  ];
+                };
+              }
+            ];
         };
       };
     };
