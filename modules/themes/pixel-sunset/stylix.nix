@@ -5,7 +5,7 @@ let
     base16Scheme = {
       base00 = "#1a1214"; # Default Background - deep wine black
       base01 = "#24181b"; # Lighter Background
-      base02 = "#4a3438"; # Selection Background - elevated wine rose
+      base02 = "#6a5458"; # Selection Background - elevated wine rose
       base03 = "#8a666b"; # Comments, Invisibles - lifted dusty rose
       base04 = "#b0898d"; # Dark Foreground - muted pink beige
       base05 = "#e6b8bc"; # Default Foreground - soft rose
