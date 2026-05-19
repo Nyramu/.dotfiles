@@ -19,23 +19,28 @@
           services.httpd = {
             enable = true;
             enablePHP = true;
+
             adminAddr = "admin@localhost";
-            user = "${user.name}";
-            group = "users";
             extraModules = [ "rewrite" ];
 
             virtualHosts."localhost" = {
-              documentRoot = "${dir}";
+              documentRoot = dir;
+
               extraConfig = ''
                 <Directory "${dir}">
-                  Options Indexes FollowSymLinks
                   AllowOverride All
                   Require all granted
                 </Directory>
+
                 DirectoryIndex index.php index.html
               '';
             };
           };
+
+          systemd.tmpfiles.rules = [
+            "z /home/${user.name} 0711 ${user.name} users -"
+            "d ${dir} 0755 ${user.name} users -"
+          ];
 
           networking.firewall.allowedTCPPorts = [ 80 ];
         };
