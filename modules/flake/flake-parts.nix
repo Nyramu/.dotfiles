@@ -18,7 +18,6 @@ let
   };
 in
 {
-  # imports = [ inputs.flake-parts.flakeModules.modules ];
   options.flake.modules = mkOption {
     type = types.lazyAttrsOf (types.lazyAttrsOf types.deferredModule);
     default = { };
