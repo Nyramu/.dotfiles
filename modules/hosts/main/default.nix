@@ -96,7 +96,6 @@ in
           spicetify.enable = true;
           rmpc.enable = true;
           spotiflac.enable = true;
-          mpd.enable = true;
         };
 
         nyra.gaming = {
@@ -120,6 +119,7 @@ in
         };
 
         home.packages = with pkgs; [
+          lmstudio
           qbittorrent
           hyprpicker
           croc
@@ -166,6 +166,8 @@ in
           # Enable fingerprints support, register one running
           # fprintd-enroll <user>
           fingerprint.enable = true;
+          httpd.enable = false;
+          mysql.enable = false;
         };
 
         # Use CachyOS latest Zen4 LTO kernel.
