@@ -15,7 +15,10 @@
         cfg = config.nyra.desktops.layers.vicinae;
       in
       {
-        imports = [ inputs.vicinae.homeManagerModules.default ];
+        imports = [
+          inputs.vicinae.homeManagerModules.default
+          self.modules.homeManager.hyprland
+        ];
 
         options.nyra.desktops.layers.vicinae = {
           enable = lib.mkOption {
@@ -70,6 +73,15 @@
               fallbacks = [ ];
             };
           };
+
+          hyprnix.extraConfig = lib.mkIf (config.nyra.desktops.hyprland.enable) ''
+            layerrule {
+              name = vicinae-blur
+              blur = on
+              ignore_alpha = 0
+              match:namespace = vicinae
+            }
+          '';
         };
       };
   };
