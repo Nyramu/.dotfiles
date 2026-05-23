@@ -85,8 +85,11 @@
 
           userDirs = {
             enable = true;
+            createDirectories = true;
+
             music = lib.mkDefault null;
 
+            projects = null;
             templates = null;
             publicShare = null;
 
