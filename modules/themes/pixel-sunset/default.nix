@@ -57,14 +57,6 @@
             };
           };
 
-          services.vicinae = lib.mkIf (cfg.desktops.layers.vicinae.enable) {
-            settings = {
-              launcher_window = {
-                opacity = lib.mkForce 0.9;
-              };
-            };
-          };
-
           programs.kitty.settings = lib.mkIf (cfg.terminals.kitty.enable) {
             scrollbar_handle_color = lib.mkForce palette.base0D;
             cursor_trail_color = lib.mkForce palette.base0D;
