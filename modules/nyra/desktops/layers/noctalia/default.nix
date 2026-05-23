@@ -21,7 +21,10 @@
         cfg = config.nyra.desktops.layers.noctalia;
       in
       {
-        imports = [ inputs.noctalia.homeModules.default ];
+        imports = [
+          inputs.noctalia.homeModules.default
+          self.modules.homeManager.hyprland
+        ];
 
         options.nyra.desktops.layers.noctalia = {
           enable = lib.mkOption {
@@ -123,6 +126,16 @@
               };
             };
           };
+
+          hyprnix.extraConfig = lib.mkIf (config.nyra.desktops.hyprland.enable) ''
+            layerrule {
+              name = noctalia-blur
+              match:namespace = noctalia-background-.*$
+              ignore_alpha = 0.5
+              blur = true
+              blur_popups = true
+            }
+          '';
         };
       };
   };
