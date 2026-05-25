@@ -75,8 +75,7 @@ in
         };
 
         nyra.terminals = {
-          default = "kitty";
-          ghostty.enable = true;
+          default = "ghostty";
         };
 
         nyra.browsers.default = "zen-twilight";
