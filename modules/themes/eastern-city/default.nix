@@ -1,7 +1,7 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    theme-pixel-sunset =
+    theme-eastern-city =
       { config, ... }:
 
       let
@@ -66,7 +66,7 @@
   };
 
   flake.modules.nixos = {
-    theme-pixel-sunset =
+    theme-eastern-city =
       { config, ... }:
 
       let

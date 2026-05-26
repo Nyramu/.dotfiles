@@ -48,7 +48,7 @@ let
 in
 {
   flake.modules.homeManager = {
-    theme-pixel-sunset =
+    theme-eastern-city =
       { pkgs, ... }:
       {
         stylix = (stylixCfg pkgs);
@@ -56,7 +56,7 @@ in
   };
 
   flake.modules.nixos = {
-    theme-pixel-sunset =
+    theme-eastern-city =
       { pkgs, ... }:
       {
         stylix = (stylixCfg pkgs);
