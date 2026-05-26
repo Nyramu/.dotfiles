@@ -26,7 +26,7 @@
               #![enable(unwrap_variant_newtypes)]
               (
                 lyrics_dir: Some("${dirs.extraConfig.LYRICS}"),
-                rewind_to_start_sec: Some(90),
+                rewind_to_start_sec: Some(10),
                 password: None,
                 theme: Some("theme.ron"),
                 cache_dir: None,
