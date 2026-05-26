@@ -36,7 +36,7 @@
               ];
             }
             {
-              name = "GitHub";
+              name = "Git";
               toolbar = true;
               bookmarks = [
                 {
@@ -45,11 +45,11 @@
                 }
                 {
                   name = "My dotfiles";
-                  url = "https://github.com/Nyramu/.dotfiles";
+                  url = "https://codeberg.org/Nyramu/.dotfiles";
                 }
                 {
                   name = "Hyprnix";
-                  url = "https://github.com/Nyramu/hyprnix";
+                  url = "https://codeberg.org/Nyramu/hyprnix";
                 }
               ];
             }
