@@ -27,6 +27,7 @@
                 "SUPER, B" = "exec, ${browsers.default}";
                 "SUPER, S" = "exec, steam %U";
                 "SUPER, T" = "exec, Telegram";
+                "SUPER, I" = "exec, idea"; # Intellij
               };
             };
 
