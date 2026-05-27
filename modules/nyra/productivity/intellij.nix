@@ -10,6 +10,8 @@
         cfg = config.nyra.productivity.intellij;
       in
       {
+        imports = [ self.modules.homeManager.java ];
+
         options.nyra.productivity.intellij = {
           enable = lib.mkEnableOption "intellij";
         };
@@ -17,8 +19,9 @@
         config = lib.mkIf (cfg.enable) {
           home.packages = [
             pkgs.jetbrains.idea
-            pkgs.openjdk25
           ];
+
+          nyra.miscellaneous.java.enable = lib.mkDefault true;
         };
       };
   };

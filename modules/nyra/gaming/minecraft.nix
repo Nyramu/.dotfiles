@@ -10,16 +10,20 @@
         cfg = config.nyra.gaming.minecraft;
       in
       {
+        imports = [ self.modules.homeManager.java ];
+
         options.nyra.gaming.minecraft = {
           enable = lib.mkEnableOption "minecraft";
         };
 
-        config = {
-          home.packages = lib.optionals cfg.enable [
-            (pkgs.prismlauncher.override {
-              jdks = [ pkgs.jdk25 ];
+        config = lib.mkIf (cfg.enable) {
+          home.packages = with pkgs; [
+            (prismlauncher.override {
+              jdks = [ config.nyra.miscellaneous.java.package ];
             })
           ];
+
+          nyra.miscellaneous.java.enable = lib.mkDefault true;
         };
       };
   };
