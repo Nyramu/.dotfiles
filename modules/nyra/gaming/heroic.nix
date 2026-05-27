@@ -14,8 +14,8 @@
           enable = lib.mkEnableOption "heroic";
         };
 
-        config = {
-          home.packages = lib.optionals cfg.enable [ pkgs.heroic ];
+        config = lib.mkIf (cfg.enable) {
+          home.packages = [ pkgs.heroic ];
         };
       };
   };

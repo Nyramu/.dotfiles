@@ -14,10 +14,8 @@
           enable = lib.mkEnableOption "azahar";
         };
 
-        config = {
-          home.packages = lib.optionals (cfg.enable) [
-            pkgs.azahar
-          ];
+        config = lib.mkIf (cfg.enable) {
+          home.packages = [ pkgs.azahar ];
         };
       };
   };

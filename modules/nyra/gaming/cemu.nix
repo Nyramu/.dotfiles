@@ -15,10 +15,8 @@
           ukmm.enable = lib.mkEnableOption "ukmm";
         };
 
-        config = {
-          home.packages =
-            lib.optionals cfg.enable [ pkgs.cemu ]
-            ++ lib.optionals (cfg.enable && cfg.ukmm.enable) [ pkgs.ukmm ];
+        config = (cfg.enable) {
+          home.packages = with pkgs; [ cemu ] ++ lib.optionals (cfg.ukmm.enable) [ ukmm ];
         };
       };
   };
