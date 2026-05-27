@@ -31,7 +31,7 @@ in
       time.zone = "Europe/Rome";
     };
 
-    theme = "pixel-sunset";
+    theme = "lanterns";
 
     home =
       { pkgs, ... }:
@@ -75,7 +75,7 @@ in
         };
 
         nyra.terminals = {
-          default = "ghostty";
+          default = "kitty";
         };
 
         nyra.browsers.default = "zen-twilight";
@@ -84,7 +84,7 @@ in
         nyra.productivity = {
           helix.enable = true;
           blanket.enable = true;
-          intellij.enable = false;
+          intellij.enable = true;
           zed.enable = false;
           gimp.enable = false;
           aseprite.enable = false;
@@ -118,7 +118,7 @@ in
         };
 
         home.packages = with pkgs; [
-          lmstudio
+          opencode-desktop
           qbittorrent
           hyprpicker
           croc
