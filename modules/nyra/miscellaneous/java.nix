@@ -28,6 +28,8 @@
             enable = true;
             package = cfg.package;
           };
+
+          home.file.".jdks/java-${cfg.package.version}".source = "${cfg.package}/lib/openjdk";
         };
       };
   };
