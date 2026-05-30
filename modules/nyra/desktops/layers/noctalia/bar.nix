@@ -146,7 +146,7 @@
                 id = "Clock";
                 tooltipFormat = "dddd, dd/MM/yyyy";
                 useCustomFont = false;
-                clockColor = "primary";
+                clockColor = "error";
               }
             ];
           };
