@@ -185,7 +185,7 @@ in
       inherit (config.flake) modules;
 
       baseHost = rec {
-        stateVersion = "26.05";
+        stateVersion = "26.11";
 
         nixos = {
           imports = with modules.nixos; [
