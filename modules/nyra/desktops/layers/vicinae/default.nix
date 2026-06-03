@@ -74,14 +74,13 @@
             };
           };
 
-          hyprnix.extraConfig = lib.mkIf (config.nyra.desktops.hyprland.enable) ''
-            layerrule {
-              name = vicinae-blur
-              blur = on
-              ignore_alpha = 0
-              match:namespace = vicinae
-            }
-          '';
+          hyprnix.settings.layer_rule = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            "vicinae-blur" = {
+              blur = true;
+              ignore_alpha = 0;
+              match.namespace = "vicinae";
+            };
+          };
         };
       };
   };
