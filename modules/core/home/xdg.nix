@@ -49,12 +49,12 @@
             "application/xhtml+xml"
             "application/pdf"
             "application/xml"
-
           ];
 
           textEditor = [
             "application/json"
             "application/yaml"
+            "application/toml"
           ]
           ++ text;
 
