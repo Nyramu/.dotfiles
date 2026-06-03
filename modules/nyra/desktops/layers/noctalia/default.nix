@@ -127,15 +127,14 @@
             };
           };
 
-          hyprnix.extraConfig = lib.mkIf (config.nyra.desktops.hyprland.enable) ''
-            layerrule {
-              name = noctalia-blur
-              match:namespace = noctalia-background-.*$
-              ignore_alpha = 0.5
-              blur = true
-              blur_popups = true
-            }
-          '';
+          hyprnix.settings.layer_rule = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            "noctalia-blur" = {
+              blur = true;
+              blur_popups = true;
+              ignore_alpha = 0.5;
+              match.namespace = "noctalia-background-.*$";
+            };
+          };
         };
       };
   };
