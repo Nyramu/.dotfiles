@@ -8,9 +8,8 @@
           {
             fingers = 3;
             direction = "pinch";
-            action = {
-              dispatcher = "fullscreen, maximize";
-            };
+            action = "fullscreen";
+            mode = "maximize";
           }
           {
             fingers = 3;

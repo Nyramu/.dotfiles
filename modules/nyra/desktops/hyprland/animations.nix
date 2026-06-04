@@ -1,83 +1,78 @@
-{ ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager.hyprland =
     { performance, ... }:
+
+    let
+      enableAnimation = performance != "potato";
+    in
     {
-      hyprnix.settings.animations = {
-        enabled = if (performance != "potato") then true else false;
-        workspace_wraparound = true;
-        bezier = {
-          holo = [
-            0.23
-            1
-            0.32
-            1
-          ];
-
-          data = [
-            0.16
-            1
-            0.3
-            1
-          ];
-
-          linear = [
-            0
-            0
-            1
-            1
-          ];
-        };
-
-        animations = [
-          {
-            name = "borderangle";
+      hyprnix.settings = {
+        animation = lib.mapAttrs (_: v: v // { enabled = enableAnimation; }) {
+          borderangle = {
             speed = 20;
-            curve = "linear";
+            bezier = "linear";
             style = "loop";
-          }
-          {
-            name = "windowsIn";
+          };
+          windowsIn = {
             speed = 5;
-            curve = "holo";
+            bezier = "holo";
             style = "slide";
-          }
-          {
-            name = "windowsOut";
+          };
+          windowsOut = {
             speed = 4;
-            curve = "holo";
+            bezier = "holo";
             style = "popin 100%";
-          }
-          {
-            name = "windowsMove";
+          };
+          windowsMove = {
             speed = 5;
-            curve = "holo";
+            bezier = "holo";
             style = "slide";
-          }
-          {
-            name = "fade";
+          };
+          fade = {
             speed = 5;
-            curve = "data";
-          }
-          {
-            name = "layers";
+            bezier = "data";
+          };
+          layers = {
             speed = 5;
-            curve = "holo";
+            bezier = "holo";
             style = "fade";
-          }
-          {
-            name = "workspaces";
+          };
+          workspaces = {
             speed = 6;
-            curve = "holo";
+            bezier = "holo";
             style = "slidevert";
-          }
-          {
-            name = "specialWorkspace";
+          };
+          specialWorkspace = {
             speed = 6;
-            curve = "holo";
+            bezier = "holo";
             style = "slidevert";
-          }
-        ];
+          };
+        };
+        curve = {
+          bezier = {
+            holo = [
+              0.23
+              1
+              0.32
+              1
+            ];
+
+            data = [
+              0.16
+              1
+              0.3
+              1
+            ];
+
+            linear = [
+              0
+              0
+              1
+              1
+            ];
+          };
+        };
       };
     };
 }

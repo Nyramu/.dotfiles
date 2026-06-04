@@ -2,28 +2,24 @@
 {
   flake.modules.homeManager.hyprland = {
     hyprnix.settings = {
-      workspaces = [
-        {
-          id = 1;
-          rules.persistent = true;
-        }
-        {
-          id = 2;
-          rules.persistent = false;
-        }
-        {
-          id = 3;
-          rules.persistent = false;
-        }
-        {
-          id = 4;
-          rules.persistent = false;
-        }
-        {
-          id = 5;
-          rules.persistent = false;
-        }
-      ];
+      workspace_rule = {
+        "1" = {
+          default = true;
+          persistent = true;
+        };
+        "2" = {
+          persistent = false;
+        };
+        "3" = {
+          persistent = false;
+        };
+        "4" = {
+          persistent = false;
+        };
+        "5" = {
+          persistent = false;
+        };
+      };
     };
   };
 }

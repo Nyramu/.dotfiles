@@ -16,6 +16,7 @@
         rounding = 8;
         rounding_power = 4.0; # Default: 2.0
         blur = true;
+        middle_click_close = true;
       };
     };
   };

@@ -32,8 +32,8 @@
         config.hyprnix = {
           enable = cfg.enable;
           systemd.enable = true;
-          xwayland.enable = wayland.xwayland.enable;
           settings = {
+            xwayland.enabled = wayland.xwayland.enable;
             monitors = cfg.monitors;
             render = {
               direct_scanout = 1;
@@ -61,10 +61,6 @@
               warp_on_change_workspace = 0;
               hide_on_touch = true;
               hide_on_key_press = true;
-            };
-
-            binds = {
-              workspace_center_on = 1;
             };
 
             ecosystem = {
@@ -104,19 +100,11 @@
                 passes = 2;
               };
               glow = {
-                # enabled = true; # Somehow the option is broken on Hyprland
+                # enabled = true;
               };
             };
 
             dwindle.preserve_split = true;
-
-            exec-once = [
-              "noctalia-shell"
-            ];
-
-            exec = [
-              "pkill .quickshell-wra ; noctalia-shell"
-            ];
 
             misc = {
               disable_hyprland_logo = true;
@@ -129,6 +117,16 @@
               vrr = 0;
             };
           };
+
+          extraConfig = # lua
+            ''
+              hl.on("hyprland.start", function()
+                hl.exec_cmd("noctalia-shell")
+              end)
+              hl.on("config.reloaded", function()
+                hl.exec_cmd("pkill .quickshell-wra ; noctalia-shell")
+              end)
+            '';
         };
 
         options.nyra.desktops.hyprland = with lib; {
