@@ -402,7 +402,7 @@
                 ),
               )
             '';
-          nyra.music.mpd.enable = lib.mkDefault cfg.enable;
+          nyra.music.mpd.enable = lib.mkDefault true;
         };
       };
   };
