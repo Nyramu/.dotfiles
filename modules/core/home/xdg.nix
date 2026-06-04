@@ -74,6 +74,7 @@
           XDG_DOWNLOAD_DIR = dirs.download;
           XDG_PICTURES_DIR = dirs.pictures;
           XDG_VIDEOS_DIR = dirs.videos;
+          XDG_PROJECTS_DIR = dirs.projects;
           XDG_DOCUMENTS_DIR = dirs.documents;
 
           XDG_SCREENSHOTS_DIR = dirs.extraConfig.SCREENSHOTS;
@@ -89,7 +90,6 @@
 
             music = lib.mkDefault null;
 
-            projects = null;
             templates = null;
             publicShare = null;
 
