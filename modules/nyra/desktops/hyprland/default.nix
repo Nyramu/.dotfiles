@@ -50,12 +50,6 @@
             };
 
             cursor = {
-              hyprcursor = {
-                enable = true;
-                package = pkgs.rose-pine-hyprcursor;
-                name = "rose-pine-hyprcursor";
-                size = 36;
-              };
               inactive_timeout = 12;
               persistent_warps = true;
               warp_on_change_workspace = 0;
