@@ -2,7 +2,7 @@
   description = "Nyramu's Personal Flake";
 
   inputs = {
-    eden.url = "github:Nyramu/eden-emu-flake";
+    eden.url = "github:Nyramu/eden-nix";
 
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
@@ -36,7 +36,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
@@ -80,7 +80,7 @@
       # Noctalia Shell
       "https://noctalia.cachix.org"
       # Eden Emulator
-      "https://eden-emu-flake.cachix.org"
+      "https://eden-nix.cachix.org"
       # CachyOS Kernels
       "https://attic.xuyh0120.win/lantian"
     ];
@@ -92,7 +92,7 @@
       # Noctalia Shell
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       # Eden Emulator
-      "eden-emu-flake.cachix.org-1:qMKfHpBsRhMpxrc4FawVy+IeYAvFhhv94qiB69Bl0RU="
+      "eden-nix.cachix.org-1:BrC9tVNflA7yeLft5i2SjZTlGs46cBpUgULgHbMj8/E="
       # CachyOS Kernels
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
