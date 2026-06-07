@@ -9,7 +9,7 @@
     desktops.imports = [ self.modules.homeManager.vicinae ];
 
     vicinae =
-      { config, ... }:
+      { config, pkgs, ... }:
 
       let
         cfg = config.nyra.desktops.layers.vicinae;
@@ -80,6 +80,39 @@
               ignore_alpha = 0;
               match.namespace = "vicinae";
             };
+          };
+        };
+      };
+  };
+
+  flake.modules.nixos = {
+    desktops.imports = [ self.modules.nixos.vicinae ];
+
+    vicinae =
+      { config, pkgs, ... }:
+
+      let
+        cfg = config.nyra.desktops.layers.vicinae;
+      in
+      {
+        options.nyra.desktops.layers.vicinae = {
+          enable = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Enable vicinae";
+          };
+        };
+
+        config = lib.mkIf (cfg.enable) {
+          # Implement Vicinae nixosModule directly to permit management
+          # via nyra options
+          security.wrappers.vicinae-input-server = {
+            source = "${
+              inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default
+            }/libexec/vicinae/vicinae-input-server";
+            capabilities = "cap_dac_override+ep";
+            owner = "root";
+            group = "root";
           };
         };
       };
