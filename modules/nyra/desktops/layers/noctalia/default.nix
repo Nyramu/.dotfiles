@@ -70,9 +70,9 @@
                 panelsAttachedToBar = true;
                 scrollbarAlwaysVisible = true;
                 settingsPanelMode = "attached";
-                settingsPanelSideBarCardStyle = false;
+                settingsPanelSideBarCardStyle = true;
                 boxBorderEnabled = true;
-                tooltipsEnabled = false;
+                tooltipsEnabled = true;
                 translucentWidgets = if (performance != "potato") then true else false;
               };
 
