@@ -19,8 +19,16 @@
           hyprnix.settings = lib.mkIf (cfg.desktops.hyprland.enable) rec {
             general = {
               col = {
-                active_border = "rgb(${rawHex palette.base02}) rgb(${rawHex palette.base03}) rgb(${rawHex palette.base0A}) rgb(${rawHex palette.base08}) 270deg";
-                inactive_border = "rgb(152927)";
+                active_border = {
+                  colors = [
+                    "rgb(${rawHex palette.base02})"
+                    "rgb(${rawHex palette.base0E})"
+                    "rgb(${rawHex palette.base0B})"
+                    "rgb(e8708a)"
+                  ];
+                  angle = 270;
+                };
+                inactive_border = "rgb(${rawHex palette.base02})";
               };
             };
 
@@ -28,20 +36,29 @@
               col = {
                 border_active = general.col.active_border;
                 border_inactive = general.col.inactive_border;
-                border_locked_active = "rgb(13160d) rgb(274044) rgb(${rawHex palette.base0D}) 270deg";
+                border_locked_active = {
+                  colors = [
+                    "rgb(${rawHex palette.base02})"
+                    "rgb(${rawHex palette.base0F})"
+                    "rgb(${rawHex palette.base08})"
+                    "rgb(${rawHex palette.base08})"
+                    "rgb(${rawHex palette.base09})"
+                  ];
+                  angle = 270;
+                };
                 border_locked_inactive = general.col.inactive_border;
               };
 
               groupbar = {
-                text_color = "rgb(${rawHex palette.base0C})";
+                text_color = "rgb(e8708a)";
                 text_color_inactive = "rgb(909090)";
-                text_color_locked_active = "rgb(b9f9e1)";
+                text_color_locked_active = "rgb(${rawHex palette.base09})";
                 text_color_locked_inactive = group.groupbar.text_color_inactive;
 
                 col = {
-                  active = "rgb(${rawHex palette.base08})";
+                  active = "rgb(e8708a)";
                   inactive = general.col.inactive_border;
-                  locked_active = "rgb(90b7b2)";
+                  locked_active = "rgb(${rawHex palette.base09})";
                   locked_inactive = group.groupbar.col.inactive;
                 };
               };
