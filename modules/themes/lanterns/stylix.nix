@@ -3,9 +3,9 @@
 let
   stylixCfg = pkgs: {
     base16Scheme = {
-      base00 = "#121e24"; # Default Background - deep teal black
-      base01 = "#182430"; # Lighter Background - dark teal shadow
-      base02 = "#2e4252"; # Selection Background - night teal blue
+      base00 = "#1a2a32"; # Default Background - deep teal black
+      base01 = "#243038"; # Lighter Background - dark teal shadow
+      base02 = "#3a5263"; # Selection Background - night teal blue
       base03 = "#4a6272"; # Comments, Invisibles - muted blue slate
       base04 = "#587480"; # Dark Foreground - weathered teal stone
       base05 = "#98bcc4"; # Default Foreground - pale water mist
@@ -27,6 +27,10 @@ let
       hash = "sha256-QmrJseARV+VWQUUy+6kC1HClK89ze9pS7N05rjpXpSk=";
     };
 
+    opacity = {
+      terminal = 0.66;  
+    };
+    
     fonts = {
       serif = {
         package = pkgs.nerd-fonts.code-new-roman;
