@@ -68,6 +68,7 @@
           programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia.enable) {
             settings = {
               ui = {
+                panelBackgroundOpacity = lib.mkForce 0.6;
                 fontDefaultScale = 1.15;
                 fontFixedScale = 1.15;
               };
