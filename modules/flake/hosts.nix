@@ -112,12 +112,12 @@ let
 
         dotfiles = mkOption {
           type = types.str;
-          default = "~/.dotfiles";
+          default = toString self.outPath;
         };
 
         pfp = mkOption {
           type = types.path;
-          default = ../../resources/pics/nyramu.png;
+          default = self.outPath + "/resources/pics/nyramu.png";
         };
       };
 
