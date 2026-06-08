@@ -14,11 +14,10 @@ in
     };
     audio = "pipewire";
 
-    user = rec {
+    user = {
       name = "nyramu";
       description = "Nyramu";
       email = "nyramu@noreply.codeberg.org";
-      dotfiles = "/home/${name}/.dotfiles";
     };
     shell = "zsh";
 
