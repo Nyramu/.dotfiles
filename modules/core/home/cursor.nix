@@ -12,6 +12,7 @@
           name = lib.mkDefault "rose-pine-hyprcursor";
           size = lib.mkDefault 36;
           hyprcursor.enable = lib.mkDefault true;
+          x11.enable = lib.mkDefault true;
         };
       };
   };
