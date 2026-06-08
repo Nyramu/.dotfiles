@@ -65,7 +65,7 @@
             };
           };
 
-          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia.enable) {
+          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia-shell.enable) {
             settings = {
               ui = {
                 panelBackgroundOpacity = lib.mkForce 0.6;
