@@ -18,7 +18,7 @@
           services.wayle = {
             enable = true;
 
-            # nix-instantiate --eval --expr 'builtins.fromTOML (builtins.readFile ./runtime.toml)' | nixfmt
+            # nix-instantiate --eval --expr 'builtins.fromTOML (builtins.readFile ~/.config/wayle/runtime.toml)' | nixfmt | wl-copy
             settings = {
               bar = {
                 scale = 0.85;
