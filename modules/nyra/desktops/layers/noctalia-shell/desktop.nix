@@ -7,7 +7,7 @@
       programs.noctalia-shell = {
         settings = {
           wallpaper = {
-            enabled = true;
+            enabled = false;
             overviewEnabled = false;
             directory = "${user.dotfiles}/resources/wallpapers";
             monitorDirectories = [ ];
