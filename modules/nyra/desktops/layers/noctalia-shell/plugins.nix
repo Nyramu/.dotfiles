@@ -1,6 +1,6 @@
 { self, ... }:
 {
-  flake.modules.homeManager.noctalia =
+  flake.modules.homeManager.noctalia-shell =
     { config, ... }:
 
     {

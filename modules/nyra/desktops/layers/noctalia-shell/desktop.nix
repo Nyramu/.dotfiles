@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.homeManager.noctalia =
+  flake.modules.homeManager.noctalia-shell =
     { user, ... }:
 
     {
