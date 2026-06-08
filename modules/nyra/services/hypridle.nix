@@ -31,13 +31,13 @@
               };
               listener = [
                 {
-                  timeout = 300;
-                  on-timeout = "hyprctl dispatch dpms off";
-                  on-resume = "hyprctl dispatch dpms on";
+                  timeout = 60 * 5;
+                  on-timeout = ''hyprctl dispatch 'hl.dsp.dpms({ action = "disable" })' '';
+                  on-resume = ''hyprctl dispatch 'hl.dsp.dpms({ action = "enable" })' '';
                   ignore_inhibit = false;
                 }
                 {
-                  timeout = 600;
+                  timeout = 60 * 10;
                   on-timeout = lockCmd;
                   ignore_inhibit = false;
                 }
