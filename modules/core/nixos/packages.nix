@@ -10,6 +10,7 @@
           git
           zip
           unzip
+          nixfmt
           curl
           util-linux
           zoxide
