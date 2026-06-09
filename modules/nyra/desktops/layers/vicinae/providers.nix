@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.modules.homeManager.vicinae =
-    { user, ... }:
+    { ... }:
     {
       services.vicinae = {
         settings = {
@@ -57,26 +57,6 @@
                 search-emojis.enabled = false;
                 settings.enabled = false;
                 sponsor.enabled = false;
-              };
-            };
-            "@Gimblet/vicinae-extension-noctalia-shell-wallpaper-selector-0" = {
-              preferences = {
-                # Currently supports only one monitor, making an abstraction for this is not worth it
-                display_name = "eDP-1";
-                wallpaper_directory = "${user.dotfiles}/resources/wallpapers";
-              };
-            };
-            "@leonkohli/vicinae-extension-process-manager-0" = {
-              preferences = {
-                clear-search-after-kill = true;
-                process-limit = 100;
-                refresh-interval = 1000;
-                show-path = true;
-                show-system-processes = false;
-                sort-by-memory = true;
-              };
-              entrypoints = {
-                kill.enabled = false;
               };
             };
 

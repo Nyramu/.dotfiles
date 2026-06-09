@@ -9,7 +9,7 @@
     desktops.imports = [ self.modules.homeManager.vicinae ];
 
     vicinae =
-      { config, pkgs, ... }:
+      { config, ... }:
 
       let
         cfg = config.nyra.desktops.layers.vicinae;
@@ -58,11 +58,8 @@
                 };
               };
               favorites = [
-                "@Gimblet/vicinae-extension-noctalia-shell-wallpaper-selector-0:change-your-wallpaper"
                 "@fbosch/vicinae-extension-protondb-search-0:protondb-search"
-                "@sovereign/vicinae-extension-hypr-keybinds-0:hyprland-keybinds"
-                "@leonkohli/vicinae-extension-process-manager-0:processes"
-                # "@Costeer/vicinae-extension-color-converter-0:convert-color"
+                "@Costeer/vicinae-extension-color-converter-0:convert-color"
               ];
               keybinds = {
                 "toggle-action-panel" = "control+return";
