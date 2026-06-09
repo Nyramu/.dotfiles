@@ -11,7 +11,7 @@
           "253a3a74-0cc4-47b7-8b82-996a64f030d5" # Floating History
           # "a6335949-4465-4b71-926c-4a52d34bc9c0" # Better Find Bar
           # "c8d9e6e6-e702-4e15-8972-3596e57cf398" # Zen Back Forward
-          # "642854b5-88b4-4c40-b256-e035532109df" # Transparent Zen
+          "642854b5-88b4-4c40-b256-e035532109df" # Transparent Zen
         ];
       };
     };
