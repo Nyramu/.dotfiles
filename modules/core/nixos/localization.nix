@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos = {
     core.imports = [ self.modules.nixos.localization ];
@@ -18,14 +18,14 @@
         };
 
         i18n = {
-          defaultLocale = "en_US.UTF-8";
+          defaultLocale = lib.mkDefault "en_US.UTF-8";
 
           supportedLocales = [
             "it_IT.UTF-8/UTF-8"
             "en_US.UTF-8/UTF-8"
           ];
 
-          extraLocaleSettings = {
+          extraLocaleSettings = lib.mkDefault {
             LC_TIME = "it_IT.UTF-8";
             LC_NUMERIC = "en_US.UTF-8";
             LC_MONETARY = "it_IT.UTF-8";
