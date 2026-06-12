@@ -11,11 +11,9 @@ in
     bluetooth.enable = true;
     audio = "pipewire";
 
-    user = rec {
-      name = "nyramu";
-      description = "Nyramu";
-      email = "nyramu@noreply.codeberg.org";
-      dotfiles = "/home/${name}/.dotfiles";
+    user = {
+      name = "arami";
+      description = "Arami";
     };
     shell = "zsh";
 
@@ -60,17 +58,12 @@ in
           ];
         };
 
-        nyra.terminals = {
-          default = "kitty";
-          ghostty.enable = true;
-        };
-
+        nyra.terminals.default = "kitty";
         nyra.browsers.default = "zen-twilight";
         nyra.files.default = "yazi";
 
         nyra.productivity = {
           helix.enable = true;
-          packetTracer.enable = false;
         };
 
         nyra.miscellaneous = {
@@ -106,13 +99,13 @@ in
           hyprland.enable = true;
         };
 
-        nyra.services = {
-          mysql.enable = true;
-          httpd.enable = true;
-        };
-
         nyra.miscellaneous = {
           bashmount.enable = true;
+        };
+
+        i18n = {
+          defaultLocale = "it_IT.UTF-8";
+          extraLocaleSettings = { };
         };
 
         # Use CachyOS Latest v3 LTO kernel.
