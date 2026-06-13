@@ -1,4 +1,9 @@
-{ self, lib, ... }:
+{
+  self,
+  user,
+  lib,
+  ...
+}:
 {
   flake.modules.homeManager = {
     terminals.imports = [ self.modules.homeManager.alacritty ];
@@ -21,7 +26,7 @@
             package = pkgs.alacritty-graphics;
             settings = {
               general = {
-                working_directory = "~/.dotfiles";
+                working_directory = user.dotfiles;
                 live_config_reload = true;
               };
               window = {
