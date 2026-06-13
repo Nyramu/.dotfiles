@@ -5,7 +5,6 @@
 
     let
       inherit (config.nyra) terminals files browsers;
-      # plugins = config.nyra.desktops.hyprland.plugins;
       noctalia = "noctalia-shell ipc call";
       terminal = "${lib.getExe pkgs.${terminals.default}}";
     in
@@ -25,9 +24,15 @@
 
         # Launch Terminal Apps
         "SUPER + RETURN".dispatcher.exec_cmd = terminal;
-        "SUPER + BACKSPACE".dispatcher.exec_cmd = "${terminal} -e hx"; # Helix
-        "SUPER + ALT + RETURN".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default}";
+        "SUPER + SHIFT + RETURN".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default}";
+        ## Helix
+        "SUPER + BACKSPACE".dispatcher.exec_cmd = "${terminal} -e hx";
+        "SUPER + SHIFT + BACKSPACE".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default} -e hx";
+        ## Yazi
         "SUPER + E".dispatcher.exec_cmd = "${terminal} -e ${files.default}";
+        "SUPER + SHIFT + E".dispatcher.exec_cmd =
+          "${terminal} --class floating-${terminals.default} -e ${files.default}";
+        ## Btop
         "SUPER + H".dispatcher.exec_cmd = "${terminal} -e btop";
         ## RMPC but in a cool window
         "SUPER + M".dispatcher.exec_cmd = "${terminal} --title rmpc -e -o background_opacity=0.75 rmpc";
