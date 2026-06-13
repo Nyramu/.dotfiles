@@ -6,6 +6,7 @@
     hw-optimization =
       {
         pkgs,
+        performance,
         gpu,
         ...
       }:
@@ -32,7 +33,7 @@
 
         hardware = {
           amdgpu.initrd.enable = isAmdGpu;
-          amdgpu.overdrive.enable = isAmdGpu;
+          amdgpu.overdrive.enable = isAmdGpu && performance != "potato";
           amdgpu.opencl.enable = isAmdGpu;
           graphics.extraPackages = with pkgs; [
             libva
