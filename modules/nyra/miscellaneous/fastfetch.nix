@@ -4,11 +4,11 @@
     miscellaneous.imports = [ self.modules.homeManager.fastfetch ];
 
     fastfetch =
-      { config, ... }:
+      { config, user, ... }:
 
       let
         logoType = lib.types.enum (
-          builtins.readDir (self.outPath + "/resources/pics")
+          builtins.readDir (user.dotfiles + "/resources/pics")
           |> builtins.attrNames
           |> map (n: lib.removeSuffix ".png" n)
         );
