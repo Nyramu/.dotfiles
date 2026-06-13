@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.helix = {
+  flake.modules.homeManager.helix = { user, ... }: {
     programs.helix = {
       settings = {
         keys.normal = {
@@ -32,7 +32,7 @@
           space = {
             h = ":cd ~";
             d = [
-              ":cd ~/.dotfiles"
+              ":cd ${user.dotfiles}"
               "file_picker"
             ];
             s = "global_search";
