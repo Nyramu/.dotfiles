@@ -17,24 +17,15 @@ let
 
   themeType = types.enum (builtins.readDir (self.outPath + "/modules/themes") |> builtins.attrNames);
 
-  hostType = types.submodule {
-    options = {
-      system = mkOption {
-        type = types.str;
-        default = "x86_64-linux";
-      };
-
-      cpu = {
-        vendor = mkOption {
-          type = types.enum [
-            "amd"
-            "intel"
-          ];
+  hostType = types.submodule (
+    { config, ... }: {
+      options = {
+        system = mkOption {
+          type = types.str;
+          default = "x86_64-linux";
         };
-      };
 
-      gpu = {
-        integrated = {
+        cpu = {
           vendor = mkOption {
             type = types.enum [
               "amd"
@@ -42,137 +33,148 @@ let
             ];
           };
         };
-        dedicated = {
-          vendor = mkOption {
-            type = types.enum [
-              "amd"
-              "nvidia"
-            ];
+
+        gpu = {
+          integrated = {
+            vendor = mkOption {
+              type = types.enum [
+                "amd"
+                "intel"
+              ];
+            };
+          };
+          dedicated = {
+            vendor = mkOption {
+              type = types.enum [
+                "amd"
+                "nvidia"
+              ];
+            };
           };
         };
-      };
 
-      audio = mkOption {
-        type = types.nullOr (
-          types.enum [
-            "pulseaudio"
-            "pipewire"
-          ]
-        );
-        default = null;
-      };
-
-      bluetooth = {
-        enable = mkOption {
-          type = types.bool;
-          default = true;
-        };
-        useDongleOnly = mkOption {
-          type = types.bool;
-          default = false;
-          description = "disables internal Bluetooth forcing to use an external controller";
-        };
-      };
-
-      shell = mkOption {
-        type = types.enum [
-          "bash"
-          "zsh"
-          "fish"
-        ];
-        default = "zsh";
-      };
-
-      wayland = {
-        enable = mkOption {
-          type = types.bool;
-          default = true;
-        };
-        xwayland.enable = mkOption {
-          type = types.bool;
-          default = true;
-        };
-      };
-
-      user = {
-        name = mkOption {
-          type = types.str;
-          default = "nyramu";
+        audio = mkOption {
+          type = types.nullOr (
+            types.enum [
+              "pulseaudio"
+              "pipewire"
+            ]
+          );
+          default = null;
         };
 
-        description = mkOption {
-          type = types.str;
-          default = "Nyramu";
+        bluetooth = {
+          enable = mkOption {
+            type = types.bool;
+            default = true;
+          };
+          useDongleOnly = mkOption {
+            type = types.bool;
+            default = false;
+            description = "disables internal Bluetooth forcing to use an external controller";
+          };
         };
 
-        email = mkOption {
-          type = types.str;
-          default = "";
+        shell = mkOption {
+          type = types.enum [
+            "bash"
+            "zsh"
+            "fish"
+          ];
+          default = "zsh";
         };
 
-        dotfiles = mkOption {
-          type = types.str;
-          default = toString self.outPath;
+        wayland = {
+          enable = mkOption {
+            type = types.bool;
+            default = true;
+          };
+          xwayland.enable = mkOption {
+            type = types.bool;
+            default = true;
+          };
         };
 
-        pfp = mkOption {
-          type = types.path;
-          default = self.outPath + "/resources/pics/nyramu.png";
-        };
-      };
-
-      localization = {
-        keyboard = {
-          layout = mkOption {
+        user = {
+          name = mkOption {
             type = types.str;
-            example = "it";
+            default = "nyramu";
           };
 
-          variant = mkOption {
+          description = mkOption {
+            type = types.str;
+            default = "Nyramu";
+          };
+
+          email = mkOption {
             type = types.str;
             default = "";
-            example = "nodeadkeys";
           };
 
-          keyMap = mkOption {
+          dotfiles = mkOption {
             type = types.str;
-            default = "";
-            example = "it2";
+            default = "/home/${config.user.name}/.dotfiles";
+          };
+
+          pfp = mkOption {
+            type = types.path;
+            default = config.user.dotfiles + "/resources/pics/nyramu.png";
           };
         };
 
-        time = {
-          zone = mkOption {
-            type = types.str;
-            example = "America/New_York";
+        localization = {
+          keyboard = {
+            layout = mkOption {
+              type = types.str;
+              example = "it";
+            };
+
+            variant = mkOption {
+              type = types.str;
+              default = "";
+              example = "nodeadkeys";
+            };
+
+            keyMap = mkOption {
+              type = types.str;
+              default = "";
+              example = "it2";
+            };
           };
-          hardware-clock.enable = mkEnableOption "hardware clock (for dual boot)";
+
+          time = {
+            zone = mkOption {
+              type = types.str;
+              example = "America/New_York";
+            };
+            hardware-clock.enable = mkEnableOption "hardware clock (for dual boot)";
+          };
+        };
+
+        theme = mkOption {
+          type = types.nullOr themeType;
+        };
+
+        performance = mkOption {
+          type = types.enum [
+            "potato"
+            "normal"
+          ];
+          default = "normal";
+        };
+
+        nixos = mkOption {
+          type = types.deferredModule;
+          default = { };
+        };
+
+        home = mkOption {
+          type = types.deferredModule;
+          default = { };
         };
       };
-
-      theme = mkOption {
-        type = types.nullOr themeType;
-      };
-
-      performance = mkOption {
-        type = types.enum [
-          "potato"
-          "normal"
-        ];
-        default = "normal";
-      };
-
-      nixos = mkOption {
-        type = types.deferredModule;
-        default = { };
-      };
-
-      home = mkOption {
-        type = types.deferredModule;
-        default = { };
-      };
-    };
-  };
+    }
+  );
 in
 {
   options.hosts = mkOption {
