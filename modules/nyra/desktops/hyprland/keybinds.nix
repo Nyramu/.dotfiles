@@ -24,13 +24,13 @@
 
         # Launch Terminal Apps
         "SUPER + RETURN".dispatcher.exec_cmd = terminal;
-        "SUPER + SHIFT + RETURN".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default}";
+        "SUPER + ALT + RETURN".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default}";
         ## Helix
         "SUPER + BACKSPACE".dispatcher.exec_cmd = "${terminal} -e hx";
-        "SUPER + SHIFT + BACKSPACE".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default} -e hx";
+        "SUPER + ALT + BACKSPACE".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default} -e hx";
         ## Yazi
         "SUPER + E".dispatcher.exec_cmd = "${terminal} -e ${files.default}";
-        "SUPER + SHIFT + E".dispatcher.exec_cmd =
+        "SUPER + ALT + E".dispatcher.exec_cmd =
           "${terminal} --class floating-${terminals.default} -e ${files.default}";
         ## Btop
         "SUPER + H".dispatcher.exec_cmd = "${terminal} -e btop";
