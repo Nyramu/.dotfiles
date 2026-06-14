@@ -3,8 +3,8 @@
 let
   stylixCfg = pkgs: {
     base16Scheme = {
-      base00 = "#1a2a32"; # Default Background - deep teal black
-      base01 = "#243038"; # Lighter Background - dark teal shadow
+      base00 = "#16242b"; # Default Background - deep teal black
+      base01 = "#1e2a34"; # Lighter Background - dark teal shadow
       base02 = "#3a5263"; # Selection Background - night teal blue
       base03 = "#4a6272"; # Comments, Invisibles - muted blue slate
       base04 = "#587480"; # Dark Foreground - weathered teal stone
