@@ -113,7 +113,6 @@ in
         };
 
         home.packages = with pkgs; [
-          opencode-desktop
           qbittorrent
           hyprpicker
           croc
