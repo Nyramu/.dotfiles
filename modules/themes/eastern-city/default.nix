@@ -19,25 +19,39 @@
           hyprnix.settings = lib.mkIf (cfg.desktops.hyprland.enable) rec {
             general = {
               col = {
-                active_border = "rgb(${rawHex palette.base02}) rgb(${rawHex palette.base03}) rgb(${rawHex palette.base0A}) rgb(${rawHex palette.base08}) 270deg";
-                inactive_border = "rgb(152927)";
+                active_border = {
+                  colors = [
+                    "rgb(${rawHex palette.base02})"
+                    "rgb(${rawHex palette.base03})"
+                    "rgb(${rawHex palette.base0A})"
+                    "rgb(${rawHex palette.base08})"
+                  ];
+                  angle = 270;
+                };
+                inactive_border = {
+                  colors = [ "rgb(152927)" ];
+                };
               };
             };
-
             group = {
               col = {
                 border_active = general.col.active_border;
                 border_inactive = general.col.inactive_border;
-                border_locked_active = "rgb(13160d) rgb(274044) rgb(${rawHex palette.base0D}) 270deg";
+                border_locked_active = {
+                  colors = [
+                    "rgb(13160d)"
+                    "rgb(274044)"
+                    "rgb(${rawHex palette.base0D})"
+                  ];
+                  angle = 270;
+                };
                 border_locked_inactive = general.col.inactive_border;
               };
-
               groupbar = {
                 text_color = "rgb(${rawHex palette.base0C})";
                 text_color_inactive = "rgb(909090)";
                 text_color_locked_active = "rgb(b9f9e1)";
                 text_color_locked_inactive = group.groupbar.text_color_inactive;
-
                 col = {
                   active = "rgb(${rawHex palette.base08})";
                   inactive = general.col.inactive_border;
@@ -48,7 +62,7 @@
             };
           };
 
-          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia.enable) {
+          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia-shell.enable) {
             colors = {
               mPrimary = lib.mkForce palette.base08;
               mSecondary = lib.mkForce palette.base0C;
