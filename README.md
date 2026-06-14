@@ -31,6 +31,11 @@ If you want to see every theme, check [here](./examples).
     <figcaption>Apocalypse</figcaption>
   </figure>
   
+  <figure>
+    <img src="./examples/eastern-city.webp" alt="eastern-city.webp">
+    <figcaption>Eastern City</figcaption>
+  </figure>
+  
 </details>
 
 ## Installation
