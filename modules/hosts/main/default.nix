@@ -6,8 +6,11 @@ in
 {
   hosts.main = {
     system = "x86_64-linux";
+    boot.splash = "hexagon_dots";
+    
     cpu.vendor = "amd";
     gpu.integrated.vendor = "amd";
+    
     bluetooth = {
       enable = true;
       useDongleOnly = true;

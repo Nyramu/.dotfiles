@@ -25,6 +25,19 @@ let
           default = "x86_64-linux";
         };
 
+        boot = {
+          silent = lib.mkOption {
+            type = types.bool;
+            default = (config.boot.splash != null);
+          };
+          splash = lib.mkOption {
+            type = types.nullOr types.str;
+            default = null;
+            description = "Splash from adi1090x plymouth themes.";
+            example = "hexagon_dots";
+          };
+        };
+
         cpu = {
           vendor = mkOption {
             type = types.enum [
@@ -215,6 +228,7 @@ in
           specialArgs = {
             inherit (host)
               theme
+              boot
               audio
               bluetooth
               cpu
