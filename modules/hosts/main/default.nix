@@ -7,10 +7,10 @@ in
   hosts.main = {
     system = "x86_64-linux";
     boot.splash = "hexagon_dots";
-    
+
     cpu.vendor = "amd";
     gpu.integrated.vendor = "amd";
-    
+
     bluetooth = {
       enable = true;
       useDongleOnly = true;
@@ -54,13 +54,6 @@ in
 
         nyra.desktops.hyprland = {
           enable = true;
-          shader = {
-            # enable = true;
-            name = "vibrant";
-          };
-          plugins = {
-            # dynamic-cursors.enable = true;
-          };
           monitors = [
             {
               output = "eDP-1";
@@ -73,7 +66,7 @@ in
 
         nyra.socials = {
           telegram.enable = true;
-          discord.enable = false;
+          # discord.enable = true;
         };
 
         nyra.terminals = {
@@ -87,10 +80,10 @@ in
           helix.enable = true;
           blanket.enable = true;
           intellij.enable = true;
-          zed.enable = false;
-          gimp.enable = false;
-          aseprite.enable = false;
-          packetTracer.enable = false;
+          # zed.enable = true;
+          # gimp.enable = true;
+          # aseprite.enable = true;
+          # packetTracer.enable = true;
         };
 
         nyra.music = {
@@ -101,14 +94,14 @@ in
 
         nyra.gaming = {
           minecraft.enable = true;
-          lutris.enable = false;
+          # lutris.enable = true;
           # heroic.enable = true; # Temporarily broken
           cemu = {
             enable = true;
             ukmm.enable = true;
           };
           eden.enable = true;
-          azahar.enable = false;
+          # azahar.enable = true;
         };
 
         nyra.miscellaneous = {
@@ -167,8 +160,8 @@ in
           # Enable fingerprints support, register one running
           # fprintd-enroll <user>
           fingerprint.enable = true;
-          httpd.enable = false;
-          mysql.enable = false;
+          # httpd.enable = true;
+          # mysql.enable = true;
         };
 
         # Use CachyOS latest Zen4 LTO kernel.
