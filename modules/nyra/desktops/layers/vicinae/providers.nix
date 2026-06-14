@@ -87,6 +87,7 @@
             browser-extension.enabled = false;
             raycast-compat.enabled = false;
             shortcuts.enabled = false;
+            snippets.enabled = false;
             scripts.enabled = false;
             wm.enabled = false;
           };
