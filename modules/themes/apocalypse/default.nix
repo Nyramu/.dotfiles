@@ -18,16 +18,37 @@
           hyprnix.settings = lib.mkIf (cfg.desktops.hyprland.enable) rec {
             general = {
               col = {
-                active_border = "rgb(1a1210) rgb(2a1e18) rgb(ed6830) rgb(ed6830) rgb(e98c44) 220deg";
-                inactive_border = "rgb(2a1c14) rgb(3a2618) 220deg";
+                active_border = {
+                  colors = [
+                    "rgb(1a1210)"
+                    "rgb(2a1e18)"
+                    "rgb(ed6830)"
+                    "rgb(ed6830)"
+                    "rgb(e98c44)"
+                  ];
+                  angle = 220;
+                };
+                inactive_border = {
+                  colors = [
+                    "rgb(2a1c14)"
+                    "rgb(3a2618)"
+                  ];
+                  angle = 220;
+                };
               };
             };
-
             group = {
               col = {
                 border_active = general.col.active_border;
                 border_inactive = general.col.inactive_border;
-                border_locked_active = "rgb(1a1210) rgb(c84018) rgb(e13820) 220deg";
+                border_locked_active = {
+                  colors = [
+                    "rgb(1a1210)"
+                    "rgb(c84018)"
+                    "rgb(e13820)"
+                  ];
+                  angle = 220;
+                };
                 border_locked_inactive = general.col.inactive_border;
               };
               groupbar = {
@@ -44,8 +65,8 @@
               };
             };
           };
-
-          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia.enable) {
+          
+          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia-shell.enable) {
             settings = {
               ui = {
                 fontDefaultScale = 1.1;
