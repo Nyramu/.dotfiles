@@ -18,7 +18,7 @@ readme.
 
 If you want to see every theme, check [here](./examples).
 
-<details>
+<details open>
   <summary><b>Here are some screenshots!</b></summary>
 
   <figure>
