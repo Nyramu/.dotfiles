@@ -54,9 +54,9 @@ cd .dotfiles/
 
 ## Special Thanks
 
-- I deeply thank [gabrielemercolino](https://www.github.com/gabrielemercolino)
+- I deeply thank [Ciruzzo032](https://codeberg.org/Ciruzzo032)
   for helping me understand NixOS and inspiring my configurations through
-  [his dotfiles](https://www.github.com/gabrielemercolino/.dotfiles).
+  [his dotfiles](https://codeberg.org/Ciruzzo032/.dotfiles).
 
 ## Credits
 
