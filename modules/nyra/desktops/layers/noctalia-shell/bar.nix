@@ -1,6 +1,7 @@
-{ ... }:
+{ self, lib, ... }:
 {
-  flake.modules.homeManager.noctalia-shell = {
+  flake.modules.homeManager.noctalia-shell = { config, ... }: {
+    imports = [ self.modules.homeManager.vicinae ];
     programs.noctalia-shell = {
       settings = {
         bar = {
@@ -77,6 +78,18 @@
               }
             ];
             center = [
+              (lib.optionalAttrs (config.nyra.desktops.layers.vicinae.enable) {
+                colorizeSystemIcon = "primary";
+                colorizeSystemText = "none";
+                generalTooltipText = "Vicinae Launcher/Clipboard";
+                hideMode = "alwaysExpanded";
+                icon = "apps";
+                iconPosition = "left";
+                id = "CustomButton";
+                leftClickExec = "vicinae toggle";
+                rightClickExec = "vicinae vicinae://launch/clipboard/history";
+                showExecTooltip = false;
+              })
               {
                 compactMode = true;
                 compactShowAlbumArt = true;
