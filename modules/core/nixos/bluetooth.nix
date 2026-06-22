@@ -4,11 +4,7 @@
     core.imports = [ self.modules.nixos.bluetooth ];
 
     bluetooth =
-      {
-        bluetooth,
-        pkgs,
-        ...
-      }:
+      { bluetooth, pkgs, ... }:
       {
         hardware.bluetooth = lib.mkIf (bluetooth.enable) {
           enable = true;
@@ -38,7 +34,7 @@
         services.blueman.enable = lib.mkDefault true;
 
         services.udev.extraRules = lib.mkIf (bluetooth.useDongleOnly) ''
-          ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTR{authorized}="0"
+          ACTION=="add", SUBSYSTEM=="usb", ATTR{bDeviceClass}=="e0", ATTR{bDeviceSubClass}=="01", ATTR{bDeviceProtocol}=="01", ATTR{removable}=="fixed", ATTR{authorized}="0"
         '';
 
         environment.systemPackages = with pkgs; [
