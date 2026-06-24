@@ -164,7 +164,7 @@ in
         };
 
         # Use CachyOS latest Zen4 LTO kernel.
-        boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+        boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
 
         # Fix for Copilot button on Dell Inspiron
         services.keyd = {
