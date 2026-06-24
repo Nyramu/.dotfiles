@@ -84,7 +84,7 @@
             };
           };
 
-          services.vicinae = lib.mkIf (cfg.desktops.layers.vicinae.enable) {
+          programs.vicinae = lib.mkIf (cfg.desktops.layers.vicinae.enable) {
             settings = {
               font = {
                 normal = {

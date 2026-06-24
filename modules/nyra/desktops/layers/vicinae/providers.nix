@@ -3,7 +3,7 @@
   flake.modules.homeManager.vicinae =
     { ... }:
     {
-      services.vicinae = {
+      programs.vicinae = {
         settings = {
           providers = {
             applications = {
