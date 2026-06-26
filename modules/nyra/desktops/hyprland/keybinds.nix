@@ -27,7 +27,8 @@
         "SUPER + ALT + RETURN".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default}";
         ## Helix
         "SUPER + BACKSPACE".dispatcher.exec_cmd = "${terminal} -e hx";
-        "SUPER + ALT + BACKSPACE".dispatcher.exec_cmd = "${terminal} --class floating-${terminals.default} -e hx";
+        "SUPER + ALT + BACKSPACE".dispatcher.exec_cmd =
+          "${terminal} --class floating-${terminals.default} -e hx";
         ## Yazi
         "SUPER + E".dispatcher.exec_cmd = "${terminal} -e ${files.default}";
         "SUPER + ALT + E".dispatcher.exec_cmd =
@@ -47,12 +48,18 @@
         ## Press to start recording, then press again to stop and save
         F9.dispatcher.exec_cmd = "screen-record"; # Max quality, 60 fps
         "SUPER + F9".dispatcher.exec_cmd = "screen-record --low-quality"; # Lower bitrate, 30 fps
-        ## Copy screenshot to clipboard without saving
-        F10.dispatcher.exec_cmd = "screen-shot";
-        Print.dispatcher.exec_cmd = "screen-shot";
-        ## Copy screenshot to clipboard and save
-        "SUPER + F10".dispatcher.exec_cmd = "screen-shot --save";
-        "SUPER + Print".dispatcher.exec_cmd = "screen-shot --save";
+        ## Copy screenshot selection to clipboard without saving
+        F10.dispatcher.exec_cmd = "screen-shot --selection";
+        Print.dispatcher.exec_cmd = "screen-shot --selection";
+        ## Copy full screenshot to clipboard without saving
+        "ALT + F10".dispatcher.exec_cmd = "screen-shot";
+        "ALT + Print".dispatcher.exec_cmd = "screen-shot";
+        ## Copy screenshot selection to clipboard and save
+        "SUPER + F10".dispatcher.exec_cmd = "screen-shot --selection --save";
+        "SUPER + Print".dispatcher.exec_cmd = "screen-shot --selection --save";
+        ## Copy full screenshot to clipboard and save
+        "SUPER + ALT + F10".dispatcher.exec_cmd = "screen-shot --save";
+        "SUPER + ALT + Print".dispatcher.exec_cmd = "screen-shot --save";
 
         # Miscellaneous
         ## Toggle DND on notifications
