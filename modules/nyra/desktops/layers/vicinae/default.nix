@@ -86,7 +86,7 @@
     desktops.imports = [ self.modules.nixos.vicinae ];
 
     vicinae =
-      { config, pkgs, ... }:
+      { config, host, ... }:
 
       let
         cfg = config.nyra.desktops.layers.vicinae;
@@ -104,9 +104,7 @@
           # Implement Vicinae nixosModule directly to permit management
           # via nyra options
           security.wrappers.vicinae-input-server = {
-            source = "${
-              inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default
-            }/libexec/vicinae/vicinae-input-server";
+            source = "${inputs.vicinae.packages.${host.system}.default}/libexec/vicinae/vicinae-input-server";
             capabilities = "cap_dac_override+ep";
             owner = "root";
             group = "root";

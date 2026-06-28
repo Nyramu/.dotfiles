@@ -1,12 +1,12 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.vicinae =
-    { pkgs, ... }:
+    { host, ... }:
     {
       programs.vicinae = {
         extensions =
-          with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system};
-          with inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system};
+          with inputs.vicinae-extensions.packages.${host.system};
+          with inputs.vicinae.packages.${host.system};
           [
             color-converter
             nerdfont-search
