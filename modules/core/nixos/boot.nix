@@ -25,7 +25,7 @@
               "quiet"
               "udev.log_level=3"
             ]
-            ++ lib.optionals (boot.splash != null) [ "plymouth.use-simpledrm" ];
+            ++ lib.optional (boot.splash != null) "plymouth.use-simpledrm";
 
           consoleLogLevel = lib.mkIf (boot.silent) 0;
 
