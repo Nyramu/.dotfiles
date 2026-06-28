@@ -4,7 +4,7 @@
     gaming.imports = [ self.modules.nixos.lsfg ];
 
     lsfg =
-      { config, host, ... }:
+      { config, dotpkgs, ... }:
 
       let
         cfg = config.nyra.gaming.lsfg;
@@ -15,7 +15,7 @@
         };
 
         config = lib.mkIf (cfg.enable) {
-          environment.systemPackages = with self.packages.${host.system}; [
+          environment.systemPackages = with dotpkgs; [
             lsfg-vk
             lsfg-vk-ui
           ];

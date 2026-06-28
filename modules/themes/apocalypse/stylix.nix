@@ -1,7 +1,7 @@
-{ self, ... }:
+{ ... }:
 
 let
-  stylixCfg = pkgs: host: {
+  stylixCfg = dotpkgs: {
     base16Scheme = {
       base00 = "#1a1210"; # Default Background - deep dark brown-black
       base01 = "#2a1c14"; # Lighter Background - dark burnt brown
@@ -24,7 +24,7 @@ let
 
     image = ./wallpaper.jpg;
 
-    fonts = with self.packages.${host.system}; {
+    fonts = with dotpkgs; {
       serif = {
         package = nerd-fonts-neospleen;
         name = "NeoSpleen Nerd Font";
@@ -49,17 +49,17 @@ in
 {
   flake.modules.homeManager = {
     theme-apocalypse =
-      { pkgs, host, ... }:
+      { dotpkgs, ... }:
       {
-        stylix = (stylixCfg pkgs host);
+        stylix = (stylixCfg dotpkgs);
       };
   };
 
   flake.modules.nixos = {
     theme-apocalypse =
-      { pkgs, host, ... }:
+      { dotpkgs, ... }:
       {
-        stylix = (stylixCfg pkgs host);
+        stylix = (stylixCfg dotpkgs);
       };
   };
 }

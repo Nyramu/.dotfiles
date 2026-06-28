@@ -243,6 +243,8 @@ in
               inherit name;
               inherit (host) system;
             };
+
+            dotpkgs = self.packages.${host.system};
           };
         }
       ) config.hosts;
@@ -269,6 +271,8 @@ in
               inherit name;
               inherit (host) system;
             };
+
+            dotpkgs = self.packages.${host.system};
           };
         }
       ) config.hosts;
