@@ -224,6 +224,7 @@ in
           modules = [
             baseHost.nixos
             host.nixos
+            self.modules.nixos.nyra
           ];
           specialArgs = {
             inherit (host)
@@ -256,6 +257,7 @@ in
           modules = [
             baseHost.home
             host.home
+            self.modules.homeManager.nyra
           ];
           extraSpecialArgs = {
             inherit (host)
