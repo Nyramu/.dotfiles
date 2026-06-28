@@ -12,13 +12,13 @@
       {
         config,
         wayland,
-        pkgs,
+        host,
         ...
       }:
 
       let
         cfg = config.nyra.music.spicetify;
-        spicePkgs = inputs.spicetify.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+        spicePkgs = inputs.spicetify.legacyPackages.${host.system};
       in
       {
         imports = [ inputs.spicetify.homeManagerModules.spicetify ];
