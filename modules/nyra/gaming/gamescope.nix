@@ -17,7 +17,7 @@
         config = lib.mkIf (cfg.enable) {
           programs.gamescope = {
             enable = true;
-            capSysNice = true;
+            # capSysNice = true;
             env = {
               "XKB_DEFAULT_LAYOUT" = config.services.xserver.xkb.layout;
             };
