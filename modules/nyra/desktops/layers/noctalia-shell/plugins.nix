@@ -1,14 +1,9 @@
-{ self, ... }:
+{ ... }:
 {
   flake.modules.homeManager.noctalia-shell =
     { config, ... }:
 
     {
-      imports = with self.modules.homeManager; [
-        terminals
-        files
-      ];
-
       programs.noctalia-shell = {
         settings = {
           plugins = {

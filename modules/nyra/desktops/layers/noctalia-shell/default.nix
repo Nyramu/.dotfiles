@@ -23,7 +23,6 @@
       {
         imports = [
           inputs.noctalia-shell.homeModules.default
-          self.modules.homeManager.hyprland
         ];
 
         options.nyra.desktops.layers.noctalia-shell = {

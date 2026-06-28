@@ -1,7 +1,6 @@
-{ self, lib, ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager.noctalia-shell = { config, ... }: {
-    imports = [ self.modules.homeManager.vicinae ];
     programs.noctalia-shell = {
       settings = {
         bar = {

@@ -10,8 +10,6 @@
         cfg = config.nyra.gaming.minecraft;
       in
       {
-        imports = [ self.modules.homeManager.java ];
-
         options.nyra.gaming.minecraft = {
           enable = lib.mkEnableOption "minecraft";
         };

@@ -17,7 +17,6 @@
       {
         imports = [
           inputs.vicinae.homeManagerModules.default
-          self.modules.homeManager.hyprland
         ];
 
         options.nyra.desktops.layers.vicinae = {

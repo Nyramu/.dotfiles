@@ -39,17 +39,7 @@ in
       { pkgs, ... }:
       {
         imports = with homeManager; [
-          browsers
-          desktops
-          productivity
-          files
-          gaming
-          miscellaneous
-          music
-          services
-          shells
-          socials
-          terminals
+          nyra
         ];
 
         nyra.desktops.hyprland = {
@@ -133,11 +123,7 @@ in
       {
         imports = with nixos; [
           ./_hardware-configuration.nix
-          desktops
-          gaming
-          miscellaneous
-          login
-          services
+          nyra
         ];
 
         nyra.desktops = {

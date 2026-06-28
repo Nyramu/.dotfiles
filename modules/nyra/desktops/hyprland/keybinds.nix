@@ -1,4 +1,4 @@
-{ self, lib, ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager.hyprland =
     { config, pkgs, ... }:
@@ -9,12 +9,6 @@
       terminal = "${lib.getExe pkgs.${terminals.default}}";
     in
     {
-      imports = [
-        self.modules.homeManager.terminals
-        self.modules.homeManager.files
-        self.modules.homeManager.browsers
-      ];
-
       hyprnix.settings.bind = {
         # Launch Apps
         "SUPER + B".dispatcher.exec_cmd = browsers.default;

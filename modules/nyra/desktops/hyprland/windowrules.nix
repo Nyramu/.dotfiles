@@ -1,4 +1,4 @@
-{ self, lib, ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager.hyprland =
     { config, ... }:
@@ -7,12 +7,6 @@
       cfg = config.nyra;
     in
     {
-      imports = with self.modules.homeManager; [
-        terminals
-        fastfetch
-        rmpc
-      ];
-
       hyprnix.settings.window_rule =
         let
           makeFloating = class: {

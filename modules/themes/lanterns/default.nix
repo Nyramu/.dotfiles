@@ -10,11 +10,6 @@
         rawHex = lib.removePrefix "#";
       in
       {
-        imports = with self.modules.homeManager; [
-          desktops
-          kitty
-        ];
-
         config = {
           hyprnix.settings = lib.mkIf (cfg.desktops.hyprland.enable) rec {
             general = {
@@ -99,9 +94,6 @@
 
       in
       {
-        imports = with self.modules.nixos; [
-        ];
-
         config = {
 
         };

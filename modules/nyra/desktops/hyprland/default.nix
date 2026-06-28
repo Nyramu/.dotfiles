@@ -11,7 +11,6 @@
     hyprland =
       {
         config,
-        pkgs,
         localization,
         performance,
         wayland,
@@ -25,8 +24,6 @@
       {
         imports = [
           inputs.hyprnix.homeModules.default
-
-          self.modules.homeManager.terminals
         ];
 
         config.hyprnix = {

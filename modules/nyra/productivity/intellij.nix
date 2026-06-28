@@ -10,8 +10,6 @@
         cfg = config.nyra.productivity.intellij;
       in
       {
-        imports = [ self.modules.homeManager.java ];
-
         options.nyra.productivity.intellij = {
           enable = lib.mkEnableOption "intellij";
         };

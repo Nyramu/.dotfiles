@@ -9,10 +9,6 @@
         palette = config.stylix.base16Scheme;
       in
       {
-        imports = with self.modules.homeManager; [
-          desktops
-        ];
-
         config = {
           hyprnix.settings = lib.mkIf (cfg.desktops.hyprland.enable) rec {
             general = {
@@ -105,10 +101,8 @@
         cfg = config.nyra;
       in
       {
-        imports = with self.modules.nixos; [
-        ];
-
         config = {
+          
         };
       };
   };
