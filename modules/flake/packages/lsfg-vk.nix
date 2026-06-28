@@ -5,17 +5,18 @@
       src = pkgs.fetchFromGitHub {
         owner = "PancakeTAS";
         repo = "lsfg-vk";
-        # v2.0.0-dev - dev26
-        rev = "218820e8dc2d69c21a7a0775b5c47f2c447ed31a";
-        hash = "sha256-Qb3vufCzNpM1r+vgo8M9nnA7CENgGTithWG0oXqLKbI=";
+        # v2.0.0-dev - dev28
+        rev = "8b0da2661c6f3473a7fccc8ba643880050e71642";
+        hash = "sha256-SDZXT+eYkOPr/qqZgCip9YSSf6SWwuvv1Y20+hlqGCw=";
         fetchSubmodules = true;
       };
+
+      version = "2.0.0-dev28";
     in
     {
       packages.lsfg-vk = pkgs.llvmPackages.stdenv.mkDerivation {
         pname = "lsfg-vk";
-        version = "2.0.0-unstable-2026-04-25";
-        inherit src;
+        inherit version src;
         nativeBuildInputs = with pkgs; [
           llvmPackages.clang-tools
           llvmPackages.libllvm
@@ -41,8 +42,7 @@
 
       packages.lsfg-vk-ui = pkgs.llvmPackages.stdenv.mkDerivation {
         pname = "lsfg-vk-ui";
-        version = "2.0.0-unstable-2026-04-25";
-        inherit src;
+        inherit version src;
         nativeBuildInputs = with pkgs; [
           llvmPackages.clang-tools
           llvmPackages.libllvm
