@@ -61,15 +61,12 @@
 
         nyra.editors = {
           default = "helix";
-          idea.enable = true;
-          # zed.enable = true;
+          # idea.enable = true;
         };
 
         nyra.productivity = {
           blanket.enable = true;
           # gimp.enable = true;
-          # aseprite.enable = true;
-          # packetTracer.enable = true;
         };
 
         nyra.music = {
@@ -80,14 +77,11 @@
 
         nyra.gaming = {
           minecraft.enable = true;
-          # lutris.enable = true;
-          # heroic.enable = true; # Temporarily broken
           cemu = {
             enable = true;
             ukmm.enable = true;
           };
           eden.enable = true;
-          # azahar.enable = true;
         };
 
         nyra.miscellaneous = {
@@ -104,7 +98,7 @@
           croc
           android-tools
           fontfor
-          figlet
+          # figlet
           cbonsai
           pipes-rs
           oxipng
@@ -135,11 +129,6 @@
         # Enable fingerprints support, register one running
         # fprintd-enroll <user>
         nyra.services.fingerprint.enable = true;
-
-        nyra.services = {
-          # httpd.enable = true;
-          # mysql.enable = true;
-        };
 
         # Use CachyOS latest Zen4 LTO kernel.
         boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
