@@ -1,8 +1,5 @@
-{ self, ... }:
+{ ... }:
 
-let
-  inherit (self.modules) nixos homeManager;
-in
 {
   hosts.main = {
     system = "x86_64-linux";
@@ -38,10 +35,6 @@ in
     home =
       { pkgs, ... }:
       {
-        imports = with homeManager; [
-          nyra
-        ];
-
         nyra.desktops.hyprland = {
           enable = true;
           monitors = [
@@ -66,11 +59,14 @@ in
         nyra.browsers.default = "zen-twilight";
         nyra.files.default = "yazi";
 
-        nyra.productivity = {
-          helix.enable = true;
-          blanket.enable = true;
-          intellij.enable = true;
+        nyra.editors = {
+          default = "helix";
+          idea.enable = true;
           # zed.enable = true;
+        };
+
+        nyra.productivity = {
+          blanket.enable = true;
           # gimp.enable = true;
           # aseprite.enable = true;
           # packetTracer.enable = true;
@@ -121,11 +117,6 @@ in
       { pkgs, ... }:
 
       {
-        imports = with nixos; [
-          ./_hardware-configuration.nix
-          nyra
-        ];
-
         nyra.desktops = {
           hyprland.enable = true;
         };
@@ -141,10 +132,11 @@ in
           bashmount.enable = true;
         };
 
+        # Enable fingerprints support, register one running
+        # fprintd-enroll <user>
+        nyra.services.fingerprint.enable = true;
+
         nyra.services = {
-          # Enable fingerprints support, register one running
-          # fprintd-enroll <user>
-          fingerprint.enable = true;
           # httpd.enable = true;
           # mysql.enable = true;
         };
