@@ -1,8 +1,5 @@
-{ self, ... }:
+{ ... }:
 
-let
-  inherit (self.modules) nixos homeManager;
-in
 {
   hosts.potato = {
     system = "x86_64-linux";
@@ -31,10 +28,6 @@ in
     home =
       { pkgs, ... }:
       {
-        imports = with homeManager; [
-          nyra
-        ];
-
         nyra.desktops.hyprland = {
           enable = true;
           shader = {
@@ -54,10 +47,7 @@ in
         nyra.terminals.default = "kitty";
         nyra.browsers.default = "zen-twilight";
         nyra.files.default = "yazi";
-
-        nyra.productivity = {
-          helix.enable = true;
-        };
+        nyra.editors.default = "helix";
 
         nyra.miscellaneous = {
           btop = {
@@ -68,23 +58,14 @@ in
         };
 
         home.packages = with pkgs; [
-          figlet
-          hyprpicker
           croc
-          fontfor
           wev
         ];
       };
 
     nixos =
       { pkgs, ... }:
-
       {
-        imports = with nixos; [
-          ./_hardware-configuration.nix
-          nyra
-        ];
-
         nyra.desktops = {
           hyprland.enable = true;
         };
