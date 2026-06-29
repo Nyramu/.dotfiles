@@ -4,6 +4,7 @@
     imports = with self.modules.homeManager; [
       browsers
       desktops
+      editors
       files
       gaming
       miscellaneous
