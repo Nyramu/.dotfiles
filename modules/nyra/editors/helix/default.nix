@@ -87,7 +87,7 @@
           };
 
           nyra.editors.helix.enable = (default == "helix");
-          
+
           hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
             "SUPER + BACKSPACE".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e hx";
             "SUPER + ALT + BACKSPACE".dispatcher.exec_cmd =

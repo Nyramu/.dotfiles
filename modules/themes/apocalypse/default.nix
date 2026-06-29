@@ -60,7 +60,7 @@
               };
             };
           };
-          
+
           programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia-shell.enable) {
             settings = {
               ui = {

@@ -2,6 +2,7 @@
 {
   flake.modules.homeManager.hyprland =
     { config, pkgs, ... }:
+
     let
       workspaces = map toString (lib.range 0 9);
       dirs = [
