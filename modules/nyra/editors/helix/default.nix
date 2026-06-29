@@ -1,23 +1,24 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    productivity.imports = [ self.modules.homeManager.helix ];
+    editors.imports = [ self.modules.homeManager.helix ];
 
     helix =
       { config, ... }:
 
       let
-        cfg = config.nyra.productivity.helix;
+        cfg = config.nyra.editors.helix;
+        default = config.nyra.editors.default;
       in
       {
-        options.nyra.productivity.helix = {
+        options.nyra.editors.helix = {
           enable = lib.mkEnableOption "helix";
         };
 
-        config = lib.mkIf (cfg.enable) {
-          programs.helix = {
+        config = {
+          programs.helix = lib.mkIf (cfg.enable) {
             enable = true;
-            defaultEditor = true;
+            defaultEditor = (default == "helix");
 
             settings = {
               editor = {
@@ -83,6 +84,14 @@
                 };
               };
             };
+          };
+
+          nyra.editors.helix.enable = (default == "helix");
+          
+          hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            "SUPER + BACKSPACE".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e hx";
+            "SUPER + ALT + BACKSPACE".dispatcher.exec_cmd =
+              "${config.nyra.terminals.default} --class floating-${config.nyra.terminals.default} -e hx";
           };
         };
       };
