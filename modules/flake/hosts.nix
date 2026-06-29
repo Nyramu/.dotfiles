@@ -224,6 +224,7 @@ in
           modules = [
             baseHost.nixos
             host.nixos
+            "${self.outPath}/modules/hosts/${name}/_hardware-configuration.nix"
             self.modules.nixos.nyra
           ];
           specialArgs = {
