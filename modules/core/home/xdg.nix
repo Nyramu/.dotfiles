@@ -112,7 +112,7 @@
             };
             editor = {
               name = "Text Editor";
-              exec = "${config.home.sessionVariables.EDITOR or (lib.getExe pkgs.helix)} %f";
+              exec = "${config.home.sessionVariables.EDITOR or (lib.getExe pkgs.neovim)} %f";
               noDisplay = true;
             };
           };
