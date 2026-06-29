@@ -9,7 +9,12 @@
     core.imports = [ self.modules.homeManager.theming ];
 
     theming =
-      { theme, pkgs, ... }:
+      {
+        theme,
+        performance,
+        pkgs,
+        ...
+      }:
       {
         imports = [
           inputs.stylix.homeModules.stylix
@@ -44,12 +49,21 @@
 
             polarity = lib.mkDefault "dark";
 
-            opacity = {
-              terminal = lib.mkDefault 0.63;
-              applications = lib.mkDefault 0.6;
-              desktop = lib.mkDefault 0.7;
-              popups = lib.mkDefault 0.7;
-            };
+            opacity =
+              if (performance == "potato") then
+                {
+                  terminal = lib.mkForce 1.0;
+                  applications = lib.mkForce 1.0;
+                  desktop = lib.mkForce 1.0;
+                  popups = lib.mkForce 1.0;
+                }
+              else
+                {
+                  terminal = lib.mkDefault 0.63;
+                  applications = lib.mkDefault 0.6;
+                  desktop = lib.mkDefault 0.7;
+                  popups = lib.mkDefault 0.7;
+                };
 
             fonts = {
               serif = {
