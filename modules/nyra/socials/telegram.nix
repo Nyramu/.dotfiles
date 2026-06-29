@@ -18,6 +18,10 @@
           home.packages = with pkgs; [
             telegram-desktop
           ];
+
+          hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            "SUPER + T".dispatcher.exec_cmd = "Telegram";
+          };
         };
       };
   };

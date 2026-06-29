@@ -126,12 +126,21 @@
             };
           };
 
-          hyprnix.settings.layer_rule = lib.mkIf (config.nyra.desktops.hyprland.enable) {
-            "noctalia-shell-blur" = {
-              blur = true;
-              blur_popups = true;
-              ignore_alpha = 0.5;
-              match.namespace = "noctalia-background-.*$";
+          hyprnix.settings = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            bind = {
+              # Restart Noctalia
+              "SUPER + SHIFT + W".dispatcher.exec_cmd = "pkill .quickshell-wra ; noctalia-shell";
+              # Toggle DND on notifications
+              "SUPER + SHIFT + D".dispatcher.exec_cmd = "${ipc} notifications toggleDND";
+            };
+
+            layer_rule = {
+              "noctalia-shell-blur" = {
+                blur = true;
+                blur_popups = true;
+                ignore_alpha = 0.5;
+                match.namespace = "noctalia-background-.*$";
+              };
             };
           };
         };

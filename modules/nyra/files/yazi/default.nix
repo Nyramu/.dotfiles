@@ -57,6 +57,10 @@
             '';
           };
           nyra.files.yazi.enable = lib.mkDefault (default == "yazi");
+
+          hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable && default == "yazi") {
+            "SUPER + E".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e yazi";
+          };
         };
       };
   };
