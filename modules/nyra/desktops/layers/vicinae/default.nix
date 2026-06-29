@@ -70,11 +70,22 @@
             };
           };
 
-          hyprnix.settings.layer_rule = lib.mkIf (config.nyra.desktops.hyprland.enable) {
-            "vicinae-blur" = {
-              blur = true;
-              ignore_alpha = 0;
-              match.namespace = "vicinae";
+          hyprnix.settings = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            bind = {
+              # Restart Vicinae
+              "SUPER + SHIFT + SPACE".dispatcher.exec_cmd = "systemctl --user restart vicinae.service";
+              # Toggle spawn
+              "SUPER + SPACE".dispatcher.exec_cmd = "vicinae toggle";
+              # Access clipboard
+              "SUPER + C".dispatcher.exec_cmd = "vicinae vicinae://launch/clipboard/history";
+            };
+
+            layer_rule = {
+              "vicinae-blur" = {
+                blur = true;
+                ignore_alpha = 0;
+                match.namespace = "vicinae";
+              };
             };
           };
         };

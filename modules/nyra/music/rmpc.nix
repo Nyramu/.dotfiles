@@ -401,6 +401,11 @@
               )
             '';
           nyra.music.mpd.enable = lib.mkDefault true;
+
+          hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            "SUPER + M".dispatcher.exec_cmd =
+              "${config.nyra.terminals.default} --class floating-${config.nyra.terminals.default} rmpc";
+          };
         };
       };
   };

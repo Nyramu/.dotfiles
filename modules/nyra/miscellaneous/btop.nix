@@ -30,6 +30,10 @@
               custom_gpu_name0 = cfg.gpu-name;
             };
           };
+
+          hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
+            "SUPER + H".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e btop";
+          };
         };
       };
   };
