@@ -20,27 +20,27 @@
             enable = true;
           };
 
-          nyra.music.playerctl.enable = lib.mkDefault (music.spicetify.enable || music.mpd.enable);
+          nyra.music.playerctl.enable = lib.mkDefault (music.mpd.enable || music.spicetify.enable);
 
           hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
             XF86AudioPlay = {
-              dispatcher.exec_cmd = "playerctl play-pause";
+              dispatcher.exec_cmd = "playerctl --player=mpd,spotify play-pause";
               flags.locked = true;
             };
             XF86AudioPrev = {
-              dispatcher.exec_cmd = "playerctl previous";
+              dispatcher.exec_cmd = "playerctl --player=mpd,spotify previous";
               flags.locked = true;
             };
             "SUPER + CTRL + left" = {
-              dispatcher.exec_cmd = "playerctl previous";
+              dispatcher.exec_cmd = "playerctl --player=mpd,spotify previous";
               flags.locked = true;
             };
             XF86AudioNext = {
-              dispatcher.exec_cmd = "playerctl next";
+              dispatcher.exec_cmd = "playerctl --player=mpd,spotify next";
               flags.locked = true;
             };
             "SUPER + CTRL + right" = {
-              dispatcher.exec_cmd = "playerctl next";
+              dispatcher.exec_cmd = "playerctl --player=mpd,spotify next";
               flags.locked = true;
             };
           };
