@@ -28,9 +28,9 @@ let
     };
 
     opacity = {
-      terminal = 0.66;  
+      terminal = 0.66;
     };
-    
+
     fonts = {
       serif = {
         package = pkgs.nerd-fonts.code-new-roman;
