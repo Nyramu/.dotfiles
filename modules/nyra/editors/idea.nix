@@ -19,7 +19,7 @@
             pkgs.jetbrains.idea
           ];
 
-          nyra.miscellaneous.java.enable = lib.mkDefault true;
+          nyra.miscellaneous.java.enable = lib.mkForce true;
 
           hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
             "SUPER + I".dispatcher.exec_cmd = "idea";

@@ -400,7 +400,7 @@
                 ),
               )
             '';
-          nyra.music.mpd.enable = lib.mkDefault true;
+          nyra.music.mpd.enable = lib.mkForce true;
 
           hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
             "SUPER + M".dispatcher.exec_cmd =
