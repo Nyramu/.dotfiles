@@ -21,7 +21,7 @@
             })
           ];
 
-          nyra.miscellaneous.java.enable = lib.mkDefault true;
+          nyra.miscellaneous.java.enable = lib.mkForce true;
         };
       };
   };
