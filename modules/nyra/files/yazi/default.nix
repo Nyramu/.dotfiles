@@ -48,12 +48,13 @@
               input.cursor_blink = true;
             };
             plugins = with pkgs.yaziPlugins; {
-              inherit full-border;
+              inherit full-border git lazygit;
             };
             initLua = ''
               require("full-border"):setup {
-               type = ui.Border.ROUNDED,
+                type = ui.Border.ROUNDED,
               }
+              require("git"):setup()
             '';
           };
           nyra.files.yazi.enable = lib.mkDefault (default == "yazi");
