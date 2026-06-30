@@ -60,6 +60,8 @@
 
           hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable && default == "yazi") {
             "SUPER + E".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e yazi";
+            "SUPER + ALT + E".dispatcher.exec_cmd =
+              "${config.nyra.terminals.default} --class floating-${config.nyra.terminals.default} -e yazi";
           };
         };
       };
