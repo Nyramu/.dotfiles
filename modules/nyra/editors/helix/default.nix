@@ -23,12 +23,13 @@
             settings = {
               editor = {
                 auto-format = true;
-                line-number = "relative";
+                line-number = "absolute";
                 bufferline = "multiple";
+                mouse = true;
                 color-modes = true;
                 popup-border = "all";
                 continue-comments = false;
-                smart-tab.enable = false;
+                smart-tab.enable = true;
 
                 cursor-shape = {
                   normal = "block";
