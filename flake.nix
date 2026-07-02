@@ -47,6 +47,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     treefmt-nix = {
