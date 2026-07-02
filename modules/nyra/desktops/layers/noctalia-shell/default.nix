@@ -91,7 +91,7 @@
                 visualizerType = "mirrored";
                 volumeOverdrive = true;
                 mprisBlacklist = [
-                  "Mozilla zen"
+                  "Mozilla zen-twilight"
                   "Telegram Desktop"
                 ];
                 preferredPlayer = "Spotify";
