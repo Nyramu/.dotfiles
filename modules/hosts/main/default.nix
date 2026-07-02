@@ -61,6 +61,7 @@
 
         nyra.editors = {
           default = "helix";
+          # nvf.enable = true;
           # idea.enable = true;
         };
 
