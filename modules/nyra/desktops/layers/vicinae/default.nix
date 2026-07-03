@@ -50,12 +50,6 @@
                 };
                 client_side_decorations.enabled = true;
               };
-              font = {
-                normal = {
-                  size = lib.mkDefault 10.5;
-                  family = "${config.stylix.fonts.serif.name}";
-                };
-              };
               favorites = [
                 "@fbosch/vicinae-extension-protondb-search-0:protondb-search"
                 "@Costeer/vicinae-extension-color-converter-0:convert-color"
