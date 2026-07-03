@@ -32,13 +32,7 @@
                     type       "pipewire"
                     name       "PipeWire"
                     mixer_type "software"
-                  }
-
-                  audio_output {
-                    type    "fifo"
-                    name    "Visualizer"
-                    path    "/tmp/mpd.fifo"
-                    format  "44100:16:2"
+                    always_on  "yes"
                   }
 
                   auto_update "yes"
@@ -55,9 +49,17 @@
                 "";
           };
           services.mpd-mpris.enable = true;
-          programs.cava = {
+
+          programs.cava = lib.mkIf (audio != null) {
             enable = true;
+            settings = {
+              input = {
+                method = if (audio == "pulseaudio") then "pulse" else audio;
+                source = "auto";
+              };
+            };
           };
+
           home.packages = [ pkgs.mpc ];
 
           home.sessionVariables = {

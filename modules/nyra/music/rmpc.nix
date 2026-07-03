@@ -49,9 +49,9 @@
                   bar_spacing: 1,
                   orientation: Top,
                   input: (
-                    method: Fifo,
-                    source: "/tmp/mpd.fifo",
-                    sample_rate: Some(44100),
+                    method: Pipewire,
+                    source: "auto",
+                    sample_rate: Some(48000),
                     channels: Some(2),
                     sample_bits: Some(16),
                   ),
