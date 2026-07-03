@@ -1,4 +1,4 @@
-{ self, lib, ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager = {
     theme-lanterns =
@@ -74,6 +74,16 @@
             colors = {
               mPrimary = lib.mkForce palette.base0E;
               mSecondary = lib.mkForce palette.base0D;
+            };
+          };
+
+          programs.vicinae = lib.mkIf (cfg.desktops.layers.vicinae.enable) {
+            settings = {
+              font = {
+                normal = {
+                  size = lib.mkForce 13;
+                };
+              };
             };
           };
 
