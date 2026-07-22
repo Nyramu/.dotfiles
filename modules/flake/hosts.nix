@@ -131,7 +131,7 @@ let
 
           pfp = mkOption {
             type = types.path;
-            default = config.user.dotfiles + "/resources/pics/nyramu.png";
+            default = self.outPath + "/resources/pics/nyramu.png";
           };
         };
 
