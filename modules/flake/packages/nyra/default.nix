@@ -12,12 +12,6 @@
           makeWrapper
         ];
 
-        buildInputs = with pkgs; [
-          nh
-          jmtpfs
-          jq
-        ];
-
         buildPhase = ''
           bashly add completions
           bashly generate
@@ -31,7 +25,7 @@
           cp nyra $out/bin/${name}
 
           wrapProgram $out/bin/${name} \
-            --prefix PATH : ${nh}/bin:${jmtpfs}/bin:${jq}/bin
+            --prefix PATH : ${nh}/bin:${android-file-transfer}/bin:${jq}/bin
         '';
 
         postInstall = ''

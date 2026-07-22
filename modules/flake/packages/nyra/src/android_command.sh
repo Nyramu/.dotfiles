@@ -15,7 +15,7 @@ else
     echo "A device is already mounted at $MOUNT_POINT"
     exit 1
   fi
-  if ! jmtpfs "$MOUNT_POINT"; then
+  if ! aft-mtp-mount "$MOUNT_POINT"; then
     echo "Failed to mount device - is it connected and unlocked?"
     exit 1
   fi
