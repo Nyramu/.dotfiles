@@ -1,77 +1,71 @@
 name: nyra
 help: Utility script for managing Nix
-version: 1.7.0
+version: 1.7.1
 
 commands:
-- name: sync
-  help: Synchronizes and rebuilds the system based on the config
+  - name: sync
+    help: Synchronizes and rebuilds the system based on the config
 
-  args:
-  - name: config
-    help: What config to use
-    required: true
-  
-  examples:
-  - nyra sync main
-  - nyra sync potato
+    args:
+      - name: config
+        help: What config to use
+        required: true
 
+    examples:
+      - nyra sync main
+      - nyra sync potato
 
-- name: update
-  help: Updates the dotfiles' flake.lock (wrapper over nix flake update)
-  examples:
-  - nyra update
+  - name: update
+    help: Updates the dotfiles' flake.lock (wraps nix flake update)
+    examples:
+      - nyra update
 
+  - name: clean
+    help: Deletes unreachable store objects and generations older than 7 days (wraps nh clean)
 
-- name: clean
-  help: Deletes unreachable store objects and generations older than 7 days (wrapper over nh clean)
+    flags:
+      - long: --delete-old
+        short: -d
+        help: Deletes all old profiles
 
-  flags:
-  - long: --delete-old 
-    short: -d
-    help: Deletes all old profiles
+    examples:
+      - nyra clean
+      - nyra clean -d
 
-  examples:
-  - nyra clean
-  - nyra clean -d
+  - name: completions
+    help: Loads completions in your shell
 
+  - name: android
+    help: Mounts and unmounts the connected android device
 
-- name: completions
-  help: Loads completions in your shell
+    flags:
+      - long: --unmount
+        short: -u
+        help: Unmounts the device from ~/Android
 
+    examples:
+      - nyra android
+      - nyra android -u
 
-- name: android
-  help: Mounts and unmounts the connected android device
+  - name: search
+    help: Search packages from nixpkgs unstable (wraps nh search)
 
-  flags:
-  - long: --unmount
-    short: -u
-    help: Unmounts the device from ~/Android
+    args:
+      - name: query
+        help: Which package to search
+        required: true
 
-  examples:
-  - nyra android
-  - nyra android -u
+    examples:
+      - nyra search [query]
 
+  - name: shell
+    help: Test packages from nixpkgs in a dedicated shell (wraps nix shell)
 
-- name: search
-  help: Search packages from nixpkgs unstable (wrapper over nh search)
+    args:
+      - name: packages
+        help: Create a shell with the specified packages
+        required: true
+        repeatable: true
 
-  args:
-  - name: query
-    help: Which package to search
-    required: true
-  
-  examples:
-  - nyra search [query]
-
-
-- name: shell
-  help: Test packages from nixpkgs in a dedicated shell (wrapper over nix shell)
-
-  args:
-  - name: packages
-    help: Create a shell with the specified packages
-    required: true
-    repeatable: true
-
-  examples:
-  - nyra shell "[package1] ..."
+    examples:
+      - nyra shell "[package1] ..."
