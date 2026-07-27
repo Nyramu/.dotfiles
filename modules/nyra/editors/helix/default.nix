@@ -1,14 +1,25 @@
-{ self, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake.modules.homeManager = {
     editors.imports = [ self.modules.homeManager.helix ];
 
     helix =
-      { config, ... }:
+      {
+        config,
+        pkgs,
+        host,
+        ...
+      }:
 
       let
         cfg = config.nyra.editors.helix;
         default = config.nyra.editors.default;
+        chaotic = inputs.chaotic.packages.${host.system};
       in
       {
         options.nyra.editors.helix = {
@@ -18,6 +29,7 @@
         config = {
           programs.helix = lib.mkIf (cfg.enable) {
             enable = true;
+            package = chaotic.helix_git or pkgs.helix;
             defaultEditor = (default == "helix");
 
             settings = {
