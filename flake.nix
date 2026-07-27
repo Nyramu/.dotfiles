@@ -65,6 +65,8 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -81,26 +83,26 @@
     extra-substituters = [
       # Vicinae
       "https://vicinae.cachix.org"
-      # Hyprland
-      "https://hyprland.cachix.org"
       # Noctalia Shell
       "https://noctalia.cachix.org"
       # Eden Emulator
       "https://eden-nix.cachix.org"
       # CachyOS Kernels
       "https://attic.xuyh0120.win/lantian"
+      # Chaotic
+      "https://nyx-cache.chaotic.cx"
     ];
     extra-trusted-public-keys = [
       # Vicinae
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
-      # Hyprland
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       # Noctalia Shell
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       # Eden Emulator
       "eden-nix.cachix.org-1:BrC9tVNflA7yeLft5i2SjZTlGs46cBpUgULgHbMj8/E="
       # CachyOS Kernels
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      # Chaotic
+      "nyx-cache.chaotic.cx:dJxTrgMC3V3cFfyIiBQDQorG6k1LsqurH/srpMSq7qk="
     ];
   };
 }
