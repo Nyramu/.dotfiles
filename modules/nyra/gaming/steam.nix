@@ -1,13 +1,24 @@
-{ self, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake.modules.nixos = {
     gaming.imports = [ self.modules.nixos.steam ];
 
     steam =
-      { config, pkgs, ... }:
+      {
+        config,
+        pkgs,
+        host,
+        ...
+      }:
 
       let
         cfg = config.nyra.gaming.steam;
+        proton = inputs.chaotic.packages.${host.system}.proton-ge-custom or pkgs.proton-ge-bin;
       in
       {
         options.nyra.gaming.steam = {
@@ -27,7 +38,7 @@
               xdg-utils
               desktop-file-utils
             ];
-            extraCompatPackages = with pkgs; [ proton-ge-bin ];
+            extraCompatPackages = [ proton ];
           };
 
           hardware.steam-hardware.enable = true;
