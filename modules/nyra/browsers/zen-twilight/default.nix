@@ -28,6 +28,8 @@
           programs.zen-browser = lib.mkIf (cfg.enable) {
             enable = true;
             setAsDefaultBrowser = (default == "zen-twilight");
+            enablePrivateDesktopEntry = true;
+
             profiles.${user.name} = {
               isDefault = true;
               settings = {
@@ -83,11 +85,6 @@
                   color = "purple";
                   icon = "chill";
                   id = 1;
-                };
-                "Work/Study" = {
-                  color = "turquoise";
-                  icon = "briefcase";
-                  id = 2;
                 };
                 Other = {
                   color = "orange";
