@@ -51,7 +51,7 @@
               {
                 name = "nix";
                 file-types = [ "nix" ];
-                formatter.command = "${lib.getExe pkgs.nixfmt}";
+                formatter.command = "${lib.getExe pkgs.nixfmt} -";
               }
               {
                 name = "css";
