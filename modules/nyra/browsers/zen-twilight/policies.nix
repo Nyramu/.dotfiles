@@ -1,17 +1,18 @@
-{ lib, ... }:
+{ inputs, ... }:
 {
-  flake.modules.homeManager.zen-twilight = {
-    programs.zen-browser = {
-      policies =
-        let
-          mkLockedAttrs = builtins.mapAttrs (
-            _: value: {
-              Value = value;
-              Status = "locked";
-            }
-          );
-        in
-        {
+  flake.modules.homeManager.zen-twilight =
+    { host, pkgs, ... }:
+
+    let
+      mkLockedAttrs = builtins.mapAttrs (
+        _: value: {
+          Value = value;
+          Status = "locked";
+        }
+      );
+
+      myPolicies = {
+        policies = {
           AppAutoUpdate = false;
           AutofillAddressEnabled = false;
           AutofillCreditCardEnabled = false;
@@ -31,7 +32,7 @@
           DisableSafeMode = false;
           DisableSetDesktopBackground = true;
           DisableTelemetry = true;
-          DisplayBookmarksToolbar = "never";
+          DisplayBookmarksToolbar = "always";
           DisplayMenuBar = "always";
           DNSOverHTTPS = {
             Enabled = true;
@@ -52,7 +53,6 @@
           ExtensionSettings = {
             "*" = {
               installation_mode = "force_installed";
-              #default_area = "navbar";
               temporarily_allow_weak_signatures = false;
               private_browsing = true;
             };
@@ -88,13 +88,24 @@
           };
           HttpsOnlyMode = "force_enabled";
           ManualAppUpdateOnly = true;
-          NoDefaultBookmarks = lib.mkDefault true;
+          NoDefaultBookmarks = true;
           OfferToSaveLogins = false;
           PasswordManagerEnabled = false;
           PictureInPicture = true;
           PopupBlocking = {
             Default = false;
             Locked = true;
+          };
+          SearchEngines = {
+            Remove = [
+              "Bing"
+              "Ecosia"
+              "Perplexity"
+              "Qwant"
+              "Wikipedia (en)"
+            ];
+            Default = "DuckDuckGo";
+            PreventInstalls = true;
           };
           SearchSuggestEnabled = true;
           ShowHomeButton = true;
@@ -104,7 +115,7 @@
             "browser.aboutConfig.showWarning" = false;
             "browser.aboutwelcome.enabled" = false;
             "browser.contentblocking.report.hide_vpn_banner" = true;
-            "browser.ipProtection.enabled" = false; # Mozilla VPN
+            "browser.ipProtection.enabled" = false;
             "browser.ipProtection.variant" = "treatment";
             "browser.tabs.allow_transparent_browser" = true;
             "browser.tabs.warnOnOpen" = false;
@@ -123,6 +134,22 @@
             "privacy.spoof_english" = 1;
           };
         };
+      };
+
+      policiesFile = pkgs.writeText "policies.json" (builtins.toJSON myPolicies);
+
+      customUnwrapped =
+        let
+          unwrapped = inputs.zen-browser.packages.${host.system}.twilight.unwrapped;
+        in
+        unwrapped.overrideAttrs (old: {
+          postInstall = (old.postInstall or "") + ''
+            rm -f $out/lib/${unwrapped.libName}/distribution/policies.json
+            cp ${policiesFile} $out/lib/${unwrapped.libName}/distribution/policies.json
+          '';
+        });
+    in
+    {
+      programs.zen-browser.package = pkgs.wrapFirefox customUnwrapped { };
     };
-  };
 }
