@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.homeManager.zen-browser = {
+  flake.modules.homeManager.zen-twilight = {
     programs.zen-browser = {
       policies =
         let
