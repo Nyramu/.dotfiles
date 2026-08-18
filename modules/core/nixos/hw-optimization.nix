@@ -12,7 +12,7 @@
       }:
 
       let
-        isAmdGpu = (gpu.integrated.vendor == "amd" || gpu.dedicated.vendor == "amd");
+        hasAmdGpu = (gpu.integrated.vendor == "amd" || gpu.dedicated.vendor == "amd");
       in
       {
         services.auto-cpufreq = {
@@ -32,14 +32,14 @@
         };
 
         hardware = {
-          amdgpu.initrd.enable = isAmdGpu;
-          amdgpu.overdrive.enable = isAmdGpu && performance != "potato";
-          amdgpu.opencl.enable = isAmdGpu;
+          amdgpu.initrd.enable = hasAmdGpu;
+          amdgpu.overdrive.enable = hasAmdGpu && performance != "potato";
+          amdgpu.opencl.enable = hasAmdGpu;
           graphics.extraPackages = with pkgs; [
             libva
           ];
         };
-        nixpkgs.config.rocmSupport = isAmdGpu;
+        nixpkgs.config.rocmSupport = hasAmdGpu;
       };
   };
 }
