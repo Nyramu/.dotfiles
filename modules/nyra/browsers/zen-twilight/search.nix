@@ -32,7 +32,7 @@
             definedAliases = [ "mynix" ];
             urls = [
               {
-                template = "https://mynixos.com/?q={searchTerms}";
+                template = "https://mynixos.com/search?q={searchTerms}";
               }
             ];
             icon = "https://mynixos.com/favicon.ico";
