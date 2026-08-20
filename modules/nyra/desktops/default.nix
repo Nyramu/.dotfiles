@@ -12,6 +12,7 @@ let
         |> map (n: lib.removeSuffix ".nix" n)
       )
     );
+    default = null;
   };
 in
 {
