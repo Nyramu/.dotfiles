@@ -35,16 +35,18 @@
     home =
       { pkgs, ... }:
       {
-        nyra.desktops.hyprland = {
-          enable = true;
-          monitors = [
-            {
-              output = "eDP-1";
-              mode = "1920x1200@60";
-              position = "auto";
-              scale = 1;
-            }
-          ];
+        nyra.desktops = {
+          default = "hyprland";
+          hyprland = {
+            monitors = [
+              {
+                output = "eDP-1";
+                mode = "1920x1200@60";
+                position = "auto";
+                scale = 1;
+              }
+            ];
+          };
         };
 
         nyra.socials = {
@@ -66,7 +68,7 @@
         };
 
         nyra.productivity = {
-          blanket.enable = true;
+          # blanket.enable = true;
           # gimp.enable = true;
         };
 
@@ -112,9 +114,7 @@
       { pkgs, ... }:
 
       {
-        nyra.desktops = {
-          hyprland.enable = true;
-        };
+        nyra.desktops.default = "hyprland";
 
         nyra.gaming = {
           steam.enable = true;

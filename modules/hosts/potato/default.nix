@@ -28,20 +28,22 @@
     home =
       { pkgs, ... }:
       {
-        nyra.desktops.hyprland = {
-          enable = true;
-          shader = {
-            enable = true;
-            name = "less-saturation";
+        nyra.desktops = {
+          default = "hyprland";
+          hyprland = {
+            shader = {
+              enable = true;
+              name = "less-saturation";
+            };
+            monitors = [
+              {
+                output = "eDP-1";
+                mode = "1920x1080@60";
+                position = "auto";
+                scale = 1;
+              }
+            ];
           };
-          monitors = [
-            {
-              output = "eDP-1";
-              mode = "1920x1080@60";
-              position = "auto";
-              scale = 1;
-            }
-          ];
         };
 
         nyra.terminals.default = "kitty";
@@ -66,10 +68,7 @@
     nixos =
       { pkgs, ... }:
       {
-        nyra.desktops = {
-          hyprland.enable = true;
-        };
-
+        nyra.desktops.default = "hyprland";
         nyra.miscellaneous = {
           bashmount.enable = true;
         };
