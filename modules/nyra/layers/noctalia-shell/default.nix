@@ -6,7 +6,7 @@
 }:
 {
   flake.modules.homeManager = {
-    desktops.imports = [ self.modules.homeManager.noctalia-shell ];
+    layers.imports = [ self.modules.homeManager.noctalia-shell ];
 
     noctalia-shell =
       {
@@ -18,14 +18,14 @@
 
       let
         ipc = "noctalia-shell ipc call";
-        cfg = config.nyra.desktops.layers.noctalia-shell;
+        cfg = config.nyra.layers.noctalia-shell;
       in
       {
         imports = [
           inputs.noctalia-shell.homeModules.default
         ];
 
-        options.nyra.desktops.layers.noctalia-shell = {
+        options.nyra.layers.noctalia-shell = {
           enable = lib.mkOption {
             type = lib.types.bool;
             default = true;

@@ -6,20 +6,20 @@
 }:
 {
   flake.modules.homeManager = {
-    desktops.imports = [ self.modules.homeManager.vicinae ];
+    layers.imports = [ self.modules.homeManager.vicinae ];
 
     vicinae =
       { config, ... }:
 
       let
-        cfg = config.nyra.desktops.layers.vicinae;
+        cfg = config.nyra.layers.vicinae;
       in
       {
         imports = [
           inputs.vicinae.homeManagerModules.default
         ];
 
-        options.nyra.desktops.layers.vicinae = {
+        options.nyra.layers.vicinae = {
           enable = lib.mkOption {
             type = lib.types.bool;
             default = true;
@@ -29,7 +29,7 @@
 
         config = lib.mkIf (cfg.enable) {
           programs.vicinae = {
-            enable = cfg.enable;
+            enable = true;
             systemd.enable = true;
             settings = {
               close_on_focus_loss = false;
@@ -87,16 +87,16 @@
   };
 
   flake.modules.nixos = {
-    desktops.imports = [ self.modules.nixos.vicinae ];
+    layers.imports = [ self.modules.nixos.vicinae ];
 
     vicinae =
       { config, host, ... }:
 
       let
-        cfg = config.nyra.desktops.layers.vicinae;
+        cfg = config.nyra.layers.vicinae;
       in
       {
-        options.nyra.desktops.layers.vicinae = {
+        options.nyra.layers.vicinae = {
           enable = lib.mkOption {
             type = lib.types.bool;
             default = true;

@@ -60,7 +60,7 @@
             };
           };
 
-          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia-shell.enable) {
+          programs.noctalia-shell = lib.mkIf (cfg.layers.noctalia-shell.enable) {
             settings = {
               ui = {
                 panelBackgroundOpacity = lib.mkForce 0.6;
@@ -77,7 +77,7 @@
             };
           };
 
-          programs.vicinae = lib.mkIf (cfg.desktops.layers.vicinae.enable) {
+          programs.vicinae = lib.mkIf (cfg.layers.vicinae.enable) {
             settings = {
               font = {
                 normal = {

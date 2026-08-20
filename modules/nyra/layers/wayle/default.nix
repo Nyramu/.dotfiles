@@ -1,16 +1,16 @@
 { self, lib, ... }:
 {
   flake.modules.homeManager = {
-    desktops.imports = [ self.modules.homeManager.wayle ];
+    layers.imports = [ self.modules.homeManager.wayle ];
 
     wayle =
       { config, ... }:
 
       let
-        cfg = config.nyra.desktops.layers.wayle;
+        cfg = config.nyra.layers.wayle;
       in
       {
-        options.nyra.desktops.layers.wayle = {
+        options.nyra.layers.wayle = {
           enable = lib.mkEnableOption "Enable wayle";
         };
 

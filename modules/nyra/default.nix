@@ -7,6 +7,7 @@
       editors
       files
       gaming
+      layers
       miscellaneous
       music
       productivity
@@ -21,6 +22,7 @@
     imports = with self.modules.nixos; [
       desktops
       gaming
+      layers
       login
       miscellaneous
       services

@@ -57,7 +57,7 @@
             };
           };
 
-          programs.noctalia-shell = lib.mkIf (cfg.desktops.layers.noctalia-shell.enable) {
+          programs.noctalia-shell = lib.mkIf (cfg.layers.noctalia-shell.enable) {
             colors = {
               mPrimary = lib.mkForce palette.base08;
               mSecondary = lib.mkForce palette.base0C;
