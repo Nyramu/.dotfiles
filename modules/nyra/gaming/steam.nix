@@ -30,7 +30,7 @@
           programs.steam = {
             enable = true;
             gamescopeSession = {
-              enable = true;
+              enable = config.nyra.gaming.gamescope.enable;
             };
             protontricks.enable = true;
             extest.enable = true;
