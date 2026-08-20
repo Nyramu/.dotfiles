@@ -31,10 +31,7 @@
         nyra.desktops = {
           default = "hyprland";
           hyprland = {
-            shader = {
-              enable = true;
-              name = "less-saturation";
-            };
+            shader = "less-saturation";
             monitors = [
               {
                 output = "eDP-1";

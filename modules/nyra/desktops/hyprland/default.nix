@@ -36,13 +36,13 @@
             description = "list of hyprland monitors";
           };
 
-          shader = {
-            enable = mkEnableOption "enable screen shader";
-            name = mkOption {
-              type = types.enum (
+          shader = mkOption {
+            type = types.nullOr (
+              types.enum (
                 builtins.readDir shaderPath |> builtins.attrNames |> map (s: lib.removeSuffix ".frag" s)
-              );
-            };
+              )
+            );
+            default = null;
           };
         };
 
@@ -104,7 +104,7 @@
                   render_power = 3;
                   color = "rgba(26, 26, 26, 0.93)";
                 };
-                screen_shader = lib.mkIf (cfg.shader.enable) (shaderPath + "/${cfg.shader.name}.frag");
+                screen_shader = lib.mkIf (cfg.shader != null) (shaderPath + "/${cfg.shader}.frag");
                 blur = {
                   enabled = if (performance != "potato") then true else false;
                   new_optimizations = true;
