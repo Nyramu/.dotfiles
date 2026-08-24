@@ -8,7 +8,7 @@
 
       let
         logoType = lib.types.enum (
-          builtins.readDir (user.dotfiles + "/resources/pics")
+          builtins.readDir (self.outPath + "/resources/pics")
           |> builtins.attrNames
           |> map (n: lib.removeSuffix ".png" n)
         );
