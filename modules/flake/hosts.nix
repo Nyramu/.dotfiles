@@ -50,20 +50,26 @@ let
         gpu = {
           integrated = {
             vendor = mkOption {
-              type = types.enum [
-                "amd"
-                "intel"
-                "nvidia"
-              ];
+              type = types.nullOr (
+                types.enum [
+                  "amd"
+                  "intel"
+                  "nvidia"
+                ]
+              );
+              default = null;
             };
           };
           dedicated = {
             vendor = mkOption {
-              type = types.enum [
-                "amd"
-                "intel"
-                "nvidia"
-              ];
+              type = types.nullOr (
+                types.enum [
+                  "amd"
+                  "intel"
+                  "nvidia"
+                ]
+              );
+              default = null;
             };
           };
         };
