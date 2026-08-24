@@ -53,6 +53,7 @@ let
               type = types.enum [
                 "amd"
                 "intel"
+                "nvidia"
               ];
             };
           };
@@ -60,6 +61,7 @@ let
             vendor = mkOption {
               type = types.enum [
                 "amd"
+                "intel"
                 "nvidia"
               ];
             };

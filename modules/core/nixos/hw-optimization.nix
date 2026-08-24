@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, lib, ... }:
 {
   flake.modules.nixos = {
     core.imports = [ self.modules.nixos.hw-optimization ];
@@ -7,14 +7,19 @@
       {
         pkgs,
         performance,
+        cpu,
         gpu,
         ...
       }:
 
       let
         hasAmdGpu = (gpu.integrated.vendor == "amd" || gpu.dedicated.vendor == "amd");
+        hasIntelGpu = (gpu.integrated.vendor == "intel" || gpu.dedicated.vendor == "intel");
+        hasNvidiaGpu = (gpu.integrated.vendor == "nvidia" || gpu.dedicated.vendor == "nvidia");
       in
       {
+        services.thermald.enable = (cpu.vendor == "intel");
+
         services.auto-cpufreq = {
           enable = true;
           settings = {
@@ -32,12 +37,23 @@
         };
 
         hardware = {
-          amdgpu.initrd.enable = hasAmdGpu;
-          amdgpu.overdrive.enable = hasAmdGpu && performance != "potato";
-          amdgpu.opencl.enable = hasAmdGpu;
-          graphics.extraPackages = with pkgs; [
-            libva
-          ];
+          amdgpu = lib.mkIf hasAmdGpu {
+            initrd.enable = true;
+            overdrive.enable = (performance != "potato");
+            opencl.enable = true;
+          };
+          nvidia = lib.mkIf hasNvidiaGpu {
+            enabled = true;
+            # dynamicBoost.enable = true; # For laptops
+          };
+          graphics.extraPackages =
+            with pkgs;
+            [ libva ]
+            ++ lib.optionals hasIntelGpu [
+              intel-media-driver
+              vpl-gpu-rt
+              intel-compute-runtime
+            ];
         };
         nixpkgs.config.rocmSupport = hasAmdGpu;
       };
