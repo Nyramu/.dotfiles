@@ -41,6 +41,7 @@
             initrd.enable = true;
             overdrive.enable = (performance != "potato");
             opencl.enable = true;
+            zluda.enable = true;
           };
           nvidia = lib.mkIf hasNvidiaGpu {
             enabled = true;
