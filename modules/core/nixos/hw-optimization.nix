@@ -41,7 +41,7 @@
             initrd.enable = true;
             overdrive.enable = (performance != "potato");
             opencl.enable = true;
-            zluda.enable = true;
+            # zluda.enable = true;
           };
           nvidia = lib.mkIf hasNvidiaGpu {
             # dynamicBoost.enable = true; # For laptops
