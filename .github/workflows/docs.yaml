@@ -27,66 +27,23 @@ jobs:
         run: |
           nix build .#docs-nixos --out-link docs-nixos
           nix build .#docs-hm --out-link docs-hm
+
           mkdir -p docs-site/nixos docs-site/hm
           cp -rL docs-nixos/* docs-site/nixos/
           cp -rL docs-hm/* docs-site/hm/
-          cat > docs-site/index.html <<'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Nyra Options</title>
-            <style>
-              body {
-                background: #1a1a1a;
-                color: #e0e0e0;
-                font-family: 'JetBrains Mono', 'Fira Code', monospace;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 100vh;
-                margin: 0;
-              }
-              main {
-                text-align: center;
-              }
-              h1 {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-              }
-              .links {
-                display: flex;
-                gap: 1rem;
-                justify-content: center;
-              }
-              a {
-                display: block;
-                padding: 1rem 2rem;
-                background: #242424;
-                border: 1px solid #3a3a3a;
-                border-radius: 8px;
-                color: #7dd3fc;
-                text-decoration: none;
-                transition: border-color 0.15s, background 0.15s;
-              }
-              a:hover {
-                border-color: #7dd3fc;
-                background: #2a2a2a;
-              }
-            </style>
-          </head>
-          <body>
-            <main>
-              <h1>Nyra Options</h1>
-              <div class="links">
-                <a href="nixos/options.html">NixOS</a>
-                <a href="hm/options.html">Home Manager</a>
-              </div>
-            </main>
-          </body>
-          </html>
+
+          mkdir -p docs-index
+          cat > docs-index/index.md <<'EOF'
+          # Nyra Options
+
+          - [NixOS options](nixos/options.html)
+          - [Home Manager options](hm/options.html)
           EOF
+
+          nix run .#ndg -- html \
+            --input-dir docs-index \
+            --output-dir docs-site \
+            --title "Nyra Options"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs-site

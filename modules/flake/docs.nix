@@ -62,6 +62,7 @@
       packages = {
         docs-nixos = mkHtmlDocs "NixOS" nixosOptions;
         docs-hm = mkHtmlDocs "Home Manager" hmOptions;
+        inherit ndg;
       };
     };
 }
