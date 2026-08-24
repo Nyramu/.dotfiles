@@ -159,18 +159,21 @@
 
       let
         cfg = config.nyra.desktops.hyprland;
+        default = config.nyra.desktops.default;
       in
       {
         options.nyra.desktops.hyprland = {
           enable = lib.mkEnableOption "hyprland";
         };
 
-        config = lib.mkIf (cfg.enable) {
-          programs.hyprland = {
+        config = {
+          programs.hyprland = lib.mkIf (cfg.enable) {
             enable = true;
             package = pkgs.hyprland;
             xwayland.enable = wayland.xwayland.enable;
           };
+
+          nyra.desktops.hyprland.enable = lib.mkDefault (default == "hyprland");
         };
       };
   };
