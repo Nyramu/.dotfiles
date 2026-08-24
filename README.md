@@ -8,7 +8,7 @@ readme.
 
 - Dendritic pattern
 - Granular host configuration
-- [Nyra Options](./modules/nyra): a comfy way to manage configured modules
+- [Nyra Options](https://nyramu.github.io/.dotfiles): a comfy way to manage configured modules
 - [Nyra CLI](./modules/flake/packages/nyra): useful commands wrapped in an
   easy-to-use CLI
 - [Themes](./modules/themes): a whole aesthetic overhaul, applied on top of the

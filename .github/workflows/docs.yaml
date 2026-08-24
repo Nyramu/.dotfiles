@@ -1,0 +1,102 @@
+name: Deploy Docs
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'modules/nyra/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          extra_nix_config: |
+            experimental-features = nix-command flakes pipe-operators
+      - uses: cachix/cachix-action@v17
+        with:
+          name: hyprnix
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - name: Generate docs
+        run: |
+          nix build .#docs-nixos --out-link docs-nixos
+          nix build .#docs-hm --out-link docs-hm
+          mkdir -p docs-site/nixos docs-site/hm
+          cp -rL docs-nixos/* docs-site/nixos/
+          cp -rL docs-hm/* docs-site/hm/
+          cat > docs-site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Nyra Options</title>
+            <style>
+              body {
+                background: #1a1a1a;
+                color: #e0e0e0;
+                font-family: 'JetBrains Mono', 'Fira Code', monospace;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+              }
+              main {
+                text-align: center;
+              }
+              h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+              }
+              .links {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+              }
+              a {
+                display: block;
+                padding: 1rem 2rem;
+                background: #242424;
+                border: 1px solid #3a3a3a;
+                border-radius: 8px;
+                color: #7dd3fc;
+                text-decoration: none;
+                transition: border-color 0.15s, background 0.15s;
+              }
+              a:hover {
+                border-color: #7dd3fc;
+                background: #2a2a2a;
+              }
+            </style>
+          </head>
+          <body>
+            <main>
+              <h1>Nyra Options</h1>
+              <div class="links">
+                <a href="nixos/options.html">NixOS</a>
+                <a href="hm/options.html">Home Manager</a>
+              </div>
+            </main>
+          </body>
+          </html>
+          EOF
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs-site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Github Pages
+        uses: actions/deploy-pages@v4
+        id: deployment
