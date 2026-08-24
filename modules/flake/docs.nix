@@ -1,4 +1,3 @@
-# modules/flake/docs.nix
 {
   self,
   lib,
