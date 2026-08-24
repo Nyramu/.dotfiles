@@ -44,7 +44,6 @@
             zluda.enable = true;
           };
           nvidia = lib.mkIf hasNvidiaGpu {
-            enabled = true;
             # dynamicBoost.enable = true; # For laptops
           };
           graphics.extraPackages =
@@ -56,6 +55,8 @@
               intel-compute-runtime
             ];
         };
+        services.xserver.videoDrivers = lib.optionals hasNvidiaGpu [ "nvidia" ];
+
         nixpkgs.config.rocmSupport = hasAmdGpu;
       };
   };
