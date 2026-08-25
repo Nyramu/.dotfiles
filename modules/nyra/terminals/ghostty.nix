@@ -12,7 +12,7 @@
       in
       {
         options.nyra.terminals.ghostty = {
-          enable = lib.mkEnableOption "ghostty";
+          enable = lib.mkEnableOption "Ghostty";
         };
 
         config = {

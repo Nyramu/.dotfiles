@@ -11,7 +11,7 @@
       in
       {
         options.nyra.socials.discord = {
-          enable = lib.mkEnableOption "discord";
+          enable = lib.mkEnableOption "Discord";
         };
 
         config = lib.mkIf (cfg.enable) {

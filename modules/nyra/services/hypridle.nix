@@ -12,10 +12,8 @@
       in
       {
         options.nyra.services.hypridle = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "Hypridle" // {
             default = true;
-            description = "enable hypridle";
           };
         };
 

@@ -23,7 +23,7 @@
       in
       {
         options.nyra.socials.telegram = {
-          enable = lib.mkEnableOption "telegram";
+          enable = lib.mkEnableOption "Telegram Desktop";
         };
 
         config = lib.mkIf (cfg.enable) {

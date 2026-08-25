@@ -17,7 +17,7 @@
       in
       {
         options.nyra.files.yazi = {
-          enable = lib.mkEnableOption "yazi";
+          enable = lib.mkEnableOption "Yazi";
         };
 
         config = {

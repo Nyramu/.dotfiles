@@ -11,7 +11,7 @@
       in
       {
         options.nyra.miscellaneous.zellij = {
-          enable = lib.mkEnableOption "zellij";
+          enable = lib.mkEnableOption "Zellij";
         };
 
         config = lib.mkIf (cfg.enable) {

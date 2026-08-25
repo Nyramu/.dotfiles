@@ -17,7 +17,7 @@
       in
       {
         options.nyra.music.mpd = {
-          enable = lib.mkEnableOption "mpd";
+          enable = lib.mkEnableOption "MPD";
         };
 
         config = lib.mkIf (cfg.enable) {

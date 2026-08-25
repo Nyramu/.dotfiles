@@ -14,13 +14,14 @@
     {
       options.nyra.desktops.hyprland.plugins = {
         dynamic-cursors = {
-          enable = lib.mkEnableOption "hyprland dynamic-cursors plugin";
+          enable = lib.mkEnableOption "dynamic-cursors plugin for Hyprland";
           mode = lib.mkOption {
             type = lib.types.enum [
               "rotate"
               "shake"
             ];
             default = "rotate";
+            description = "Which mode to use";
           };
         };
       };

@@ -11,7 +11,7 @@
       in
       {
         options.nyra.productivity.packetTracer = {
-          enable = lib.mkEnableOption "packet tracer";
+          enable = lib.mkEnableOption "Cisco Packet Tracer";
         };
 
         config = lib.mkIf (cfg.enable) {

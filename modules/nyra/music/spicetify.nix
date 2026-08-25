@@ -24,7 +24,7 @@
         imports = [ inputs.spicetify.homeManagerModules.spicetify ];
 
         options.nyra.music.spicetify = {
-          enable = lib.mkEnableOption "spicetify";
+          enable = lib.mkEnableOption "Spicetify";
         };
 
         config = lib.mkIf (cfg.enable) {

@@ -26,10 +26,8 @@
         ];
 
         options.nyra.layers.noctalia-shell = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "Noctalia v4" // {
             default = true;
-            description = "Enable noctalia-shell";
           };
         };
 

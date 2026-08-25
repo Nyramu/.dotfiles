@@ -21,7 +21,7 @@
         ];
 
         options.nyra.browsers.zen-twilight = {
-          enable = lib.mkEnableOption "zen-twilight browser";
+          enable = lib.mkEnableOption "Zen Twilight";
         };
 
         config = {

@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.gamemode = {
-          enable = lib.mkEnableOption "gamemode";
+          enable = lib.mkEnableOption "Gamemode";
         };
 
         config = lib.mkIf (cfg.enable) {

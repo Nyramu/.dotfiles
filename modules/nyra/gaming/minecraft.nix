@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.minecraft = {
-          enable = lib.mkEnableOption "minecraft";
+          enable = lib.mkEnableOption "Minecraft";
         };
 
         config = lib.mkIf (cfg.enable) {

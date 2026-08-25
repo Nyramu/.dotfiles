@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.heroic = {
-          enable = lib.mkEnableOption "heroic";
+          enable = lib.mkEnableOption "Heroic Launcher";
         };
 
         config = lib.mkIf (cfg.enable) {

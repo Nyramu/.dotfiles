@@ -11,7 +11,7 @@
       in
       {
         options.nyra.music.spotiflac = {
-          enable = lib.mkEnableOption "spotiflac";
+          enable = lib.mkEnableOption "SpotiFLAC";
         };
 
         config = lib.mkIf (cfg.enable) {

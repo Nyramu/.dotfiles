@@ -26,7 +26,7 @@
         ];
 
         options.nyra.gaming.eden = {
-          enable = lib.mkEnableOption "eden";
+          enable = lib.mkEnableOption "Eden Emulator";
         };
 
         config = lib.mkIf (cfg.enable) {

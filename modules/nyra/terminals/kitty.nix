@@ -12,7 +12,7 @@
       in
       {
         options.nyra.terminals.kitty = {
-          enable = lib.mkEnableOption "kitty";
+          enable = lib.mkEnableOption "Kitty";
         };
 
         config = {

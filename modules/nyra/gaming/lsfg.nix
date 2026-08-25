@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.lsfg = {
-          enable = lib.mkEnableOption "lsfg-vk";
+          enable = lib.mkEnableOption "LSFG-VK";
         };
 
         config = lib.mkIf (cfg.enable) {

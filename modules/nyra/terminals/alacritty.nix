@@ -17,7 +17,7 @@
       in
       {
         options.nyra.terminals.alacritty = {
-          enable = lib.mkEnableOption "alacritty";
+          enable = lib.mkEnableOption "Alacritty";
         };
 
         config = {

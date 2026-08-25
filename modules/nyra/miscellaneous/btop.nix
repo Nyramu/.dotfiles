@@ -11,7 +11,7 @@
       in
       {
         options.nyra.miscellaneous.btop = {
-          enable = lib.mkEnableOption "btop";
+          enable = lib.mkEnableOption "btop++";
           gpu-name = lib.mkOption {
             type = lib.types.str;
             default = "";

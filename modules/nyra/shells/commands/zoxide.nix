@@ -11,8 +11,7 @@
       in
       {
         options.nyra.shells.commands.zoxide = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "zoxide" // {
             default = true;
           };
         };

@@ -11,7 +11,7 @@
       in
       {
         options.nyra.editors.zed = {
-          enable = lib.mkEnableOption "zed";
+          enable = lib.mkEnableOption "Zed";
         };
 
         config = lib.mkIf (cfg.enable) {

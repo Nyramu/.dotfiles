@@ -11,7 +11,7 @@
       in
       {
         options.nyra.productivity.aseprite = {
-          enable = lib.mkEnableOption "aseprite";
+          enable = lib.mkEnableOption "Aseprite";
         };
 
         config = lib.mkIf (cfg.enable) {

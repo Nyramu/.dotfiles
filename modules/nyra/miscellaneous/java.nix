@@ -16,10 +16,11 @@
       in
       {
         options.nyra.miscellaneous.java = {
-          enable = lib.mkEnableOption "java";
+          enable = lib.mkEnableOption "Java";
           package = lib.mkOption {
             type = lib.types.package;
             default = pkgs.openjdk25;
+            description = "Which Java package to use";
           };
         };
 

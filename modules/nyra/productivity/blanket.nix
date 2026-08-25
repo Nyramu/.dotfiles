@@ -11,7 +11,7 @@
       in
       {
         options.nyra.productivity.blanket = {
-          enable = lib.mkEnableOption "blanket";
+          enable = lib.mkEnableOption "Blanket";
         };
 
         config = lib.mkIf (cfg.enable) {

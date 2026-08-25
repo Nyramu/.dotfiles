@@ -11,8 +11,7 @@
       in
       {
         options.nyra.shells.commands.eza = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "eza" // {
             default = true;
           };
         };

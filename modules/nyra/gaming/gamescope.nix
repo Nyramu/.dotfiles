@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.gamescope = {
-          enable = lib.mkEnableOption "gamescope";
+          enable = lib.mkEnableOption "Gamescope";
         };
 
         config = lib.mkIf (cfg.enable) {

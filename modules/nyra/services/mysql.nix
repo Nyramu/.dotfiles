@@ -11,7 +11,7 @@
       in
       {
         options.nyra.services.mysql = {
-          enable = lib.mkEnableOption "mysql";
+          enable = lib.mkEnableOption "MySQL";
         };
 
         config = lib.mkIf (cfg.enable) {

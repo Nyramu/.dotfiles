@@ -22,7 +22,7 @@
       in
       {
         options.nyra.gaming.steam = {
-          enable = lib.mkEnableOption "steam";
+          enable = lib.mkEnableOption "Steam";
         };
 
         config = lib.mkIf (cfg.enable) {

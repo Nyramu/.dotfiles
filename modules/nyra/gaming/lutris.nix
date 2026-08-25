@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.lutris = {
-          enable = lib.mkEnableOption "lutris";
+          enable = lib.mkEnableOption "Lutris";
         };
 
         config = lib.mkIf (cfg.enable) {

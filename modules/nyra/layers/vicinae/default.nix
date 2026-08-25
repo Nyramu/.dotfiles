@@ -20,10 +20,8 @@
         ];
 
         options.nyra.layers.vicinae = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "Vicinae" // {
             default = true;
-            description = "Enable vicinae";
           };
         };
 
@@ -97,10 +95,8 @@
       in
       {
         options.nyra.layers.vicinae = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "Vicinae" // {
             default = true;
-            description = "Enable vicinae";
           };
         };
 

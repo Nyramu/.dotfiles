@@ -11,7 +11,7 @@
       in
       {
         options.nyra.layers.wayle = {
-          enable = lib.mkEnableOption "Enable wayle";
+          enable = lib.mkEnableOption "Wayle";
         };
 
         config = lib.mkIf (cfg.enable) {

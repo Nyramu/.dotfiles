@@ -4,7 +4,7 @@
     miscellaneous.imports = [ self.modules.homeManager.fastfetch ];
 
     fastfetch =
-      { config, user, ... }:
+      { config, ... }:
 
       let
         logoType = lib.types.enum (
@@ -16,9 +16,11 @@
       in
       {
         options.nyra.miscellaneous.fastfetch = {
-          enable = lib.mkEnableOption "fastfetch";
+          enable = lib.mkEnableOption "Fastfetch";
           logo = lib.mkOption {
             type = lib.types.nullOr logoType;
+            default = null;
+            description = "Set a logo for Fastfetch";
           };
         };
 

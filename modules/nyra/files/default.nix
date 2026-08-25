@@ -12,12 +12,16 @@ in
     in
     {
       options.nyra.files.default = lib.mkOption {
-        type = lib.types.enum (
-          builtins.readDir path
-          |> builtins.attrNames
-          |> builtins.filter (n: n != "default.nix")
-          |> map (n: lib.removeSuffix ".nix" n)
+        type = lib.types.nullOr (
+          lib.types.enum (
+            builtins.readDir path
+            |> builtins.attrNames
+            |> builtins.filter (n: n != "default.nix")
+            |> map (n: lib.removeSuffix ".nix" n)
+          )
         );
+        default = null;
+        description = "Set a default file manager";
       };
 
       config = {

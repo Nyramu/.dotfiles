@@ -11,7 +11,7 @@
       in
       {
         options.nyra.productivity.gimp = {
-          enable = lib.mkEnableOption "gimp";
+          enable = lib.mkEnableOption "GIMP";
         };
 
         config = lib.mkIf (cfg.enable) {

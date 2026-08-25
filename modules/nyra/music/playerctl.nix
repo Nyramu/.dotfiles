@@ -54,7 +54,7 @@
       in
       {
         options.nyra.music.playerctl = {
-          enable = lib.mkEnableOption "playerctl";
+          enable = lib.mkEnableOption "Playerctl";
         };
 
         config = {

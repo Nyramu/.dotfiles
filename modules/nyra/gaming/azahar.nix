@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.azahar = {
-          enable = lib.mkEnableOption "azahar";
+          enable = lib.mkEnableOption "Azahar Emulator";
         };
 
         config = lib.mkIf (cfg.enable) {

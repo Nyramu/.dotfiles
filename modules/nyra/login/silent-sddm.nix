@@ -22,8 +22,7 @@
         imports = [ inputs.silentSDDM.nixosModules.default ];
 
         options.nyra.login.silentSddm = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "SilentSDDM" // {
             default = true;
           };
         };

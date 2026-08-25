@@ -28,12 +28,12 @@
         ];
 
         options.nyra.desktops.hyprland = with lib; {
-          enable = mkEnableOption "hyprland";
+          enable = mkEnableOption "Hyprland";
 
           monitors = mkOption {
             type = types.listOf types.attrs;
             default = [ ];
-            description = "list of hyprland monitors";
+            description = "List of Hyprland monitors";
           };
 
           shader = mkOption {
@@ -43,6 +43,7 @@
               )
             );
             default = null;
+            description = "Set a shader for Hyprland";
           };
         };
 
@@ -163,7 +164,7 @@
       in
       {
         options.nyra.desktops.hyprland = {
-          enable = lib.mkEnableOption "hyprland";
+          enable = lib.mkEnableOption "Hyprland";
         };
 
         config = {

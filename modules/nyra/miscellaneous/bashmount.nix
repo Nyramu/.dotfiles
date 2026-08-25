@@ -11,7 +11,7 @@
       in
       {
         options.nyra.miscellaneous.bashmount = {
-          enable = lib.mkEnableOption "bashmount (with udisk2)";
+          enable = lib.mkEnableOption "Bashmount (with udisk2)";
         };
 
         config = lib.mkIf (cfg.enable) {

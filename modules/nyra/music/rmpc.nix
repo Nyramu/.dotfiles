@@ -12,7 +12,7 @@
       in
       {
         options.nyra.music.rmpc = {
-          enable = lib.mkEnableOption "rmpc";
+          enable = lib.mkEnableOption "RMPC";
         };
 
         config = lib.mkIf (cfg.enable) {

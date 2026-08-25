@@ -23,7 +23,7 @@
       in
       {
         options.nyra.editors.helix = {
-          enable = lib.mkEnableOption "helix";
+          enable = lib.mkEnableOption "Helix";
         };
 
         config = {

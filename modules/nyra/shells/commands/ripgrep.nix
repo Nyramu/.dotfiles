@@ -11,8 +11,7 @@
       in
       {
         options.nyra.shells.commands.ripgrep = {
-          enable = lib.mkOption {
-            type = lib.types.bool;
+          enable = lib.mkEnableOption "ripgrep" // {
             default = true;
           };
         };

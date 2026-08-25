@@ -13,6 +13,7 @@ let
       )
     );
     default = null;
+    description = "Set a default DE or WM";
   };
 in
 {
