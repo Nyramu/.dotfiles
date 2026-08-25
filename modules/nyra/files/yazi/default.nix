@@ -40,7 +40,7 @@
               opener = {
                 xdg = [
                   {
-                    run = ''xdg-open "$@"'';
+                    run = ''xdg-open %s'';
                     block = true;
                   }
                 ];
