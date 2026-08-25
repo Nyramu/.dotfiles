@@ -1,7 +1,7 @@
 { self, lib, ... }:
 {
-  flake.modules.homeManager = {
-    gaming.imports = [ self.modules.homeManager.cemu ];
+  flake.modules.nixos = {
+    gaming.imports = [ self.modules.nixos.cemu ];
 
     cemu =
       { config, pkgs, ... }:
@@ -16,7 +16,7 @@
         };
 
         config = lib.mkIf (cfg.enable) {
-          home.packages = with pkgs; [ cemu ] ++ lib.optionals (cfg.ukmm.enable) [ ukmm ];
+          environment.systemPackages = with pkgs; [ cemu ] ++ lib.optionals (cfg.ukmm.enable) [ ukmm ];
         };
       };
   };
