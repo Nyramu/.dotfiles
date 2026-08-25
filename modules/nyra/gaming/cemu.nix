@@ -12,11 +12,16 @@
       {
         options.nyra.gaming.cemu = {
           enable = lib.mkEnableOption "Cemu Emulator";
+          package = lib.mkOption {
+            type = lib.types.package;
+            default = pkgs.cemu;
+            description = "The cemu package to use";
+          };
           ukmm.enable = lib.mkEnableOption "UKMM (BoTW Mod Manager)";
         };
 
         config = lib.mkIf (cfg.enable) {
-          environment.systemPackages = with pkgs; [ cemu ] ++ lib.optionals (cfg.ukmm.enable) [ ukmm ];
+          environment.systemPackages = [ cfg.package ] ++ lib.optional (cfg.ukmm.enable) pkgs.ukmm;
         };
       };
   };
