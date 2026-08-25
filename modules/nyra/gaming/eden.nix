@@ -5,8 +5,8 @@
   ...
 }:
 {
-  flake.modules.homeManager = {
-    gaming.imports = [ self.modules.homeManager.eden ];
+  flake.modules.nixos = {
+    gaming.imports = [ self.modules.nixos.eden ];
 
     eden =
       {
@@ -22,7 +22,7 @@
       in
       {
         imports = [
-          inputs.eden.homeModules.default
+          inputs.eden.nixosModules.default
         ];
 
         options.nyra.gaming.eden = {
@@ -35,7 +35,7 @@
             package = if (host.name == "main") then edenPkgs.zen4 else edenPkgs.default;
           };
 
-          home.packages = [ pkgs.nsz ];
+          environment.systemPackages = [ pkgs.nsz ];
         };
       };
   };
