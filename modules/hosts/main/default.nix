@@ -80,11 +80,6 @@
 
         nyra.gaming = {
           minecraft.enable = true;
-          cemu = {
-            enable = true;
-            ukmm.enable = true;
-          };
-          eden.enable = true;
         };
 
         nyra.miscellaneous = {
@@ -118,6 +113,11 @@
 
         nyra.gaming = {
           steam.enable = true;
+          eden.enable = true;
+          cemu = {
+            enable = true;
+            ukmm.enable = true;
+          };
           gamemode.enable = true;
           gamescope.enable = true;
           lsfg.enable = true;
