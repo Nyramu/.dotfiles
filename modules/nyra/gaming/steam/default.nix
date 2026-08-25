@@ -21,6 +21,8 @@
         proton = inputs.chaotic.packages.${host.system}.proton-ge-custom or pkgs.proton-ge-bin;
       in
       {
+        imports = [ inputs.steam-config.nixosModules.default ];
+
         options.nyra.gaming.steam = {
           enable = lib.mkEnableOption "Steam";
         };
@@ -29,6 +31,12 @@
           boot.kernelModules = [ "ntsync" ];
           programs.steam = {
             enable = true;
+            config = {
+              enable = true;
+              onSteamRunning = "close";
+              defaultCompatTool = proton;
+              displayRatesAsBits = false;
+            };
             gamescopeSession = {
               enable = config.nyra.gaming.gamescope.enable;
             };
@@ -38,7 +46,6 @@
               xdg-utils
               desktop-file-utils
             ];
-            extraCompatPackages = [ proton ];
           };
 
           hardware.steam-hardware.enable = true;
