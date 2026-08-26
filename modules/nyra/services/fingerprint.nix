@@ -17,12 +17,12 @@
             sudo = lib.mkOption {
               type = ints.positive;
               default = 3;
-              description = "Fingerprint timeout (s) for sudo authentication (integer)";
+              description = "Fingerprint timeout (in seconds) for sudo authentication";
             };
             sddm = lib.mkOption {
               type = ints.positive;
               default = 2;
-              description = "Fingerprint timeout (s) for sddm authentication (integer)";
+              description = "Fingerprint timeout (in seconds) for sddm authentication";
             };
           };
         };
