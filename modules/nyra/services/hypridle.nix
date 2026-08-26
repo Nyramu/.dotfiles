@@ -13,7 +13,7 @@
       {
         options.nyra.services.hypridle = {
           enable = lib.mkEnableOption "Hypridle" // {
-            default = true;
+            default = config.nyra.desktops.hyprland.enable;
           };
         };
 
