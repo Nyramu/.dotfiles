@@ -97,6 +97,7 @@
           android-tools
           fontfor
           # figlet
+          tetro-tui
           cbonsai
           pipes-rs
           oxipng
