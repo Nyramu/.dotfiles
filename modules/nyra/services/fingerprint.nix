@@ -21,7 +21,7 @@
             };
             sddm = lib.mkOption {
               type = ints.positive;
-              default = 2;
+              default = 3;
               description = "Fingerprint timeout (in seconds) for sddm authentication";
             };
           };
@@ -35,23 +35,17 @@
           };
 
           security.pam.services = {
-            # Sudo gives priority to fingerprint with 3 seconds timeout
             sudo.text = lib.mkForce ''
-              # Account management.
-              account required ${pkgs.pam}/lib/security/pam_unix.so # unix (order 10900)
-              # Authentication management.
-              auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=${toString cfg.timeout.sudo} # fprintd (order 11400)
-              auth sufficient ${pkgs.pam}/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-              auth required ${pkgs.pam}/lib/security/pam_deny.so # deny (order 12400)
-              # Password management.
-              password sufficient ${pkgs.pam}/lib/security/pam_unix.so nullok yescrypt # unix (order 10200)
-              # Session management.
-              session required ${pkgs.pam}/lib/security/pam_env.so conffile=/etc/pam/environment readenv=0 # env (order 10100)
-              session required ${pkgs.pam}/lib/security/pam_unix.so # unix (order 10200)
-              session required ${pkgs.pam}/lib/security/pam_limits.so # limits (order 12200)
+              account required ${pkgs.pam}/lib/security/pam_unix.so
+              auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=${toString cfg.timeout.sudo}
+              auth sufficient ${pkgs.pam}/lib/security/pam_unix.so likeauth try_first_pass 
+              auth required ${pkgs.pam}/lib/security/pam_deny.so
+              password sufficient ${pkgs.pam}/lib/security/pam_unix.so nullok yescrypt
+              session required ${pkgs.pam}/lib/security/pam_env.so conffile=/etc/pam/environment readenv=0
+              session required ${pkgs.pam}/lib/security/pam_unix.so
+              session required ${pkgs.pam}/lib/security/pam_limits.so
             '';
 
-            # Enable fingerprint on sddm, giving priority to password
             sddm.text = lib.mkForce ''
               auth      optional      ${pkgs.pam}/lib/security/pam_faildelay.so delay=2000000
               auth      sufficient    ${pkgs.pam}/lib/security/pam_unix.so try_first_pass nullok nodelay
