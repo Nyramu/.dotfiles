@@ -3,6 +3,7 @@
 
   inputs = {
     eden.url = "github:Nyramu/eden-nix";
+    cemu-nix.url = "github:Nyramu/cemu-nix";
 
     steam-config = {
       url = "github:different-name/steam-config-nix";
@@ -97,6 +98,8 @@
       "https://noctalia.cachix.org"
       # Eden Emulator
       "https://eden-nix.cachix.org"
+      # Cemu Emulator
+      "https://cemu-nix.cachix.org"
       # CachyOS Kernels
       "https://attic.xuyh0120.win/lantian"
       # Chaotic
@@ -109,6 +112,8 @@
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       # Eden Emulator
       "eden-nix.cachix.org-1:BrC9tVNflA7yeLft5i2SjZTlGs46cBpUgULgHbMj8/E="
+      # Cemu Emulator
+      "cemu-nix.cachix.org-1:T/ZzErp7a/kDpY5U8FGtJPUcE9uGvJTCp2WrpidM2eE="
       # CachyOS Kernels
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       # Chaotic
