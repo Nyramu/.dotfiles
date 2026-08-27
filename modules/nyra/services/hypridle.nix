@@ -8,7 +8,6 @@
 
       let
         cfg = config.nyra.services.hypridle;
-        lockCmd = "noctalia-shell ipc call lockScreen lock";
       in
       {
         options.nyra.services.hypridle = {
@@ -22,7 +21,7 @@
             enable = true;
             settings = {
               general = {
-                lock_cmd = lockCmd;
+                lock_cmd = "hyprlock";
                 ignore_dbus_inhibit = false;
                 ignore_systemd_inhibit = false;
                 ignore_wayland_inhibit = false;
@@ -34,11 +33,11 @@
                   on-resume = ''hyprctl dispatch 'hl.dsp.dpms({ action = "enable" })' '';
                   ignore_inhibit = false;
                 }
-                {
+                (lib.mkIf config.nyra.miscellaneous.hyprlock.enable {
                   timeout = 60 * 10;
-                  on-timeout = lockCmd;
+                  on-timeout = "hyprlock";
                   ignore_inhibit = false;
-                }
+                })
               ];
             };
           };

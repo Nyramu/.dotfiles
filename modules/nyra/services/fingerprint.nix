@@ -56,6 +56,15 @@
               session   required      ${pkgs.pam}/lib/security/pam_unix.so
               session   optional      ${pkgs.systemd}/lib/security/pam_systemd.so
             '';
+
+            hyprlock.text = lib.mkForce ''
+              account required ${pkgs.pam}/lib/security/pam_unix.so
+              auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so timeout=3
+              auth sufficient ${pkgs.pam}/lib/security/pam_unix.so likeauth try_first_pass
+              auth required ${pkgs.pam}/lib/security/pam_deny.so
+              password sufficient ${pkgs.pam}/lib/security/pam_unix.so nullok yescrypt
+              session required ${pkgs.pam}/lib/security/pam_unix.so
+            '';
           };
         };
       };
