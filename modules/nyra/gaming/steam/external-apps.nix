@@ -11,7 +11,7 @@
       in
       {
         programs.steam.config.nonSteamApps = {
-          "The Legend of Zelda: Breath of the Wild" = lib.mkIf (cfg.cemu.enable) {
+          "The Legend of Zelda: Breath of the Wild" = lib.mkIf (cfg.cemu.ukmm.enable) {
             seed = "The Legend of Zelda: Breath of the Wild";
             desktopEntry.enable = true;
             allowOverlay = false;
