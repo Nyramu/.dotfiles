@@ -15,13 +15,9 @@
             seed = "The Legend of Zelda: Breath of the Wild";
             desktopEntry.enable = true;
             allowOverlay = false;
-            target = lib.getExe cfg.cemu.package;
-
-            args = [
-              "-g"
-              "$GAMES/Cemu/BoTW/code/U-King.rpx"
-              "-f"
-            ];
+            target = pkgs.writeShellScriptBin "botw" ''
+              ${lib.getExe cfg.cemu.package} -g "$HOME/Games/Cemu/BoTW/code/U-King.rpx" -f
+            '';
 
             artwork = {
               icon = pkgs.fetchurl {
