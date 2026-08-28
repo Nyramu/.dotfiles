@@ -3,7 +3,8 @@
 
   inputs = {
     eden.url = "github:Nyramu/eden-nix";
-    cemu-nix.url = "github:Nyramu/cemu-nix";
+    cemu.url = "github:Nyramu/cemu-nix";
+    lsfg-vk.url = "github:Nyramu/lsfg-vk-nix";
 
     steam-config = {
       url = "github:different-name/steam-config-nix";

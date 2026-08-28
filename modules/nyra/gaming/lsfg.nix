@@ -1,10 +1,15 @@
-{ self, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake.modules.nixos = {
     gaming.imports = [ self.modules.nixos.lsfg ];
 
     lsfg =
-      { config, dotpkgs, ... }:
+      { config, host, ... }:
 
       let
         cfg = config.nyra.gaming.lsfg;
@@ -15,7 +20,7 @@
         };
 
         config = lib.mkIf (cfg.enable) {
-          environment.systemPackages = with dotpkgs; [
+          environment.systemPackages = with inputs.lsfg-vk.packages.${host.system}; [
             lsfg-vk
             lsfg-vk-ui
           ];
