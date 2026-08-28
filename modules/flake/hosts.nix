@@ -234,6 +234,19 @@ in
             host.nixos
             "${self.outPath}/modules/hosts/${name}/_hardware-configuration.nix"
             self.modules.nixos.nyra
+
+            {
+              assertions = [
+                {
+                  assertion = (host.cpu.vendor != null);
+                  message = "You must specify your CPU.";
+                }
+                {
+                  assertion = (host.gpu.integrated.vendor != null || host.gpu.dedicated.vendor != null);
+                  message = "At least one GPU (integrated or dedicated) must be specified.";
+                }
+              ];
+            }
           ];
           specialArgs = {
             inherit (host)
