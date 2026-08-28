@@ -18,7 +18,7 @@
 
       let
         cfg = config.nyra.gaming.cemu;
-        cemu = inputs.cemu-nix.packages.${host.system}.default or pkgs.cemu;
+        cemu = inputs.cemu.packages.${host.system}.default or pkgs.cemu;
       in
       {
         options.nyra.gaming.cemu = {
