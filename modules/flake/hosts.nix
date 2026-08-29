@@ -237,8 +237,8 @@ in
             baseHost.nixos
             host.nixos
             "${self.outPath}/modules/hosts/${name}/_hardware-configuration.nix"
-            self.modules.nixos.nyra
             nyralib
+            self.modules.nixos.nyra
 
             {
               assertions = [
@@ -284,8 +284,8 @@ in
           modules = [
             baseHost.home
             host.home
-            self.modules.homeManager.nyra
             nyralib
+            self.modules.homeManager.nyra
           ];
           extraSpecialArgs = {
             inherit (host)
