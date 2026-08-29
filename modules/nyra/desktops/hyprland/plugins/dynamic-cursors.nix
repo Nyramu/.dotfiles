@@ -61,6 +61,13 @@
             }
           }
         '';
+
+        assertions = [
+          {
+            assertion = config.nyra.desktops.hyprland.enable;
+            message = "You cannot enable this plugin without enabling Hyprland.";
+          }
+        ];
       };
     };
 }
