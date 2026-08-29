@@ -1,28 +1,14 @@
 { lib, ... }:
 
-let
-  path = ./.;
-in
 {
   flake.modules.homeManager.terminals =
-    { config, ... }:
+    { config, nyralib, ... }:
 
     let
       terminal = config.nyra.terminals.default;
     in
     {
-      options.nyra.terminals.default = lib.mkOption {
-        type = lib.types.nullOr (
-          lib.types.enum (
-            builtins.readDir path
-            |> builtins.attrNames
-            |> builtins.filter (n: n != "default.nix")
-            |> map (n: lib.removeSuffix ".nix" n)
-          )
-        );
-        default = null;
-        description = "Set a default terminal emulator";
-      };
+      options.nyra.terminals.default = nyralib.mkDefaultOption "terminal emulator" ./.;
 
       config = {
         hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {

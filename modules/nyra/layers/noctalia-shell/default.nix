@@ -11,6 +11,7 @@
     noctalia-shell =
       {
         config,
+        nyralib,
         performance,
         user,
         ...
@@ -26,9 +27,7 @@
         ];
 
         options.nyra.layers.noctalia-shell = {
-          enable = lib.mkEnableOption "Noctalia v4" // {
-            default = true;
-          };
+          enable = nyralib.mkEnabledOption "Noctalia v4";
         };
 
         config = lib.mkIf (cfg.enable) {

@@ -4,16 +4,19 @@
     shells.imports = [ self.modules.homeManager.eza ];
 
     eza =
-      { config, shell, ... }:
+      {
+        config,
+        nyralib,
+        shell,
+        ...
+      }:
 
       let
         cfg = config.nyra.shells.commands.eza;
       in
       {
         options.nyra.shells.commands.eza = {
-          enable = lib.mkEnableOption "eza" // {
-            default = true;
-          };
+          enable = nyralib.mkEnabledOption "eza";
         };
 
         config = lib.mkIf (cfg.enable) {

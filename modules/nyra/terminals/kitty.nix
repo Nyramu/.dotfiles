@@ -4,19 +4,23 @@
     terminals.imports = [ self.modules.homeManager.kitty ];
 
     kitty =
-      { config, shell, ... }:
+      {
+        config,
+        nyralib,
+        shell,
+        ...
+      }:
 
       let
         cfg = config.nyra.terminals.kitty;
-        default = config.nyra.terminals.default;
       in
       {
         options.nyra.terminals.kitty = {
-          enable = lib.mkEnableOption "Kitty";
+          enable = nyralib.mkDefaultDependentOption "Kitty" "nyra.terminals.default" "kitty";
         };
 
-        config = {
-          programs.kitty = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.kitty = {
             enable = true;
             enableGitIntegration = true;
             shellIntegration = {
@@ -42,7 +46,6 @@
               window_padding_width = "0 8";
             };
           };
-          nyra.terminals.kitty.enable = lib.mkDefault (default == "kitty");
         };
       };
   };

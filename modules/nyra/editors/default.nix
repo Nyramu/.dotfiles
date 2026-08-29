@@ -1,28 +1,14 @@
 { lib, ... }:
 
-let
-  path = ./.;
-in
 {
   flake.modules.homeManager.editors =
-    { config, ... }:
+    { config, nyralib, ... }:
 
     let
       editor = config.nyra.editors.default;
     in
     {
-      options.nyra.editors.default = lib.mkOption {
-        type = lib.types.nullOr (
-          lib.types.enum (
-            builtins.readDir path
-            |> builtins.attrNames
-            |> builtins.filter (n: n != "default.nix")
-            |> map (n: lib.removeSuffix ".nix" n)
-          )
-        );
-        default = null;
-        description = "Set a default editor";
-      };
+      options.nyra.editors.default = nyralib.mkDefaultOption "editor" ./.;
 
       config = {
         hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {

@@ -4,16 +4,19 @@
     services.imports = [ self.modules.homeManager.hypridle ];
 
     hypridle =
-      { config, pkgs, ... }:
+      {
+        config,
+        nyralib,
+        pkgs,
+        ...
+      }:
 
       let
         cfg = config.nyra.services.hypridle;
       in
       {
         options.nyra.services.hypridle = {
-          enable = lib.mkEnableOption "Hypridle" // {
-            default = config.nyra.desktops.hyprland.enable;
-          };
+          enable = nyralib.mkDependentOption "Hypridle" "nyra.desktops.hyprland.enable";
         };
 
         config = lib.mkIf (cfg.enable) {

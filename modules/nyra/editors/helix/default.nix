@@ -11,6 +11,7 @@
     helix =
       {
         config,
+        nyralib,
         pkgs,
         host,
         ...
@@ -18,19 +19,18 @@
 
       let
         cfg = config.nyra.editors.helix;
-        default = config.nyra.editors.default;
         chaotic = inputs.chaotic.packages.${host.system};
       in
       {
         options.nyra.editors.helix = {
-          enable = lib.mkEnableOption "Helix";
+          enable = nyralib.mkDefaultDependentOption "Helix" "nyra.editors.default" "helix";
         };
 
-        config = {
-          programs.helix = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.helix = {
             enable = true;
             package = chaotic.helix_git or pkgs.helix;
-            defaultEditor = (default == "helix");
+            defaultEditor = (config.nyra.editors.default == "helix");
 
             settings = {
               editor = {
@@ -98,8 +98,6 @@
               };
             };
           };
-
-          nyra.editors.helix.enable = lib.mkDefault (default == "helix");
 
           hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
             "SUPER + BACKSPACE".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e hx";

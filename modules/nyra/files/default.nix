@@ -1,28 +1,14 @@
 { lib, ... }:
 
-let
-  path = ./.;
-in
 {
   flake.modules.homeManager.files =
-    { config, ... }:
+    { config, nyralib, ... }:
 
     let
       fileManager = config.nyra.files.default;
     in
     {
-      options.nyra.files.default = lib.mkOption {
-        type = lib.types.nullOr (
-          lib.types.enum (
-            builtins.readDir path
-            |> builtins.attrNames
-            |> builtins.filter (n: n != "default.nix")
-            |> map (n: lib.removeSuffix ".nix" n)
-          )
-        );
-        default = null;
-        description = "Set a default file manager";
-      };
+      options.nyra.files.default = nyralib.mkDefaultOption "file manager" ./.;
 
       config = {
         hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {

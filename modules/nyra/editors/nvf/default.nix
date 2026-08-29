@@ -9,24 +9,28 @@
     editors.imports = [ self.modules.homeManager.nvf ];
 
     nvf =
-      { config, wayland, ... }:
+      {
+        config,
+        nyralib,
+        wayland,
+        ...
+      }:
 
       let
         cfg = config.nyra.editors.nvf;
-        default = config.nyra.editors.default;
       in
       {
         imports = [ inputs.nvf.homeManagerModules.nvf ];
 
         options.nyra.editors.nvf = {
-          enable = lib.mkEnableOption "nvf";
+          enable = nyralib.mkDefaultDependentOption "nvf" "nyra.editors.default" "nvf";
         };
 
-        config = {
-          programs.nvf = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.nvf = {
             enable = true;
             enableManpages = true;
-            defaultEditor = (default == "nvf");
+            defaultEditor = (config.nyra.editors.default == "nvf");
             settings = {
               vim = {
                 autocomplete = {
@@ -224,8 +228,6 @@
               };
             };
           };
-
-          nyra.editors.nvf.enable = lib.mkDefault (default == "nvf");
         };
       };
   };

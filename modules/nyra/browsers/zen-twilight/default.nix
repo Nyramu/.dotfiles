@@ -9,11 +9,15 @@
     browsers.imports = [ self.modules.homeManager.zen-twilight ];
 
     zen-twilight =
-      { config, user, ... }:
+      {
+        config,
+        nyralib,
+        user,
+        ...
+      }:
 
       let
         cfg = config.nyra.browsers.zen-twilight;
-        default = config.nyra.browsers.default;
       in
       {
         imports = [
@@ -21,13 +25,13 @@
         ];
 
         options.nyra.browsers.zen-twilight = {
-          enable = lib.mkEnableOption "Zen Twilight";
+          enable = nyralib.mkDefaultDependentOption "Zen Twilight" "nyra.browsers.default" "zen-twilight";
         };
 
-        config = {
-          programs.zen-browser = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.zen-browser = {
             enable = true;
-            setAsDefaultBrowser = (default == "zen-twilight");
+            setAsDefaultBrowser = (config.nyra.browsers.default == "zen-twilight");
             enablePrivateDesktopEntry = true;
 
             profiles.${user.name} = {
@@ -94,8 +98,7 @@
               };
             };
           };
-          nyra.browsers.zen-twilight.enable = lib.mkDefault (default == "zen-twilight");
-          stylix.targets.zen-browser.profileNames = lib.mkIf (cfg.enable) [ "${user.name}" ];
+          stylix.targets.zen-browser.profileNames = [ "${user.name}" ];
         };
       };
   };

@@ -4,14 +4,19 @@
     editors.imports = [ self.modules.homeManager.idea ];
 
     idea =
-      { config, pkgs, ... }:
+      {
+        config,
+        nyralib,
+        pkgs,
+        ...
+      }:
 
       let
         cfg = config.nyra.editors.idea;
       in
       {
         options.nyra.editors.idea = {
-          enable = lib.mkEnableOption "Intellij IDEA";
+          enable = nyralib.mkDefaultDependentOption "Intellij IDEA" "nyra.editors.default" "idea";
         };
 
         config = lib.mkIf (cfg.enable) {

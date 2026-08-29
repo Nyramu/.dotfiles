@@ -224,6 +224,10 @@ in
           home.stateVersion = mkDefault stateVersion;
         };
       };
+
+      nyralib = { config, ... }: {
+        _module.args.nyralib = self.lib.nyralib { inherit config; };
+      };
     in
     {
       flake.nixosConfigurations = mapAttrs (
@@ -234,6 +238,7 @@ in
             host.nixos
             "${self.outPath}/modules/hosts/${name}/_hardware-configuration.nix"
             self.modules.nixos.nyra
+            nyralib
 
             {
               assertions = [
@@ -280,6 +285,7 @@ in
             baseHost.home
             host.home
             self.modules.homeManager.nyra
+            nyralib
           ];
           extraSpecialArgs = {
             inherit (host)

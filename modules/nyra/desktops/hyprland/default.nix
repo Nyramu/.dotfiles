@@ -11,6 +11,7 @@
     hyprland =
       {
         config,
+        nyralib,
         localization,
         performance,
         wayland,
@@ -19,7 +20,6 @@
 
       let
         cfg = config.nyra.desktops.hyprland;
-        default = config.nyra.desktops.default;
         shaderPath = ./shaders;
       in
       {
@@ -28,7 +28,7 @@
         ];
 
         options.nyra.desktops.hyprland = with lib; {
-          enable = mkEnableOption "Hyprland";
+          enable = nyralib.mkDefaultDependentOption "Hyprland" "nyra.desktops.default" "hyprland";
 
           monitors = mkOption {
             type = types.listOf types.attrs;
@@ -47,8 +47,8 @@
           };
         };
 
-        config = {
-          hyprnix = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          hyprnix = {
             enable = true;
             systemd.enable = true;
             settings = {
@@ -141,8 +141,6 @@
                 end)
               '';
           };
-
-          nyra.desktops.hyprland.enable = lib.mkDefault (default == "hyprland");
         };
       };
   };
@@ -153,6 +151,7 @@
     hyprland =
       {
         config,
+        nyralib,
         pkgs,
         wayland,
         ...
@@ -160,21 +159,18 @@
 
       let
         cfg = config.nyra.desktops.hyprland;
-        default = config.nyra.desktops.default;
       in
       {
         options.nyra.desktops.hyprland = {
-          enable = lib.mkEnableOption "Hyprland";
+          enable = nyralib.mkDefaultDependentOption "Hyprland" "nyra.desktops.default" "hyprland";
         };
 
-        config = {
-          programs.hyprland = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.hyprland = {
             enable = true;
             package = pkgs.hyprland;
             xwayland.enable = wayland.xwayland.enable;
           };
-
-          nyra.desktops.hyprland.enable = lib.mkDefault (default == "hyprland");
         };
       };
   };

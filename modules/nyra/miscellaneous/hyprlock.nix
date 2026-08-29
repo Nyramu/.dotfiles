@@ -4,7 +4,7 @@
     miscellaneous.imports = [ self.modules.homeManager.hyprlock ];
 
     hyprlock =
-      { config, ... }:
+      { config, nyralib, ... }:
 
       let
         cfg = config.nyra.miscellaneous.hyprlock;
@@ -12,13 +12,10 @@
       in
       {
         options.nyra.miscellaneous.hyprlock = {
-          enable = lib.mkEnableOption "Hyprlock" // {
-            default = config.nyra.desktops.hyprland.enable;
-          };
+          enable = nyralib.mkDependentOption "Hyprlock" "nyra.desktops.hyprland.enable";
         };
 
         config = lib.mkIf (cfg.enable) {
-
           programs.hyprlock = {
             enable = true;
             settings = {

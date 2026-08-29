@@ -4,16 +4,19 @@
     shells.imports = [ self.modules.homeManager.zoxide ];
 
     zoxide =
-      { config, shell, ... }:
+      {
+        config,
+        nyralib,
+        shell,
+        ...
+      }:
 
       let
         cfg = config.nyra.shells.commands.zoxide;
       in
       {
         options.nyra.shells.commands.zoxide = {
-          enable = lib.mkEnableOption "zoxide" // {
-            default = true;
-          };
+          enable = nyralib.mkEnabledOption "zoxide";
         };
 
         config = lib.mkIf (cfg.enable) {

@@ -4,14 +4,14 @@
     editors.imports = [ self.modules.homeManager.zed-editor ];
 
     zed-editor =
-      { config, ... }:
+      { config, nyralib, ... }:
 
       let
         cfg = config.nyra.editors.zed;
       in
       {
         options.nyra.editors.zed = {
-          enable = lib.mkEnableOption "Zed";
+          enable = nyralib.mkDefaultDependentOption "Zed" "nyra.editors.default" "zed";
         };
 
         config = lib.mkIf (cfg.enable) {

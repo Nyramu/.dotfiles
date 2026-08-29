@@ -1,31 +1,15 @@
 { lib, ... }:
 
-let
-  path = ./.;
-
-  defaultOpt = lib.mkOption {
-    type = lib.types.nullOr (
-      lib.types.enum (
-        builtins.readDir path
-        |> builtins.attrNames
-        |> builtins.filter (n: n != "default.nix")
-        |> map (n: lib.removeSuffix ".nix" n)
-      )
-    );
-    default = null;
-    description = "Set a default DE or WM";
-  };
-in
 {
   flake.modules = {
     homeManager.desktops =
-      { config, ... }:
+      { config, nyralib, ... }:
 
       let
         desktop = config.nyra.desktops.default;
       in
       {
-        options.nyra.desktops.default = defaultOpt;
+        options.nyra.desktops.default = nyralib.mkDefaultOption "DE or WM" ./.;
 
         config = {
 
@@ -33,13 +17,13 @@ in
       };
 
     nixos.desktops =
-      { config, ... }:
+      { config, nyralib, ... }:
 
       let
         desktop = config.nyra.desktops.default;
       in
       {
-        options.nyra.desktops.default = defaultOpt;
+        options.nyra.desktops.default = nyralib.mkDefaultOption "DE or WM" ./.;
 
         config = {
           services.displayManager.defaultSession = lib.mkDefault desktop;

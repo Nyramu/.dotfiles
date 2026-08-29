@@ -6,6 +6,7 @@
     yazi =
       {
         config,
+        nyralib,
         shell,
         pkgs,
         ...
@@ -13,15 +14,14 @@
 
       let
         cfg = config.nyra.files.yazi;
-        default = config.nyra.files.default;
       in
       {
         options.nyra.files.yazi = {
-          enable = lib.mkEnableOption "Yazi";
+          enable = nyralib.mkDefaultDependentOption "Yazi" "nyra.files.default" "yazi";
         };
 
-        config = {
-          programs.yazi = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.yazi = {
             enable = true;
             enableBashIntegration = (shell == "bash");
             enableZshIntegration = (shell == "zsh");
@@ -40,7 +40,7 @@
               opener = {
                 xdg = [
                   {
-                    run = ''xdg-open %s'';
+                    run = "xdg-open %s";
                     block = true;
                   }
                 ];
@@ -57,13 +57,14 @@
               require("git"):setup()
             '';
           };
-          nyra.files.yazi.enable = lib.mkDefault (default == "yazi");
 
-          hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable && default == "yazi") {
-            "SUPER + E".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e yazi";
-            "SUPER + ALT + E".dispatcher.exec_cmd =
-              "${config.nyra.terminals.default} --class floating-${config.nyra.terminals.default} -e yazi";
-          };
+          hyprnix.settings.bind =
+            lib.mkIf (config.nyra.desktops.hyprland.enable && config.nyra.files.default == "yazi")
+              {
+                "SUPER + E".dispatcher.exec_cmd = "${config.nyra.terminals.default} -e yazi";
+                "SUPER + ALT + E".dispatcher.exec_cmd =
+                  "${config.nyra.terminals.default} --class floating-${config.nyra.terminals.default} -e yazi";
+              };
         };
       };
   };

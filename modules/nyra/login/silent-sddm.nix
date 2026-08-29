@@ -9,7 +9,12 @@
     login.imports = [ self.modules.nixos.silentSddm ];
 
     silentSddm =
-      { config, user, ... }:
+      {
+        config,
+        nyralib,
+        user,
+        ...
+      }:
 
       let
         palette = config.stylix.base16Scheme;
@@ -22,9 +27,7 @@
         imports = [ inputs.silentSDDM.nixosModules.default ];
 
         options.nyra.login.silentSddm = {
-          enable = lib.mkEnableOption "SilentSDDM" // {
-            default = true;
-          };
+          enable = nyralib.mkEnabledOption "SilentSDDM";
         };
 
         config = lib.mkIf (cfg.enable) {

@@ -9,7 +9,7 @@
     layers.imports = [ self.modules.homeManager.vicinae ];
 
     vicinae =
-      { config, ... }:
+      { config, nyralib, ... }:
 
       let
         cfg = config.nyra.layers.vicinae;
@@ -20,9 +20,7 @@
         ];
 
         options.nyra.layers.vicinae = {
-          enable = lib.mkEnableOption "Vicinae" // {
-            default = true;
-          };
+          enable = nyralib.mkEnabledOption "Vicinae";
         };
 
         config = lib.mkIf (cfg.enable) {
@@ -88,16 +86,19 @@
     layers.imports = [ self.modules.nixos.vicinae ];
 
     vicinae =
-      { config, host, ... }:
+      {
+        config,
+        nyralib,
+        host,
+        ...
+      }:
 
       let
         cfg = config.nyra.layers.vicinae;
       in
       {
         options.nyra.layers.vicinae = {
-          enable = lib.mkEnableOption "Vicinae" // {
-            default = true;
-          };
+          enable = nyralib.mkEnabledOption "Vicinae";
         };
 
         config = lib.mkIf (cfg.enable) {

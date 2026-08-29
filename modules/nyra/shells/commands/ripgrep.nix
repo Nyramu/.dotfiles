@@ -4,16 +4,14 @@
     shells.imports = [ self.modules.homeManager.ripgrep ];
 
     ripgrep =
-      { config, ... }:
+      { config, nyralib, ... }:
 
       let
         cfg = config.nyra.shells.commands.ripgrep;
       in
       {
         options.nyra.shells.commands.ripgrep = {
-          enable = lib.mkEnableOption "ripgrep" // {
-            default = true;
-          };
+          enable = nyralib.mkEnabledOption "ripgrep";
         };
 
         config = lib.mkIf (cfg.enable) {

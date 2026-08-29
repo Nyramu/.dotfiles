@@ -4,11 +4,15 @@
     music.imports = [ self.modules.homeManager.playerctl ];
 
     playerctl =
-      { config, pkgs, ... }:
+      {
+        config,
+        nyralib,
+        pkgs,
+        ...
+      }:
 
       let
-        music = config.nyra.music;
-        cfg = music.playerctl;
+        cfg = config.nyra.music.playerctl;
 
         # Implement whitelist in playerctl management
         playerctl-wl = pkgs.writeShellApplication {
@@ -54,13 +58,14 @@
       in
       {
         options.nyra.music.playerctl = {
-          enable = lib.mkEnableOption "Playerctl";
+          enable = nyralib.mkDependentOptionFromAny "Playerctl" [
+            "nyra.music.mpd.enable"
+            "nyra.music.spicetify.enable"
+          ];
         };
 
-        config = {
-          home.packages = lib.mkIf (cfg.enable) [ playerctl-wl ];
-
-          nyra.music.playerctl.enable = lib.mkDefault (music.mpd.enable || music.spicetify.enable);
+        config = lib.mkIf (cfg.enable) {
+          home.packages = [ playerctl-wl ];
 
           hyprnix.settings.bind = lib.mkIf (config.nyra.desktops.hyprland.enable) {
             XF86AudioPlay = {

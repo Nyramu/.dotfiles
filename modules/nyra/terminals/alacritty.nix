@@ -9,19 +9,23 @@
     terminals.imports = [ self.modules.homeManager.alacritty ];
 
     alacritty =
-      { config, pkgs, ... }:
+      {
+        config,
+        nyralib,
+        pkgs,
+        ...
+      }:
 
       let
         cfg = config.nyra.terminals.alacritty;
-        default = config.nyra.terminals.default;
       in
       {
         options.nyra.terminals.alacritty = {
-          enable = lib.mkEnableOption "Alacritty";
+          enable = nyralib.mkDefaultDependentOption "Alacritty" "nyra.terminals.default" "alacritty";
         };
 
-        config = {
-          programs.alacritty = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.alacritty = {
             enable = true;
             package = pkgs.alacritty-graphics;
             settings = {
@@ -47,7 +51,6 @@
               selection.save_to_clipboard = true;
             };
           };
-          nyra.terminals.alacritty.enable = lib.mkDefault (default == "alacritty");
         };
       };
   };
