@@ -11,11 +11,14 @@
       in
       {
         options.nyra.shells.zsh = {
-          enable = lib.mkEnableOption "zsh";
+          enable = lib.mkEnableOption "zsh" // {
+            default = (shell == "zsh");
+            defaultText = lib.literalExpression "host.shell == \"zsh\"";
+          };
         };
 
-        config = {
-          programs.zsh = lib.mkIf (cfg.enable) {
+        config = lib.mkIf (cfg.enable) {
+          programs.zsh = {
             enable = true;
             syntaxHighlighting.enable = true;
             autosuggestion.enable = true;
@@ -36,7 +39,6 @@
               ];
             };
           };
-          nyra.shells.zsh.enable = lib.mkDefault (shell == "zsh");
         };
       };
   };
