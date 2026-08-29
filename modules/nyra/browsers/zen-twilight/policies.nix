@@ -1,18 +1,17 @@
-{ inputs, ... }:
+{ lib, ... }:
 {
-  flake.modules.homeManager.zen-twilight =
-    { host, pkgs, ... }:
-
-    let
-      mkLockedAttrs = builtins.mapAttrs (
-        _: value: {
-          Value = value;
-          Status = "locked";
-        }
-      );
-
-      myPolicies = {
-        policies = {
+  flake.modules.homeManager.zen-twilight = {
+    programs.zen-browser = {
+      policies =
+        let
+          mkLockedAttrs = builtins.mapAttrs (
+            _: value: {
+              Value = value;
+              Status = "locked";
+            }
+          );
+        in
+        lib.mkForce {
           AppAutoUpdate = false;
           AutofillAddressEnabled = false;
           AutofillCreditCardEnabled = false;
@@ -134,22 +133,6 @@
             "privacy.spoof_english" = 1;
           };
         };
-      };
-
-      policiesFile = pkgs.writeText "policies.json" (builtins.toJSON myPolicies);
-
-      customUnwrapped =
-        let
-          unwrapped = inputs.zen-browser.packages.${host.system}.twilight.unwrapped;
-        in
-        unwrapped.overrideAttrs (old: {
-          postInstall = (old.postInstall or "") + ''
-            rm -f $out/lib/${unwrapped.libName}/distribution/policies.json
-            cp ${policiesFile} $out/lib/${unwrapped.libName}/distribution/policies.json
-          '';
-        });
-    in
-    {
-      programs.zen-browser.package = pkgs.wrapFirefox customUnwrapped { };
     };
+  };
 }
