@@ -11,7 +11,7 @@
       in
       {
         options.nyra.gaming.gamescope = {
-          enable = lib.mkEnableOption "Gamescope";
+          enable = lib.mkEnableOption "GameScope";
         };
 
         config = lib.mkIf (cfg.enable) {
@@ -26,6 +26,13 @@
               "--force-windows-fullscreen"
             ];
           };
+
+          assertions = [
+            {
+              assertion = config.nyra.gaming.steam.enable;
+              message = "You cannot enable GameScope without enabling Steam.";
+            }
+          ];
         };
       };
   };
