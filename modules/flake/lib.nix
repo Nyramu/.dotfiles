@@ -57,7 +57,7 @@
         default =
           (lib.attrByPath (lib.splitString "." dep) (throw "nyralib: option '${dep}' does not exist.") config)
           == val;
-        defaultText = lib.literalExpression "${dep} == ${lib.escapeNixString val}";
+        defaultText = lib.literalExpression "${dep} == ${lib.strings.escapeNixString val}";
       };
   };
 }
