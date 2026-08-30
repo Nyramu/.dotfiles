@@ -30,7 +30,7 @@
       time.zone = "Europe/Rome";
     };
 
-    theme = "lanterns";
+    theme = "rain";
 
     home =
       { pkgs, ... }:
@@ -87,7 +87,10 @@
             enable = true;
             gpu-name = "Radeon 780M";
           };
-          fastfetch.enable = true;
+          fastfetch = {
+            enable = true;
+            logo = "burrito-ascii";
+          };
         };
 
         home.packages = with pkgs; [
