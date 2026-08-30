@@ -22,13 +22,13 @@ If you want to see every theme, check [here](./examples).
   <summary><b>Here are some screenshots!</b></summary>
 
   <figure>
-    <img src="./examples/lanterns.webp" alt="lanterns.webp">
-    <figcaption>Lanterns</figcaption>
+    <img src="./examples/rain.webp" alt="rain.webp">
+    <figcaption>Rain</figcaption>
   </figure>
 
   <figure>
-    <img src="./examples/apocalypse.webp" alt="apocalypse.webp">
-    <figcaption>Apocalypse</figcaption>
+    <img src="./examples/lanterns.webp" alt="lanterns.webp">
+    <figcaption>Lanterns</figcaption>
   </figure>
   
   <figure>
