@@ -36,7 +36,6 @@
               };
 
               background = {
-                path = lib.mkForce "screenshot";
                 brightness = 0.6;
                 blur_passes = 2;
                 blur_size = 3;
