@@ -21,20 +21,20 @@
                 }
               ];
             }
-            {
-              name = "NixOS";
-              toolbar = true;
-              bookmarks = [
-                {
-                  name = "Wiki";
-                  tags = [
-                    "wiki"
-                    "nix"
-                  ];
-                  url = "https://wiki.nixos.org/";
-                }
-              ];
-            }
+            # {
+            #   name = "NixOS";
+            #   toolbar = true;
+            #   bookmarks = [
+            #     {
+            #       name = "Wiki";
+            #       tags = [
+            #         "wiki"
+            #         "nix"
+            #       ];
+            #       url = "https://wiki.nixos.org/";
+            #     }
+            #   ];
+            # }
             {
               name = "Git";
               toolbar = true;
@@ -48,8 +48,8 @@
                   url = "https://codeberg.org/Nyramu/.dotfiles";
                 }
                 {
-                  name = "Hyprnix";
-                  url = "https://codeberg.org/Nyramu/hyprnix";
+                  name = "Echidna";
+                  url = "https://codeberg.org/Nyramu/echidna";
                 }
               ];
             }

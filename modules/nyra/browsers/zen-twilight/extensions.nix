@@ -19,19 +19,21 @@
           dearrow
           return-youtube-dislikes
           augmented-steam
-          protondb-for-steam
+          absolute-enable-right-click
+          auto-reject-cookies
           #animalese-typing # Cool and cute but annoying
           betterttv
           censor-tracker
           clearurls
-          copy-selection-as-markdown
-          #firenvim
+          disconnect
+          material-icons-for-github
           image-search-options
           indie-wiki-buddy
-          simplifygmail
-          the-camelizer-price-history-ch
           to-google-translate
+          terms-of-service-didnt-read
           tampermonkey
+          one-click-wayback
+          qr-code-address-bar
           youtube-no-translation
           youtube-shorts-block
           youtube-nonstop
