@@ -63,7 +63,7 @@
                 id = "plugin:privacy-indicator";
               }
               {
-                blacklist = [ ];
+                blacklist = [ "vicinae" ];
                 chevronColor = "primary";
                 colorizeIcons = true;
                 drawerEnabled = true;
