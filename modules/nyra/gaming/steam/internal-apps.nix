@@ -8,6 +8,7 @@
         "230410" = {
           name = "Warframe";
           compatTool = "Proton-GE";
+          args = [ "--expose-wayland" ];
           env = {
             LD_PRELOAD = "";
           };
@@ -26,6 +27,17 @@
           allowDownloadsWhileRunning = "never";
           updateBehavior = "always";
           language = "italian";
+        };
+
+        "3812600" = {
+          name = "ReStory: Chill Electronics Repairs";
+          compatTool = "Proton-GE";
+          args = [ "--expose-wayland" ];
+          env = {
+            LD_PRELOAD = "";
+          };
+          allowDownloadsWhileRunning = "never";
+          updateBehavior = "always";
         };
 
         "1593500" = {
