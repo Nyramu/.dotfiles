@@ -4,7 +4,7 @@
     gaming.imports = [ self.modules.nixos.gamescope ];
 
     gamescope =
-      { config, ... }:
+      { config, wayland, ... }:
 
       let
         cfg = config.nyra.gaming.gamescope;
@@ -17,14 +17,16 @@
         config = lib.mkIf (cfg.enable) {
           programs.gamescope = {
             enable = true;
-            # capSysNice = true;
+            enableWsi = wayland.enable;
+            capSysNice = true;
             env = {
               "XKB_DEFAULT_LAYOUT" = config.services.xserver.xkb.layout;
             };
             args = [
               "-f"
               "--force-windows-fullscreen"
-            ];
+            ]
+            ++ lib.optional wayland.enable "--expose-wayland";
           };
 
           assertions = [
