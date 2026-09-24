@@ -44,7 +44,6 @@
               fullAppDisplay
               hidePodcasts
               showQueueDuration
-              betterGenres
               savePlaylists
               volumePercentage
               beautifulLyrics
