@@ -17,7 +17,6 @@
         profiles.${user.name}.extensions.packages = with firefox-addons; [
           ublock-origin
           dearrow
-          return-youtube-dislikes
           augmented-steam
           absolute-enable-right-click
           auto-reject-cookies
