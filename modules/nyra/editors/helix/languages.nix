@@ -9,8 +9,8 @@
             nixd.command = "${lib.getExe pkgs.nixd}";
             nil.command = "${lib.getExe pkgs.nil}";
             bash-language-server.command = "${lib.getExe pkgs.bash-language-server}";
-            # clangd.command = "${pkgs.clang-tools}/bin/clangd";
-            # cmake-language-server.command = "${lib.getExe pkgs.cmake-language-server}";
+            clangd.command = "${pkgs.clang-tools}/bin/clangd";
+            cmake-language-server.command = "${lib.getExe pkgs.cmake-language-server}";
             # csharp-ls.command = "${lib.getExe pkgs.csharp-ls}";
             #kotlin-language-server.command = "${getExe pkgs.kotlin-language-server}";
             gopls.command = "${lib.getExe pkgs.gopls}";
