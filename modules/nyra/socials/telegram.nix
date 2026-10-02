@@ -19,11 +19,17 @@
       let
         cfg = config.nyra.socials.telegram;
         telegram =
-          inputs.chaotic.packages.${host.system}.telegram-desktop-unwrapped_git or pkgs.telegram-desktop;
+          if (cfg.unstable) then
+            inputs.chaotic.packages.${host.system}.telegram-desktop-unwrapped_git
+          else
+            pkgs.telegram-desktop;
       in
       {
         options.nyra.socials.telegram = {
           enable = lib.mkEnableOption "Telegram Desktop";
+          unstable = lib.mkEnableOption "" // {
+            description = "Use Telegram git version";
+          };
         };
 
         config = lib.mkIf (cfg.enable) {

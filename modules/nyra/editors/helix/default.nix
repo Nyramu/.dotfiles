@@ -19,17 +19,20 @@
 
       let
         cfg = config.nyra.editors.helix;
-        chaotic = inputs.chaotic.packages.${host.system};
+        helix = if (cfg.unstable) then inputs.chaotic.packages.${host.system}.helix_git else pkgs.helix;
       in
       {
         options.nyra.editors.helix = {
           enable = nyralib.mkDefaultDependentOption "Helix" "nyra.editors.default" "helix";
+          unstable = lib.mkEnableOption "" // {
+            description = "Use Helix git version";
+          };
         };
 
         config = lib.mkIf (cfg.enable) {
           programs.helix = {
             enable = true;
-            package = chaotic.helix_git or pkgs.helix;
+            package = helix;
             defaultEditor = (config.nyra.editors.default == "helix");
 
             settings = {
