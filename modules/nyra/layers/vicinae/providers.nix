@@ -23,6 +23,7 @@
                 Helix.enabled = false;
                 yazi.enabled = false;
                 btop.enabled = false;
+                tetro-tui.enabled = false;
               };
             };
             calculator.entrypoints = {
@@ -55,16 +56,32 @@
                 report-bug.enabled = false;
                 search-builtin-icons.enabled = false;
                 search-emojis.enabled = false;
+                search-tray.enabled = false;
                 settings.enabled = false;
+                show-logs.enabled = false;
                 sponsor.enabled = false;
+              };
+            };
+
+            media = {
+              enabled = false;
+              entrypoints = {
+                toggle-mute.enabled = false;
+                volume-0.enabled = false;
+                volume-25.enabled = false;
+                volume-50.enabled = false;
+                volume-75.enabled = false;
+                volume-100.enabled = false;
+                volume-down.enabled = false;
+                volume-up.enabled = false;
               };
             };
 
             files = {
               enabled = false;
-              # preferences = {
-              #   autoIndexing = false;
-              # };
+              preferences = {
+                autoIndexing = false;
+              };
             };
             system = {
               enabled = false;

@@ -9,7 +9,6 @@
           with inputs.vicinae.packages.${host.system};
           [
             color-converter
-            nerdfont-search
             protondb-search
           ];
       };
