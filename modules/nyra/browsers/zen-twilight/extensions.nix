@@ -29,7 +29,6 @@
           image-search-options
           indie-wiki-buddy
           to-google-translate
-          terms-of-service-didnt-read
           tampermonkey
           one-click-wayback
           qr-code-address-bar
