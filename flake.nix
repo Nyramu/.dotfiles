@@ -26,11 +26,13 @@
       inputs.home-manager.follows = "home-manager";
     };
     firefox-addons = {
-      # url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      url = "git+https://gitlab.com/rycee/nur-expressions.git?dir=pkgs/firefox-addons";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+    };
     noctalia-shell = {
       url = "github:noctalia-dev/noctalia-shell/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
