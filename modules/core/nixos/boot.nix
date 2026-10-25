@@ -8,12 +8,6 @@
 
       {
         boot = {
-          initrd = {
-            systemd.enable = true;
-            systemd.emergencyAccess = true;
-            verbose = !boot.silent;
-          };
-
           loader = {
             systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
@@ -43,6 +37,10 @@
               })
             ];
           };
+        };
+
+        systemd = {
+          enableEmergencyMode = true;
         };
 
         stylix.targets.plymouth.enable = (boot.splash == null);
