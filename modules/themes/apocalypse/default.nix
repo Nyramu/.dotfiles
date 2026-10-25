@@ -61,22 +61,6 @@
             };
           };
 
-          programs.noctalia-shell = lib.mkIf (cfg.layers.noctalia-shell.enable) {
-            settings = {
-              ui = {
-                fontDefaultScale = 1.1;
-                fontFixedScale = 1.1;
-              };
-              location = {
-                analogClockInCalendar = false;
-              };
-            };
-            colors = {
-              mPrimary = lib.mkForce palette.base0C;
-              mSecondary = lib.mkForce palette.base05;
-            };
-          };
-
           programs.vicinae = lib.mkIf (cfg.layers.vicinae.enable) {
             settings = {
               font = {

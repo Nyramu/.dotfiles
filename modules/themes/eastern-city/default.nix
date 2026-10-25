@@ -57,15 +57,6 @@
             };
           };
 
-          programs.noctalia-shell = lib.mkIf (cfg.layers.noctalia-shell.enable) {
-            colors = {
-              mPrimary = lib.mkForce palette.base08;
-              mSecondary = lib.mkForce palette.base0C;
-              mTertiary = lib.mkForce palette.base0E;
-              mError = lib.mkForce palette.base0D;
-            };
-          };
-
           programs.kitty.settings = lib.mkIf (cfg.terminals.kitty.enable) {
             scrollbar_handle_color = lib.mkForce palette.base0D;
             cursor_trail_color = lib.mkForce palette.base0D;

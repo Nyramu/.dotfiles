@@ -69,17 +69,6 @@
             };
           };
 
-          programs.noctalia-shell = lib.mkIf (cfg.layers.noctalia-shell.enable) {
-            colors = {
-              mPrimary = lib.mkForce palette.base0A;
-              mSecondary = lib.mkForce palette.base07;
-              mTertiary = lib.mkForce palette.base03;
-              mOutline = lib.mkForce palette.base02;
-              mHover = lib.mkForce palette.base02;
-              mOnHover = lib.mkForce palette.base0A;
-            };
-          };
-
           programs.vicinae = lib.mkIf (cfg.layers.vicinae.enable) {
             settings = {
               font = {
