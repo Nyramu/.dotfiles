@@ -33,10 +33,6 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia";
     };
-    noctalia-shell = {
-      url = "github:noctalia-dev/noctalia-shell/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     vicinae.url = "github:vicinaehq/vicinae";
     vicinae-extensions = {
@@ -115,7 +111,7 @@
     extra-trusted-public-keys = [
       # Vicinae
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
-      # Noctalia Shell
+      # Noctalia
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       # Eden Emulator
       "eden-nix.cachix.org-1:BrC9tVNflA7yeLft5i2SjZTlGs46cBpUgULgHbMj8/E="
