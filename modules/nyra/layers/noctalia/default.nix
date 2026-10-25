@@ -30,6 +30,7 @@
         config = lib.mkIf (cfg.enable) {
           programs.noctalia = {
             enable = true;
+            systemd.enable = true;
             settings = {
             };
           };
