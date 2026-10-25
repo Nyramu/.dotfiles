@@ -104,7 +104,7 @@
       # Cemu Emulator
       "https://cemu-nix.cachix.org"
       # CachyOS Kernels
-      "https://attic.xuyh0120.win/lantian"
+      "https://cache.lantian.pub/lantian"
       # Chaotic
       "https://nyx-cache.chaotic.cx"
     ];
@@ -118,7 +118,7 @@
       # Cemu Emulator
       "cemu-nix.cachix.org-1:T/ZzErp7a/kDpY5U8FGtJPUcE9uGvJTCp2WrpidM2eE="
       # CachyOS Kernels
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
       # Chaotic
       "nyx-cache.chaotic.cx:dJxTrgMC3V3cFfyIiBQDQorG6k1LsqurH/srpMSq7qk="
     ];
