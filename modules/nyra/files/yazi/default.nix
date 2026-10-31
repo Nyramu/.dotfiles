@@ -52,7 +52,7 @@
             };
             initLua = ''
               require("full-border"):setup {
-                type = ui.Border.ROUNDED,
+                set = ui.Border.ROUNDED,
               }
               require("git"):setup()
             '';
