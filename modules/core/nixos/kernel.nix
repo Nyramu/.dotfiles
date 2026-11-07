@@ -16,11 +16,12 @@
         boot.kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
 
         # Run schedulers from userspace
-        services.scx = {
+        services.scx-loader = {
           enable = true;
-          # scx_lavd: Optimized for gaming, works well for general use cases
-          scheduler = lib.mkDefault "scx_lavd";
-          extraArgs = lib.mkDefault [ "--performance" ];
+          config = {
+            # scx_lavd: Optimized for gaming, works well for general use cases
+            default_sched = lib.mkDefault "scx_lavd";
+          };
         };
 
         # Set the maximum amount of virtual memory areas a single process can map. It's set like on Steam Deck
