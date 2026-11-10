@@ -6,6 +6,7 @@
       programs.vicinae = {
         settings = {
           providers = {
+            ai.enabled = false;
             applications = {
               entrypoints = {
                 auto-cpufreq-gtk.enabled = false;
