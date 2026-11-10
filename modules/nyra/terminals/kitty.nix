@@ -30,6 +30,7 @@
             };
             settings = {
               shell_integration = "enabled";
+              enable_audio_bell = "no";
               confirm_os_window_close = 0;
               remember_window_size = "no";
               allow_remote_control = "no";
