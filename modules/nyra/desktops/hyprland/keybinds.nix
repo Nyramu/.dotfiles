@@ -109,7 +109,7 @@
 
         # Group Control
         "SUPER + G".dispatcher.group.toggle = { };
-        "SUPER + SHIFT + G".dispatcher.group.lock_active = { };
+        "SUPER + SHIFT + G".dispatcher.group.lock = { };
         "SUPER + Tab".dispatcher.group.next = { };
         "SUPER + SHIFT + Tab".dispatcher.group.prev = { };
       }
