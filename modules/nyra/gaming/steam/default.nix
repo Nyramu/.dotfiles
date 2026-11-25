@@ -18,7 +18,7 @@
 
       let
         cfg = config.nyra.gaming.steam;
-        proton = inputs.chaotic.packages.${host.system}.proton-ge-custom or pkgs.proton-ge-bin;
+        proton = inputs.chaotic.packages.${host.system}.proton-ge-bin_edge or pkgs.proton-ge-bin;
       in
       {
         imports = [ inputs.steam-config.nixosModules.default ];
