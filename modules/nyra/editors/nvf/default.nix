@@ -20,7 +20,7 @@
         cfg = config.nyra.editors.nvf;
       in
       {
-        imports = [ inputs.nvf.homeManagerModules.nvf ];
+        imports = [ inputs.nvf.homeModules.nvf ];
 
         options.nyra.editors.nvf = {
           enable = nyralib.mkDefaultDependentOption "nvf" "nyra.editors.default" "nvf";
