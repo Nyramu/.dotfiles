@@ -39,7 +39,7 @@
             ];
             enabledExtensions = with spicePkgs.extensions; [
               autoSkipVideo
-              autoVolume
+              # autoVolume
               adblockify
               fullAppDisplay
               hidePodcasts
